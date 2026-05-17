@@ -492,6 +492,12 @@ async def summarize_results(
     q: str = Query(default="", description="Requête de recherche"),
     n: int = Query(default=10, ge=1, le=50, description="Nombre de résultats à analyser en détail"),
     nl_filters: Optional[str] = Query(default=None, description="Filtres LLM (JSON array) issus de /nlsearch"),
+    subject: Optional[str] = Query(default=None, description="Sujet texte libre (fusionné dans q)"),
+    geo_name: Optional[str] = Query(default=None, description="Lieu texte libre (fusionné dans q)"),
+    genre_form: Optional[str] = Query(default=None, description="Genre/forme texte libre (fusionné dans q)"),
+    creator: Optional[str] = Query(default=None, description="Créateur texte libre (fusionné dans q)"),
+    corp_name: Optional[str] = Query(default=None, description="Collectivité texte libre (fusionné dans q)"),
+    pers_name: Optional[str] = Query(default=None, description="Personne texte libre (fusionné dans q)"),
     level: Optional[str] = Query(default=None),
     level_excl: Optional[str] = Query(default=None),
     date_from: Optional[int] = Query(default=None),
@@ -516,6 +522,8 @@ async def summarize_results(
     En mode NL, passer nl_filters (JSON array de filtres MeiliSearch issus de /nlsearch).
     """
     import json as _json
+    # Fusionner les termes texte libre dans q (comme /search)
+    q = " ".join(filter(None, [q, subject, geo_name, genre_form, creator, corp_name, pers_name]))
     filters = build_filters(
         level=level, level_excl=level_excl,
         date_from=date_from, date_to=date_to,
