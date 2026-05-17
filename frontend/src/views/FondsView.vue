@@ -1,0 +1,98 @@
+<template>
+  <div class="container">
+    <p v-if="loading" class="loading">Chargement…</p>
+    <p v-else-if="error" class="error">{{ error }}</p>
+    <template v-else-if="fonds">
+      <!-- Titre -->
+      <h1>{{ fonds.title }}</h1>
+      <div class="meta" style="margin-bottom:1.2rem;font-size:.9rem;color:var(--color-muted)">
+        <span v-if="fonds.unitid">{{ fonds.unitid }} &nbsp;·&nbsp; </span>
+        <span v-if="fonds.date_display">{{ fonds.date_display }} &nbsp;·&nbsp; </span>
+        <span>{{ fonds.repository }}</span>
+      </div>
+
+      <div style="display:grid;grid-template-columns:1fr 340px;gap:1.5rem;align-items:start">
+        <!-- Arbre de navigation -->
+        <section>
+          <h2 style="margin-bottom:.8rem">Plan du fonds</h2>
+          <ComponentTree :node-id="fonds.node_id" :initial-title="fonds.title" :depth="0" />
+        </section>
+
+        <!-- Panneau de description -->
+        <aside class="detail-panel">
+          <h2 style="margin-bottom:.8rem">Description</h2>
+          <dl>
+            <template v-if="fonds.abstract">
+              <dt>Présentation</dt>
+              <dd>{{ fonds.abstract }}</dd>
+            </template>
+            <template v-if="fonds.creators?.length">
+              <dt>Créateur(s)</dt>
+              <dd>
+                <div v-for="c in fonds.creators" :key="c.name">
+                  {{ c.name }}<span v-if="c.role" style="color:var(--color-muted)"> ({{ c.role }})</span>
+                </div>
+              </dd>
+            </template>
+            <template v-if="fonds.extents?.length">
+              <dt>Importance</dt>
+              <dd>{{ fonds.extents.join(' — ') }}</dd>
+            </template>
+            <template v-if="fonds.languages?.length">
+              <dt>Langues</dt>
+              <dd>{{ fonds.languages.join(', ') }}</dd>
+            </template>
+            <template v-if="fonds.access_restrict">
+              <dt>Accès</dt>
+              <dd>{{ fonds.access_restrict }}</dd>
+            </template>
+          </dl>
+
+          <template v-if="fonds.subjects?.length">
+            <h3>Sujets</h3>
+            <div class="tag-list">
+              <RouterLink
+                v-for="s in fonds.subjects" :key="s"
+                :to="{ path: '/search', query: { subject: s } }"
+                class="tag"
+              >{{ s }}</RouterLink>
+            </div>
+          </template>
+
+          <template v-if="fonds.geo_names?.length">
+            <h3>Lieux</h3>
+            <div class="tag-list">
+              <RouterLink
+                v-for="g in fonds.geo_names" :key="g"
+                :to="{ path: '/search', query: { geo_name: g } }"
+                class="tag"
+              >{{ g }}</RouterLink>
+            </div>
+          </template>
+        </aside>
+      </div>
+    </template>
+  </div>
+</template>
+
+<script setup>
+import { ref, onMounted } from 'vue'
+import { useRoute, RouterLink } from 'vue-router'
+import { api } from '../api'
+import ComponentTree from '../components/ComponentTree.vue'
+
+const route = useRoute()
+const fonds = ref(null)
+const loading = ref(true)
+const error = ref(null)
+
+onMounted(async () => {
+  try {
+    fonds.value = await api.getFonds(route.params.eadId)
+  } catch (e) {
+    error.value = e.message
+  } finally {
+    loading.value = false
+  }
+})
+</script>

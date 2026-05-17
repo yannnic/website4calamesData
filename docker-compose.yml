@@ -1,0 +1,55 @@
+services:
+
+  meilisearch:
+    image: getmeili/meilisearch:v1.9
+    volumes:
+      - meili_data:/meili_data
+    environment:
+      MEILI_MASTER_KEY: ${MEILI_MASTER_KEY:-changeme}
+      MEILI_ENV: development
+    healthcheck:
+      test: ["CMD", "curl", "-sf", "http://localhost:7700/health"]
+      interval: 30s
+      timeout: 3s
+      retries: 12
+
+  indexer:
+    build: ./backend
+    command: python indexer/indexer.py /data/calames --host http://meilisearch:7700 --api-key ${MEILI_MASTER_KEY:-changeme}
+    volumes:
+      - ./data:/data:ro
+    environment:
+      MEILI_HOST: http://meilisearch:7700
+      MEILI_KEY: ${MEILI_MASTER_KEY:-changeme}
+    depends_on:
+      meilisearch:
+        condition: service_healthy
+    restart: on-failure
+
+  api:
+    build: ./backend
+    ports:
+      - "8001:8000"
+    volumes:
+      - ./data:/data:ro
+    environment:
+      MEILI_HOST: http://meilisearch:7700
+      MEILI_KEY: ${MEILI_MASTER_KEY:-changeme}
+      DATA_DIR: /data/calames
+    depends_on:
+      meilisearch:
+        condition: service_healthy
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      args:
+        VITE_API_URL: ${VITE_API_URL:-http://localhost:8001}
+    ports:
+      - "80:80"
+    depends_on:
+      - api
+
+volumes:
+  meili_data:

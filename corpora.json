@@ -1,0 +1,10 @@
+{
+  "calames": {
+    "index":    "ead_components_calames",
+    "data_dir": "C:/Users/nicolas/Documents/GIT/Calames-HTML_data/calames"
+  },
+  "test": {
+    "index":    "ead_components_test",
+    "data_dir": "C:/Users/nicolas/Documents/GIT/Calames_HTML/data/test"
+  }
+}

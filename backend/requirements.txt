@@ -1,0 +1,5 @@
+lxml>=5.0
+meilisearch>=0.31
+fastapi>=0.111
+uvicorn[standard]>=0.29
+openai>=1.0

@@ -1,0 +1,20 @@
+secrets.ps1
+__pycache__/
+*.pyc
+.env
+backend/api/nl_prompt_live.txt
+
+# Données et index (volumineuses, non versionnées)
+data/
+data.ms/
+
+# Binaires
+meilisearch.exe
+meilisearch
+
+# IDE
+frontend/.vscode/
+.vscode/
+
+# Node
+frontend/node_modules/
