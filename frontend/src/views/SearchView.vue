@@ -438,6 +438,7 @@ function componentApiUrl(hit) {
 function currentSearchParams() {
   return {
     q:                    q.value || undefined,
+    subject:              subject.value || undefined,
     level:                level.value || undefined,
     level_excl:           levelExcl.value || undefined,
     date_from:            dateFrom.value || undefined,
@@ -499,7 +500,6 @@ async function doSearch() {
   try {
     results.value = await api.search({
       ...currentSearchParams(),
-      subject: subject.value || undefined,
       limit,
       offset: offset.value,
     })
@@ -517,6 +517,7 @@ function nextPage() { offset.value += limit; runSearch() }
 function applyRouteQuery(rq) {
   if (rq.nl === '1')              nlMode.value = true
   if (rq.q)                       q.value = rq.q
+  if (rq.subject)                 subject.value = rq.subject
   if (rq.level)                   level.value = rq.level
   if (rq.level_excl)              levelExcl.value = rq.level_excl
   if (rq.lang)                    lang.value = rq.lang
@@ -533,8 +534,8 @@ function applyRouteQuery(rq) {
   if (rq.repository_excl)         repositoryExcl.value = rq.repository_excl
   if (rq.century)                 century.value = rq.century
   if (rq.century_excl)            centuryExcl.value = rq.century_excl
-  // Params issus des tags ComponentView (texte libre injecté dans q)
-  const textTerm = rq.subject || rq.pers_name || rq.geo_name || rq.genre_form || rq.corp_name
+  // Params issus des tags ComponentView (texte libre injecté dans q si pas de q ni subject)
+  const textTerm = rq.pers_name || rq.geo_name || rq.genre_form || rq.corp_name
   if (textTerm && !rq.q) q.value = textTerm
 }
 
@@ -555,7 +556,7 @@ watch(() => route.query, (rq) => {
   const qChanged = (rq.q || '') !== q.value
   if (!hasExternal && !qChanged) return
   // Reset all filters before re-applying from URL
-  q.value = ''; lang.value = ''; dateFrom.value = null; dateTo.value = null
+  q.value = ''; subject.value = ''; lang.value = ''; dateFrom.value = null; dateTo.value = null
   level.value = ''; levelExcl.value = ''
   repository.value = ''; repositoryId.value = ''; repositoryExcl.value = ''
   century.value = ''; centuryExcl.value = ''
