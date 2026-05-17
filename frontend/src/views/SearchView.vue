@@ -498,18 +498,8 @@ async function doSearch() {
   searched.value = true
   try {
     results.value = await api.search({
-      q: q.value,
-      level: level.value || undefined,
-      date_from: dateFrom.value || undefined,
-      date_to: dateTo.value || undefined,
-      lang: lang.value || undefined,
+      ...currentSearchParams(),
       subject: subject.value || undefined,
-      subject_norm: subjectNorm.value || undefined,
-      genre_form_norm: genreFormNorm.value || undefined,
-      geo_name_norm: geoNameNorm.value || undefined,
-      repository: repository.value || undefined,
-      repository_id: repositoryId.value || undefined,
-      century: century.value || undefined,
       limit,
       offset: offset.value,
     })
