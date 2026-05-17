@@ -91,6 +91,14 @@
           </select>
         </div>
 
+        <div class="adv-field">
+          <label for="adv-century">Période (siècle)</label>
+          <select id="adv-century" v-model="century">
+            <option value="">— Toutes —</option>
+            <option v-for="c in CENTURIES" :key="c" :value="c">{{ c }}</option>
+          </select>
+        </div>
+
       </div><!-- fin adv-grid -->
 
       <div class="adv-actions">
@@ -163,6 +171,12 @@ import { api } from '../api'
 const route  = useRoute()
 const router = useRouter()
 
+const CENTURIES = [
+  'Ier s.','IIe s.','IIIe s.','IVe s.','Ve s.','VIe s.','VIIe s.','VIIIe s.',
+  'IXe s.','Xe s.','XIe s.','XIIe s.','XIIIe s.','XIVe s.','XVe s.','XVIe s.',
+  'XVIIe s.','XVIIIe s.','XIXe s.','XXe s.','XXIe s.',
+]
+
 const q         = ref('')
 const subject   = ref('')
 const persName  = ref('')
@@ -172,6 +186,7 @@ const genreForm = ref('')
 const creator   = ref('')
 const repository = ref('')
 const level     = ref('')
+const century   = ref('')
 const dateFrom  = ref(null)
 const dateTo    = ref(null)
 const lang      = ref('')
@@ -195,8 +210,8 @@ function componentPath(hit) {
 function reset() {
   q.value = ''; subject.value = ''; persName.value = ''; corpName.value = ''
   geoName.value = ''; genreForm.value = ''; creator.value = ''
-  repository.value = ''; level.value = ''; dateFrom.value = null
-  dateTo.value = null; lang.value = ''
+  repository.value = ''; level.value = ''; century.value = ''
+  dateFrom.value = null; dateTo.value = null; lang.value = ''
   offset.value = 0; results.value = null; searched.value = false
 }
 
@@ -215,6 +230,7 @@ async function doSearch() {
       creator:    creator.value   || undefined,
       repository: repository.value || undefined,
       level:      level.value     || undefined,
+      century:    century.value   || undefined,
       date_from:  dateFrom.value  || undefined,
       date_to:    dateTo.value    || undefined,
       lang:       lang.value      || undefined,
@@ -261,6 +277,7 @@ onMounted(async () => {
   if (q_.creator)    creator.value    = q_.creator
   if (q_.repository) repository.value = q_.repository
   if (q_.level)      level.value      = q_.level
+  if (q_.century)    century.value    = q_.century
   if (q_.lang)       lang.value       = q_.lang
   if (q_.date_from)  dateFrom.value   = parseInt(q_.date_from)
   if (q_.date_to)    dateTo.value     = parseInt(q_.date_to)
