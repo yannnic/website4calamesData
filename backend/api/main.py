@@ -329,6 +329,13 @@ def search(
     repository_id: Optional[str] = Query(default=None, description="Holding institution (authfilenumber)"),
     # Period facet
     century: Optional[str] = Query(default=None, description="Century label (e.g. 'XXe s.')"),
+    # Exclusion filters (same facets, negative match)
+    level_excl: Optional[str] = Query(default=None, description="Exclude EAD level"),
+    subject_norm_excl: Optional[str] = Query(default=None, description="Exclude subject (canonical)"),
+    geo_name_norm_excl: Optional[str] = Query(default=None, description="Exclude geographic name (canonical)"),
+    genre_form_norm_excl: Optional[str] = Query(default=None, description="Exclude genre/form (canonical)"),
+    repository_excl: Optional[str] = Query(default=None, description="Exclude institution"),
+    century_excl: Optional[str] = Query(default=None, description="Exclude century"),
     # Pagination & options
     limit: int = Query(default=20, ge=1, le=100),
     offset: int = Query(default=0, ge=0),
@@ -349,13 +356,16 @@ def search(
     return a compact, representative result set.
     """
     filters = build_filters(
-        level=level, ead_id=ead_id,
+        level=level, level_excl=level_excl,
+        ead_id=ead_id,
         date_from=date_from, date_to=date_to,
         lang=lang, pers_name_role=pers_name_role,
-        subject_norm=subject_norm, geo_name_norm=geo_name_norm,
-        genre_form_norm=genre_form_norm, corp_name_norm=corp_name_norm,
-        repository_id=repository_id, repository=repository,
-        century=century,
+        subject_norm=subject_norm, subject_norm_excl=subject_norm_excl,
+        geo_name_norm=geo_name_norm, geo_name_norm_excl=geo_name_norm_excl,
+        genre_form_norm=genre_form_norm, genre_form_norm_excl=genre_form_norm_excl,
+        corp_name_norm=corp_name_norm,
+        repository_id=repository_id, repository=repository, repository_excl=repository_excl,
+        century=century, century_excl=century_excl,
     )
 
     # Field-specific text terms: merged into the query, optionally restrict attributes.

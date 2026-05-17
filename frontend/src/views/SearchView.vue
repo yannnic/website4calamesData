@@ -30,7 +30,7 @@
     <div v-if="activeFilters.length" style="display:flex;flex-wrap:wrap;gap:.4rem;margin-bottom:.8rem">
       <span
         v-for="f in activeFilters" :key="f.key"
-        class="chip"
+        :class="['chip', { 'chip--excl': f.excl }]"
         @click="removeFilter(f.key)"
       >{{ f.label }} ×</span>
     </div>
@@ -49,7 +49,7 @@
           <ul>
             <li
               v-for="[val, count] in facetRepo" :key="val"
-              :class="{ active: repository === val }"
+              :class="{ active: repository === val, excluded: repositoryExcl === val }"
               @click="toggleFacet('repository', val)"
               :title="val"
             >
@@ -65,7 +65,7 @@
           <ul>
             <li
               v-for="[val, count] in facetLevel" :key="val"
-              :class="{ active: level === val }"
+              :class="{ active: level === val, excluded: levelExcl === val }"
               @click="toggleFacet('level', val)"
             >
               <span class="facet-label">{{ val }}</span>
@@ -80,7 +80,7 @@
           <ul>
             <li
               v-for="[val, count] in facetCentury" :key="val"
-              :class="{ active: century === val }"
+              :class="{ active: century === val, excluded: centuryExcl === val }"
               @click="toggleFacet('century', val)"
             >
               <span class="facet-label">{{ val }}</span>
@@ -95,7 +95,7 @@
           <ul>
             <li
               v-for="[val, count] in facetGenre" :key="val"
-              :class="{ active: genreFormNorm === val }"
+              :class="{ active: genreFormNorm === val, excluded: genreFormNormExcl === val }"
               @click="toggleFacet('genre_form_norm', val)"
               :title="val"
             >
@@ -111,7 +111,7 @@
           <ul>
             <li
               v-for="[val, count] in facetSubject" :key="val"
-              :class="{ active: subjectNorm === val }"
+              :class="{ active: subjectNorm === val, excluded: subjectNormExcl === val }"
               @click="toggleFacet('subject_norm', val)"
               :title="val"
             >
@@ -127,7 +127,7 @@
           <ul>
             <li
               v-for="[val, count] in facetGeo" :key="val"
-              :class="{ active: geoNameNorm === val }"
+              :class="{ active: geoNameNorm === val, excluded: geoNameNormExcl === val }"
               @click="toggleFacet('geo_name_norm', val)"
               :title="val"
             >
@@ -255,6 +255,14 @@ const century      = ref('')
 const genreFormNorm = ref('')
 const subjectNorm   = ref('')
 const geoNameNorm   = ref('')
+
+// Exclusion facets (valeur à exclure des résultats)
+const levelExcl        = ref('')
+const repositoryExcl   = ref('')
+const centuryExcl      = ref('')
+const genreFormNormExcl = ref('')
+const subjectNormExcl  = ref('')
+const geoNameNormExcl  = ref('')
 const limit      = 20
 const offset     = ref(0)
 
@@ -273,6 +281,8 @@ watch(nlMode, () => {
   results.value = null
   summary.value = null
   searched.value = false
+  levelExcl.value = ''; repositoryExcl.value = ''; centuryExcl.value = ''
+  genreFormNormExcl.value = ''; subjectNormExcl.value = ''; geoNameNormExcl.value = ''
 })
 
 const page       = computed(() => Math.floor(offset.value / limit) + 1)
@@ -311,39 +321,65 @@ const facetCentury = computed(() => {
 
 const activeFilters = computed(() => {
   const f = []
-  if (subject.value)      f.push({ key: 'subject',       label: `Sujet : ${subject.value}` })
-  if (subjectNorm.value)  f.push({ key: 'subject_norm',  label: `Sujet : ${subjectNorm.value}` })
-  if (level.value)        f.push({ key: 'level',         label: `Niveau : ${level.value}` })
-  if (lang.value)         f.push({ key: 'lang',          label: `Langue : ${lang.value}` })
-  if (repository.value)    f.push({ key: 'repository',    label: `Institution : ${repository.value}` })
-  if (repositoryId.value)  f.push({ key: 'repository_id', label: `Institution (id : ${repositoryId.value})` })
-  if (century.value)      f.push({ key: 'century',       label: `Période : ${century.value}` })
-  if (genreFormNorm.value) f.push({ key: 'genre_form_norm', label: `Type : ${genreFormNorm.value}` })
-  if (geoNameNorm.value)  f.push({ key: 'geo_name_norm', label: `Lieu : ${geoNameNorm.value}` })
-  if (dateFrom.value)     f.push({ key: 'dateFrom',      label: `Depuis ${dateFrom.value}` })
-  if (dateTo.value)       f.push({ key: 'dateTo',        label: `Jusqu'en ${dateTo.value}` })
+  if (subject.value)           f.push({ key: 'subject',              label: `Sujet : ${subject.value}` })
+  if (subjectNorm.value)       f.push({ key: 'subject_norm',         label: `Sujet : ${subjectNorm.value}` })
+  if (subjectNormExcl.value)   f.push({ key: 'subject_norm_excl',    label: `≠ Sujet : ${subjectNormExcl.value}`, excl: true })
+  if (level.value)             f.push({ key: 'level',                label: `Niveau : ${level.value}` })
+  if (levelExcl.value)         f.push({ key: 'level_excl',           label: `≠ Niveau : ${levelExcl.value}`, excl: true })
+  if (lang.value)              f.push({ key: 'lang',                 label: `Langue : ${lang.value}` })
+  if (repository.value)        f.push({ key: 'repository',           label: `Institution : ${repository.value}` })
+  if (repositoryId.value)      f.push({ key: 'repository_id',        label: `Institution (id : ${repositoryId.value})` })
+  if (repositoryExcl.value)    f.push({ key: 'repository_excl',      label: `≠ Institution : ${repositoryExcl.value}`, excl: true })
+  if (century.value)           f.push({ key: 'century',              label: `Période : ${century.value}` })
+  if (centuryExcl.value)       f.push({ key: 'century_excl',         label: `≠ Période : ${centuryExcl.value}`, excl: true })
+  if (genreFormNorm.value)     f.push({ key: 'genre_form_norm',      label: `Type : ${genreFormNorm.value}` })
+  if (genreFormNormExcl.value) f.push({ key: 'genre_form_norm_excl', label: `≠ Type : ${genreFormNormExcl.value}`, excl: true })
+  if (geoNameNorm.value)       f.push({ key: 'geo_name_norm',        label: `Lieu : ${geoNameNorm.value}` })
+  if (geoNameNormExcl.value)   f.push({ key: 'geo_name_norm_excl',   label: `≠ Lieu : ${geoNameNormExcl.value}`, excl: true })
+  if (dateFrom.value)          f.push({ key: 'dateFrom',             label: `Depuis ${dateFrom.value}` })
+  if (dateTo.value)            f.push({ key: 'dateTo',               label: `Jusqu'en ${dateTo.value}` })
   return f
 })
 
 function removeFilter(key) {
-  if (key === 'subject')        subject.value = ''
-  if (key === 'subject_norm')   subjectNorm.value = ''
-  if (key === 'level')          level.value = ''
-  if (key === 'lang')           lang.value = ''
-  if (key === 'repository')     repository.value = ''
-  if (key === 'repository_id')  repositoryId.value = ''
-  if (key === 'century')        century.value = ''
-  if (key === 'genre_form_norm') genreFormNorm.value = ''
-  if (key === 'geo_name_norm')  geoNameNorm.value = ''
-  if (key === 'dateFrom')       dateFrom.value = null
-  if (key === 'dateTo')         dateTo.value = null
+  if (key === 'subject')              subject.value = ''
+  if (key === 'subject_norm')         subjectNorm.value = ''
+  if (key === 'subject_norm_excl')    subjectNormExcl.value = ''
+  if (key === 'level')                level.value = ''
+  if (key === 'level_excl')           levelExcl.value = ''
+  if (key === 'lang')                 lang.value = ''
+  if (key === 'repository')           repository.value = ''
+  if (key === 'repository_id')        repositoryId.value = ''
+  if (key === 'repository_excl')      repositoryExcl.value = ''
+  if (key === 'century')              century.value = ''
+  if (key === 'century_excl')         centuryExcl.value = ''
+  if (key === 'genre_form_norm')      genreFormNorm.value = ''
+  if (key === 'genre_form_norm_excl') genreFormNormExcl.value = ''
+  if (key === 'geo_name_norm')        geoNameNorm.value = ''
+  if (key === 'geo_name_norm_excl')   geoNameNormExcl.value = ''
+  if (key === 'dateFrom')             dateFrom.value = null
+  if (key === 'dateTo')               dateTo.value = null
   offset.value = 0
   runSearch()
 }
 
 function toggleFacet(key, val) {
-  const refs = { level, repository, century, genre_form_norm: genreFormNorm, subject_norm: subjectNorm, geo_name_norm: geoNameNorm }
-  refs[key].value = refs[key].value === val ? '' : val
+  const inclRefs = { level, repository, century, genre_form_norm: genreFormNorm, subject_norm: subjectNorm, geo_name_norm: geoNameNorm }
+  const exclRefs = { level: levelExcl, repository: repositoryExcl, century: centuryExcl, genre_form_norm: genreFormNormExcl, subject_norm: subjectNormExcl, geo_name_norm: geoNameNormExcl }
+  const incl = inclRefs[key]
+  const excl = exclRefs[key]
+  if (incl.value === val) {
+    // inclus → exclu
+    incl.value = ''
+    excl.value = val
+  } else if (excl.value === val) {
+    // exclu → neutre
+    excl.value = ''
+  } else {
+    // neutre (ou autre valeur) → inclus
+    incl.value = val
+    excl.value = ''
+  }
   offset.value = 0
   runSearch()
 }
@@ -394,17 +430,23 @@ function componentApiUrl(hit) {
 
 function currentSearchParams() {
   return {
-    q:              q.value || undefined,
-    level:          level.value || undefined,
-    date_from:      dateFrom.value || undefined,
-    date_to:        dateTo.value || undefined,
-    lang:           lang.value || undefined,
-    subject_norm:   subjectNorm.value || undefined,
-    genre_form_norm: genreFormNorm.value || undefined,
-    geo_name_norm:  geoNameNorm.value || undefined,
-    repository:     repository.value || undefined,
-    repository_id:  repositoryId.value || undefined,
-    century:        century.value || undefined,
+    q:                    q.value || undefined,
+    level:                level.value || undefined,
+    level_excl:           levelExcl.value || undefined,
+    date_from:            dateFrom.value || undefined,
+    date_to:              dateTo.value || undefined,
+    lang:                 lang.value || undefined,
+    subject_norm:         subjectNorm.value || undefined,
+    subject_norm_excl:    subjectNormExcl.value || undefined,
+    genre_form_norm:      genreFormNorm.value || undefined,
+    genre_form_norm_excl: genreFormNormExcl.value || undefined,
+    geo_name_norm:        geoNameNorm.value || undefined,
+    geo_name_norm_excl:   geoNameNormExcl.value || undefined,
+    repository:           repository.value || undefined,
+    repository_id:        repositoryId.value || undefined,
+    repository_excl:      repositoryExcl.value || undefined,
+    century:              century.value || undefined,
+    century_excl:         centuryExcl.value || undefined,
   }
 }
 
@@ -507,6 +549,8 @@ watch(() => route.query, (rq) => {
   // Reset and re-apply
   q.value = ''; repository.value = ''; repositoryId.value = ''; century.value = ''; level.value = ''
   subjectNorm.value = ''; genreFormNorm.value = ''; geoNameNorm.value = ''
+  levelExcl.value = ''; repositoryExcl.value = ''; centuryExcl.value = ''
+  genreFormNormExcl.value = ''; subjectNormExcl.value = ''; geoNameNormExcl.value = ''
   offset.value = 0
   applyRouteQuery(rq)
   runSearch()
@@ -677,6 +721,14 @@ input.nl-active { border-color: #7c3aed; box-shadow: 0 0 0 2px #ede9fe; }
   font-weight: 600;
 }
 
+.facet-group li.excluded {
+  background: #fee2e2;
+  color: #b91c1c;
+  font-weight: 600;
+  text-decoration: line-through;
+  text-decoration-color: #fca5a5;
+}
+
 .facet-label {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -696,6 +748,17 @@ input.nl-active { border-color: #7c3aed; box-shadow: 0 0 0 2px #ede9fe; }
 .facet-group li.active .facet-count {
   background: var(--color-primary);
   color: #fff;
+}
+
+.facet-group li.excluded .facet-count {
+  background: #fca5a5;
+  color: #7f1d1d;
+}
+
+.chip--excl {
+  background: #fee2e2;
+  color: #b91c1c;
+  border-color: #fca5a5;
 }
 
 .date-range {
