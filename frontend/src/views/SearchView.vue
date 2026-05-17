@@ -513,7 +513,7 @@ async function doSearch() {
       limit,
       offset: offset.value,
     })
-    router.replace({ query: { q: q.value || undefined } })
+    router.replace({ query: currentSearchParams() })
   } catch (e) {
     error.value = e.message
   } finally {
@@ -525,16 +525,25 @@ function prevPage() { offset.value -= limit; runSearch() }
 function nextPage() { offset.value += limit; runSearch() }
 
 function applyRouteQuery(rq) {
-  if (rq.nl === '1')      nlMode.value = true
-  if (rq.q)               q.value = rq.q
-  if (rq.repository)      repository.value = rq.repository
-  if (rq.repository_id)   repositoryId.value = rq.repository_id
-  if (rq.century)         century.value = rq.century
-  if (rq.level)           level.value = rq.level
-  if (rq.subject_norm)    subjectNorm.value = rq.subject_norm
-  if (rq.genre_form_norm) genreFormNorm.value = rq.genre_form_norm
-  if (rq.geo_name_norm)   geoNameNorm.value = rq.geo_name_norm
-  // Text-field params from ComponentView tags: inject into q if no q already set
+  if (rq.nl === '1')              nlMode.value = true
+  if (rq.q)                       q.value = rq.q
+  if (rq.level)                   level.value = rq.level
+  if (rq.level_excl)              levelExcl.value = rq.level_excl
+  if (rq.lang)                    lang.value = rq.lang
+  if (rq.date_from)               dateFrom.value = parseInt(rq.date_from)
+  if (rq.date_to)                 dateTo.value = parseInt(rq.date_to)
+  if (rq.subject_norm)            subjectNorm.value = rq.subject_norm
+  if (rq.subject_norm_excl)       subjectNormExcl.value = rq.subject_norm_excl
+  if (rq.genre_form_norm)         genreFormNorm.value = rq.genre_form_norm
+  if (rq.genre_form_norm_excl)    genreFormNormExcl.value = rq.genre_form_norm_excl
+  if (rq.geo_name_norm)           geoNameNorm.value = rq.geo_name_norm
+  if (rq.geo_name_norm_excl)      geoNameNormExcl.value = rq.geo_name_norm_excl
+  if (rq.repository)              repository.value = rq.repository
+  if (rq.repository_id)           repositoryId.value = rq.repository_id
+  if (rq.repository_excl)         repositoryExcl.value = rq.repository_excl
+  if (rq.century)                 century.value = rq.century
+  if (rq.century_excl)            centuryExcl.value = rq.century_excl
+  // Params issus des tags ComponentView (texte libre injecté dans q)
   const textTerm = rq.subject || rq.pers_name || rq.geo_name || rq.genre_form || rq.corp_name
   if (textTerm && !rq.q) q.value = textTerm
 }
@@ -548,16 +557,21 @@ onMounted(() => {
 watch(() => route.query, (rq) => {
   // Ignore updates caused by our own router.replace({q:...}) inside doSearch
   const externalParams = ['subject', 'pers_name', 'geo_name', 'genre_form', 'corp_name',
-                          'subject_norm', 'genre_form_norm', 'geo_name_norm', 'repository',
-                          'repository_id', 'century', 'level']
+                          'subject_norm', 'subject_norm_excl', 'genre_form_norm', 'genre_form_norm_excl',
+                          'geo_name_norm', 'geo_name_norm_excl', 'repository', 'repository_id',
+                          'repository_excl', 'century', 'century_excl', 'level', 'level_excl',
+                          'lang', 'date_from', 'date_to']
   const hasExternal = externalParams.some(k => k in rq)
   const qChanged = (rq.q || '') !== q.value
   if (!hasExternal && !qChanged) return
-  // Reset and re-apply
-  q.value = ''; repository.value = ''; repositoryId.value = ''; century.value = ''; level.value = ''
-  subjectNorm.value = ''; genreFormNorm.value = ''; geoNameNorm.value = ''
-  levelExcl.value = ''; repositoryExcl.value = ''; centuryExcl.value = ''
-  genreFormNormExcl.value = ''; subjectNormExcl.value = ''; geoNameNormExcl.value = ''
+  // Reset all filters before re-applying from URL
+  q.value = ''; lang.value = ''; dateFrom.value = null; dateTo.value = null
+  level.value = ''; levelExcl.value = ''
+  repository.value = ''; repositoryId.value = ''; repositoryExcl.value = ''
+  century.value = ''; centuryExcl.value = ''
+  subjectNorm.value = ''; subjectNormExcl.value = ''
+  genreFormNorm.value = ''; genreFormNormExcl.value = ''
+  geoNameNorm.value = ''; geoNameNormExcl.value = ''
   offset.value = 0
   applyRouteQuery(rq)
   runSearch()
