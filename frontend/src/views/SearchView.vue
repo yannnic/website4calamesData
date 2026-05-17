@@ -420,7 +420,7 @@ async function doSummarize() {
     }
     summary.value = await api.summarize(params)
   } catch (e) {
-    summary.value = { summary: `Erreur : ${e.message}`, analyzed: 0, total: 0 }
+    summary.value = { summary: `(erreur : ${e.message})`, analyzed: 0, total: 0 }
   } finally {
     summaryLoading.value = false
   }
