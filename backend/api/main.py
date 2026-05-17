@@ -493,16 +493,22 @@ async def summarize_results(
     n: int = Query(default=10, ge=1, le=50, description="Nombre de résultats à analyser en détail"),
     nl_filters: Optional[str] = Query(default=None, description="Filtres LLM (JSON array) issus de /nlsearch"),
     level: Optional[str] = Query(default=None),
+    level_excl: Optional[str] = Query(default=None),
     date_from: Optional[int] = Query(default=None),
     date_to: Optional[int] = Query(default=None),
     lang: Optional[str] = Query(default=None),
     subject_norm: Optional[str] = Query(default=None),
+    subject_norm_excl: Optional[str] = Query(default=None),
     geo_name_norm: Optional[str] = Query(default=None),
+    geo_name_norm_excl: Optional[str] = Query(default=None),
     genre_form_norm: Optional[str] = Query(default=None),
+    genre_form_norm_excl: Optional[str] = Query(default=None),
     corp_name_norm: Optional[str] = Query(default=None),
     repository: Optional[str] = Query(default=None),
     repository_id: Optional[str] = Query(default=None),
+    repository_excl: Optional[str] = Query(default=None),
     century: Optional[str] = Query(default=None),
+    century_excl: Optional[str] = Query(default=None),
 ) -> dict[str, Any]:
     """
     Effectue la recherche, puis demande au LLM de synthétiser les résultats.
@@ -511,10 +517,15 @@ async def summarize_results(
     """
     import json as _json
     filters = build_filters(
-        level=level, date_from=date_from, date_to=date_to,
-        lang=lang, subject_norm=subject_norm, geo_name_norm=geo_name_norm,
-        genre_form_norm=genre_form_norm, corp_name_norm=corp_name_norm,
-        repository_id=repository_id, repository=repository, century=century,
+        level=level, level_excl=level_excl,
+        date_from=date_from, date_to=date_to,
+        lang=lang,
+        subject_norm=subject_norm, subject_norm_excl=subject_norm_excl,
+        geo_name_norm=geo_name_norm, geo_name_norm_excl=geo_name_norm_excl,
+        genre_form_norm=genre_form_norm, genre_form_norm_excl=genre_form_norm_excl,
+        corp_name_norm=corp_name_norm,
+        repository_id=repository_id, repository=repository, repository_excl=repository_excl,
+        century=century, century_excl=century_excl,
     )
     if nl_filters:
         try:
