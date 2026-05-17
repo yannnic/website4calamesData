@@ -55,6 +55,7 @@
             >
               <span class="facet-label">{{ val }}</span>
               <span class="facet-count">{{ count }}</span>
+              <button class="facet-excl-btn" @click.stop="toggleExclude('repository', val)" title="Exclure">≠</button>
             </li>
           </ul>
         </div>
@@ -70,6 +71,7 @@
             >
               <span class="facet-label">{{ val }}</span>
               <span class="facet-count">{{ count }}</span>
+              <button class="facet-excl-btn" @click.stop="toggleExclude('level', val)" title="Exclure">≠</button>
             </li>
           </ul>
         </div>
@@ -85,6 +87,7 @@
             >
               <span class="facet-label">{{ val }}</span>
               <span class="facet-count">{{ count }}</span>
+              <button class="facet-excl-btn" @click.stop="toggleExclude('century', val)" title="Exclure">≠</button>
             </li>
           </ul>
         </div>
@@ -101,6 +104,7 @@
             >
               <span class="facet-label">{{ val }}</span>
               <span class="facet-count">{{ count }}</span>
+              <button class="facet-excl-btn" @click.stop="toggleExclude('genre_form_norm', val)" title="Exclure">≠</button>
             </li>
           </ul>
         </div>
@@ -117,6 +121,7 @@
             >
               <span class="facet-label">{{ val }}</span>
               <span class="facet-count">{{ count }}</span>
+              <button class="facet-excl-btn" @click.stop="toggleExclude('subject_norm', val)" title="Exclure">≠</button>
             </li>
           </ul>
         </div>
@@ -133,6 +138,7 @@
             >
               <span class="facet-label">{{ val }}</span>
               <span class="facet-count">{{ count }}</span>
+              <button class="facet-excl-btn" @click.stop="toggleExclude('geo_name_norm', val)" title="Exclure">≠</button>
             </li>
           </ul>
         </div>
@@ -363,23 +369,24 @@ function removeFilter(key) {
   runSearch()
 }
 
+const _facetInclRefs = () => ({ level, repository, century, genre_form_norm: genreFormNorm, subject_norm: subjectNorm, geo_name_norm: geoNameNorm })
+const _facetExclRefs = () => ({ level: levelExcl, repository: repositoryExcl, century: centuryExcl, genre_form_norm: genreFormNormExcl, subject_norm: subjectNormExcl, geo_name_norm: geoNameNormExcl })
+
 function toggleFacet(key, val) {
-  const inclRefs = { level, repository, century, genre_form_norm: genreFormNorm, subject_norm: subjectNorm, geo_name_norm: geoNameNorm }
-  const exclRefs = { level: levelExcl, repository: repositoryExcl, century: centuryExcl, genre_form_norm: genreFormNormExcl, subject_norm: subjectNormExcl, geo_name_norm: geoNameNormExcl }
-  const incl = inclRefs[key]
-  const excl = exclRefs[key]
-  if (incl.value === val) {
-    // inclus → exclu
-    incl.value = ''
-    excl.value = val
-  } else if (excl.value === val) {
-    // exclu → neutre
-    excl.value = ''
-  } else {
-    // neutre (ou autre valeur) → inclus
-    incl.value = val
-    excl.value = ''
-  }
+  const incl = _facetInclRefs()[key]
+  const excl = _facetExclRefs()[key]
+  // Clic ligne : si la valeur est exclue, revenir à neutre ; sinon toggle inclusion
+  if (excl.value === val) { excl.value = ''; offset.value = 0; runSearch(); return }
+  incl.value = incl.value === val ? '' : val
+  offset.value = 0
+  runSearch()
+}
+
+function toggleExclude(key, val) {
+  const incl = _facetInclRefs()[key]
+  const excl = _facetExclRefs()[key]
+  if (incl.value === val) incl.value = ''  // lever l'inclusion avant d'exclure
+  excl.value = excl.value === val ? '' : val
   offset.value = 0
   runSearch()
 }
@@ -725,8 +732,6 @@ input.nl-active { border-color: #7c3aed; box-shadow: 0 0 0 2px #ede9fe; }
   background: #fee2e2;
   color: #b91c1c;
   font-weight: 600;
-  text-decoration: line-through;
-  text-decoration-color: #fca5a5;
 }
 
 .facet-label {
@@ -754,6 +759,24 @@ input.nl-active { border-color: #7c3aed; box-shadow: 0 0 0 2px #ede9fe; }
   background: #fca5a5;
   color: #7f1d1d;
 }
+
+.facet-excl-btn {
+  display: none;
+  margin-left: auto;
+  flex-shrink: 0;
+  background: none;
+  border: 1px solid #fca5a5;
+  border-radius: 3px;
+  color: #ef4444;
+  font-size: .72rem;
+  line-height: 1;
+  padding: .05rem .25rem;
+  cursor: pointer;
+  transition: background .12s, color .12s;
+}
+.facet-group li:hover .facet-excl-btn,
+.facet-group li.excluded .facet-excl-btn { display: inline-block; }
+.facet-excl-btn:hover { background: #fee2e2; color: #b91c1c; }
 
 .chip--excl {
   background: #fee2e2;
