@@ -92,19 +92,53 @@
           </ul>
         </div>
 
-        <!-- Genre / type de document -->
-        <div class="facet-group" v-if="facetGenre.length">
-          <div class="facet-title">Type de document</div>
+        <!-- Genre / forme (gff) -->
+        <div class="facet-group" v-if="facetGff.length">
+          <div class="facet-title">Genre / forme</div>
           <ul>
             <li
-              v-for="[val, count] in facetGenre" :key="val"
-              :class="{ active: genreFormNorm === val, excluded: genreFormNormExcl === val }"
-              @click="toggleFacet('genre_form_norm', val)"
+              v-for="[val, count] in facetGff" :key="val"
+              :class="{ active: gffNorm === val, excluded: gffNormExcl === val }"
+              @click="toggleFacet('gff_norm', val)"
               :title="val"
             >
               <span class="facet-label">{{ val }}</span>
               <span class="facet-count">{{ count }}</span>
-              <button class="facet-excl-btn" @click.stop="toggleExclude('genre_form_norm', val)" title="Exclure">≠</button>
+              <button class="facet-excl-btn" @click.stop="toggleExclude('gff_norm', val)" title="Exclure">≠</button>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Type de document (tdd) -->
+        <div class="facet-group" v-if="facetTdd.length">
+          <div class="facet-title">Type de document</div>
+          <ul>
+            <li
+              v-for="[val, count] in facetTdd" :key="val"
+              :class="{ active: tddNorm === val, excluded: tddNormExcl === val }"
+              @click="toggleFacet('tdd_norm', val)"
+              :title="val"
+            >
+              <span class="facet-label">{{ val }}</span>
+              <span class="facet-count">{{ count }}</span>
+              <button class="facet-excl-btn" @click.stop="toggleExclude('tdd_norm', val)" title="Exclure">≠</button>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Technique artistique -->
+        <div class="facet-group" v-if="facetTechnique.length">
+          <div class="facet-title">Technique</div>
+          <ul>
+            <li
+              v-for="[val, count] in facetTechnique" :key="val"
+              :class="{ active: techniqueNorm === val, excluded: techniqueNormExcl === val }"
+              @click="toggleFacet('technique_norm', val)"
+              :title="val"
+            >
+              <span class="facet-label">{{ val }}</span>
+              <span class="facet-count">{{ count }}</span>
+              <button class="facet-excl-btn" @click.stop="toggleExclude('technique_norm', val)" title="Exclure">≠</button>
             </li>
           </ul>
         </div>
@@ -259,6 +293,9 @@ const repository    = ref('')
 const repositoryId  = ref('')
 const century      = ref('')
 const genreFormNorm = ref('')
+const gffNorm       = ref('')
+const tddNorm       = ref('')
+const techniqueNorm = ref('')
 const subjectNorm   = ref('')
 const geoNameNorm   = ref('')
 
@@ -267,6 +304,9 @@ const levelExcl        = ref('')
 const repositoryExcl   = ref('')
 const centuryExcl      = ref('')
 const genreFormNormExcl = ref('')
+const gffNormExcl       = ref('')
+const tddNormExcl       = ref('')
+const techniqueNormExcl = ref('')
 const subjectNormExcl  = ref('')
 const geoNameNormExcl  = ref('')
 const limit      = 20
@@ -288,7 +328,8 @@ watch(nlMode, () => {
   summary.value = null
   searched.value = false
   levelExcl.value = ''; repositoryExcl.value = ''; centuryExcl.value = ''
-  genreFormNormExcl.value = ''; subjectNormExcl.value = ''; geoNameNormExcl.value = ''
+  genreFormNormExcl.value = ''; gffNormExcl.value = ''; tddNormExcl.value = ''; techniqueNormExcl.value = ''
+  subjectNormExcl.value = ''; geoNameNormExcl.value = ''
 })
 
 const page       = computed(() => Math.floor(offset.value / limit) + 1)
@@ -309,9 +350,11 @@ const CENTURY_ORDER = [
   'XVIIe s.','XVIIIe s.','XIXe s.','XXe s.','XXIe s.',
 ]
 
-const facetRepo    = computed(() => topFacet('repository'))
-const facetLevel   = computed(() => topFacet('level', 20))
-const facetGenre   = computed(() => topFacet('genre_forms_norm', 15))
+const facetRepo      = computed(() => topFacet('repository'))
+const facetLevel     = computed(() => topFacet('level', 20))
+const facetGff       = computed(() => topFacet('gff_norm', 15))
+const facetTdd       = computed(() => topFacet('tdd_norm', 15))
+const facetTechnique = computed(() => topFacet('technique_norm', 15))
 const facetSubject = computed(() => topFacet('subjects_norm', 10))
 const facetGeo     = computed(() => topFacet('geo_names_norm', 10))
 const facetCentury = computed(() => {
@@ -338,8 +381,14 @@ const activeFilters = computed(() => {
   if (repositoryExcl.value)    f.push({ key: 'repository_excl',      label: `≠ Institution : ${repositoryExcl.value}`, excl: true })
   if (century.value)           f.push({ key: 'century',              label: `Période : ${century.value}` })
   if (centuryExcl.value)       f.push({ key: 'century_excl',         label: `≠ Période : ${centuryExcl.value}`, excl: true })
-  if (genreFormNorm.value)     f.push({ key: 'genre_form_norm',      label: `Type : ${genreFormNorm.value}` })
-  if (genreFormNormExcl.value) f.push({ key: 'genre_form_norm_excl', label: `≠ Type : ${genreFormNormExcl.value}`, excl: true })
+  if (genreFormNorm.value)     f.push({ key: 'genre_form_norm',      label: `Genre/forme : ${genreFormNorm.value}` })
+  if (genreFormNormExcl.value) f.push({ key: 'genre_form_norm_excl', label: `≠ Genre/forme : ${genreFormNormExcl.value}`, excl: true })
+  if (gffNorm.value)           f.push({ key: 'gff_norm',             label: `Genre/forme : ${gffNorm.value}` })
+  if (gffNormExcl.value)       f.push({ key: 'gff_norm_excl',        label: `≠ Genre/forme : ${gffNormExcl.value}`, excl: true })
+  if (tddNorm.value)           f.push({ key: 'tdd_norm',             label: `Type doc : ${tddNorm.value}` })
+  if (tddNormExcl.value)       f.push({ key: 'tdd_norm_excl',        label: `≠ Type doc : ${tddNormExcl.value}`, excl: true })
+  if (techniqueNorm.value)     f.push({ key: 'technique_norm',       label: `Technique : ${techniqueNorm.value}` })
+  if (techniqueNormExcl.value) f.push({ key: 'technique_norm_excl',  label: `≠ Technique : ${techniqueNormExcl.value}`, excl: true })
   if (geoNameNorm.value)       f.push({ key: 'geo_name_norm',        label: `Lieu : ${geoNameNorm.value}` })
   if (geoNameNormExcl.value)   f.push({ key: 'geo_name_norm_excl',   label: `≠ Lieu : ${geoNameNormExcl.value}`, excl: true })
   if (dateFrom.value)          f.push({ key: 'dateFrom',             label: `Depuis ${dateFrom.value}` })
@@ -361,6 +410,12 @@ function removeFilter(key) {
   if (key === 'century_excl')         centuryExcl.value = ''
   if (key === 'genre_form_norm')      genreFormNorm.value = ''
   if (key === 'genre_form_norm_excl') genreFormNormExcl.value = ''
+  if (key === 'gff_norm')             gffNorm.value = ''
+  if (key === 'gff_norm_excl')        gffNormExcl.value = ''
+  if (key === 'tdd_norm')             tddNorm.value = ''
+  if (key === 'tdd_norm_excl')        tddNormExcl.value = ''
+  if (key === 'technique_norm')       techniqueNorm.value = ''
+  if (key === 'technique_norm_excl')  techniqueNormExcl.value = ''
   if (key === 'geo_name_norm')        geoNameNorm.value = ''
   if (key === 'geo_name_norm_excl')   geoNameNormExcl.value = ''
   if (key === 'dateFrom')             dateFrom.value = null
@@ -369,8 +424,16 @@ function removeFilter(key) {
   runSearch()
 }
 
-const _facetInclRefs = () => ({ level, repository, century, genre_form_norm: genreFormNorm, subject_norm: subjectNorm, geo_name_norm: geoNameNorm })
-const _facetExclRefs = () => ({ level: levelExcl, repository: repositoryExcl, century: centuryExcl, genre_form_norm: genreFormNormExcl, subject_norm: subjectNormExcl, geo_name_norm: geoNameNormExcl })
+const _facetInclRefs = () => ({
+  level, repository, century,
+  genre_form_norm: genreFormNorm, gff_norm: gffNorm, tdd_norm: tddNorm, technique_norm: techniqueNorm,
+  subject_norm: subjectNorm, geo_name_norm: geoNameNorm,
+})
+const _facetExclRefs = () => ({
+  level: levelExcl, repository: repositoryExcl, century: centuryExcl,
+  genre_form_norm: genreFormNormExcl, gff_norm: gffNormExcl, tdd_norm: tddNormExcl, technique_norm: techniqueNormExcl,
+  subject_norm: subjectNormExcl, geo_name_norm: geoNameNormExcl,
+})
 
 function toggleFacet(key, val) {
   const incl = _facetInclRefs()[key]
@@ -448,6 +511,12 @@ function currentSearchParams() {
     subject_norm_excl:    subjectNormExcl.value || undefined,
     genre_form_norm:      genreFormNorm.value || undefined,
     genre_form_norm_excl: genreFormNormExcl.value || undefined,
+    gff_norm:             gffNorm.value || undefined,
+    gff_norm_excl:        gffNormExcl.value || undefined,
+    tdd_norm:             tddNorm.value || undefined,
+    tdd_norm_excl:        tddNormExcl.value || undefined,
+    technique_norm:       techniqueNorm.value || undefined,
+    technique_norm_excl:  techniqueNormExcl.value || undefined,
     geo_name_norm:        geoNameNorm.value || undefined,
     geo_name_norm_excl:   geoNameNormExcl.value || undefined,
     repository:           repository.value || undefined,
@@ -527,6 +596,12 @@ function applyRouteQuery(rq) {
   if (rq.subject_norm_excl)       subjectNormExcl.value = rq.subject_norm_excl
   if (rq.genre_form_norm)         genreFormNorm.value = rq.genre_form_norm
   if (rq.genre_form_norm_excl)    genreFormNormExcl.value = rq.genre_form_norm_excl
+  if (rq.gff_norm)                gffNorm.value = rq.gff_norm
+  if (rq.gff_norm_excl)           gffNormExcl.value = rq.gff_norm_excl
+  if (rq.tdd_norm)                tddNorm.value = rq.tdd_norm
+  if (rq.tdd_norm_excl)           tddNormExcl.value = rq.tdd_norm_excl
+  if (rq.technique_norm)          techniqueNorm.value = rq.technique_norm
+  if (rq.technique_norm_excl)     techniqueNormExcl.value = rq.technique_norm_excl
   if (rq.geo_name_norm)           geoNameNorm.value = rq.geo_name_norm
   if (rq.geo_name_norm_excl)      geoNameNormExcl.value = rq.geo_name_norm_excl
   if (rq.repository)              repository.value = rq.repository
@@ -549,6 +624,8 @@ watch(() => route.query, (rq) => {
   // Ignore updates caused by our own router.replace({q:...}) inside doSearch
   const externalParams = ['subject', 'pers_name', 'geo_name', 'genre_form', 'corp_name',
                           'subject_norm', 'subject_norm_excl', 'genre_form_norm', 'genre_form_norm_excl',
+                          'gff_norm', 'gff_norm_excl', 'tdd_norm', 'tdd_norm_excl',
+                          'technique_norm', 'technique_norm_excl',
                           'geo_name_norm', 'geo_name_norm_excl', 'repository', 'repository_id',
                           'repository_excl', 'century', 'century_excl', 'level', 'level_excl',
                           'lang', 'date_from', 'date_to']
@@ -562,6 +639,9 @@ watch(() => route.query, (rq) => {
   century.value = ''; centuryExcl.value = ''
   subjectNorm.value = ''; subjectNormExcl.value = ''
   genreFormNorm.value = ''; genreFormNormExcl.value = ''
+  gffNorm.value = ''; gffNormExcl.value = ''
+  tddNorm.value = ''; tddNormExcl.value = ''
+  techniqueNorm.value = ''; techniqueNormExcl.value = ''
   geoNameNorm.value = ''; geoNameNormExcl.value = ''
   offset.value = 0
   applyRouteQuery(rq)
