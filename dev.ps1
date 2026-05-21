@@ -42,6 +42,9 @@ if (-not (Test-Path $meili)) {
     Write-Error "meilisearch.exe introuvable à la racine du projet."
     exit 1
 }
+$meiliPid = Get-NetTCPConnection -LocalPort 7700 -State Listen -ErrorAction SilentlyContinue |
+            Select-Object -ExpandProperty OwningProcess -First 1
+if ($meiliPid) { Stop-Process -Id $meiliPid -Force -ErrorAction SilentlyContinue; Start-Sleep -Milliseconds 300 }
 Start-Process powershell -ArgumentList "-NoExit", "-Command", "& '$meili' --master-key changeme" `
     -WorkingDirectory $root
 
@@ -59,6 +62,11 @@ Start-Process powershell -ArgumentList "-NoExit", "-Command",
     -WorkingDirectory "$root\backend"
 
 # --- Frontend Vite ---
+foreach ($port in @(5173, 5174)) {
+    $vitePid = Get-NetTCPConnection -LocalPort $port -State Listen -ErrorAction SilentlyContinue |
+               Select-Object -ExpandProperty OwningProcess -First 1
+    if ($vitePid) { Stop-Process -Id $vitePid -Force -ErrorAction SilentlyContinue }
+}
 Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd '$root\frontend'; npm run dev" `
     -WorkingDirectory "$root\frontend"
 

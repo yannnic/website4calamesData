@@ -159,6 +159,12 @@ powershell -File dev.ps1 -Corpus test   # corpus "test"
 ```
 
 Ce script lance MeiliSearch, l'API et le frontend dans trois fenêtres séparées.
+Il tue automatiquement les processus existants sur les ports 7700, 8000 et 5173 avant de démarrer.
+
+Pour tout arrêter :
+```powershell
+powershell -File stop.ps1
+```
 
 Pour relancer uniquement l'API sur un corpus différent :
 ```powershell
