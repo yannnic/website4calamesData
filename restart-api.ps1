@@ -35,7 +35,8 @@ $existingPid = (Get-NetTCPConnection -LocalPort $port -ErrorAction SilentlyConti
         Select-Object -ExpandProperty OwningProcess -First 1)
 
 if ($existingPid) {
-    Stop-Process -Id $existingPid -Force
+    # /T : arrête aussi le worker lancé par --reload (sinon il reste orphelin et sert encore le port)
+    taskkill /T /F /PID $existingPid *> $null
     Write-Host "Process $existingPid (port $port) arrêté."
     Start-Sleep -Milliseconds 500
 }

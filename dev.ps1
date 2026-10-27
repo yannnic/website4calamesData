@@ -46,7 +46,8 @@ $existing = Get-NetTCPConnection -LocalPort $port -ErrorAction SilentlyContinue 
             Where-Object State -eq 'Listen' |
             Select-Object -ExpandProperty OwningProcess -First 1
 if ($existing) {
-    Stop-Process -Id $existing -Force
+    # /T : arrête aussi le worker lancé par --reload (sinon il reste orphelin et sert encore le port)
+    taskkill /T /F /PID $existing *> $null
     Start-Sleep -Milliseconds 500
 }
 Start-Process powershell -ArgumentList "-NoExit", "-Command",
@@ -54,10 +55,10 @@ Start-Process powershell -ArgumentList "-NoExit", "-Command",
     -WorkingDirectory "$root\backend"
 
 # --- Frontend Vite ---
-foreach ($port in @(5173, 5174)) {
-    $vitePid = Get-NetTCPConnection -LocalPort $port -State Listen -ErrorAction SilentlyContinue |
+foreach ($vitePort in @(5173, 5174)) {
+    $vitePid = Get-NetTCPConnection -LocalPort $vitePort -State Listen -ErrorAction SilentlyContinue |
                Select-Object -ExpandProperty OwningProcess -First 1
-    if ($vitePid) { Stop-Process -Id $vitePid -Force -ErrorAction SilentlyContinue }
+    if ($vitePid) { taskkill /T /F /PID $vitePid *> $null }
 }
 Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd '$root\frontend'; npm run dev" `
     -WorkingDirectory "$root\frontend"

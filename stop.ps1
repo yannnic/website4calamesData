@@ -8,7 +8,8 @@ function Stop-Port {
     $pid_ = Get-NetTCPConnection -LocalPort $Port -State Listen -ErrorAction SilentlyContinue |
             Select-Object -ExpandProperty OwningProcess -First 1
     if ($pid_) {
-        Stop-Process -Id $pid_ -Force -ErrorAction SilentlyContinue
+        # /T : avec ses processus enfants (worker uvicorn --reload, node lancé par npm)
+        taskkill /T /F /PID $pid_ *> $null
         Write-Host "  $Label (port $Port) arrêté  [pid $pid_]"
     } else {
         Write-Host "  $Label (port $Port) : rien à arrêter"
