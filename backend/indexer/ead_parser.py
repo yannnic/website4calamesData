@@ -4,7 +4,7 @@ EAD 2002 parser.
 Parses a single EAD file and returns a list of indexable components,
 with inherited fields resolved from ancestors.
 
-Each component is a flat dict ready to be pushed to MeiliSearch.
+Each component is a flat dict ready to be pushed to Elasticsearch.
 """
 
 from __future__ import annotations
@@ -738,7 +738,7 @@ def parse_ead(path: Path) -> Component:
 
 
 # ---------------------------------------------------------------------------
-# Component tree -> MeiliSearch documents (inheritance applied here only)
+# Component tree -> Elasticsearch documents (inheritance applied here only)
 # ---------------------------------------------------------------------------
 
 _CENTURY_LABELS = {
@@ -759,7 +759,7 @@ def _century_label(year: Optional[int]) -> Optional[str]:
 
 def _comp_to_doc(comp: Component, resolved: dict, position: int = 0,
                  ancestor_titles: list[str] | None = None) -> dict:
-    """Build one MeiliSearch document from a Component and its resolved fields."""
+    """Build one Elasticsearch document from a Component and its resolved fields."""
     return {
         "id": re.sub(r"[^a-zA-Z0-9_-]", "_", comp.node_id),
         "position": position,
@@ -826,7 +826,7 @@ def _walk_and_index(comp: Component, parent_ctx: dict, docs: list[dict],
 def components_to_docs(root: Component) -> list[dict]:
     """
     Walk the component tree rooted at root and return a flat list of
-    MeiliSearch documents with inheritance fully resolved.
+    Elasticsearch documents with inheritance fully resolved.
     """
     docs: list[dict] = []
     _walk_and_index(root, {}, docs)

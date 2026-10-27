@@ -43,9 +43,8 @@ if ($existingPid) {
 # --- Démarrage ---
 Set-Location "$root\backend"
 
-$env:MEILI_HOST  = "http://localhost:7700"
-$env:MEILI_KEY   = "changeme"
-$env:MEILI_INDEX = $index
+$env:ES_HOST  = "http://localhost:9200"
+$env:ES_INDEX = $index
 $env:DATA_DIR    = $dataDir
 
 python -m uvicorn api.main:app --reload --port $port

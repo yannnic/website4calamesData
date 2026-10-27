@@ -1,5 +1,5 @@
 """
-Smart pruning and sibling-grouping for MeiliSearch hit lists.
+Smart pruning and sibling-grouping for search hit lists.
 
 Both strategies promote child documents toward their parents in order to return
 a concise, representative set of results rather than a flood of low-level items.
@@ -79,7 +79,7 @@ def apply_smart_pruning(
 
     Pass 2 — Score:
         For any (ancestor, descendant) pair both still present, keep whichever
-        has the higher MeiliSearch _rankingScore and discard the other.
+        has the higher _rankingScore (relative ES score) and discard the other.
     """
     # --- Pass 1: coverage rule ---
     changed = True

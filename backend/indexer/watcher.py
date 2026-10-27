@@ -1,5 +1,5 @@
 """
-EAD watcher — surveille un dossier et maintient l'index MeiliSearch à jour.
+EAD watcher — surveille un dossier et maintient l'index Elasticsearch à jour.
 
 Toutes les POLL_INTERVAL secondes, compare le contenu du dossier à l'état connu :
   - fichier nouveau ou modifié  → (ré)indexé
@@ -18,7 +18,7 @@ Variables d'environnement :
     EAD_DIR        dossier surveillé                 (défaut : /data/ead)
     SEED_DIR       dossier du jeu de démonstration   (optionnel)
     STATE_FILE     fichier d'état JSON               (défaut : /state/watcher.json)
-    MEILI_HOST, MEILI_KEY, MEILI_INDEX
+    ES_HOST, ES_USER, ES_PASSWORD, ES_INDEX
     POLL_INTERVAL  secondes entre deux passages      (défaut : 5)
 """
 
@@ -32,16 +32,17 @@ import time
 from datetime import datetime, timezone
 from pathlib import Path
 
-import meilisearch
+from elasticsearch import Elasticsearch
 
-from indexer import ensure_index, index_file, remove_file
+from indexer import ensure_index, index_file, make_client, remove_file
 
 EAD_DIR       = Path(os.getenv("EAD_DIR", "/data/ead"))
 SEED_DIR      = os.getenv("SEED_DIR")
 STATE_FILE    = Path(os.getenv("STATE_FILE", "/state/watcher.json"))
-MEILI_HOST    = os.getenv("MEILI_HOST", "http://localhost:7700")
-MEILI_KEY     = os.getenv("MEILI_KEY", "")
-MEILI_INDEX   = os.getenv("MEILI_INDEX", "ead_components")
+ES_HOST       = os.getenv("ES_HOST", "http://localhost:9200")
+ES_USER       = os.getenv("ES_USER", "elastic")
+ES_PASSWORD   = os.getenv("ES_PASSWORD", "")
+ES_INDEX      = os.getenv("ES_INDEX", "ead_components")
 POLL_INTERVAL = float(os.getenv("POLL_INTERVAL", "5"))
 
 
@@ -95,31 +96,43 @@ def seed_once() -> None:
     log(f"{copied} fichiers de démonstration copiés depuis {SEED_DIR}.")
 
 
-def indexed_files(index: meilisearch.index.Index) -> set[str]:
-    res = index.search("", {"limit": 0, "facets": ["source_file"]})
-    return set(res.get("facetDistribution", {}).get("source_file", {}))
+def indexed_files(client: Elasticsearch) -> set[str]:
+    """Return the source files present in the index (composite aggregation, paginated)."""
+    files: set[str] = set()
+    after = None
+    while True:
+        composite = {"size": 1000, "sources": [{"f": {"terms": {"field": "source_file"}}}]}
+        if after:
+            composite["after"] = after
+        res = client.search(index=ES_INDEX, size=0, aggs={"files": {"composite": composite}})
+        agg = res["aggregations"]["files"]
+        files.update(b["key"]["f"] for b in agg["buckets"])
+        after = agg.get("after_key")
+        if not agg["buckets"] or not after:
+            return files
 
 
-def connect() -> tuple[meilisearch.Client, meilisearch.index.Index]:
-    client = meilisearch.Client(MEILI_HOST, MEILI_KEY or None)
+def connect() -> Elasticsearch:
+    client = make_client(ES_HOST, ES_USER, ES_PASSWORD)
     while True:
         try:
-            client.health()
-            return client, ensure_index(client, MEILI_INDEX)
+            client.cluster.health(wait_for_status="yellow", timeout="5s")
+            ensure_index(client, ES_INDEX)
+            return client
         except Exception as exc:
-            log(f"MeiliSearch indisponible ({exc}), nouvel essai dans 5 s…")
+            log(f"Elasticsearch indisponible ({exc}), nouvel essai dans 5 s…")
             time.sleep(5)
 
 
 def main() -> None:
     EAD_DIR.mkdir(parents=True, exist_ok=True)
     seed_once()
-    client, index = connect()
+    client = connect()
 
     state = load_state()
-    # Si l'index a été vidé (volume MeiliSearch recréé), l'état local ment :
+    # Si l'index a été vidé (volume Elasticsearch recréé), l'état local ment :
     # on oublie les fichiers qui n'y figurent plus pour les réindexer.
-    in_index = indexed_files(index)
+    in_index = indexed_files(client)
     # Idem pour une indexation interrompue par un arrêt du conteneur.
     for name in list(state):
         status = state[name].get("status")
@@ -129,7 +142,7 @@ def main() -> None:
     on_disk = scan()
     for name in in_index - on_disk.keys():
         log(f"{name} : absent du dossier, retrait de l'index.")
-        remove_file(client, index, name)
+        remove_file(client, ES_INDEX, name)
         state.pop(name, None)
     save_state(state)
 
@@ -149,7 +162,7 @@ def main() -> None:
             save_state(state)
             t0 = time.time()
             try:
-                n = index_file(client, index, EAD_DIR / name)
+                n = index_file(client, ES_INDEX, EAD_DIR / name)
                 state[name].update(status="indexed", docs=n, error=None)
                 log(f"{name} : {n} composants indexés en {time.time() - t0:.1f} s.")
             except Exception as exc:
@@ -161,7 +174,7 @@ def main() -> None:
         for name in set(state) - current.keys():
             log(f"{name} : supprimé, retrait de l'index.")
             try:
-                remove_file(client, index, name)
+                remove_file(client, ES_INDEX, name)
             except Exception as exc:
                 log(f"{name} : ERREUR lors du retrait ({exc})")
                 continue

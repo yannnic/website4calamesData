@@ -7,21 +7,24 @@
 | `frontend` | nginx : sert l'application Vue et relaie `/api/*` vers FastAPI. **Seul port exposé.** |
 | `api` | FastAPI. Reçoit les dépôts (`POST /upload`) et les écrit dans le dossier EAD. |
 | `watcher` | Surveille le dossier EAD toutes les 5 s : indexe les fichiers nouveaux ou modifiés, retire ceux qui ont été supprimés. |
-| `meilisearch` | Index de recherche (non exposé). |
+| `elasticsearch` | Index de recherche (nœud unique, non exposé, mot de passe `ELASTIC_PASSWORD`). |
 
 Au premier démarrage, le dossier EAD est vide : le watcher y copie les 10 fichiers de
 `demo/seed/`, puis les indexe (environ 10 s).
 
 ## Installation sur le serveur
 
-Prérequis : Docker avec le plugin `compose`, et git.
+Prérequis : Docker avec le plugin `compose`, et git. Elasticsearch réserve 1 Go de heap
+(`ES_JAVA_OPTS`) : prévoir au moins 3 Go de RAM pour la stack. Sous Linux, régler
+`vm.max_map_count` comme le recommande Elastic :
+`sudo sysctl -w vm.max_map_count=262144` (à rendre persistant dans `/etc/sysctl.conf`).
 
 Le dépôt est public : aucune authentification n'est nécessaire pour le cloner.
 
 ```sh
 git clone https://github.com/yannnic/calames-html.git && cd calames-html
 cp .env.example .env
-# Renseigner au minimum MEILI_MASTER_KEY (openssl rand -hex 24) et UPLOAD_TOKEN
+# Renseigner au minimum ELASTIC_PASSWORD (openssl rand -hex 24) et UPLOAD_TOKEN
 docker compose up -d --build
 docker compose logs -f watcher     # suivre l'indexation
 ```

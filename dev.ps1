@@ -36,17 +36,9 @@ Write-Host "Index      : $index"
 Write-Host "Data dir   : $dataDir"
 Write-Host ""
 
-# --- MeiliSearch ---
-$meili = Join-Path $root "meilisearch.exe"
-if (-not (Test-Path $meili)) {
-    Write-Error "meilisearch.exe introuvable à la racine du projet."
-    exit 1
-}
-$meiliPid = Get-NetTCPConnection -LocalPort 7700 -State Listen -ErrorAction SilentlyContinue |
-            Select-Object -ExpandProperty OwningProcess -First 1
-if ($meiliPid) { Stop-Process -Id $meiliPid -Force -ErrorAction SilentlyContinue; Start-Sleep -Milliseconds 300 }
-Start-Process powershell -ArgumentList "-NoExit", "-Command", "& '$meili' --master-key changeme" `
-    -WorkingDirectory $root
+# --- Elasticsearch (conteneur Docker, sécurité désactivée, données dans le volume calames_es_dev) ---
+& "$root\es-dev.ps1"
+if ($LASTEXITCODE -ne 0) { exit 1 }
 
 # --- API FastAPI ---
 $port = 8000
@@ -58,7 +50,7 @@ if ($existing) {
     Start-Sleep -Milliseconds 500
 }
 Start-Process powershell -ArgumentList "-NoExit", "-Command",
-    "`$env:MEILI_HOST='http://localhost:7700'; `$env:MEILI_KEY='changeme'; `$env:MEILI_INDEX='$index'; `$env:DATA_DIR='$dataDir'; `$env:NL_LLM_BASE_URL='$llmBaseUrl'; `$env:NL_LLM_API_KEY='$llmApiKey'; `$env:NL_LLM_MODEL='$llmModel'; cd '$root\backend'; python -m uvicorn api.main:app --reload --port $port" `
+    "`$env:ES_HOST='http://localhost:9200'; `$env:ES_INDEX='$index'; `$env:DATA_DIR='$dataDir'; `$env:NL_LLM_BASE_URL='$llmBaseUrl'; `$env:NL_LLM_API_KEY='$llmApiKey'; `$env:NL_LLM_MODEL='$llmModel'; cd '$root\backend'; python -m uvicorn api.main:app --reload --port $port" `
     -WorkingDirectory "$root\backend"
 
 # --- Frontend Vite ---
@@ -71,6 +63,6 @@ Start-Process powershell -ArgumentList "-NoExit", "-Command", "cd '$root\fronten
     -WorkingDirectory "$root\frontend"
 
 Write-Host "Environnement de développement démarré :"
-Write-Host "  MeiliSearch : http://localhost:7700"
+Write-Host "  Elasticsearch : http://localhost:9200"
 Write-Host "  API         : http://localhost:$port  (corpus: $Corpus)"
 Write-Host "  Frontend    : http://localhost:5173"

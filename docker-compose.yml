@@ -7,19 +7,26 @@
 
 services:
 
-  meilisearch:
-    image: getmeili/meilisearch:v1.9
+  # Nœud unique, non exposé ; authentification par mot de passe (utilisateur elastic).
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.19.3
     volumes:
-      - meili_data:/meili_data
+      - es_data:/usr/share/elasticsearch/data
     environment:
-      MEILI_MASTER_KEY: ${MEILI_MASTER_KEY:?définir MEILI_MASTER_KEY dans .env}
-      MEILI_ENV: production
-      MEILI_NO_ANALYTICS: "true"
+      discovery.type: single-node
+      ELASTIC_PASSWORD: ${ELASTIC_PASSWORD:?définir ELASTIC_PASSWORD dans .env}
+      xpack.security.enabled: "true"
+      xpack.security.http.ssl.enabled: "false"
+      xpack.security.transport.ssl.enabled: "false"
+      ES_JAVA_OPTS: ${ES_JAVA_OPTS:--Xms1g -Xmx1g}
+    ulimits:
+      memlock: { soft: -1, hard: -1 }
+      nofile: { soft: 65536, hard: 65536 }
     healthcheck:
-      test: ["CMD", "curl", "-sf", "http://localhost:7700/health"]
+      test: ["CMD-SHELL", "curl -sf -u elastic:$$ELASTIC_PASSWORD 'http://localhost:9200/_cluster/health?wait_for_status=yellow&timeout=5s'"]
       interval: 10s
-      timeout: 3s
-      retries: 12
+      timeout: 10s
+      retries: 30
     restart: unless-stopped
 
   # Surveille le dossier EAD : indexe les fichiers nouveaux/modifiés,
@@ -35,11 +42,11 @@ services:
       EAD_DIR: /data/ead
       SEED_DIR: /seed
       STATE_FILE: /state/watcher.json
-      MEILI_HOST: http://meilisearch:7700
-      MEILI_KEY: ${MEILI_MASTER_KEY}
-      MEILI_INDEX: ead_components
+      ES_HOST: http://elasticsearch:9200
+      ES_PASSWORD: ${ELASTIC_PASSWORD}
+      ES_INDEX: ead_components
     depends_on:
-      meilisearch:
+      elasticsearch:
         condition: service_healthy
     restart: unless-stopped
 
@@ -69,9 +76,9 @@ services:
       - ${EAD_DIR:-ead_data}:/data/ead
       - watcher_state:/state:ro
     environment:
-      MEILI_HOST: http://meilisearch:7700
-      MEILI_KEY: ${MEILI_MASTER_KEY}
-      MEILI_INDEX: ead_components
+      ES_HOST: http://elasticsearch:9200
+      ES_PASSWORD: ${ELASTIC_PASSWORD}
+      ES_INDEX: ead_components
       DATA_DIR: /data/ead
       STATE_FILE: /state/watcher.json
       UPLOAD_TOKEN: ${UPLOAD_TOKEN:-}
@@ -80,7 +87,7 @@ services:
       NL_LLM_API_KEY: ${NL_LLM_API_KEY:-}
       NL_LLM_MODEL: ${NL_LLM_MODEL:-}
     depends_on:
-      meilisearch:
+      elasticsearch:
         condition: service_healthy
     restart: unless-stopped
 
@@ -96,6 +103,6 @@ services:
     restart: unless-stopped
 
 volumes:
-  meili_data:
+  es_data:
   ead_data:
   watcher_state:

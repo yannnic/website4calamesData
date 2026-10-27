@@ -12,13 +12,13 @@ flowchart TD
 
     subgraph Pipeline d'indexation
         PARSER[ead_parser.py\nParsing EAD → Component\nHéritage simple + cumulatif\nPropagation dates bottom-up]
-        INDEXER[indexer.py\nBatch vers MeiliSearch\nConfig index + typo tolerance]
-        MS[(MeiliSearch\nIndex: ead_components\n~1,4M documents)]
+        INDEXER[indexer.py\nBulk vers Elasticsearch\nMapping + analyseur français]
+        MS[(Elasticsearch\nIndex: ead_components\n~1,4M documents)]
     end
 
     subgraph API FastAPI
         direction TB
-        HELPERS[filters.py · pruning.py\nms_escape · build_filters\napply_sibling_grouping\napply_smart_pruning]
+        HELPERS[filters.py · pruning.py\nbuild_query · build_filters\napply_sibling_grouping\napply_smart_pruning]
         SEARCH[/search\nRecherche plein texte\n+ facettes + pruning]
         NAV[Navigation\n/fonds · /component\n/children · /ancestors]
         PERSONS[Personnes\n/persons · /person]
@@ -47,7 +47,7 @@ flowchart TD
 | Module | Rôle |
 |---|---|
 | `main.py` | Application FastAPI — 11 endpoints |
-| `filters.py` | `ms_escape()` + `build_filters()` — filtres MeiliSearch sécurisés |
+| `filters.py` | `build_query()` + `build_filters()` + `parse_nl_filters()` — requêtes et filtres Elasticsearch |
 | `pruning.py` | `apply_sibling_grouping()` + `apply_smart_pruning()` — regroupement hiérarchique |
 | `llm.py` | `call_llm()` + chargement prompts — client LLM OpenAI-compatible |
 
@@ -58,7 +58,7 @@ flowchart TD
 | Couche | Outil |
 |---|---|
 | Parsing XML + indexation | Python + lxml |
-| Index de recherche | MeiliSearch |
+| Index de recherche | Elasticsearch 8 |
 | API | FastAPI (Python) |
 | Frontend | Vue 3 + Vite |
 
@@ -70,7 +70,7 @@ calames-html/
 │   ├── calames/           # Fichiers EAD moissonnés depuis Calames (OAI-PMH)
 │   └── EAD-corpus/        # Corpus de test (fichiers EAD tiers)
 ├── backend/
-│   ├── indexer/           # Pipeline EAD → MeiliSearch
+│   ├── indexer/           # Pipeline EAD → Elasticsearch
 │   ├── harvester/         # Moissonnage OAI-PMH de Calames
 │   └── api/               # API FastAPI
 ├── frontend/              # Application Vue.js
@@ -87,18 +87,18 @@ Il existe deux modes de lancement : **avec Docker** (recommandé pour la product
 |---|---|---|
 | API FastAPI | `:8000` | `:8001` |
 | Frontend Vue | `:5173` | `:80` |
-| MeiliSearch | `:7700` | `:7700` (interne) |
+| Elasticsearch | `:9200` | `:9200` (interne) |
 
 ## Corpus disponibles
 
 Les corpus sont définis dans `corpora.json` :
 
-| Corpus | Index MeiliSearch | Données |
+| Corpus | Index Elasticsearch | Données |
 |---|---|---|
 | `calames` | `ead_components_calames` | Fichiers EAD Calames |
 | `test` | `ead_components_test` | Fichiers EAD de test (`data/test/`) |
 
-Chaque corpus a son propre index MeiliSearch — basculer de l'un à l'autre ne détruit pas l'index de l'autre.
+Chaque corpus a son propre index Elasticsearch — basculer de l'un à l'autre ne détruit pas l'index de l'autre.
 
 ---
 
@@ -127,7 +127,7 @@ docker compose logs indexer -f
 Créer un fichier `.env` à la racine pour surcharger les valeurs par défaut :
 
 ```env
-MEILI_MASTER_KEY=votre-clé-secrète
+ELASTIC_PASSWORD=votre-mot-de-passe
 VITE_API_URL=http://mon-serveur.fr:8000   # sur un serveur distant
 ```
 
@@ -149,7 +149,7 @@ docker compose ps             # état des services
 
 - Python 3.11+
 - Node.js 18+
-- `meilisearch.exe` (Windows) ou `meilisearch` (Linux/Mac) à la racine du projet
+- Docker (Elasticsearch tourne dans le conteneur `calames-es`, créé par `es-dev.ps1`)
 
 ### Démarrage rapide (Windows)
 
@@ -158,8 +158,10 @@ powershell -File dev.ps1                 # corpus "calames" par défaut
 powershell -File dev.ps1 -Corpus test   # corpus "test"
 ```
 
-Ce script lance MeiliSearch, l'API et le frontend dans trois fenêtres séparées.
-Il tue automatiquement les processus existants sur les ports 7700, 8000 et 5173 avant de démarrer.
+Ce script démarre le conteneur Elasticsearch (`es-dev.ps1`), puis lance l'API et le frontend
+dans deux fenêtres séparées. Il tue automatiquement les processus existants sur les ports 8000
+et 5173 avant de démarrer. L'index de développement est conservé dans le volume Docker
+`calames_es_dev`.
 
 Pour tout arrêter :
 ```powershell
@@ -215,22 +217,27 @@ python harvester.py --set 751059803
 
 ```bash
 cd backend/indexer
-python indexer.py ../../data/calames --host http://localhost:7700 --api-key changeme
+python indexer.py ../../data/calames --host http://localhost:9200
 ```
 
-L'index existant est **toujours vidé** avant réindexation.
+L'index existant est **toujours supprimé et recréé** avant réindexation (c'est aussi
+la seule façon d'appliquer un changement de mapping ou d'analyseur). Avec un Elasticsearch
+sécurisé, ajouter `--password <mot de passe de elastic>`.
 
 #### 5. Lancer manuellement les trois services
 
 Dans trois terminaux séparés :
 
 ```bash
-# Terminal 1 — MeiliSearch
-./meilisearch --master-key changeme
+# Terminal 1 — Elasticsearch
+docker run -d --name calames-es -p 9200:9200 -e discovery.type=single-node \
+  -e xpack.security.enabled=false -e "ES_JAVA_OPTS=-Xms1g -Xmx1g" \
+  -v calames_es_dev:/usr/share/elasticsearch/data \
+  docker.elastic.co/elasticsearch/elasticsearch:8.19.3
 
 # Terminal 2 — API
 cd backend
-MEILI_HOST=http://localhost:7700 MEILI_KEY=changeme DATA_DIR=../data/calames \
+ES_HOST=http://localhost:9200 DATA_DIR=../data/calames \
   uvicorn api.main:app --reload --port 8000
 
 # Terminal 3 — Frontend
@@ -242,9 +249,10 @@ Variables d'environnement de l'API :
 
 | Variable | Défaut | Description |
 |---|---|---|
-| `MEILI_HOST` | `http://localhost:7700` | URL de MeiliSearch |
-| `MEILI_KEY` | _(vide)_ | Clé d'API MeiliSearch |
-| `MEILI_INDEX` | `ead_components` | Nom de l'index |
+| `ES_HOST` | `http://localhost:9200` | URL d'Elasticsearch |
+| `ES_USER` | `elastic` | Utilisateur (utilisé seulement si `ES_PASSWORD` est renseigné) |
+| `ES_PASSWORD` | _(vide)_ | Mot de passe (vide = pas d'authentification) |
+| `ES_INDEX` | `ead_components` | Nom de l'index |
 | `SIBLING_THRESHOLD` | `3` | Seuil de regroupement par parent |
 | `COVERAGE_THRESHOLD` | `0.75` | Seuil de couverture pour le pruning intelligent |
 | `NL_LLM_BASE_URL` | `https://api.openai.com/v1` | Base URL LLM OpenAI-compatible |
@@ -269,7 +277,7 @@ VITE_API_URL=http://localhost:8000
 | GET | `/children?node_id=` | Enfants directs d'un composant, triés par position |
 | GET | `/ancestors?node_id=` | Chaîne d'ancêtres (fil d'Ariane) |
 | GET | `/search` | Recherche plein texte + facettes + pruning hiérarchique |
-| GET | `/nlsearch?q=` | Recherche en langage naturel (LLM → MeiliSearch) |
+| GET | `/nlsearch?q=` | Recherche en langage naturel (LLM → Elasticsearch) |
 | GET | `/summarize?q=` | Résumé LLM des résultats d'une recherche |
 | GET | `/persons` | Index des personnes avec identifiant IdRef/Sudoc |
 | GET | `/person?name=` | Composants associés à une personne (par nom ou IdRef) |
@@ -285,16 +293,24 @@ VITE_API_URL=http://localhost:8000
 | `date_from` | int | Année de début (inclusive) |
 | `date_to` | int | Année de fin (inclusive) |
 | `lang` | string | Code langue (`fre`, `eng`, `lat`…) |
-| `subject` | string | Sujet (valeur exacte) |
-| `geo_name` | string | Nom géographique (valeur exacte) |
-| `genre_form` | string | Genre / type de document |
-| `creator` | string | Nom de créateur (valeur exacte) |
-| `corp_name` | string | Nom de collectivité |
-| `pers_name` | string | Nom de personne |
+| `subject` | string | Sujet (plein texte, dans le champ sujets uniquement) |
+| `geo_name` | string | Nom géographique (plein texte, dans ce champ uniquement) |
+| `genre_form` | string | Genre / type de document (plein texte, dans ce champ uniquement) |
+| `creator` | string | Nom de créateur (plein texte, dans ce champ uniquement) |
+| `corp_name` | string | Nom de collectivité (plein texte, dans ce champ uniquement) |
+| `pers_name` | string | Nom de personne (plein texte, dans ce champ uniquement) |
 | `repository` | string | Institution de conservation |
 | `limit` | int | Résultats par page (1–100, défaut 20) |
 | `offset` | int | Décalage pour la pagination |
 | `sibling_grouping` | bool | Regroupement par parent (défaut `false`) |
+
+Tous les mots de `q` doivent être présents, éventuellement répartis sur plusieurs champs ;
+une faute de frappe est tolérée à partir de 7 lettres, deux à partir de 11. Chaque paramètre
+texte par champ (`subject`, `pers_name`…) doit correspondre **dans son propre champ**, en plus
+de `q`.
+
+La réponse contient `total` (nombre d'entrées après regroupement/pruning, qui s'appliquent
+aux 200 premiers résultats) et `total_hits` (nombre exact de composants correspondants).
 
 ---
 

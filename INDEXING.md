@@ -1,6 +1,6 @@
 # Calames HTML — Spécifications de l'indexation
 
-Ce document décrit le modèle de données produit par le parser EAD Python et indexé dans MeiliSearch.
+Ce document décrit le modèle de données produit par le parser EAD Python et indexé dans Elasticsearch.
 Il est à lire en regard de `sql_procedures_legacy/INDEXES.md` qui documente l'implémentation SQL Server d'origine.
 
 ---
@@ -8,7 +8,7 @@ Il est à lire en regard de `sql_procedures_legacy/INDEXES.md` qui documente l'i
 ## Architecture générale
 
 Chaque fichier EAD est parsé en une liste de **composants** (`Component`), un par nœud de l'arbre
-(`<archdesc>` + tous les `<c>`). Chaque composant est un document plat poussé dans MeiliSearch.
+(`<archdesc>` + tous les `<c>`). Chaque composant est un document plat poussé dans Elasticsearch.
 
 L'héritage et l'accumulation des champs sont résolus **à l'indexation**, pas à la requête.
 
@@ -18,7 +18,7 @@ L'héritage et l'accumulation des champs sont résolus **à l'indexation**, pas 
 
 | Champ | Source EAD | Notes |
 |---|---|---|
-| `node_id` | `{ead_id}#{xml:id}` | Clé primaire MeiliSearch. Si `@xml:id` absent, génère `auto-{n}` |
+| `node_id` | `{ead_id}#{xml:id}` | Identifiant Elasticsearch (`_id`). Si `@xml:id` absent, génère `auto-{n}` |
 | `ead_id` | `//eadheader/eadid` | Identifiant de l'instrument de recherche |
 | `parent_id` | `@xml:id` du composant parent | `null` pour la racine |
 | `ancestor_ids` | Liste ordonnée racine → parent direct | Utilisé pour navigation et héritage |
@@ -185,7 +185,7 @@ représenter la couverture chronologique réelle d'un fonds.
 | `EntreeSecondaire` (second terme qualificatif dans un `<controlaccess>`) | **Absent** | Logique catalogaphique ISAD/UNIMARC |
 | `genreform[@type="type_de_document"]` et `[@type="technique"]` séparés | **Absent** | Tous les `<genreform>` sont dans `genre_forms` sans distinction de `@type` |
 | `DocumentIndexDao` (présence de liens DAO) | **Absent** | |
-| `DocumentIndexHistoire` (notes historiques indexées séparément) | **Absent** | Contenu indexé dans le plein texte global MeiliSearch |
+| `DocumentIndexHistoire` (notes historiques indexées séparément) | **Absent** | Contenu indexé dans le plein texte global Elasticsearch |
 | PPN sur les sujets (`<subject @authfilenumber>`) | **Absent** | Uniquement sur `<persname>` pour l'instant |
 
 ---

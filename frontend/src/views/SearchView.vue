@@ -193,9 +193,9 @@
       <div class="search-results">
         <div style="display:flex;align-items:baseline;gap:.8rem;margin-bottom:.8rem;flex-wrap:wrap">
           <p style="font-size:.85rem;color:var(--color-muted);margin:0">
-            <template v-if="results.total_ms && results.total_ms > results.total">
+            <template v-if="results.total_hits && results.total_hits > results.total">
               {{ results.total }} entrée{{ results.total !== 1 ? 's' : '' }}
-              <span style="opacity:.6">(~{{ results.total_ms.toLocaleString('fr-FR') }} docs)</span>
+              <span style="opacity:.6">(~{{ results.total_hits.toLocaleString('fr-FR') }} docs)</span>
             </template>
             <template v-else>
               {{ results.total }} résultat{{ results.total !== 1 ? 's' : '' }}

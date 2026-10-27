@@ -27,5 +27,8 @@ Write-Host "  Index    : $index"
 Write-Host "  Data dir : $dataDir"
 Write-Host ""
 
+& "$root\es-dev.ps1"
+if ($LASTEXITCODE -ne 0) { exit 1 }
+
 Set-Location "$root\backend\indexer"
-python indexer.py $dataDir --host http://localhost:7700 --api-key changeme --index $index
+python indexer.py $dataDir --host http://localhost:9200 --index $index

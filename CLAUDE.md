@@ -13,7 +13,7 @@ Il s'agit d'une interface web de **recherche et de navigation** dans des fonds d
 | Couche | Outil |
 |---|---|
 | Parsing XML + backend API | Python + FastAPI |
-| Index de recherche | MeiliSearch |
+| Index de recherche | Elasticsearch |
 | Frontend | Vue.js |
 
 ### Structure du projet (cible)
@@ -22,7 +22,7 @@ Il s'agit d'une interface web de **recherche et de navigation** dans des fonds d
 calames-html/
 ├── data/              # Fichiers EAD d'exemple
 ├── backend/
-│   ├── indexer/       # Pipeline de parsing EAD → MeiliSearch
+│   ├── indexer/       # Pipeline de parsing EAD → Elasticsearch
 │   └── api/           # API FastAPI
 └── frontend/          # Application Vue.js
 ```

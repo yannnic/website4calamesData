@@ -1,4 +1,4 @@
-# Arrête tous les processus du mode développement (MeiliSearch, API, Vite).
+# Arrête tous les processus du mode développement (Elasticsearch, API, Vite).
 #
 # Usage :
 #   powershell -File stop.ps1
@@ -17,8 +17,10 @@ function Stop-Port {
 
 Write-Host ""
 Write-Host "Arrêt de l'environnement de développement..."
-Stop-Port 7700 "MeiliSearch"
 Stop-Port 8000 "API FastAPI"
 Stop-Port 5173 "Frontend Vite"
 Stop-Port 5174 "Frontend Vite (alt)"
+docker stop calames-es 2>$null | Out-Null
+if ($LASTEXITCODE -eq 0) { Write-Host "  Elasticsearch (conteneur calames-es) arrêté" }
+else { Write-Host "  Elasticsearch (conteneur calames-es) : rien à arrêter" }
 Write-Host ""
