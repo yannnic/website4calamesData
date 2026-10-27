@@ -4,8 +4,9 @@ __pycache__/
 .env
 backend/api/nl_prompt_live.txt
 
-# Données et index (volumineuses, non versionnées)
-data/
+# Données et index (volumineuses, non versionnées), sauf les fichiers EAD de test
+data/*
+!data/test/
 data.ms/
 
 # Binaires

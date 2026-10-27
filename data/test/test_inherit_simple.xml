@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Test : héritage simple (langue, repository, accessrestrict, userestrict)
+     Le fonds déclare tout. Les enfants n'ont rien.
+     Un petit-enfant redéclare sa propre langue → il ne doit pas hériter.
+     Attendu (série)         : langue=fre, repo="Biblio test", accessrestrict hérité
+     Attendu (dossier-latin) : langue=lat (sa propre valeur, pas héritée)
+     Attendu (dossier-normal): langue=fre (héritée du fonds)
+-->
+<ead>
+  <eadheader><eadid>test-inherit-simple</eadid></eadheader>
+  <archdesc level="fonds">
+    <did>
+      <unittitle>Fonds avec métadonnées complètes</unittitle>
+      <unitdate normal="1800/1900">XIXe siècle</unitdate>
+      <langmaterial><language langcode="fre">Français</language></langmaterial>
+      <repository><corpname authfilenumber="999999999">Bibliothèque de test</corpname></repository>
+    </did>
+    <accessrestrict><p>Communicable sous conditions</p></accessrestrict>
+    <userestrict><p>Reproduction soumise à autorisation</p></userestrict>
+    <dsc>
+      <c id="serie-A" level="series">
+        <did>
+          <unittitle>Série A — pas de métadonnées propres</unittitle>
+          <!-- hérite tout du fonds -->
+        </did>
+        <c id="dossier-latin" level="file">
+          <did>
+            <unittitle>Dossier en latin</unittitle>
+            <unitdate normal="1850/1860">1850-1860</unitdate>
+            <langmaterial><language langcode="lat">Latin</language></langmaterial>
+            <!-- sa propre langue : ne doit PAS hériter fre -->
+          </did>
+        </c>
+        <c id="dossier-normal" level="file">
+          <did>
+            <unittitle>Dossier normal</unittitle>
+            <unitdate normal="1870/1880">1870-1880</unitdate>
+            <!-- hérite langue=fre du fonds -->
+          </did>
+        </c>
+      </c>
+    </dsc>
+  </archdesc>
+</ead>

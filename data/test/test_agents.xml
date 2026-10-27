@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Test : distinction personne / personne morale / famille
+     Attendu :
+       pers_names  = ["Martin, Paul"]
+       corp_names  = ["Ministère de la Culture"]
+       fam_names   = ["Famille Dupont"]
+       héritage cumulatif entre niveaux
+-->
+<ead>
+  <eadheader><eadid>test-agents</eadid></eadheader>
+  <archdesc level="fonds">
+    <did>
+      <unittitle>Fonds agents</unittitle>
+      <unitdate normal="1900/2000">XXe siècle</unitdate>
+    </did>
+    <controlaccess>
+      <persname normal="Martin, Paul" role="070" source="Sudoc" authfilenumber="123456789">Martin, Paul (1920-2000)</persname>
+      <corpname normal="Ministère de la Culture">Ministère de la Culture</corpname>
+      <famname normal="Famille Dupont">Famille Dupont</famname>
+    </controlaccess>
+    <dsc>
+      <c id="serie-A" level="series">
+        <did>
+          <unittitle>Série A</unittitle>
+          <unitdate normal="1950/1980">1950-1980</unitdate>
+        </did>
+        <controlaccess>
+          <!-- personne propre à la série -->
+          <persname normal="Durand, Marie">Durand, Marie</persname>
+          <!-- famille propre à la série -->
+          <famname normal="Famille Bernard">Famille Bernard</famname>
+        </controlaccess>
+      </c>
+    </dsc>
+  </archdesc>
+</ead>

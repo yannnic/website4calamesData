@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Test : héritage cumulatif des sujets, lieux, genres, personnes
+     Fonds : sujet="Photographie"
+     Série : sujet="Presse"
+     Dossier : sujet="Sport"
+     Attendu (dossier) : subjects = ["Sport", "Presse", "Photographie"] (propres en premier)
+     Attendu (série)   : subjects = ["Presse", "Photographie"]
+     Attendu (fonds)   : subjects = ["Photographie"]
+-->
+<ead>
+  <eadheader><eadid>test-subjects-cumul</eadid></eadheader>
+  <archdesc level="fonds">
+    <did>
+      <unittitle>Fonds photographie</unittitle>
+      <unitdate normal="1900/2000">XXe siècle</unitdate>
+      <langmaterial><language langcode="fre">Français</language></langmaterial>
+      <repository><corpname authfilenumber="123456789">Bibliothèque de test</corpname></repository>
+    </did>
+    <controlaccess>
+      <subject normal="Photographie">Photographie</subject>
+      <geogname normal="Paris">Paris (France)</geogname>
+      <persname normal="Dupont, Jean" role="070" source="Sudoc" authfilenumber="111111111">Dupont, Jean (1900-1980)</persname>
+    </controlaccess>
+    <dsc>
+      <c id="serie-presse" level="series">
+        <did>
+          <unittitle>Série Presse</unittitle>
+        </did>
+        <controlaccess>
+          <subject normal="Presse">Presse écrite</subject>
+          <geogname normal="Lyon">Lyon (France)</geogname>
+        </controlaccess>
+        <c id="dossier-sport" level="file">
+          <did>
+            <unittitle>Dossier Sport</unittitle>
+            <unitdate normal="1950/1960">1950-1960</unitdate>
+          </did>
+          <controlaccess>
+            <subject normal="Sport">Sport</subject>
+          </controlaccess>
+        </c>
+      </c>
+    </dsc>
+  </archdesc>
+</ead>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Test : genreform indexé par @type
+     Attendu :
+       genre_forms_norm = ["correspondance", "manuscrit", "aquarelle"]  (tous)
+       gff_norm         = ["correspondance"]   (@type="genre")
+       tdd_norm         = ["manuscrit"]        (@type="type_de_document")
+       technique_norm   = ["aquarelle"]        (@type="technique")
+-->
+<ead>
+  <eadheader><eadid>test-genreform</eadid></eadheader>
+  <archdesc level="fonds">
+    <did>
+      <unittitle>Fonds genreform</unittitle>
+      <unitdate normal="1900/2000">XXe siècle</unitdate>
+    </did>
+    <controlaccess>
+      <genreform type="genre" normal="correspondance">Correspondance</genreform>
+      <genreform type="type_de_document" normal="manuscrit">Manuscrit</genreform>
+      <genreform type="technique" normal="aquarelle">Aquarelle</genreform>
+    </controlaccess>
+    <dsc>
+      <c id="serie-A" level="series">
+        <did>
+          <unittitle>Série A</unittitle>
+          <unitdate normal="1950/1980">1950-1980</unitdate>
+        </did>
+        <controlaccess>
+          <genreform type="genre" normal="journal">Journal</genreform>
+        </controlaccess>
+      </c>
+    </dsc>
+  </archdesc>
+</ead>

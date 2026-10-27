@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Test : héritage top-down des dates
+     Le fonds a une date. Un enfant n'en a pas → il hérite du fonds.
+     Un autre enfant a sa propre date → il la conserve.
+     Attendu : dossier-sans-date → 1900/2000, dossier-avec-date → 1955/1960
+-->
+<ead>
+  <eadheader><eadid>test-date-topdown</eadid></eadheader>
+  <archdesc level="fonds">
+    <did>
+      <unittitle>Fonds avec date</unittitle>
+      <unitdate normal="1900/2000">XXe siècle</unitdate>
+    </did>
+    <dsc>
+      <c id="dossier-sans-date" level="file">
+        <did>
+          <unittitle>Dossier sans date</unittitle>
+          <!-- doit hériter : 1900/2000 -->
+        </did>
+      </c>
+      <c id="dossier-avec-date" level="file">
+        <did>
+          <unittitle>Dossier avec sa propre date</unittitle>
+          <unitdate normal="1955/1960">1955-1960</unitdate>
+          <!-- ne doit PAS être écrasé -->
+        </did>
+      </c>
+    </dsc>
+  </archdesc>
+</ead>

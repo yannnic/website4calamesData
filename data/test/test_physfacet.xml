@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Test : physfacet/@type indexé comme champ de recherche et facette
+     Attendu :
+       phys_facets      = ["aquarelle", "encre"] (texte)
+       phys_facet_types = ["technique", "support"]  (@type)
+-->
+<ead>
+  <eadheader><eadid>test-physfacet</eadid></eadheader>
+  <archdesc level="fonds">
+    <did>
+      <unittitle>Fonds avec description physique</unittitle>
+      <unitdate normal="1850/1900">1850-1900</unitdate>
+      <physdesc>
+        <extent>12 boîtes</extent>
+        <physfacet type="technique">aquarelle</physfacet>
+        <physfacet type="support">encre</physfacet>
+      </physdesc>
+    </did>
+    <dsc>
+      <c id="dossier-A" level="file">
+        <did>
+          <unittitle>Dossier sans description physique</unittitle>
+          <unitdate normal="1860/1870">1860-1870</unitdate>
+          <!-- phys_facet_types doit être vide -->
+        </did>
+      </c>
+      <c id="dossier-B" level="file">
+        <did>
+          <unittitle>Dossier avec sa propre description physique</unittitle>
+          <unitdate normal="1880/1890">1880-1890</unitdate>
+          <physdesc>
+            <physfacet type="technique">photographie</physfacet>
+          </physdesc>
+        </did>
+      </c>
+    </dsc>
+  </archdesc>
+</ead>

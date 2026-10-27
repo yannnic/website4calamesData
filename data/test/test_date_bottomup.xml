@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Test : remontée bottom-up des dates
+     Le fonds n'a pas de date. Ses enfants en ont.
+     Attendu : fonds → 1950/1985, série-B → 1950/1985, série-E → 1920/1930 (inchangé)
+-->
+<ead>
+  <eadheader><eadid>test-date-bottomup</eadid></eadheader>
+  <archdesc level="fonds">
+    <did>
+      <unittitle>Fonds sans date</unittitle>
+      <!-- pas de unitdate -->
+    </did>
+    <dsc>
+      <c id="serie-B" level="series">
+        <did>
+          <unittitle>Série B — sans date</unittitle>
+          <!-- pas de unitdate -->
+        </did>
+        <c id="dossier-C" level="file">
+          <did>
+            <unittitle>Dossier C</unittitle>
+            <unitdate normal="1950/1960">1950-1960</unitdate>
+          </did>
+        </c>
+        <c id="dossier-D" level="file">
+          <did>
+            <unittitle>Dossier D</unittitle>
+            <unitdate normal="1970/1985">1970-1985</unitdate>
+          </did>
+        </c>
+      </c>
+      <c id="serie-E" level="series">
+        <did>
+          <unittitle>Série E — avec date propre</unittitle>
+          <unitdate normal="1920/1930">1920-1930</unitdate>
+        </did>
+      </c>
+    </dsc>
+  </archdesc>
+</ead>
