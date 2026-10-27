@@ -43,6 +43,25 @@ services:
         condition: service_healthy
     restart: unless-stopped
 
+  # Moissonnage OAI-PMH → dossier EAD (le watcher indexe ensuite les fichiers).
+  # Optionnel : docker compose --profile harvest up -d
+  #         ou : docker compose run --rm harvester   (une passe)
+  harvester:
+    build: ./backend
+    profiles: ["harvest"]
+    command: python harvester/harvester.py --out /data/ead --state /state/harvester.json --incremental
+    volumes:
+      - ${EAD_DIR:-ead_data}:/data/ead
+      - watcher_state:/state
+    environment:
+      OAI_URL: ${OAI_URL:-}
+      HARVEST_SETS: ${HARVEST_SETS:-}
+      HARVEST_LIMIT: ${HARVEST_LIMIT:-}
+      HARVEST_DELAY: ${HARVEST_DELAY:-2}
+      HARVEST_EVERY_HOURS: ${HARVEST_EVERY_HOURS:-24}
+      PYTHONUNBUFFERED: "1"
+    restart: on-failure
+
   api:
     build: ./backend
     command: uvicorn api.main:app --host 0.0.0.0 --port 8000 --root-path /api --proxy-headers --forwarded-allow-ips="*"

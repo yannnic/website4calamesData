@@ -48,6 +48,43 @@ un dossier de l'hôte à la place du volume Docker, puis y copier les fichiers (
 Supprimer un fichier le retire de l'index. Seuls les `*.xml` à la racine du dossier sont pris
 en compte.
 
+## Moissonnage OAI-PMH
+
+Le service `harvester` moissonne un entrepôt OAI-PMH au format `oai_ead` (Calames par
+défaut) et écrit les fichiers dans le dossier EAD : le watcher les indexe ensuite comme
+n'importe quel dépôt. Il est désactivé par défaut. Pour le configurer, dans `.env` :
+
+```
+HARVEST_SETS=751059803,340329801   # setSpec (code RCR de l'établissement) ; vide = tout
+HARVEST_LIMIT=                      # max de notices par set, pour tester
+HARVEST_EVERY_HOURS=24              # 0 = une seule passe
+OAI_URL=                            # vide = https://calames.abes.fr/oai/oai2.aspx
+```
+
+```sh
+docker compose run --rm harvester              # une passe, logs dans le terminal
+docker compose --profile harvest up -d         # en continu, toutes les HARVEST_EVERY_HOURS h
+```
+
+Les passages suivants sont incrémentaux : seules les notices modifiées depuis le dernier
+moissonnage **complet** sont récupérées (un passage limité par `HARVEST_LIMIT` ou en erreur
+ne fait pas avancer la date). Changer d'entrepôt ou de sets relance un moissonnage complet.
+
+Sans `HARVEST_SETS`, tout Calames est moissonné : environ 3 700 instruments de recherche,
+1,2 Go, au moins 2 à 3 heures.
+
+Pour ménager le serveur source, les requêtes sont strictement séquentielles :
+- pause de `HARVEST_DELAY` secondes (2 par défaut) après chaque requête ;
+- en cas de surcharge (HTTP 429, 5xx) ou d'erreur réseau, jusqu'à 6 nouvelles tentatives
+  avec une attente qui double à chaque fois (4 s, 8 s… jusqu'à 10 min), ou la durée
+  indiquée par le serveur (`Retry-After`) ;
+- après 5 notices en échec d'affilée, le passage s'arrête ; le suivant reprendra depuis
+  la date du dernier moissonnage complet.
+
+Limites : Calames ne signale pas les notices supprimées (`deletedRecord=no`), elles restent
+donc dans le dossier. Les fichiers sont nommés d'après leur `eadid` (comme ceux de
+`demo/seed/`) : un fonds déjà présent est remplacé, pas dupliqué.
+
 ## Opérations courantes
 
 ```sh

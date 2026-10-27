@@ -11,8 +11,8 @@ stables entre deux passages (évite d'indexer un dépôt SFTP en cours d'écritu
 L'état (mtime, taille, statut, erreur éventuelle) est écrit dans STATE_FILE,
 lu par l'API pour afficher le statut des fichiers déposés.
 
-Au premier démarrage, si EAD_DIR ne contient aucun .xml et que SEED_DIR est
-défini, les fichiers de SEED_DIR y sont copiés (jeu de démonstration).
+Au premier démarrage (marqueur .seeded à côté de STATE_FILE), si SEED_DIR est
+défini, ses fichiers absents de EAD_DIR y sont copiés (jeu de démonstration).
 
 Variables d'environnement :
     EAD_DIR        dossier surveillé                 (défaut : /data/ead)
@@ -75,14 +75,24 @@ def scan() -> dict[str, tuple[float, int]]:
     return files
 
 
-def seed_if_empty() -> None:
-    if not SEED_DIR or any(EAD_DIR.glob("*.xml")):
+def seed_once() -> None:
+    """
+    Copie le jeu de démonstration au premier démarrage uniquement (marqueur dans
+    le dossier d'état) : un fichier de démo supprimé ensuite n'est pas recopié.
+    Un fichier déjà présent (déposé ou moissonné avant) n'est pas écrasé.
+    """
+    marker = STATE_FILE.parent / ".seeded"
+    if not SEED_DIR or marker.exists():
         return
-    seeds = sorted(Path(SEED_DIR).glob("*.xml"))
-    for p in seeds:
-        shutil.copy2(p, EAD_DIR / p.name)
-    if seeds:
-        log(f"{len(seeds)} fichiers de démonstration copiés depuis {SEED_DIR}.")
+    copied = 0
+    for p in sorted(Path(SEED_DIR).glob("*.xml")):
+        dest = EAD_DIR / p.name
+        if not dest.exists():
+            shutil.copy2(p, dest)
+            copied += 1
+    marker.parent.mkdir(parents=True, exist_ok=True)
+    marker.touch()
+    log(f"{copied} fichiers de démonstration copiés depuis {SEED_DIR}.")
 
 
 def indexed_files(index: meilisearch.index.Index) -> set[str]:
@@ -103,7 +113,7 @@ def connect() -> tuple[meilisearch.Client, meilisearch.index.Index]:
 
 def main() -> None:
     EAD_DIR.mkdir(parents=True, exist_ok=True)
-    seed_if_empty()
+    seed_once()
     client, index = connect()
 
     state = load_state()

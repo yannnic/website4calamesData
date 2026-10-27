@@ -1,28 +1,41 @@
 """
-Moissonnage OAI-PMH de Calames — format oai_ead.
+Moissonnage OAI-PMH — format oai_ead.
 
-Récupère les instruments de recherche EAD depuis :
-    https://calames.abes.fr/oai/oai2.aspx
+Récupère les instruments de recherche EAD d'un entrepôt OAI-PMH
+(par défaut Calames : https://calames.abes.fr/oai/oai2.aspx).
 
 Usage :
-    python harvester.py [--out DIR] [--from DATE] [--set SET]
+    python harvester.py [--url URL] [--out DIR] [--from DATE] [--set SET[,SET…]]
                         [--limit N] [--delay SECS] [--dry-run]
+                        [--incremental] [--every HOURS]
 
 Options :
+    --url URL       URL de base de l'entrepôt OAI-PMH            (env OAI_URL)
+    --prefix P      metadataPrefix                   (défaut : oai_ead, env OAI_PREFIX)
     --out DIR       Répertoire de sortie des fichiers XML  (défaut : ../../data/calames)
     --from DATE     Ne moissonne que les notices modifiées depuis DATE (YYYY-MM-DD)
-    --set SET       Restreint au setSpec donné (ex. : 751059803)
-    --limit N       S'arrête après N notices (utile pour tester)
-    --delay SECS    Délai entre requêtes en secondes              (défaut : 1.0)
+    --set SET       setSpec, ou liste séparée par des virgules    (env HARVEST_SETS)
+    --limit N       S'arrête après N notices par set (utile pour tester) (env HARVEST_LIMIT)
+    --delay SECS    Délai entre requêtes en secondes (défaut : 2, env HARVEST_DELAY)
     --dry-run       Liste les identifiants sans télécharger les fichiers
+    --incremental   Utilise la date du dernier moissonnage complet comme --from
+    --every HOURS   Relance un moissonnage incrémental toutes les HOURS heures
+                    (0 = une seule passe, env HARVEST_EVERY_HOURS)
     --state FILE    Fichier JSON pour mémoriser la date du dernier moissonnage
                     (défaut : harvester_state.json dans --out)
+
+Les fichiers sont écrits de façon atomique : un service qui surveille --out
+(cf. indexer/watcher.py) ne voit jamais de fichier partiel.
+
+Note : Calames déclare deletedRecord=no, les notices supprimées à la source
+ne sont donc pas signalées et restent dans --out.
 """
 
 from __future__ import annotations
 
 import argparse
 import json
+import os
 import sys
 import time
 from pathlib import Path
@@ -36,21 +49,54 @@ from lxml import etree
 # Configuration
 # ---------------------------------------------------------------------------
 
-BASE_URL   = "https://calames.abes.fr/oai/oai2.aspx"
-PREFIX     = "oai_ead"
+DEFAULT_URL = "https://calames.abes.fr/oai/oai2.aspx"
 OAI_NS     = "http://www.openarchives.org/OAI/2.0/"
 USER_AGENT = "CalamesHarvester/1.0 (contact: voir CLAUDE.md)"
+
+# Nouvelles tentatives quand le serveur sature ou ne répond pas :
+# attente delay × 2^n (plafonnée), ou Retry-After si le serveur l'indique.
+MAX_RETRIES   = 6
+MAX_BACKOFF   = 600   # secondes
+RETRY_STATUS  = {429, 500, 502, 503, 504}
+# Abandon du passage après ce nombre de notices en échec d'affilée
+# (serveur indisponible : inutile d'insister notice par notice).
+MAX_CONSECUTIVE_ERRORS = 5
 
 
 # ---------------------------------------------------------------------------
 # Helpers HTTP
 # ---------------------------------------------------------------------------
 
-def _get(params: dict, delay: float, session: requests.Session) -> etree._Element:
-    """Effectue une requête OAI-PMH et retourne l'élément racine XML."""
-    url = BASE_URL + "?" + urlencode(params)
-    resp = session.get(url, timeout=60)
-    resp.raise_for_status()
+def _retry_after(resp: requests.Response) -> Optional[float]:
+    try:
+        return float(resp.headers["Retry-After"])
+    except (KeyError, ValueError):
+        return None
+
+
+def _get(base_url: str, params: dict, delay: float, session: requests.Session) -> etree._Element:
+    """
+    Effectue une requête OAI-PMH et retourne l'élément racine XML.
+    Attend `delay` secondes après chaque requête ; en cas de surcharge (429/5xx)
+    ou d'erreur réseau, réessaie avec un délai croissant.
+    """
+    url = base_url + "?" + urlencode(params)
+    for attempt in range(MAX_RETRIES + 1):
+        wait = None
+        try:
+            resp = session.get(url, timeout=120)
+            if resp.status_code not in RETRY_STATUS:
+                resp.raise_for_status()
+                break
+            wait = _retry_after(resp)
+            reason = f"HTTP {resp.status_code}"
+        except (requests.ConnectionError, requests.Timeout) as exc:
+            reason = type(exc).__name__
+        if attempt == MAX_RETRIES:
+            raise RuntimeError(f"{reason} après {MAX_RETRIES} nouvelles tentatives : {url}")
+        wait = min(wait or max(delay, 1.0) * 2 ** (attempt + 1), MAX_BACKOFF)
+        print(f"  {reason}, nouvelle tentative dans {wait:.0f} s…", file=sys.stderr, flush=True)
+        time.sleep(wait)
     time.sleep(delay)
     root = etree.fromstring(resp.content)
     _check_oai_error(root)
@@ -70,6 +116,8 @@ def _check_oai_error(root: etree._Element) -> None:
 # ---------------------------------------------------------------------------
 
 def list_identifiers(
+    base_url:  str,
+    prefix:    str,
     from_date: Optional[str],
     set_spec:  Optional[str],
     delay:     float,
@@ -79,7 +127,7 @@ def list_identifiers(
     Génère des tuples (identifier, datestamp) pour tous les enregistrements
     disponibles en format oai_ead.
     """
-    params: dict = {"verb": "ListIdentifiers", "metadataPrefix": PREFIX}
+    params: dict = {"verb": "ListIdentifiers", "metadataPrefix": prefix}
     if from_date:
         params["from"] = from_date
     if set_spec:
@@ -88,7 +136,12 @@ def list_identifiers(
     page = 0
     while True:
         page += 1
-        root = _get(params, delay, session)
+        try:
+            root = _get(base_url, params, delay, session)
+        except RuntimeError as exc:
+            if "noRecordsMatch" in str(exc):
+                return
+            raise
         li   = root.find(f"{{{OAI_NS}}}ListIdentifiers")
         if li is None:
             break
@@ -135,17 +188,19 @@ def _copy_without_ns(el: etree._Element) -> etree._Element:
     return new_el
 
 
-def get_ead(identifier: str, delay: float, session: requests.Session) -> Optional[bytes]:
+def get_ead(
+    base_url: str, prefix: str, identifier: str, delay: float, session: requests.Session,
+) -> Optional[bytes]:
     """
     Récupère le contenu EAD d'un enregistrement et le retourne comme bytes UTF-8.
     Retourne None si le contenu est vide ou absent.
     """
     params = {
         "verb": "GetRecord",
-        "metadataPrefix": PREFIX,
+        "metadataPrefix": prefix,
         "identifier": identifier,
     }
-    root = _get(params, delay, session)
+    root = _get(base_url, params, delay, session)
     record   = root.find(f".//{{{OAI_NS}}}record")
     if record is None:
         return None
@@ -195,9 +250,11 @@ def _filename_from_ead(content: bytes, identifier: str) -> str:
 # ---------------------------------------------------------------------------
 
 def harvest(
+    base_url:  str,
+    prefix:    str,
     out_dir:   Path,
     from_date: Optional[str],
-    set_spec:  Optional[str],
+    set_specs: list[Optional[str]],
     limit:     Optional[int],
     delay:     float,
     dry_run:   bool,
@@ -207,58 +264,101 @@ def harvest(
     session = requests.Session()
     session.headers["User-Agent"] = USER_AGENT
 
-    print(f"Moissonnage de {BASE_URL}")
-    print(f"Format : {PREFIX}  |  from : {from_date or '(tout)'}  |  set : {set_spec or '(tous)'}")
+    print(f"Moissonnage de {base_url}")
+    print(f"Format : {prefix}  |  from : {from_date or '(tout)'}  |  "
+          f"set : {', '.join(s for s in set_specs if s) or '(tous)'}")
     if dry_run:
         print("Mode dry-run : les fichiers ne seront pas écrits.")
     print()
 
     total_seen = total_new = total_skip = total_err = 0
+    consecutive_err = 0
+    complete = True   # False si une limite ou une interruption a tronqué la liste
     harvest_start = time.strftime("%Y-%m-%d")
 
     try:
-        for identifier, datestamp in list_identifiers(from_date, set_spec, delay, session):
-            total_seen += 1
-            if limit and total_seen > limit:
-                print(f"Limite de {limit} notices atteinte.")
-                break
+        for set_spec in set_specs:
+            seen_in_set = 0
+            for identifier, datestamp in list_identifiers(base_url, prefix, from_date, set_spec, delay, session):
+                seen_in_set += 1
+                if limit and seen_in_set > limit:
+                    print(f"Limite de {limit} notices atteinte.")
+                    complete = False
+                    break
+                total_seen += 1
 
-            if dry_run:
-                print(f"  [DRY] {identifier}  ({datestamp})")
+                if dry_run:
+                    print(f"  [DRY] {identifier}  ({datestamp})")
+                    total_new += 1
+                    continue
+
+                # Tentative de récupération
+                try:
+                    content = get_ead(base_url, prefix, identifier, delay, session)
+                except Exception as exc:
+                    print(f"  ERREUR {identifier} : {exc}", file=sys.stderr)
+                    total_err += 1
+                    consecutive_err += 1
+                    if consecutive_err >= MAX_CONSECUTIVE_ERRORS:
+                        raise RuntimeError(f"{consecutive_err} échecs consécutifs, serveur indisponible ?")
+                    continue
+                consecutive_err = 0
+
+                if not content:
+                    print(f"  VIDE  {identifier}", file=sys.stderr)
+                    total_skip += 1
+                    continue
+
+                filename = _filename_from_ead(content, identifier)
+                _write_atomic(out_dir / filename, content)
                 total_new += 1
-                continue
-
-            # Tentative de récupération
-            try:
-                content = get_ead(identifier, delay, session)
-            except Exception as exc:
-                print(f"  ERREUR {identifier} : {exc}", file=sys.stderr)
-                total_err += 1
-                continue
-
-            if not content:
-                print(f"  VIDE  {identifier}", file=sys.stderr)
-                total_skip += 1
-                continue
-
-            filename  = _filename_from_ead(content, identifier)
-            dest      = out_dir / filename
-            dest.write_bytes(content)
-            total_new += 1
-            print(f"  OK  {filename}  ({datestamp})")
+                print(f"  OK  {filename}  ({datestamp})", flush=True)
 
     except KeyboardInterrupt:
         print("\nInterrompu par l'utilisateur.")
+        complete = False
+    except (RuntimeError, requests.RequestException) as exc:
+        # Échec de ListIdentifiers ou abandon : on garde ce qui a été écrit,
+        # le prochain passage reprendra depuis la dernière date complète.
+        print(f"\nPassage interrompu : {exc}", file=sys.stderr)
+        complete = False
 
     print()
     print(f"Terminé. {total_seen} vus, {total_new} fichiers écrits, "
-          f"{total_skip} vides, {total_err} erreurs.")
+          f"{total_skip} vides, {total_err} erreurs.", flush=True)
 
-    # Met à jour l'état si pas de dry-run
-    if not dry_run and total_new > 0:
-        state = {"last_harvest": harvest_start}
+    # N'avance la date que si toute la liste a été traitée sans erreur :
+    # sinon le prochain passage incrémental sauterait des notices.
+    if dry_run:
+        return
+    if complete and total_err == 0:
+        state_file.parent.mkdir(parents=True, exist_ok=True)
+        state = {"last_harvest": harvest_start, "url": base_url, "sets": set_specs}
         state_file.write_text(json.dumps(state, indent=2), encoding="utf-8")
         print(f"État mis à jour : {state_file}")
+    else:
+        print("Moissonnage incomplet : date du dernier moissonnage inchangée.")
+
+
+def _write_atomic(dest: Path, content: bytes) -> None:
+    tmp = dest.with_name(f".{dest.name}.part")
+    tmp.write_bytes(content)
+    os.replace(tmp, dest)
+
+
+def _load_from_date(state_file: Path, base_url: str, set_specs: list[Optional[str]]) -> Optional[str]:
+    """Date du dernier moissonnage complet, si l'entrepôt et les sets n'ont pas changé."""
+    if not state_file.exists():
+        print("Mode incrémental : aucun état trouvé, moissonnage complet.")
+        return None
+    state = json.loads(state_file.read_text(encoding="utf-8"))
+    if state.get("url", base_url) != base_url or state.get("sets", set_specs) != set_specs:
+        print("Mode incrémental : entrepôt ou sets modifiés, moissonnage complet.")
+        return None
+    from_date = state.get("last_harvest")
+    if from_date:
+        print(f"Mode incrémental : from={from_date} (dernier moissonnage)")
+    return from_date
 
 
 # ---------------------------------------------------------------------------
@@ -267,29 +367,37 @@ def harvest(
 
 def main() -> None:
     default_out = Path(__file__).parent.parent.parent / "data" / "calames"
+    env = os.environ.get
 
     parser = argparse.ArgumentParser(
-        description="Moissonne les EAD de Calames via OAI-PMH.",
+        description="Moissonne des EAD via OAI-PMH (Calames par défaut).",
         formatter_class=argparse.RawDescriptionHelpFormatter,
     )
+    parser.add_argument("--url",   default=env("OAI_URL") or DEFAULT_URL,
+                        help=f"URL de base OAI-PMH (défaut : {DEFAULT_URL})")
+    parser.add_argument("--prefix", default=env("OAI_PREFIX") or "oai_ead",
+                        help="metadataPrefix (défaut : oai_ead)")
     parser.add_argument("--out",   default=str(default_out),
-                        help="Répertoire de sortie (défaut : ../../data)")
+                        help="Répertoire de sortie (défaut : ../../data/calames)")
     parser.add_argument("--from",  dest="from_date", default=None,
                         metavar="DATE",
                         help="Date de début YYYY-MM-DD (notices modifiées depuis)")
-    parser.add_argument("--set",   default=None,
+    parser.add_argument("--set",   default=env("HARVEST_SETS") or None,
                         metavar="SET",
-                        help="SetSpec OAI (ex. : 751059803)")
-    parser.add_argument("--limit", type=int, default=None,
+                        help="SetSpec OAI, ou liste séparée par des virgules (ex. : 751059803,340329801)")
+    parser.add_argument("--limit", type=int, default=int(env("HARVEST_LIMIT") or 0) or None,
                         metavar="N",
-                        help="Nombre maximum de notices à traiter")
-    parser.add_argument("--delay", type=float, default=1.0,
+                        help="Nombre maximum de notices à traiter par set")
+    parser.add_argument("--delay", type=float, default=float(env("HARVEST_DELAY") or 2.0),
                         metavar="SECS",
-                        help="Délai entre requêtes en secondes (défaut : 1.0)")
+                        help="Délai entre requêtes en secondes (défaut : 2)")
     parser.add_argument("--dry-run", action="store_true",
                         help="Liste les identifiants sans télécharger")
     parser.add_argument("--incremental", action="store_true",
                         help="Utilise la date du dernier moissonnage comme --from")
+    parser.add_argument("--every", type=float, default=float(env("HARVEST_EVERY_HOURS") or 0),
+                        metavar="HOURS",
+                        help="Relance un moissonnage incrémental toutes les HOURS heures (0 = une passe)")
     parser.add_argument("--state", default=None,
                         metavar="FILE",
                         help="Fichier d'état JSON (défaut : harvester_state.json dans --out)")
@@ -297,26 +405,28 @@ def main() -> None:
     args = parser.parse_args()
     out_dir    = Path(args.out)
     state_file = Path(args.state) if args.state else out_dir / "harvester_state.json"
+    set_specs  = [s.strip() for s in args.set.split(",") if s.strip()] if args.set else [None]
 
-    from_date = args.from_date
-    if args.incremental and not from_date:
-        if state_file.exists():
-            state     = json.loads(state_file.read_text(encoding="utf-8"))
-            from_date = state.get("last_harvest")
-            if from_date:
-                print(f"Mode incrémental : from={from_date} (dernier moissonnage)")
-        else:
-            print("Mode incrémental : aucun état trouvé, moissonnage complet.")
+    while True:
+        from_date = args.from_date
+        if (args.incremental or args.every) and not from_date:
+            from_date = _load_from_date(state_file, args.url, set_specs)
 
-    harvest(
-        out_dir    = out_dir,
-        from_date  = from_date,
-        set_spec   = args.set,
-        limit      = args.limit,
-        delay      = args.delay,
-        dry_run    = args.dry_run,
-        state_file = state_file,
-    )
+        harvest(
+            base_url   = args.url,
+            prefix     = args.prefix,
+            out_dir    = out_dir,
+            from_date  = from_date,
+            set_specs  = set_specs,
+            limit      = args.limit,
+            delay      = args.delay,
+            dry_run    = args.dry_run,
+            state_file = state_file,
+        )
+        if not args.every:
+            break
+        print(f"Prochain moissonnage dans {args.every:g} h.", flush=True)
+        time.sleep(args.every * 3600)
 
 
 if __name__ == "__main__":
