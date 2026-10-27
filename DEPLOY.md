@@ -14,10 +14,12 @@ Au premier démarrage, le dossier EAD est vide : le watcher y copie les 10 fichi
 
 ## Installation sur le serveur
 
-Prérequis : Docker avec le plugin `compose`.
+Prérequis : Docker avec le plugin `compose`, et git.
+
+Le dépôt est public : aucune authentification n'est nécessaire pour le cloner.
 
 ```sh
-git clone <dépôt> calames-html && cd calames-html
+git clone https://github.com/yannnic/calames-html.git && cd calames-html
 cp .env.example .env
 # Renseigner au minimum MEILI_MASTER_KEY (openssl rand -hex 24) et UPLOAD_TOKEN
 docker compose up -d --build
