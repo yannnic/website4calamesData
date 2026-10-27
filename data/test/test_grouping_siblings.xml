@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Test : regroupement hiérarchique, règle des N frères (N = SIBLING_THRESHOLD = 3).
+     Le mot cherché « zephyrin » n'apparaît que dans les titres indiqués.
+
+     fonds (2 séries, ne correspond pas)
+     ├── serie-a  10 pièces, 3 correspondent → 30 % : pas regroupée par couverture,
+     │                                          regroupée par la règle des 3 frères (3)
+     └── serie-b  10 pièces, 2 correspondent → regroupée par aucune règle
+
+     Attendu (couverture, q=zephyrin) : 5 entrées : a-1, a-2, a-3, b-1, b-2
+     Attendu (règle des 3 frères)     : 3 entrées : serie-a (3), b-1, b-2
+-->
+<ead>
+  <eadheader><eadid>test-grouping-siblings</eadid></eadheader>
+  <archdesc level="fonds">
+    <did>
+      <unittitle>Fonds de test de la règle des frères</unittitle>
+      <unitdate normal="1900/1950">1900-1950</unitdate>
+    </did>
+    <dsc>
+      <c id="serie-a" level="series">
+        <did><unittitle>Série A</unittitle></did>
+        <c id="a-1" level="item"><did><unittitle>Lettre de Zephyrin à sa sœur</unittitle></did></c>
+        <c id="a-2" level="item"><did><unittitle>Lettre de Zephyrin à son frère</unittitle></did></c>
+        <c id="a-3" level="item"><did><unittitle>Lettre de Zephyrin à son éditeur</unittitle></did></c>
+        <c id="a-4" level="item"><did><unittitle>Lettre reçue, 1901</unittitle></did></c>
+        <c id="a-5" level="item"><did><unittitle>Lettre reçue, 1902</unittitle></did></c>
+        <c id="a-6" level="item"><did><unittitle>Lettre reçue, 1903</unittitle></did></c>
+        <c id="a-7" level="item"><did><unittitle>Lettre reçue, 1904</unittitle></did></c>
+        <c id="a-8" level="item"><did><unittitle>Lettre reçue, 1905</unittitle></did></c>
+        <c id="a-9" level="item"><did><unittitle>Lettre reçue, 1906</unittitle></did></c>
+        <c id="a-10" level="item"><did><unittitle>Lettre reçue, 1907</unittitle></did></c>
+      </c>
+      <c id="serie-b" level="series">
+        <did><unittitle>Série B</unittitle></did>
+        <c id="b-1" level="item"><did><unittitle>Brouillon de Zephyrin</unittitle></did></c>
+        <c id="b-2" level="item"><did><unittitle>Notes de Zephyrin</unittitle></did></c>
+        <c id="b-3" level="item"><did><unittitle>Brouillon, 1911</unittitle></did></c>
+        <c id="b-4" level="item"><did><unittitle>Brouillon, 1912</unittitle></did></c>
+        <c id="b-5" level="item"><did><unittitle>Brouillon, 1913</unittitle></did></c>
+        <c id="b-6" level="item"><did><unittitle>Brouillon, 1914</unittitle></did></c>
+        <c id="b-7" level="item"><did><unittitle>Brouillon, 1915</unittitle></did></c>
+        <c id="b-8" level="item"><did><unittitle>Brouillon, 1916</unittitle></did></c>
+        <c id="b-9" level="item"><did><unittitle>Brouillon, 1917</unittitle></did></c>
+        <c id="b-10" level="item"><did><unittitle>Brouillon, 1918</unittitle></did></c>
+      </c>
+    </dsc>
+  </archdesc>
+</ead>

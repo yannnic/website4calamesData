@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Test : regroupement hiérarchique (backend/api/grouping.py), règle de couverture.
+     Le mot cherché « zephyrin » n'apparaît que dans les titres indiqués.
+
+     fonds (5 séries, ne correspond pas)
+     ├── serie-cov     4 pièces, 3 correspondent → 75 % → regroupée (3)
+     ├── serie-under   4 pièces, 2 correspondent → 50 % → pas regroupée : under-1, under-2
+     ├── serie-nested  2 sous-séries, chacune 2/2 → regroupées → serie-nested 2/2 → regroupée (4)
+     ├── serie-self    correspond elle-même, 1 pièce sur 4 correspond → pas regroupée :
+     │                 serie-self et self-1 apparaissent tous les deux
+     └── serie-vide    rien ne correspond
+
+     Fonds : 3 enfants sur 5 trouvés ou regroupés (cov, nested, self) → 60 % → pas regroupé.
+
+     Attendu (couverture, q=zephyrin) : 6 entrées pour 11 composants
+       serie-cov (3), under-1, under-2, serie-nested (4), serie-self, self-1
+     Attendu (règle des 3 frères)     : 9 entrées
+       serie-cov (3), under-1, under-2, nested-1-1, nested-1-2, nested-2-1, nested-2-2,
+       serie-self, self-1
+-->
+<ead>
+  <eadheader><eadid>test-grouping</eadid></eadheader>
+  <archdesc level="fonds">
+    <did>
+      <unittitle>Fonds de test du regroupement</unittitle>
+      <unitdate normal="1900/1950">1900-1950</unitdate>
+    </did>
+    <dsc>
+      <c id="serie-cov" level="series">
+        <did><unittitle>Série couverte</unittitle></did>
+        <c id="cov-1" level="item"><did><unittitle>Lettre de Zephyrin, janvier</unittitle></did></c>
+        <c id="cov-2" level="item"><did><unittitle>Lettre de Zephyrin, février</unittitle></did></c>
+        <c id="cov-3" level="item"><did><unittitle>Lettre de Zephyrin, mars</unittitle></did></c>
+        <c id="cov-4" level="item"><did><unittitle>Lettre d'un inconnu</unittitle></did></c>
+      </c>
+      <c id="serie-under" level="series">
+        <did><unittitle>Série sous le seuil</unittitle></did>
+        <c id="under-1" level="item"><did><unittitle>Carnet de Zephyrin</unittitle></did></c>
+        <c id="under-2" level="item"><did><unittitle>Agenda de Zephyrin</unittitle></did></c>
+        <c id="under-3" level="item"><did><unittitle>Carnet anonyme</unittitle></did></c>
+        <c id="under-4" level="item"><did><unittitle>Agenda anonyme</unittitle></did></c>
+      </c>
+      <c id="serie-nested" level="series">
+        <did><unittitle>Série à deux niveaux</unittitle></did>
+        <c id="nested-1" level="subseries">
+          <did><unittitle>Sous-série un</unittitle></did>
+          <c id="nested-1-1" level="item"><did><unittitle>Photographie de Zephyrin, recto</unittitle></did></c>
+          <c id="nested-1-2" level="item"><did><unittitle>Photographie de Zephyrin, verso</unittitle></did></c>
+        </c>
+        <c id="nested-2" level="subseries">
+          <did><unittitle>Sous-série deux</unittitle></did>
+          <c id="nested-2-1" level="item"><did><unittitle>Dessin de Zephyrin, esquisse</unittitle></did></c>
+          <c id="nested-2-2" level="item"><did><unittitle>Dessin de Zephyrin, version finale</unittitle></did></c>
+        </c>
+      </c>
+      <c id="serie-self" level="series">
+        <did><unittitle>Papiers Zephyrin</unittitle></did>
+        <c id="self-1" level="item"><did><unittitle>Testament de Zephyrin</unittitle></did></c>
+        <c id="self-2" level="item"><did><unittitle>Acte notarié</unittitle></did></c>
+        <c id="self-3" level="item"><did><unittitle>Quittance</unittitle></did></c>
+        <c id="self-4" level="item"><did><unittitle>Inventaire après décès</unittitle></did></c>
+      </c>
+      <c id="serie-vide" level="series">
+        <did><unittitle>Série sans rapport</unittitle></did>
+        <c id="vide-1" level="item"><did><unittitle>Registre de comptes</unittitle></did></c>
+      </c>
+    </dsc>
+  </archdesc>
+</ead>
