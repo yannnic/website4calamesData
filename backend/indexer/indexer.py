@@ -95,6 +95,7 @@ INDEX_MAPPINGS = {
         "parent_id":        _KW,
         "ancestor_ids":     _KW,
         "children_count":   _INT,
+        "parent_children_count": _INT,
         "position":         _INT,
         "source_file":      _KW,
         # Dates

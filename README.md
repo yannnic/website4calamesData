@@ -18,8 +18,8 @@ flowchart TD
 
     subgraph API FastAPI
         direction TB
-        HELPERS[filters.py · pruning.py\nbuild_query · build_filters\napply_sibling_grouping\napply_smart_pruning]
-        SEARCH[/search\nRecherche plein texte\n+ facettes + pruning]
+        HELPERS[filters.py · grouping.py\nbuild_query · build_filters\ngrouped_search]
+        SEARCH[/search\nRecherche plein texte\n+ facettes + regroupement]
         NAV[Navigation\n/fonds · /component\n/children · /ancestors]
         PERSONS[Personnes\n/persons · /person]
         NL[/nlsearch\nRecherche NL via LLM]
@@ -48,7 +48,7 @@ flowchart TD
 |---|---|
 | `main.py` | Application FastAPI — 11 endpoints |
 | `filters.py` | `build_query()` + `build_filters()` + `parse_nl_filters()` — requêtes et filtres Elasticsearch |
-| `pruning.py` | `apply_sibling_grouping()` + `apply_smart_pruning()` — regroupement hiérarchique |
+| `grouping.py` | `grouped_search()` — regroupement hiérarchique calculé par Elasticsearch sur tous les résultats |
 | `llm.py` | `call_llm()` + chargement prompts — client LLM OpenAI-compatible |
 
 ---
@@ -253,8 +253,8 @@ Variables d'environnement de l'API :
 | `ES_USER` | `elastic` | Utilisateur (utilisé seulement si `ES_PASSWORD` est renseigné) |
 | `ES_PASSWORD` | _(vide)_ | Mot de passe (vide = pas d'authentification) |
 | `ES_INDEX` | `ead_components` | Nom de l'index |
-| `SIBLING_THRESHOLD` | `3` | Seuil de regroupement par parent |
-| `COVERAGE_THRESHOLD` | `0.75` | Seuil de couverture pour le pruning intelligent |
+| `SIBLING_THRESHOLD` | `3` | Seuil de la règle des N frères (`sibling_grouping=true`) |
+| `COVERAGE_THRESHOLD` | `0.75` | Seuil de couverture du regroupement par défaut |
 | `NL_LLM_BASE_URL` | `https://api.openai.com/v1` | Base URL LLM OpenAI-compatible |
 | `NL_LLM_API_KEY` | _(vide)_ | Clé API LLM (si vide : fallback recherche brute) |
 | `NL_LLM_MODEL` | `gpt-4o-mini` | Modèle LLM (ex. `gemma-4-31b`, `mistral`, `llama3`) |
@@ -276,7 +276,7 @@ VITE_API_URL=http://localhost:8000
 | GET | `/component?node_id=` | Un composant (valeurs brutes EAD, héritage non appliqué) |
 | GET | `/children?node_id=` | Enfants directs d'un composant, triés par position |
 | GET | `/ancestors?node_id=` | Chaîne d'ancêtres (fil d'Ariane) |
-| GET | `/search` | Recherche plein texte + facettes + pruning hiérarchique |
+| GET | `/search` | Recherche plein texte + facettes + regroupement hiérarchique |
 | GET | `/nlsearch?q=` | Recherche en langage naturel (LLM → Elasticsearch) |
 | GET | `/summarize?q=` | Résumé LLM des résultats d'une recherche |
 | GET | `/persons` | Index des personnes avec identifiant IdRef/Sudoc |
@@ -302,15 +302,16 @@ VITE_API_URL=http://localhost:8000
 | `repository` | string | Institution de conservation |
 | `limit` | int | Résultats par page (1–100, défaut 20) |
 | `offset` | int | Décalage pour la pagination |
-| `sibling_grouping` | bool | Regroupement par parent (défaut `false`) |
+| `sibling_grouping` | bool | Règle des N frères au lieu de la couverture (défaut `false`) |
 
 Tous les mots de `q` doivent être présents, éventuellement répartis sur plusieurs champs ;
 une faute de frappe est tolérée à partir de 7 lettres, deux à partir de 11. Chaque paramètre
 texte par champ (`subject`, `pers_name`…) doit correspondre **dans son propre champ**, en plus
 de `q`.
 
-La réponse contient `total` (nombre d'entrées après regroupement/pruning, qui s'appliquent
-aux 200 premiers résultats) et `total_hits` (nombre exact de composants correspondants).
+La réponse contient `total` (nombre exact d'entrées après regroupement) et `total_hits`
+(nombre exact de composants correspondants). Les facettes comptent les composants
+correspondants. La pagination va jusqu'à 10 000 entrées (`offset` ≤ 9 900).
 
 ---
 
@@ -332,6 +333,17 @@ Le parser gère :
 - `id` ou `xml:id` sur les composants (repli sur identifiant auto-généré)
 - Niveaux EAD variés : `fonds`, `recordgrp`, `series`, `subseries`, `file`, `item`…
 
-### Regroupement par parent (`sibling_grouping`)
+### Regroupement hiérarchique
 
-Si ≥ `SIBLING_THRESHOLD` résultats partagent le même parent, ils sont remplacés par ce parent (récursif). Désactivé par défaut ; à activer pour des requêtes générales.
+Avec une requête texte et sans filtre `level`, les résultats sont regroupés par Elasticsearch
+sur **l'ensemble** des composants trouvés (`backend/api/grouping.py`). Un parent remplace ses
+descendants trouvés quand ses enfants directs trouvés (ou eux-mêmes regroupés) atteignent :
+
+- **couverture** (par défaut) : au moins `COVERAGE_THRESHOLD` (75 %) de ses enfants ;
+- **règle des N frères** (`sibling_grouping=true`) : au moins `SIBLING_THRESHOLD` (3) enfants.
+
+La règle est appliquée de bas en haut jusqu'à stabilité. La liste contient les parents regroupés
+les plus hauts et les composants trouvés hors de ces sous-arbres. Un parent regroupé prend le
+score de son meilleur descendant et porte `grouped_count`, son nombre de descendants trouvés.
+Le classement, le total et la pagination sont ceux d'Elasticsearch. Un composant trouvé peut
+apparaître à côté de certains de ses descendants quand ceux-ci n'atteignent pas le seuil.

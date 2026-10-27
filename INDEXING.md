@@ -24,6 +24,8 @@ L'héritage et l'accumulation des champs sont résolus **à l'indexation**, pas 
 | `ancestor_ids` | Liste ordonnée racine → parent direct | Utilisé pour navigation et héritage |
 | `depth` | Profondeur dans l'arbre | `0` = archdesc (fonds), `1` = enfants directs… |
 | `position` | Rang parmi les frères | Ordre de tri dans la navigation |
+| `children_count` | Nombre d'enfants directs | |
+| `parent_children_count` | Nombre d'enfants du parent | `0` pour la racine. Sert au calcul de couverture du regroupement |
 
 ---
 
@@ -190,12 +192,20 @@ représenter la couverture chronologique réelle d'un fonds.
 
 ---
 
-## Regroupement par parent (`sibling_grouping`)
+## Regroupement hiérarchique
 
-Si une recherche renvoie ≥ `SIBLING_THRESHOLD` composants frères (même parent), ils sont remplacés
-par leur parent dans les résultats (récursif). Valeur par défaut : `3`.
+Avec une requête texte et sans filtre `level`, les résultats sont regroupés par Elasticsearch
+sur **l'ensemble** des composants trouvés (`backend/api/grouping.py`). Un parent remplace ses
+descendants trouvés quand ses enfants directs trouvés (ou eux-mêmes regroupés) atteignent :
 
-Désactivé par défaut dans l'API ; à activer via le paramètre `sibling_grouping=true`.
+- **couverture** (par défaut) : au moins `COVERAGE_THRESHOLD` (75 %) de ses enfants ;
+- **règle des N frères** (`sibling_grouping=true`) : au moins `SIBLING_THRESHOLD` (3) enfants.
+
+La règle est appliquée de bas en haut jusqu'à stabilité. La liste contient les parents regroupés
+les plus hauts et les composants trouvés hors de ces sous-arbres. Un parent regroupé prend le
+score de son meilleur descendant et porte `grouped_count`, son nombre de descendants trouvés.
+Le classement, le total et la pagination sont ceux d'Elasticsearch. Un composant trouvé peut
+apparaître à côté de certains de ses descendants quand ceux-ci n'atteignent pas le seuil.
 
 ---
 

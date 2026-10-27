@@ -9,7 +9,7 @@ Endpoints :
   GET /children           Enfants directs d'un composant
   GET /ancestors          Chaîne des ancêtres (fil d'Ariane)
   GET /raw                Fragment XML EAD brut d'un composant
-  GET /search             Recherche plein texte avec pruning hiérarchique
+  GET /search             Recherche plein texte avec regroupement hiérarchique
   GET /nlsearch           Recherche en langage naturel (via LLM)
   GET /summarize          Résumé LLM des résultats d'une recherche
   GET /person             Composants associés à une personne
@@ -54,11 +54,7 @@ from .llm import (
     load_nl_prompt,
     load_summarize_prompt,
 )
-from .pruning import (
-    SIBLING_THRESHOLD,
-    apply_sibling_grouping,
-    apply_smart_pruning,
-)
+from .grouping import grouped_search
 
 # ---------------------------------------------------------------------------
 # Configuration (environment variables with sensible defaults)
@@ -457,8 +453,8 @@ def search(
     century_excl: Optional[str] = Query(default=None, description="Exclude century"),
     # Pagination & options
     limit: int = Query(default=20, ge=1, le=100),
-    offset: int = Query(default=0, ge=0),
-    sibling_grouping: bool = Query(default=False, description="Apply sibling-grouping rule"),
+    offset: int = Query(default=0, ge=0, le=9900),
+    sibling_grouping: bool = Query(default=False, description="Group by the N-siblings rule instead of coverage"),
 ) -> dict[str, Any]:
     """
     Full-text search across all indexed EAD components.
@@ -470,9 +466,10 @@ def search(
     Field-specific text params (subject, geo_name, …) must each match in their
     own field, in addition to `q` (which is searched across all fields).
 
-    Smart pruning: when results span multiple hierarchy levels and no `level`
-    filter is active, child documents are promoted toward their parents to
-    return a compact, representative result set.
+    Hierarchical grouping (see grouping.py): with a text query and no `level`
+    filter, a parent replaces its matching descendants when enough of its
+    children match (coverage rule, or N-siblings rule with `sibling_grouping`).
+    `total` counts the grouped entries, `total_hits` the matching components.
     """
     filters = build_filters(
         level=level, level_excl=level_excl,
@@ -502,41 +499,26 @@ def search(
     field_terms = [(attr, val) for val, attr in TEXT_FIELD_ATTRS if val]
     has_text = bool(q or field_terms)
 
-    # Smart pruning needs a multi-level result set. With a level filter all results
-    # are at the same depth, so pruning would be a no-op — use native ES pagination.
-    needs_pruning = has_text and not level
-    local_pagination = sibling_grouping or needs_pruning
+    query = build_query(q, field_terms, filters)
+    aggs = facet_aggs(SEARCH_FACETS)
 
-    result = _search(
-        query=build_query(q, field_terms, filters),
-        # Fetch a larger pool when we need to prune/group before paginating locally.
-        size=200 if local_pagination else limit,
-        from_=0 if local_pagination else offset,
-        aggs=facet_aggs(SEARCH_FACETS),
-    )
-    hits = hits_of(result)
-    facets = facet_distribution(result)
-    total_hits = total_of(result)
-
-    if sibling_grouping:
-        hits = apply_sibling_grouping(hits, SIBLING_THRESHOLD, _get_by_id)
-    elif needs_pruning:
-        hits = apply_smart_pruning(hits, _get_by_id)
-
-    if local_pagination:
-        total = len(hits)
-        hits = hits[offset: offset + limit]
+    # With a level filter all results are at the same depth: nothing to group.
+    if sibling_grouping or (has_text and not level):
+        res = grouped_search(_search, query, "siblings" if sibling_grouping else "coverage",
+                             offset, limit, aggs)
     else:
-        total = total_hits
+        result = _search(query=query, from_=offset, size=limit, aggs=aggs)
+        res = {"hits": hits_of(result), "total": total_of(result),
+               "total_hits": total_of(result), "facets": facet_distribution(result)}
 
     return {
         "query":      q,
-        "total":      total,
-        "total_hits": total_hits,
+        "total":      res["total"],
+        "total_hits": res["total_hits"],
         "offset":     offset,
         "limit":      limit,
-        "hits":       hits,
-        "facets":     facets,
+        "hits":       res["hits"],
+        "facets":     res["facets"],
     }
 
 
@@ -544,7 +526,7 @@ def search(
 async def nl_search(
     q: str = Query(..., description="Requête en langage naturel"),
     limit: int = Query(default=20, ge=1, le=100),
-    offset: int = Query(default=0, ge=0),
+    offset: int = Query(default=0, ge=0, le=9900),
 ) -> dict[str, Any]:
     """
     Traduit une phrase en langage naturel en requête de recherche via un LLM,
@@ -573,24 +555,24 @@ async def nl_search(
         except Exception as exc:
             print(f"[nlsearch] error: {exc}")
 
-    result = _search(
-        query=build_query(interpreted["q"], [], parse_nl_filters(interpreted["filters"])),
-        size=200,
-        aggs=facet_aggs(SEARCH_FACETS),
-    )
-    hits = hits_of(result)
+    query = build_query(interpreted["q"], [], parse_nl_filters(interpreted["filters"]))
+    aggs = facet_aggs(SEARCH_FACETS)
     if interpreted["q"]:
-        hits = apply_smart_pruning(hits, _get_by_id)
+        res = grouped_search(_search, query, "coverage", offset, limit, aggs)
+    else:
+        result = _search(query=query, from_=offset, size=limit, aggs=aggs)
+        res = {"hits": hits_of(result), "total": total_of(result),
+               "total_hits": total_of(result), "facets": facet_distribution(result)}
 
-    total = len(hits)
     return {
         "natural_query": q,
         "interpreted":   interpreted,
-        "total":         total,
+        "total":         res["total"],
+        "total_hits":    res["total_hits"],
         "offset":        offset,
         "limit":         limit,
-        "hits":          hits[offset: offset + limit],
-        "facets":        facet_distribution(result),
+        "hits":          res["hits"],
+        "facets":        res["facets"],
     }
 
 

@@ -194,8 +194,8 @@
         <div style="display:flex;align-items:baseline;gap:.8rem;margin-bottom:.8rem;flex-wrap:wrap">
           <p style="font-size:.85rem;color:var(--color-muted);margin:0">
             <template v-if="results.total_hits && results.total_hits > results.total">
-              {{ results.total }} entrée{{ results.total !== 1 ? 's' : '' }}
-              <span style="opacity:.6">(~{{ results.total_hits.toLocaleString('fr-FR') }} docs)</span>
+              {{ results.total.toLocaleString('fr-FR') }} entrée{{ results.total !== 1 ? 's' : '' }}
+              <span style="opacity:.6">({{ results.total_hits.toLocaleString('fr-FR') }} composants)</span>
             </template>
             <template v-else>
               {{ results.total }} résultat{{ results.total !== 1 ? 's' : '' }}
@@ -245,6 +245,9 @@
               <span v-if="hit.date_display">{{ hit.date_display }}</span>
               <span v-if="hit.date_display && hit.repository"> &nbsp;·&nbsp; </span>
               <span v-if="hit.repository">{{ hit.repository }}</span>
+              <span v-if="hit.grouped_count" class="grouped-count">
+                {{ hit.grouped_count.toLocaleString('fr-FR') }} composant{{ hit.grouped_count > 1 ? 's' : '' }} correspondant{{ hit.grouped_count > 1 ? 's' : '' }}
+              </span>
               <span v-if="hit._rankingScore != null && q" style="margin-left:.8rem;opacity:.45;font-size:.75rem">
                 {{ (hit._rankingScore * 100).toFixed(0) }}%
               </span>

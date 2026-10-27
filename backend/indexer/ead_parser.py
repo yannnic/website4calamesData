@@ -758,7 +758,7 @@ def _century_label(year: Optional[int]) -> Optional[str]:
 
 
 def _comp_to_doc(comp: Component, resolved: dict, position: int = 0,
-                 ancestor_titles: list[str] | None = None) -> dict:
+                 ancestor_titles: list[str] | None = None, parent_children_count: int = 0) -> dict:
     """Build one Elasticsearch document from a Component and its resolved fields."""
     return {
         "id": re.sub(r"[^a-zA-Z0-9_-]", "_", comp.node_id),
@@ -807,20 +807,25 @@ def _comp_to_doc(comp: Component, resolved: dict, position: int = 0,
         "repository_id": resolved["repository_id"],
         "century": _century_label(resolved["date_start"]),
         "children_count": len(comp.children),
+        # Children count of the parent: lets search-time grouping compute coverage
+        # ratios from the children alone.
+        "parent_children_count": parent_children_count,
         "ancestor_titles": list(ancestor_titles) if ancestor_titles else [],
     }
 
 
 def _walk_and_index(comp: Component, parent_ctx: dict, docs: list[dict],
-                    position: int = 0, ancestor_titles: list[str] | None = None) -> None:
+                    position: int = 0, ancestor_titles: list[str] | None = None,
+                    parent_children_count: int = 0) -> None:
     if ancestor_titles is None:
         ancestor_titles = []
     ctx = _build_inherited_context(comp, parent_ctx)
     resolved = _apply_inheritance(comp, parent_ctx)
-    docs.append(_comp_to_doc(comp, resolved, position, ancestor_titles))
+    docs.append(_comp_to_doc(comp, resolved, position, ancestor_titles, parent_children_count))
     child_ancestor_titles = ancestor_titles + [comp.title]
     for i, child in enumerate(comp.children):
-        _walk_and_index(child, ctx, docs, position=i, ancestor_titles=child_ancestor_titles)
+        _walk_and_index(child, ctx, docs, position=i, ancestor_titles=child_ancestor_titles,
+                        parent_children_count=len(comp.children))
 
 
 def components_to_docs(root: Component) -> list[dict]:
