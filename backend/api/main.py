@@ -13,6 +13,8 @@ Endpoints :
   GET /nlsearch           Recherche en langage naturel (via LLM)
   GET /summarize          Résumé LLM des résultats d'une recherche
   GET /person             Composants associés à une personne
+  GET /files              Fichiers EAD du dossier et statut d'indexation
+  POST /upload            Dépôt d'un fichier EAD (jeton UPLOAD_TOKEN requis)
 
 Dépendances : MeiliSearch (MEILI_HOST), LLM OpenAI-compatible (NL_LLM_*)
 Variables d'environnement : voir README.md
@@ -20,13 +22,16 @@ Variables d'environnement : voir README.md
 
 from __future__ import annotations
 
+import json
 import os
+import re
+import secrets
 from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Any, Optional
 
 import meilisearch
-from fastapi import FastAPI, HTTPException, Query
+from fastapi import FastAPI, File, Header, HTTPException, Query, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import PlainTextResponse
 from lxml import etree
@@ -54,6 +59,11 @@ MEILI_HOST  = os.getenv("MEILI_HOST", "http://localhost:7700")
 DATA_DIR    = Path(os.getenv("DATA_DIR", Path(__file__).parent.parent.parent / "data" / "calames"))
 MEILI_KEY   = os.getenv("MEILI_KEY", "")
 MEILI_INDEX = os.getenv("MEILI_INDEX", "ead_components")
+
+# Dépôt de fichiers (désactivé si UPLOAD_TOKEN est vide)
+UPLOAD_TOKEN   = os.getenv("UPLOAD_TOKEN", "")
+MAX_UPLOAD_MB  = int(os.getenv("MAX_UPLOAD_MB", "20"))
+WATCHER_STATE  = Path(os.getenv("STATE_FILE", "/state/watcher.json"))
 
 
 # ---------------------------------------------------------------------------
@@ -116,7 +126,7 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=["*"],   # tighten in production
-    allow_methods=["GET"],
+    allow_methods=["GET", "POST"],
     allow_headers=["*"],
 )
 
@@ -300,6 +310,70 @@ def get_raw(node_id: str = Query(..., description="Component node_id")) -> str:
         raise HTTPException(status_code=404, detail=f"Element '{component_id}' not found in {source_file}")
 
     return etree.tostring(el, encoding="unicode", pretty_print=True)
+
+
+@app.get("/files", summary="EAD files and their indexing status")
+def list_files() -> dict:
+    """
+    List the .xml files of DATA_DIR with the status written by the watcher :
+    pending (pas encore vu), indexing, indexed, error.
+    """
+    try:
+        state = json.loads(WATCHER_STATE.read_text(encoding="utf-8"))
+    except (FileNotFoundError, json.JSONDecodeError):
+        state = {}
+    files = []
+    for p in sorted(DATA_DIR.glob("*.xml"), key=lambda p: p.stat().st_mtime, reverse=True):
+        st = p.stat()
+        info = state.get(p.name, {})
+        stale = (info.get("mtime"), info.get("size")) != (st.st_mtime, st.st_size)
+        files.append({
+            "name": p.name,
+            "size": st.st_size,
+            "status": "pending" if stale else info.get("status", "pending"),
+            "docs": None if stale else info.get("docs"),
+            "error": None if stale else info.get("error"),
+            "updated_at": info.get("updated_at"),
+        })
+    return {"upload_enabled": bool(UPLOAD_TOKEN), "files": files}
+
+
+_SAFE_NAME = re.compile(r"[^A-Za-z0-9._-]+")
+
+
+@app.post("/upload", summary="Upload an EAD file (indexed asynchronously by the watcher)")
+async def upload(
+    file: UploadFile = File(...),
+    x_upload_token: str = Header(default=""),
+) -> dict:
+    if not UPLOAD_TOKEN:
+        raise HTTPException(status_code=403, detail="Le dépôt de fichiers est désactivé sur ce serveur.")
+    if not secrets.compare_digest(x_upload_token, UPLOAD_TOKEN):
+        raise HTTPException(status_code=401, detail="Jeton de dépôt invalide.")
+
+    name = _SAFE_NAME.sub("_", Path(file.filename or "").name).strip("._")
+    if not name.lower().endswith(".xml"):
+        raise HTTPException(status_code=400, detail="Le fichier doit avoir l'extension .xml.")
+
+    content = await file.read(MAX_UPLOAD_MB * 1024 * 1024 + 1)
+    if len(content) > MAX_UPLOAD_MB * 1024 * 1024:
+        raise HTTPException(status_code=413, detail=f"Fichier trop volumineux (max {MAX_UPLOAD_MB} Mo).")
+
+    try:
+        root = etree.fromstring(content, parser=etree.XMLParser(
+            load_dtd=False, no_network=True, resolve_entities=False,
+        ))
+    except etree.XMLSyntaxError as exc:
+        raise HTTPException(status_code=400, detail=f"XML mal formé : {exc}")
+    if etree.QName(root).localname != "ead":
+        raise HTTPException(status_code=400, detail="L'élément racine doit être <ead>.")
+
+    # Écriture atomique : le watcher ne voit jamais un fichier partiel.
+    dest = DATA_DIR / name
+    tmp = DATA_DIR / f".{name}.part"
+    tmp.write_bytes(content)
+    os.replace(tmp, dest)
+    return {"name": name, "status": "pending"}
 
 
 @app.get("/search", summary="Full-text search")

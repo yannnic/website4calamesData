@@ -15,6 +15,7 @@
         <RouterLink :to="lastSearchUrl">Recherche</RouterLink>
         <RouterLink to="/search/advanced">Recherche avancée</RouterLink>
         <RouterLink to="/persons">Index des personnes</RouterLink>
+        <RouterLink to="/depot">Déposer</RouterLink>
       </nav>
     </div>
   </header>

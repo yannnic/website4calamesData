@@ -1,3 +1,10 @@
+# Déploiement de démonstration — voir DEPLOY.md
+#
+#   cp .env.example .env   # puis renseigner les secrets
+#   docker compose up -d --build
+#
+# Seul le frontend (nginx) est exposé ; il relaie /api vers FastAPI.
+
 services:
 
   meilisearch:
@@ -5,37 +12,54 @@ services:
     volumes:
       - meili_data:/meili_data
     environment:
-      MEILI_MASTER_KEY: ${MEILI_MASTER_KEY:-changeme}
-      MEILI_ENV: development
+      MEILI_MASTER_KEY: ${MEILI_MASTER_KEY:?définir MEILI_MASTER_KEY dans .env}
+      MEILI_ENV: production
+      MEILI_NO_ANALYTICS: "true"
     healthcheck:
       test: ["CMD", "curl", "-sf", "http://localhost:7700/health"]
-      interval: 30s
+      interval: 10s
       timeout: 3s
       retries: 12
+    restart: unless-stopped
 
-  indexer:
+  # Surveille le dossier EAD : indexe les fichiers nouveaux/modifiés,
+  # retire de l'index les fichiers supprimés.
+  watcher:
     build: ./backend
-    command: python indexer/indexer.py /data/calames --host http://meilisearch:7700 --api-key ${MEILI_MASTER_KEY:-changeme}
+    command: python indexer/watcher.py
     volumes:
-      - ./data:/data:ro
+      - ${EAD_DIR:-ead_data}:/data/ead
+      - ./demo/seed:/seed:ro
+      - watcher_state:/state
     environment:
+      EAD_DIR: /data/ead
+      SEED_DIR: /seed
+      STATE_FILE: /state/watcher.json
       MEILI_HOST: http://meilisearch:7700
-      MEILI_KEY: ${MEILI_MASTER_KEY:-changeme}
+      MEILI_KEY: ${MEILI_MASTER_KEY}
+      MEILI_INDEX: ead_components
     depends_on:
       meilisearch:
         condition: service_healthy
-    restart: on-failure
+    restart: unless-stopped
 
   api:
     build: ./backend
-    ports:
-      - "8001:8000"
+    command: uvicorn api.main:app --host 0.0.0.0 --port 8000 --root-path /api --proxy-headers --forwarded-allow-ips="*"
     volumes:
-      - ./data:/data:ro
+      - ${EAD_DIR:-ead_data}:/data/ead
+      - watcher_state:/state:ro
     environment:
       MEILI_HOST: http://meilisearch:7700
-      MEILI_KEY: ${MEILI_MASTER_KEY:-changeme}
-      DATA_DIR: /data/calames
+      MEILI_KEY: ${MEILI_MASTER_KEY}
+      MEILI_INDEX: ead_components
+      DATA_DIR: /data/ead
+      STATE_FILE: /state/watcher.json
+      UPLOAD_TOKEN: ${UPLOAD_TOKEN:-}
+      MAX_UPLOAD_MB: ${MAX_UPLOAD_MB:-20}
+      NL_LLM_BASE_URL: ${NL_LLM_BASE_URL:-}
+      NL_LLM_API_KEY: ${NL_LLM_API_KEY:-}
+      NL_LLM_MODEL: ${NL_LLM_MODEL:-}
     depends_on:
       meilisearch:
         condition: service_healthy
@@ -45,11 +69,14 @@ services:
     build:
       context: ./frontend
       args:
-        VITE_API_URL: ${VITE_API_URL:-http://localhost:8001}
+        VITE_API_URL: /api
     ports:
-      - "80:80"
+      - "${HTTP_PORT:-80}:80"
     depends_on:
       - api
+    restart: unless-stopped
 
 volumes:
   meili_data:
+  ead_data:
+  watcher_state:

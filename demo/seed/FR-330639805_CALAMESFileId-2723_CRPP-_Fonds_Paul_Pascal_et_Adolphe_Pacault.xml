@@ -1,0 +1,2750 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ead>
+  <eadheader>
+    <eadid url="https://calames.abes.fr/pub/ms/FileId-2723" identifier="FR-330639805_CALAMESFileId-2723">FR-330639805_CALAMESFileId-2723_CRPP- Fonds Paul Pascal et Adolphe Pacault</eadid>
+    <filedesc>
+      <titlestmt><titleproper>CRPP- Fonds Paul Pascal et Adolphe Pacault</titleproper>manuscrits du chimiste Paul Pascal (1880-1968), donné par A. Pacault au CRPP de Bordeaux</titlestmt>
+      <publicationstmt>
+        <publisher>Agence Bibliographique de l'Enseignement supérieur</publisher>
+      </publicationstmt>
+    </filedesc>
+    <profiledesc>
+      <creation>rédigé en 2018</creation>
+    </profiledesc>
+    <revisiondesc>
+      <change>
+        <date>2018</date>
+      </change>
+    </revisiondesc>
+  </eadheader>
+  <archdesc level="fonds">
+    <did>
+      <repository><corpname authfilenumber="330639805" source="Répertoire_des_Centres_de_Ressources" normal="BORDEAUX. Réseau documentaire universitaire" role="producteur">BORDEAUX. Réseau documentaire universitaire. Centre de Recherche Paul Pascal - CRPP</corpname><address><addressline> 115 Avenue du Dr Albert Schweitzer </addressline><addressline>33600 Pessac</addressline><addressline>tél. : 05 56 84 56 56</addressline></address>. </repository>
+      <unittitle>Fonds Paul Pascal et Adolphe Pacault</unittitle>
+      <origination>Le fonds de <persname authfilenumber="03156464X" role="producteur" normal="Pascal, Paul (1880-1968)" source="Sudoc">Paul Pascal</persname> a été hérité par Adolphe Pacault, son élève. C'est un fonds d'archives privées contenant principalement des documents personnels (correspondance, actes de naissances, diplômes d’études, médailles, notes de recherche et notes de cours, photographies et objets). Le fonds <persname authfilenumber="027055078" role="producteur" normal="Pacault, Adolphe (1918-2008)" source="Sudoc">Adolphe Pacault</persname>, qui le prolonge, contient principalement des documents personnels (notes de cours et de lecture, ouvrages lui ayant appartenu, coupures de presse), de la correspondance, des photos et objets ayant trait à sa vie de scientifique.Il a également rassemblé au cours de sa présence au CRPP une documentation sur le parcours professionnel du  personnel du centre, différents colloques, discours, conférences et célébrations ainsi que les principales publications de son laboratoire.</origination>
+      <physloc><emph>Organisation spatiale du bureau d’Adolphe Pacault :
+</emph>A droite de la porte en entrant : trois étagères : une ouverte et deux vitrines. La section ouverte contient les archives hors-format (Cotes 1.9.4.5. ; 1.9.6. ; 1.8.1.12).
+La vitrine de gauche contient le fonds d'objets et médailles ainsi que quelques photographies encadrées. La vitrine de droite contient les fonds documentaires Pacault et Pascal ainsi que l’épée d’académicien de Paul Pascal. 
+Le présent inventaire n'inclut pas les ouvrages imprimés  ayant appartenus à Adolphe Pacault et situés dans la pièce. 
+</physloc>
+    </did>
+    <scopecontent>
+      <p>: Manuscrits du chimiste <persname authfilenumber="03156464X" role="producteur" normal="Pascal, Paul (1880-1968)" source="Sudoc">Paul Pascal</persname> (1880-1968), donnés par <persname authfilenumber="027055078" role="producteur" normal="Pacault, Adolphe (1918-2008)" source="Sudoc">Adolphe Pacault</persname> (1918-2008) au Centre de Recherche Paul Pascal (Bordeaux-Pessac) et archives personnelles d’Adolphe Pacault</p>
+    </scopecontent>
+    <arrangement>
+      <p>2 ensembles distincts contenant des cahiers de notes manuscrites, objets et médailles, boites de photographies et de plaques de verre, dossiers de documents papiers.</p>
+    </arrangement>
+    <processinfo>
+      <p>Le fonds a été inventorié puis conditionné en boite à ph neutre. Le fonds Paul Pascal et le fonds Adolphe Pacault ont été différenciés. Pour chacun de ces fonds, on distingue une partie documentaire (notes manuscrites, correspondance), une partie iconographique (photographies, reproductions), et une partie constituée d’objets (équipement photographique, médailles, décorations).</p>
+    </processinfo>
+    <accessrestrict>
+      <p>L'accès aux fonds est soumis à une autorisation préalable, conditionnée par la justification d'une recherche.</p>
+    </accessrestrict>
+    <dsc type="othertype">
+      <c id="Calames-201917101551151">
+        <did>
+          <unitid type="cote">1.</unitid>
+          <unittitle>Fonds historique Paul Pascal</unittitle>
+        </did>
+        <c id="Calames-201917101599612">
+          <did>
+            <unitid type="cote">1.1.</unitid>
+            <unittitle><genreform type="genre, forme et fonction" normal="correspondance">Correspondance</genreform> de <persname role="070" normal="Pascal, Paul (1880-1968)" source="Sudoc" authfilenumber="03156464X">Paul Pascal</persname></unittitle>
+          </did>
+          <c id="Calames-201917101599703">
+            <did>
+              <unitid type="division">1.1.1.</unitid>
+              <unittitle>Courrier tapuscrit envoyé à l’intention de <persname role="660" normal="Pascal, Paul (1880-1968)" source="Sudoc" authfilenumber="03156464X">Paul Pascal</persname> par <persname authfilenumber="029957583" role="070" normal="Maurain, Charles (1871-1967)" source="Sudoc">Charles Maurain</persname>, Directeur de l'Institut de physique du globe. <unitdate era="ce" calendar="gregorian" normal="30 mai 1930">30 mai 1930</unitdate></unittitle>
+              <physdesc>
+                <extent>1 p.</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Ce document présente un tableau des différents grades et classes des corps enseignants des facultés de sciences.</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201917101599704">
+            <did>
+              <unitid type="division">1.1.2.</unitid>
+              <unittitle>Correspondance manuscrite  entre <persname role="070">Amélie de Berghes</persname> (émettrice) et <persname role="660">Marie</persname> (réceptrice) rédigé à Paris. </unittitle>
+              <physdesc>
+                <extent>2 p.</extent>
+              </physdesc>
+              <unitdate era="ce" calendar="gregorian" normal="19530607">7 juin 1853</unitdate>
+            </did>
+            <scopecontent>
+              <p>Le contenu est relatif aux familles respectives des deux femmes évoquées.</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201917101599705">
+            <did>
+              <unitid type="division">1.1.3.</unitid>
+              <unittitle>Lettre manuscrite de recommandation de Paul Pascal afin que lui soit attribué le prix <persname role="sujet" normal="Houzeau, Jean-Charles (1820-1888)" source="Sudoc" authfilenumber="070303215">Houzeau</persname>. </unittitle>
+              <physdesc>
+                <extent> 1 p.</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Le document n’est pas daté mais signé par : <persname role="070" normal="Gautier">Gautier</persname>, <persname role="070" normal="Lemoine">Lemoine</persname>, <persname role="070" normal="Haller">Haller</persname>, <persname role="070" normal="J[un]gfleisch">J[un]gfleisch</persname>, <persname role="participant" normal="Moureu">Moureu</persname>, <persname role="070" normal="Jehloering">Jehloering</persname>, <persname role="070" normal="Caru[ch]">Caru[ch]</persname>, <persname role="070" normal="Maqui[enne]">Maqui[enne]</persname>, <persname role="070" normal="Le Chatelier">Le Chatelier</persname>, rapporteur. Date : S.</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-20191711183066">
+            <did>
+              <unitid type="division">1.1.4.</unitid>
+              <unittitle>	Courrier tapuscrit à destination de <persname authfilenumber="03156464X" role="660" normal="Pascal, Paul (1880-1968)" source="Sudoc">Paul Pascal</persname> et rédigé par <persname authfilenumber="03510130X" role="070" normal="Haller, Albin (1849-1925)" source="Sudoc">Albin Haller</persname> à <geogname normal="Longuyon (Meurthe-et-Moselle ; région)" source="Sudoc" authfilenumber="03011375X" role="lieu de production">Longuyon</geogname>.  
+</unittitle>
+              <physdesc>
+                <extent>2 p.</extent>
+              </physdesc>
+              <unitdate era="ce" calendar="gregorian" normal="00000904">04 septembre [ ....]</unitdate>
+            </did>
+            <scopecontent>
+              <p>Ce courrier évoque l’éventuelle démission de <persname normal="Le Chatelier, Henry (1850-1936)" source="Sudoc" authfilenumber="032716850" role="sujet">Henry Le Chatelier</persname> détenteur d’une chaire en science.</p>
+            </scopecontent>
+          </c>
+        </c>
+        <c id="Calames-201917111832010" level="file">
+          <did>
+            <unitid type="cote">1.2.</unitid>
+            <unittitle>Notes sur l’œuvre de <persname authfilenumber="050271342" normal="Paul, Pascal" source="Sudoc" role="sujet">Paul Pascal</persname> rassemblées par <persname authfilenumber="027055078" normal="Pacault, Adolphe (1918-2008)" source="Sudoc" role="070">Adolphe Pacault</persname></unittitle>
+          </did>
+          <c id="Calames-20191711183207">
+            <did>
+              <unitid type="division">1.2.1.</unitid>
+              <unittitle>Rapport sur les recherches de magnétochimie de Mr. Pascal par Mr <persname normal="Le Chatelier, Henry (1850-1936)" source="Sudoc" authfilenumber="032716850" role="070">Henry Le Chatelier</persname>. </unittitle>
+              <physdesc>
+                <physfacet type="reliure">Tapuscrits, reliées par des attaches parisiennes.</physfacet>
+                <extent>12 p.</extent>
+              </physdesc>
+            </did>
+          </c>
+          <c id="Calames-20191711183208">
+            <did>
+              <unitid type="division">1.2.2.</unitid>
+              <unittitle>	Notice biographique sur M. Paul Pascal .</unittitle>
+              <physdesc>
+                <physfacet type="reliure">Tapuscrits, non reliés</physfacet>
+                <extent>2 p.</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Notice sur M. Paul Pascal exposant les principaux jalons de sa vie : Services civils, services militaires, titres scientifiques, titres industriels.</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-20191711183209">
+            <did>
+              <unitid type="division">1.2.3.</unitid>
+              <unittitle>Notice nécrologique sur Paul Pascal  (1880-1968), Membre de la Section de Chimie, par M. Adolphe Pacault, Correspondant de l’Académie.</unittitle>
+              <physdesc>
+                <extent>8 p. 2 exemplaires.</extent>
+              </physdesc>
+              <unitdate era="ce" calendar="gregorian" normal="1968">1968</unitdate>
+            </did>
+            <scopecontent>
+              <p>Accompagné d’une note ms. « [environ] 3000 signes par page donc dans ce texte [environ] 20000 signes Que faire ? ».Tiré-à-part de : Vie Académique, C. R. Acad. Sc. Paris, t. 266, p.68-75 (19 février 1968).</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2019171112973510">
+            <did>
+              <unitid type="division">1.2.4.</unitid>
+              <unittitle>	Jubilé scientifique du Professeur Paul Pascal. <corpname role="340" normal="Masson et Cie éditeurs (1804-2005)" source="Sudoc" authfilenumber="254597556">Masson</corpname> et Cie. <unitdate normal="1er juin 1962">1<emph render="super">er</emph>er juin 1962</unitdate>.</unittitle>
+              <physdesc>
+                <extent>44 p. 2 exemplaires</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Allocations prononcées le 1er juin 1962 à l’occasion de la remise de la médaille du professeur Paul Pascal, membre de l’Institut. avec  <persname role="070" normal="Zamansky, Marc (1916-1996)" source="Sudoc" authfilenumber="032598335">Marc Zamansky</persname><persname role="070" normal="Tavernier Paul">Paul Tavernier</persname><persname role="070" normal=" Brocart Jean">Jean Brocart</persname><persname role="070" normal="Brusset, Henry (1913-....)" source="Sudoc" authfilenumber="075223465">Henry Brusset</persname></p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2019171112973511">
+            <did>
+              <unitid type="division">1.2.5.</unitid>
+              <unittitle>Discours de <persname authfilenumber="031566545" role="070" normal="Champetier, Georges (1905-1980)" source="Sudoc">Georges Champetier</persname> pour les Funérailles de Paul Pascal Membre de la section Chimie : 
+ à l’église Saint Gervais de la <geogname normal="Falaise (Calvados)" source="Sudoc" authfilenumber="027692442">Falaise</geogname>.<corpname role="340" normal="Académie des sciences (France)" source="Sudoc" authfilenumber="026357852">Institut de France</corpname></unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1968">1968</unitdate>
+            </did>
+            <scopecontent>
+              <p>Accompagné d’une version tapuscrit et annoté du discours.</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2019171214133813">
+            <did>
+              <unitid type="division">1.2.6.</unitid>
+              <unittitle>	Article de <persname role="070" authfilenumber="130010251" normal="Godfrin, A. (chimiste)" source="Sudoc">Godfrin, A.</persname> rendant hommage au professeur Paul Pascal. </unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1968">1968</unitdate>
+            </did>
+            <scopecontent>
+              <p>Au sujet de l'article <bibref href="https://www.sudoc.fr/039255212">Annales de Chimie, Tome 3, 1968 p. 491-493.</bibref></p>
+              <p>Trouvé dans <bibref href="https://www.sudoc.fr/039255212">BUST FP 8057</bibref></p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2019171214133814">
+            <did>
+              <unitid type="division">1.2.7.</unitid>
+              <unittitle>Biographie relative à Paul Pascal : éducation, carrière professionnelle, accomplissements.</unittitle>
+              <physdesc>
+                <dimensions>2 exemplaires</dimensions>
+              </physdesc>
+            </did>
+          </c>
+          <c id="Calames-2019171214133815">
+            <did>
+              <unitid type="division">1.2.8.</unitid>
+              <unittitle>Notes préparatoires en vue d’un discours ou d’un article en mémoire de Paul Pascal, rédigé par Adolphe Pacault.
+</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1968">1968</unitdate>
+            </did>
+          </c>
+        </c>
+        <c id="Calames-2019171214133817" level="otherlevel" otherlevel="notice">
+          <did>
+            <unitid type="cote">1.3.</unitid>
+            <unittitle>Diplômes et actes originaux de <persname authfilenumber="03156464X" role="sujet" normal="Pascal, Paul (1880-1968)" source="Sudoc">Paul Pascal</persname></unittitle>
+          </did>
+          <c id="Calames-2019171214133816">
+            <did>
+              <unitid type="division">1.3.1.</unitid>
+              <unittitle>Acte de naissance de Marie, Constance, Joseph, Reynault le <unitdate normal="18340324">24 mars 1834</unitdate>.</unittitle>
+            </did>
+            <scopecontent>
+              <p>  Extrait du registre aux actes de naissance de la Commune de [?], Canton d’[?], Arrondissement de Béthune, Département du Pas-de-Calais pour l’année mil huit cent trente-quatre [1834].<persname normal="Reynault, Victor, Florent, Joseph" role="sujet">Reynault, Victor, Florent, Joseph</persname> (père), <persname normal="Cre[s]pin, Céline" role="sujet">Cre[s]pin, Céline</persname> (mère)
+</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2019171213316318">
+            <did>
+              <unitid type="division">1.3.2.</unitid>
+              <unittitle>	Diplôme de Docteur ès Sciences physiques de  Paul Pascal</unittitle>
+              <physdesc>
+                <dimensions>Format A3</dimensions>
+                <extent>1p.</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Délivré par le Recteur de l’Académie de Paris le <unitdate normal="19090623">23 juin 1909</unitdate>.</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2019171213316519">
+            <did>
+              <unitid type="division">1.3.3.</unitid>
+              <unittitle>	Diplôme de Licencié ès Sciences délivré le <unitdate normal="19050220">20 février 1905</unitdate> à Paul Pascal. </unittitle>
+              <physdesc>
+                <dimensions>Format A3</dimensions>
+                <extent>1 p.</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Ce diplôme comprend plusieurs certificats : certificat de calcul différentiel et calcul intégral, certificat de physique générale, certificat de minéralogie, certificat de mécanique rationnelle, certificat de chimie générale.</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2019171213316520">
+            <did>
+              <unitid type="division">1.3.4.</unitid>
+              <unittitle>	Procès-verbal d’installation de M. Paul Pascal dans les fonctions de Professeur de Physique au Lycée de Douai le <unitdate normal="19051003">3 octobre 1905</unitdate></unittitle>
+              <physdesc>
+                <extent>1 p.</extent>
+              </physdesc>
+            </did>
+          </c>
+          <c id="Calames-2019171213316521">
+            <did>
+              <unitid type="division">1.3.5.</unitid>
+              <unittitle>Nomination de Paul Pascal : Agrégé des Lycées dans l’ordre des Sciences physiques le <unitdate normal="19050823">23 août 1905</unitdate>. Signé par <persname role="070" authfilenumber="147281814" normal="Bienvenu-Martin, Jean-Baptiste (1847-1943)" source="Sudoc">Martin Bienvenu</persname> .</unittitle>
+              <physdesc>
+                <extent>1 p.</extent>
+              </physdesc>
+            </did>
+          </c>
+          <c id="Calames-2019171213316522">
+            <did>
+              <unitid type="division">1.3.6.</unitid>
+              <unittitle>Document cartonné présentant les félicitations à l’élève Pascal [fils de Paul Pascal ?] pour le 2e trimestre de l’année  de la classe de 7è au Lycée d’Angoulême [correspond à la 5è actuelle]. </unittitle>
+              <physdesc>
+                <extent>1 p.</extent>
+              </physdesc>
+              <unitdate era="ce" calendar="gregorian" normal="1917/1918">1917-1918</unitdate>
+            </did>
+          </c>
+          <c id="Calames-2019171412864623">
+            <did>
+              <unitid type="division">1.3.7.</unitid>
+              <unittitle>Document cartonné présentant les félicitations à l’élève Pascal [fils de Paul Pascal ?] pour le 1er trimestre de l’année  de la classe de 7è au Lycée d’Angoulême [correspond à la 5è actuelle]. </unittitle>
+              <physdesc>
+                <extent>1 p.</extent>
+              </physdesc>
+              <unitdate era="ce" calendar="gregorian" normal="1917/1918">1917-1918</unitdate>
+            </did>
+          </c>
+          <c id="Calames-2019171213316523">
+            <did>
+              <unitid type="division">1.3.8.</unitid>
+              <unittitle>	Nomination à titre provisoire de Paul Pascal comme Professeur de Physique (6e classe) au Lycée de Douai en remplacement de M. Lefebvre. Document daté du . </unittitle>
+              <physdesc>
+                <extent>1 p</extent>
+              </physdesc>
+              <unitdate era="ce" calendar="gregorian" normal=" 19050823">23 août 1905</unitdate>
+            </did>
+          </c>
+          <c id="Calames-2019171213316524">
+            <did>
+              <unitid type="division">1.3.9.</unitid>
+              <unittitle>Diplôme de Bachelier de l’Enseignement secondaire classique de Paul Pascal. Délivré le <unitdate normal="18981004">04 octobre 1898</unitdate> par l’<corpname role="340" normal="Académie d’Aix">Académie d’Aix</corpname>. Mention Lettres-Mathématiques</unittitle>
+              <physdesc>
+                <dimensions> Format A3</dimensions>
+                <extent>1p</extent>
+              </physdesc>
+            </did>
+          </c>
+          <c id="Calames-2019171213316525">
+            <did>
+              <unitid type="division">1.3.10.</unitid>
+              <unittitle>	Certificat d’études primaires de Paul Pascal, délivré le <unitdate normal="18900628">28 juin 1890</unitdate> à <geogname normal="Bois-Colombes (Hauts-de-Seine)" source="Sudoc" authfilenumber="079205577" role="lieu de production">Bois-Colombes</geogname> (Seine). </unittitle>
+              <physdesc>
+                <extent>1p</extent>
+              </physdesc>
+            </did>
+          </c>
+          <c id="Calames-2019171213316526">
+            <did>
+              <unitid type="division">1.3.11.</unitid>
+              <unittitle>Diplôme de fin d’études d’enseignement secondaire des jeunes filles attribué à <persname role="sujet" normal="Couvreur Laurence Césarine">Laurence Césarine Couvreur</persname>, le <unitdate normal="19000805">05 aout 1900</unitdate> à <geogname normal="Lille (Nord)" source="Sudoc" authfilenumber="02733726X" role="lieu de production">Lille</geogname>. </unittitle>
+              <physdesc>
+                <dimensions> Format A3</dimensions>
+                <extent>1p.</extent>
+              </physdesc>
+            </did>
+          </c>
+          <c id="Calames-2019171213316529">
+            <did>
+              <unitid type="division">1.3.12.</unitid>
+              <unittitle>Courrier manuscrit, adressé par <persname authfilenumber="03156464X" role="070" normal="Pascal, Paul (1880-1968)" source="Sudoc">Paul Pascal</persname> à ses parents le <unitdate normal="18851231">31 décembre 1885</unitdate>.</unittitle>
+              <physdesc>
+                <dimensions>Format A3</dimensions>
+                <extent>1p.</extent>
+              </physdesc>
+            </did>
+          </c>
+          <c id="Calames-2019171413457929">
+            <did>
+              <unitid type="division">1.3.13.</unitid>
+              <unittitle>	Extrait du registre des actes de naissance de la ville de <geogname role="lieu de production" normal="Saint-Pol-sur-Ternoise (Pas-de-Calais)" source="Sudoc" authfilenumber="027620743">Saint-Pol-Sur-Ternoise</geogname>, chef-lieu d’arrondissement, département du Pas-de-Calais. Naissance de Paul, Victor, Henri, Pascal. </unittitle>
+              <physdesc>
+                <extent>1 p.</extent>
+              </physdesc>
+              <unitdate era="ce" calendar="gregorian" normal="1880">1880</unitdate>
+            </did>
+            <scopecontent>
+              <p><persname role="sujet" normal="Pascal, Alfred Emmanuel Dominique">Pascal, Alfred Emmanuel Dominique </persname>[père] ; <persname role="sujet" normal="Delape, Marie Clémentine Céline">Delape, Marie Clémentine Céline</persname>(mère)</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2019171413457930">
+            <did>
+              <unitid type="division">1.3.14.</unitid>
+              <unittitle>Nomination d’<persname normal="Pascal, Alfred Emmanuel" role="sujet">Alfred Emmanuel Pascal</persname> comme Officier d’Académie. Fait à Paris le <unitdate normal="18820714">14 juillet 1882</unitdate>. </unittitle>
+              <physdesc>
+                <extent>1 p.</extent>
+              </physdesc>
+            </did>
+          </c>
+          <c id="Calames-2019171413457931">
+            <did>
+              <unitid type="division">1.3.15.</unitid>
+              <unittitle>Courrier adressé à Paul Pascal le <unitdate normal="19370114">14 janvier 1937</unitdate> par l’académie des sciences et des arts de Rio de Janeiro afin de lui décerné un diplôme pour le mérite culturel.</unittitle>
+            </did>
+            <scopecontent>
+              <p>Ce diplôme est décerné grâce à la publication de l’ouvrage « pour la chimie générale et minérale ».</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2019171413457932">
+            <did>
+              <unitid type="division">1.3.16.</unitid>
+              <unittitle>	Ordre national de la légion d’honneur décerné à <persname normal="Pascal, Alfred" role="sujet">Alfred Pascal</persname> le <unitdate normal="18880828">28 aout 1888</unitdate>. Ordre n°38132. </unittitle>
+              <physdesc>
+                <dimensions>Format A3,</dimensions>
+                <extent>1 p</extent>
+              </physdesc>
+            </did>
+          </c>
+          <c id="Calames-2019171413457933">
+            <did>
+              <unitid type="division">1.3.17.</unitid>
+              <unittitle>	Acte de baptême vierge comportant quelques annotations manuscrites « <persname role="020" normal="Abbé de Bonfils">Abbé de Bonfils</persname>, curé de Colombe ». Fin XIXème. </unittitle>
+              <physdesc>
+                <dimensions>Format A3, plié.</dimensions>
+              </physdesc>
+              <unitdate era="ce" calendar="gregorian" normal="1880 ">1880 environ</unitdate>
+            </did>
+          </c>
+          <c id="Calames-2019171413457934">
+            <did>
+              <unitid type="division">1.3.18.</unitid>
+              <unittitle>Actes officiels d’attribution de médailles d’honneur à <persname authfilenumber="03156464X" role="sujet" normal="Pascal, Paul (1880-1968)" source="Sudoc">Paul, Victor, Henri, Pascal</persname>, </unittitle>
+              <physdesc>
+                <physfacet type="conditionnement">conditionnés dans des tubes cartonnés.</physfacet>
+                <dimensions>Format A3</dimensions>
+              </physdesc>
+              <unitdate era="ce" calendar="gregorian" normal="1917/1964">1917-1964</unitdate>
+            </did>
+            <scopecontent>
+              <p>-	Grand officier de la légion d’honneur, le 28 octobre 1964
+-	Commandeur de la légion d’honneur, le 17 septembre 1953
+-	Officier de la légion d’honneur, le 14 mars 1947
+-	Chevalier de la légion d’honneur, le 10 juillet 1917
+-	Palmes académiques, le 5 juillet 1957</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2019171413457935">
+            <did>
+              <unitid type="division">1.3.19.</unitid>
+              <unittitle>Arrêté du ministère de l’instruction publique et des beaux-arts pour la nomination de Paul Pascal comme Officier d’Académie le <unitdate normal="19120713">13 juillet 1912</unitdate>.
+</unittitle>
+              <physdesc>
+                <extent>1 p</extent>
+              </physdesc>
+            </did>
+          </c>
+          <c id="Calames-2019171213316531">
+            <did>
+              <unitid type="division">1.3.20.</unitid>
+              <unittitle>	Arrêté du ministère de l’instruction publique et des beaux-arts pour la nomination de Paul Pascal comme Officier de l’instruction publique le <unitdate normal="19200904">04 septembre 1920</unitdate>.
+</unittitle>
+              <physdesc>
+                <dimensions>1 p</dimensions>
+              </physdesc>
+            </did>
+          </c>
+          <c id="Calames-2019171213316530">
+            <did>
+              <unitid type="division">1.3.21.</unitid>
+              <unittitle>Correspondance de l’<corpname normal="Académie des sciences (France)" source="Sudoc" authfilenumber="026357852" role="070">Institut de France</corpname> – Académie des sciences à destination de <persname authfilenumber="03156464X" role="070" normal="Pascal, Paul (1880-1968)" source="Sudoc">Paul Pascal</persname>.</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1927/1928">1927/1928</unitdate>
+            </did>
+            <scopecontent>
+              <p>Correspondance de l’Institut de France – Académie des sciences à destination de Paul Pascal pour le prix L. Lacaze qui lui est décerné en 1928 et son élection comme correspondant à la section chimie de l’Institut en 1927.</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2019171513420638">
+            <did>
+              <unitid type="division">1.3.22.</unitid>
+              <unittitle>Livret sur la remise de l’épée d’Académicien au Professeur Paul Pascal Membre de l’Académie des Sciences. Le <unitdate normal="19470625">25 juin 1947</unitdate>.</unittitle>
+              <physdesc>
+                <extent>1 p </extent>
+              </physdesc>
+            </did>
+            <custodhist>
+              <p>Ex-dono « A Pacault, un amical souvenir et un exemple, P.Pascal ». 
+</p>
+            </custodhist>
+            <scopecontent>
+              <p>En lien avec l’épée n°1. 9. 3.</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2019171513420639">
+            <did>
+              <unitid type="division">1.3.23.</unitid>
+              <unittitle>	Diplôme de médaille du grand prix Kuhlmann décerné à Paul Pascal Par la société des Sciences de l’Agriculture et des arts de <geogname normal="Lille (Nord)" source="Sudoc" authfilenumber="02733726X" role="lieu de production">Lille</geogname>. 
+</unittitle>
+              <physdesc>
+                <extent>1 p </extent>
+              </physdesc>
+            </did>
+          </c>
+        </c>
+        <c id="Calames-2019171513420640" level="otherlevel" otherlevel="notice">
+          <did>
+            <unitid type="cote">1.4.</unitid>
+            <unittitle>	Notes de <persname authfilenumber="03156464X" role="070" normal="Pascal, Paul (1880-1968)" source="Sudoc">Paul Pascal</persname> sur la thermodynamique</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="1910/1917">1910-1917</unitdate>
+          </did>
+          <c id="Calames-2019171513420641">
+            <did>
+              <unitid type="division">1.4.1.</unitid>
+              <unittitle>	Notes prises sur un article scientifique</unittitle>
+              <physdesc>
+                <physfacet type="reliure">Document ms., cahier non relié.</physfacet>
+                <extent>18 p</extent>
+              </physdesc>
+              <unitdate era="ce" calendar="gregorian" normal="1910">1910</unitdate>
+            </did>
+            <scopecontent>
+              <p>Au sujet de l'article <bibref href="https://www.sudoc.fr/037929666">Revue Scientifique, 48e année n°21, 1910. L’affinité chimique, les principes de Berthelot et de Nernst par G. Urbain.</bibref></p>
+              <p>Trouvé dans <bibref href="https://www.sudoc.fr/037929666">BUST FP 7061</bibref></p>
+            </scopecontent>
+            <controlaccess>
+              <persname role="sujet" normal="Berthelot, Daniel (1865-1927)" source="Sudoc" authfilenumber="028507681">Berthelot, Daniel (1865-1927)</persname>
+            </controlaccess>
+            <controlaccess>
+              <persname role="sujet" normal="Nernst, Walther (1864-1941)" source="Sudoc" authfilenumber="032456743">Nernst, Walther (1864-1941)</persname>
+            </controlaccess>
+            <controlaccess>
+              <persname role="070" normal="Urbain, Georges (1872-1938)" source="Sudoc" authfilenumber="033503540">Urbain, Georges (1872-1938)</persname>
+            </controlaccess>
+          </c>
+          <c id="Calames-2019171513420642">
+            <did>
+              <unitid type="division">1.4.2.</unitid>
+              <unittitle>	Extrait recopié ms. par Paul Pascal d’un ouvrage du professeur <persname authfilenumber="032585535" role="070" normal="Sarrau, Emile (1837-1904)" source="Sudoc">Emile Sarrau </persname>, Chapitre premier : principes mécaniques, 1. Le travail des forces. </unittitle>
+              <physdesc>
+                <physfacet type="reliure">cahier relié</physfacet>
+                <extent>100 p
+</extent>
+              </physdesc>
+            </did>
+          </c>
+          <c id="Calames-2019171513420643">
+            <did>
+              <unitid type="division">1.4.3.</unitid>
+              <unittitle>Notes ms. sur une conférence donnée à la Sorbonne le 13 mars 1911 : <persname normal="Arrhenius, Svante (1859-1927)" source="Sudoc" authfilenumber="034784616" role="sujet">Svante Arrhénius</persname> : L’énergie libre.</unittitle>
+              <physdesc>
+                <physfacet type="support">Cahier non relié</physfacet>
+                <dimensions>12 p</dimensions>
+              </physdesc>
+              <unitdate era="ce" calendar="gregorian" normal="1911">1911</unitdate>
+            </did>
+          </c>
+          <c id="Calames-2019171513420644">
+            <did>
+              <unitid type="division">1.4.4.</unitid>
+              <unittitle>Notes ms. sur un article scientifique  de la Revue Scientifique.</unittitle>
+              <physdesc>
+                <physfacet type="reliure">Cahier non relié</physfacet>
+                <dimensions>A4</dimensions>
+                <extent>12p</extent>
+              </physdesc>
+              <unitdate era="ce" calendar="gregorian" normal="1917">1917</unitdate>
+            </did>
+            <bibliography>
+              <bibref href="https://www.sudoc.fr/037929666">Extrait de la Revue Scientifique (Revue rose), n°16 (11/18/25 aout 1917) pp. 490 à 496 : <emph render="italic">Le principe de Carnot et le principe de la dégradation de l’énergie</emph>. Par M. Félix Michaud</bibref>
+            </bibliography>
+            <dao href="https://gallica.bnf.fr/ark:/12148/bpt6k215164w/f494.item" title="Numérisation de l’article disponible sur Gallica"/>
+            <controlaccess>
+              <persname authfilenumber="081778384" role="070" normal="Michaud, Félix" source="Sudoc">Félix Michaud</persname>
+            </controlaccess>
+          </c>
+          <c id="Calames-2019171513420645">
+            <did>
+              <unitid type="division">1.4.5.</unitid>
+              <unittitle> Notes tapuscrites d’un article de <persname authfilenumber="035285710" role="070" normal="Larmor, Joseph (1857-1942)" source="Sudoc">Joseph Larmor</persname> : <emph render="italic">La nature de la chaleur déduite directement du postulat de Carnot</emph>. </unittitle>
+              <physdesc>
+                <dimensions>non reliés, A4.</dimensions>
+                <extent>19 f</extent>
+              </physdesc>
+            </did>
+          </c>
+        </c>
+        <c id="Calames-201917151315921" level="otherlevel" otherlevel="notice">
+          <did>
+            <unitid type="cote">1.5.</unitid>
+            <unittitle>Notes de recherche de <persname normal="Pascal, Paul (1880-1968)" source="Sudoc" authfilenumber="03156464X" role="070">Paul Pascal</persname></unittitle>
+          </did>
+          <c id="Calames-2019171513420649">
+            <did>
+              <unitid type="division">1.5.1.</unitid>
+              <unittitle>« Notes du temps de guerre » (<geogname normal="Angoulême (Charente)" source="Sudoc" authfilenumber="027375293" role="lieu de production">Angoulême </geogname><unitdate era="ce" calendar="gregorian" normal="1915/1919">1915-1919</unitdate>) </unittitle>
+              <physdesc>
+                <dimensions> A4</dimensions>
+                <extent>307 f </extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Classeur contenant des notes ms. thématiques sur les éléments de physiques/chimie. Index alphabétique en début de volume.</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201917151475283">
+            <did>
+              <unitid type="division">1.5.2.</unitid>
+              <unittitle>Notes ms. d’un article de M. <persname role="070" normal="Michaud, Félix" source="Sudoc" authfilenumber="081778384">Félix Michaud</persname> extrait de la Revue générale des sciences en <unitdate era="ce" calendar="gregorian" normal="1917">1917</unitdate></unittitle>
+              <physdesc>
+                <physfacet type="support">Cahier non relié</physfacet>
+                <dimensions> A4</dimensions>
+                <extent>10 p</extent>
+              </physdesc>
+            </did>
+            <bibliography>
+              <bibref href="https://www.sudoc.fr/197500269"> Revue générale des sciences, n°23, 15 décembre 1917 pp. 672-674. Association moléculaire et combinaison chimique. Par M. Félix Michaud.</bibref>
+            </bibliography>
+            <dao linktype="simple" href="https://gallica.bnf.fr/ark:/12148/bpt6k17092b/f678.item.r=michaud" title="Numérisation de l’article disponible sur Gallica"/>
+          </c>
+          <c id="Calames-201917151475285">
+            <did>
+              <unitid type="division">1.5.3.</unitid>
+              <unittitle>	Notes ms. d’un article extrait du Moniteur Scientifique.</unittitle>
+              <physdesc>
+                <physfacet type="reliure">Cahier non relié</physfacet>
+                <dimensions>A4</dimensions>
+                <extent>22 p</extent>
+              </physdesc>
+              <unitdate era="ce" calendar="gregorian" normal="1910">1910</unitdate>
+            </did>
+            <bibliography>
+              <bibref href="https://www.sudoc.fr/197507417">extrait du Moniteur Scientifique, 1ère partie, 1910, Tome XXIV, Mai 1910 par MM. Foerster et Koch. (Traduit de l’allemand : Zeitschrift für auguvandte Chemie, LXII, 2161-2172 et LXIII 2209-2219) : Action combinée des Vapeurs nitreuses et de l’oxygène sur l’eau.</bibref>
+            </bibliography>
+            <dao href="https://gallica.bnf.fr/ark:/12148/bpt6k2152523/f305.item" title="Numérisation de l’article disponible sur Gallica"/>
+          </c>
+          <c id="Calames-201917151475296">
+            <did>
+              <unitid type="division">1.5.4.</unitid>
+              <unittitle>Notes ms. d’un article de <persname role="070" normal="Smits, Andreas (1870-1948)" source="Sudoc" authfilenumber="179785095">Andreas Smits</persname>extrait de la Revue générale des sciences en <unitdate era="ce" calendar="gregorian" normal="1914">1914</unitdate></unittitle>
+              <physdesc>
+                <physfacet type="reliure">Cahier non relié</physfacet>
+                <extent>14 p</extent>
+                <dimensions>A4</dimensions>
+              </physdesc>
+            </did>
+            <bibliography>
+              <bibref>Revue générale des sciences, 1914, p. 192 : Nouvelle théorie du phénomène de l’allotropie par Andreas Smits.</bibref>
+            </bibliography>
+            <dao href="https://gallica.bnf.fr/ark:/12148/bpt6k17089f/f196.image.r=smits" title="Numérisation de l’article disponible sur Gallica"/>
+          </c>
+          <c id="Calames-201917151475284">
+            <did>
+              <unitid type="division">1.5.5.</unitid>
+              <unittitle>Notes d’un article extrait de la Revue scientifique.</unittitle>
+              <physdesc>
+                <physfacet type="support">Cahier non relié</physfacet>
+                <dimensions>A4</dimensions>
+                <extent>14 p</extent>
+              </physdesc>
+              <unitdate era="ce" calendar="gregorian" normal="1912">1912</unitdate>
+            </did>
+            <bibliography>
+              <bibref href="https://www.sudoc.fr/037929666">p. 133, février 1912 : <emph render="italic">Chaleur spécifique et théorie cinétique des solides</emph>.</bibref>
+            </bibliography>
+            <dao href="https://gallica.bnf.fr/ark:/12148/bpt6k2151569/f137.item" title="Numérisation de l’article disponible sur Gallica"/>
+            <controlaccess>
+              <persname authfilenumber="067825176" role="070" normal="Bloch, Léon (1876-1947)" source="Sudoc">Léon Bloch</persname>
+            </controlaccess>
+          </c>
+        </c>
+        <c id="Calames-201917161568801" level="otherlevel" otherlevel="notice">
+          <did>
+            <unitid type="cote">1.6.</unitid>
+            <unittitle>Notes de cours de <persname authfilenumber="03156464X" role="070" normal="Pascal, Paul (1880-1968)" source="Sudoc">Paul Pascal</persname></unittitle>
+          </did>
+          <c id="Calames-20191211414191253">
+            <did>
+              <unitid type="division">1.6.1.</unitid>
+              <unittitle>Notes sur un cours ms. de M. <persname authfilenumber="031538231" role="070" normal="Goursat, Édouard (1858-1936)" source="Sudoc">Edouard Goursat</persname> sur le <subject normal="Calcul infinitésimal" source="Sudoc" authfilenumber="027961559">calcul infinitésimal</subject>. , rédigées par Paul Pascal.
+</unittitle>
+              <physdesc>
+                <physfacet type="support">14 cahiers reliés en deux lots</physfacet>
+                <dimensions> A5</dimensions>
+              </physdesc>
+            </did>
+          </c>
+          <c id="Calames-201917161355763">
+            <did>
+              <unitid type="division">1.6.2.</unitid>
+              <unittitle>	Notes d’un cours ms. de M. <persname authfilenumber="151183511" role="070" normal="Dufet, Henry (1848-1905)" source="Sudoc">Henry Dufet</persname> sur les systèmes cristallins (1903-1904) rédigées par Paul Pascal.</unittitle>
+              <physdesc>
+                <dimensions>Cahier relié A5</dimensions>
+              </physdesc>
+              <unitdate era="ce" calendar="gregorian" normal="1903/1904">1903-1904</unitdate>
+            </did>
+          </c>
+          <c id="Calames-201917161355764">
+            <did>
+              <unitid type="division">1.6.3.</unitid>
+              <unittitle>Notes ms. d’un cours de <persname authfilenumber="031040470" role="sujet" normal="Curie, Pierre (1859-1906)" source="Sudoc">Pierre Curie</persname> prise de note par Paul Pascal.</unittitle>
+              <physdesc>
+                <physfacet type="support">Cahier relié</physfacet>
+                <dimensions type="type de document"> A5</dimensions>
+              </physdesc>
+              <unitdate era="ce" calendar="gregorian" normal="1903/1904">1903-1904</unitdate>
+            </did>
+          </c>
+          <c id="Calames-201917161355765">
+            <did>
+              <unitid type="division">1.6.4.</unitid>
+              <unittitle>Notes ms. prises par Paul Pascal lors de conférences de M. <persname authfilenumber="151183511" role="sujet" normal="Dufet, Henry (1848-1905)" source="Sudoc">Henry Dufet</persname>  en  : cours de <subject normal="Minéralogie" source="Sudoc" authfilenumber="027239535">minéralogie</subject>. </unittitle>
+              <physdesc>
+                <dimensions>Cahier relié A5</dimensions>
+              </physdesc>
+              <unitdate era="ce" calendar="gregorian" normal="1903/1904">1903-1904</unitdate>
+            </did>
+          </c>
+          <c id="Calames-201917161355766">
+            <did>
+              <unitid type="division">1.6.5.</unitid>
+              <unittitle>Traité de Thermodynamique appliquée à l’équilibre des systèmes formés de phases liquides et gazeuses d’après les leçons de   rédigés par <persname normal="Waals, Johannes Diderik van der (1837-1923)" source="Sudoc" authfilenumber="031596908" role="070">Johannes Van der Walls</persname>. 1ère partie. Traduction rapide par <persname authfilenumber="03156464X" role="730" normal="Pascal, Paul (1880-1968)" source="Sudoc">Paul Pascal</persname> 1916-1918. 
+</unittitle>
+              <physdesc>
+                <physfacet type="support">6 cahiers reliés</physfacet>
+                <dimensions> A5</dimensions>
+              </physdesc>
+              <unitdate era="ce" calendar="gregorian" normal="1916/1918">1916-1918</unitdate>
+            </did>
+          </c>
+        </c>
+        <c id="Calames-20191716186131" level="otherlevel" otherlevel="notice">
+          <did>
+            <unitid type="cote">1.7.</unitid>
+            <unittitle>Ouvrages personnels de <persname authfilenumber="03156464X" role="070" normal="Pascal, Paul (1880-1968)" source="Sudoc">Paul Pascal</persname></unittitle>
+          </did>
+          <c id="Calames-20191211414191959">
+            <did>
+              <unitid type="division">1.7.1.</unitid>
+              <unittitle>Synthèses et Catalyses Industrielles. Leçons professées par Paul Pascal à la <corpname normal="Université de Lille (1896-1970)" source="Sudoc" authfilenumber="027291340" role="340">Faculté des Sciences de Lille</corpname>.<unitdate era="ce" calendar="gregorian" normal="1919/1920"> 1919-1920</unitdate>.<bibseries><num> Premier fascicule. </num></bibseries>G. Janny, Editeur, 4, place Philippe-Lebon, Lille. </unittitle>
+              <physdesc>
+                <extent> 226 p</extent>
+              </physdesc>
+            </did>
+          </c>
+          <c id="Calames-201917161163333">
+            <did>
+              <unitid type="division">1.7.2.</unitid>
+              <unittitle><title role="titre">Etude sur la distillation des acides nitriques et des mélanges sulfonitriques</title>. Par M. Paul Pascal  (avec la collaboration expérimentale de M. Garnier, <unitdate normal="19201007">07/10/1920</unitdate>). 
+Mention de responsabilité : Paul Pascal, Masson et Cie, Garnier
+<bibref>Annales de Chimie. Extrait. Masson &amp;amp; Cie, Editeurs. 120, Boulevard St-Germain, Paris (Vie). </bibref></unittitle>
+              <physdesc>
+                <dimensions>Pp. 253-290</dimensions>
+              </physdesc>
+            </did>
+          </c>
+          <c id="Calames-201917161163334">
+            <did>
+              <unitid type="division">1.7.3.</unitid>
+              <unittitle><title role="titre">Diamagnétisme et Constitution Chimique</title>. Extrait de la <bibref>Revue Générale des Sciences Numéro du 15 juillet 1923.</bibref> Paris, Gaston Doin, Editeur. 8, place de l’Odéon. Par Paul Pascal, Professeur à la faculté des Sciences de Lille. </unittitle>
+              <physdesc>
+                <dimensions>41 p. 2 exemplaires.
+</dimensions>
+              </physdesc>
+              <unitdate era="ce" calendar="gregorian" normal="1923">1923</unitdate>
+            </did>
+            <controlaccess>
+              <corpname role="650" normal="Doin éditeurs" source="Sudoc" authfilenumber="16960389X">Doin éditeurs</corpname>
+            </controlaccess>
+          </c>
+          <c id="Calames-201917161163335">
+            <did>
+              <unitid type="division">1.7.4.</unitid>
+              <unittitle><title role="titre">Notice sur les titres et travaux scientifiques de M. Paul Pascal.</title> Correspondant de l’institut, professeur de la Sorbonne. Avec un addenum relatif aux travaux postérieurs à 1937. <corpname role="650" normal="Masson et Cie éditeurs (1804-2005)" source="Sudoc" authfilenumber="254597556">Masson et Cie éditeurs</corpname>. Libraires de l’Académie de Médecine. </unittitle>
+              <physdesc>
+                <dimensions>88 p. 2 exemplaires.</dimensions>
+              </physdesc>
+              <unitdate era="ce" calendar="gregorian" normal="1937">1937</unitdate>
+            </did>
+          </c>
+        </c>
+        <c id="Calames-20191716115791" level="otherlevel" otherlevel="notice">
+          <did>
+            <unitid type="cote">1.8.</unitid>
+            <unittitle><genreform type="technique" normal="photographie">Photographies</genreform> de   <persname authfilenumber="03156464X" role="sujet" normal="Pascal, Paul (1880-1968)" source="Sudoc">Paul Pascal</persname></unittitle>
+          </did>
+          <c id="Calames-20191211414191964">
+            <did>
+              <unitid type="division">1.8.1.</unitid>
+              <unittitle>Lot de photographies en noir et blanc </unittitle>
+            </did>
+            <scopecontent>
+              <p>Photographies représentant Paul Pascal dans diverses situations professionnelles. Sur certaines photos apparait Adolphe Pacault.</p>
+            </scopecontent>
+            <c id="Calames-201917161483493">
+              <did>
+                <unitid type="division">1.8.1.1.</unitid>
+                <unittitle><persname authfilenumber="027055078" role="sujet" normal="Pacault, Adolphe (1918-2008)" source="Sudoc">Adolphe Pacault</persname> de profil .</unittitle>
+                <physdesc>
+                  <physfacet type="support">Photographies découpées. Deux exemplaires.</physfacet>
+                </physdesc>
+              </did>
+            </c>
+            <c id="Calames-201917161483624">
+              <did>
+                <unitid type="division">1.8.1.2.</unitid>
+                <unittitle>Portrait de Paul Pascal </unittitle>
+                <physdesc>
+                  <physfacet type="support">Photographies découpées. Deux exemplaires.</physfacet>
+                </physdesc>
+              </did>
+            </c>
+            <c id="Calames-20191716187993">
+              <did>
+                <unitid type="division">1.8.1.3.</unitid>
+                <unittitle>Portrait noir et blanc de Paul Pascal </unittitle>
+                <physdesc>
+                  <dimensions>Format carte postale.</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>1 photo originale   5 reproduction. </p>
+              </scopecontent>
+              <dao href="http://www.babordnum.fr/items/show/1419" title="Numérisation disponible sur BabordNum"/>
+            </c>
+            <c id="Calames-20191716187994">
+              <did>
+                <unitid type="division">1.8.1.4.</unitid>
+                <unittitle>	Portrait de pied de Paul Pascal, posant à côté d’une balance magnétique de <persname normal="Weiss, Pierre (1865-1940)" source="Sudoc" authfilenumber="076407705" role="sujet">Weiss</persname>-<persname normal="Foëx, Gabriel (1887-1963)" source="Sudoc" authfilenumber="03173555X" role="sujet">Foex</persname>-<persname normal="Forrer, Robert (1891-1964 ; physicien du magnétisme)" source="Sudoc" authfilenumber="204510732" role="sujet">Forrer</persname> A <geogname normal="Paris (France) -- Sorbonne" source="Sudoc" authfilenumber="028020545" role="lieu de production">Paris, La Sorbonne. </geogname></unittitle>
+              </did>
+              <dao href="http://www.babordnum.fr/items/show/1420"/>
+            </c>
+            <c id="Calames-201918141229597">
+              <did>
+                <unitid type="division">1.8.1.5.</unitid>
+                <unittitle>	Portrait de   Paul Pascal à son bureau</unittitle>
+                <physdesc>
+                  <dimensions>Deux exemplaires</dimensions>
+                </physdesc>
+              </did>
+              <dao href="http://www.babordnum.fr/items/show/1421"/>
+            </c>
+            <c id="Calames-201918141229668">
+              <did>
+                <unitid type="division">1.8.1.6.</unitid>
+                <unittitle>Photographie de la poignée de l’épée d’académicien de Paul Pascal
+</unittitle>
+              </did>
+              <dao href="http://www.babordnum.fr/items/show/1422"/>
+            </c>
+            <c id="Calames-201918141229669">
+              <did>
+                <unitid type="division">1.8.1.7.</unitid>
+                <unittitle>Quatre photographies de groupe représentant Paul Pascal au centre, entouré de plusieurs collaborateurs dont <persname authfilenumber="027055078" role="sujet" normal="Pacault, Adolphe (1918-2008)" source="Sudoc">Adolphe Pacault</persname>. </unittitle>
+                <unitdate era="ce" calendar="gregorian" normal="1950">1950</unitdate>
+              </did>
+              <dao href="http://www.babordnum.fr/items/show/1423" title="Numérisation disponible sur BabordNum"/>
+              <scopecontent>
+                <p>Adolphe Pacault apparait sur la n°1 et n°2.  La n°1 est également encadrée dans la vitrine de gauche</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019181412296610">
+              <did>
+                <unitid type="division">1.8.1.8.</unitid>
+                <unittitle>Cinq photographies prises à l’occasion de l’entrée de Paul Pascal à l’Académie française.</unittitle>
+              </did>
+              <scopecontent>
+                <p>Allocution de Paul Pascal sur la photo 4.   3 photos encadrées au moment de la présentation de l’épée d'académicien de Paul Pascal.
+</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019181412296611">
+              <did>
+                <unitid type="division">1.8.1.9.</unitid>
+                <unittitle>Reproduction d’une photographie de groupe prise à l’occasion du <corpname normal="Colloque national sur l'optique moléculaire et la physicochimie structurale (1956 ; Bordeaux)" source="Sudoc" authfilenumber="09514918X" role="340">Colloque physico-chimie de Bordeaux</corpname> en Mai.</unittitle>
+                <unitdate era="ce" calendar="gregorian" normal="1956">1956</unitdate>
+              </did>
+              <scopecontent>
+                <p>Paul Pascal au premier rang. Adolphe Pacault est derrière lui au deuxième rang.</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019181412296612">
+              <did>
+                <unitid type="division">1.8.1.10.</unitid>
+                <unittitle>Reproduction d’une photographie datant de <unitdate normal="1933">1933</unitdate> du <corpname role="340" normal="Conseil de physique Solvay (07 ; 1933 ; Bruxelles)" source="Sudoc" authfilenumber="177124911">Conseil de physique de Solvay </corpname>réunit à Bruxelles pour la septième fois, les sommités du monde de la physique. </unittitle>
+              </did>
+              <dao href="http://www.babordnum.fr/items/show/1424"/>
+              <scopecontent>
+                <p>Assis de gauche à droite : Schrodinger, Irène Joliot-Curie, Bohr, Joffe, Curie, Langevin, Richardson, Rutherford, de Donder, de Broglie Maurice, De Broglie Louis, Meitner, Chadwick. Debout de gauche à droite : Henriot, Perrin, Frédéric Joliot-Curie , Heisenberg, Kramers, Stahel, Fermi, Walton, Dirac, Mott, Carbrera, Gamov, Rosenblum, Blackett (derrière), Bothe, Errera, Bauer, Pauli, Verschaffelt, Cosyns (derrière), Hersen, Cockroft, Ellis, Peierls, Piccar, Lawrence, Rosenfeld. Einstein et Guye participaient aussi au conseil.</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019181412296613">
+              <did>
+                <unitid type="division">1.8.1.11.</unitid>
+                <unittitle>Deux photographies d’une vitrine en hommage à Paul Pascal
+</unittitle>
+              </did>
+            </c>
+            <c id="Calames-2019181412296614">
+              <did>
+                <unitid type="division">1.8.1.12.</unitid>
+                <unittitle>	Reproduction d’une photographie de <unitdate era="ce" calendar="gregorian" normal="1927">1927</unitdate> : <corpname role="340" normal="Institut international de physique Solvay" source="Sudoc" authfilenumber="034310762">Institut international de Physique de Solvay</corpname></unittitle>
+              </did>
+              <scopecontent>
+                <p>A. Picars, E. Henriot, P. Ehnrenfest, Ed. Herzen, Th. De Donder, E. Schrodinger, E. Verschaffelt, W. Pauli, W. Heisenberg, R. H. Fowler, L. Brillouin, P. Debye, M. Knudsen, W. L. Bragg, H. A. Kramers, P. A. M. Dirac, A. H. Compton, L. de Broglie, M. Born, N. Bohr, I. Langmuir, M. Planck, Mme Curie, H. A. Lorentz, A. Einstein, P. Langevin, Ch. E. Guye, C. T. R. Wilson, O. W. Richardson.
+
+
+</p>
+              </scopecontent>
+            </c>
+          </c>
+          <c id="Calames-2019181412296615">
+            <did>
+              <unitid type="division">1.8.2.</unitid>
+              <unittitle>	Cinq Photos de classe de  Paul Pascal.</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1892/1903">1892-1903</unitdate>
+            </did>
+            <scopecontent>
+              <p>1892 (12 ans = 6ème), 1893 (13ans  = 5ème), 1894 (14ans = 4ème), 1895 (15 ans = 3ème) et 1903.</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2019181412296616">
+            <did>
+              <unitid type="division">1.8.3.</unitid>
+              <unittitle>	Ensemble de photographies encadrées sur l'activité du laboratoire de  Paul Pascal</unittitle>
+            </did>
+            <c id="Calames-2019181412296617">
+              <did>
+                <unitid type="division">1.8.3.1.</unitid>
+                <unittitle>Scientifique manipulant un instrument dont la marque est « <emph render="italic">Kappel</emph> »
+</unittitle>
+              </did>
+            </c>
+            <c id="Calames-2019181412296618">
+              <did>
+                <unitid type="division">1.8.3.2.</unitid>
+                <unittitle>Photographie de Paul Pascal en habit officiel.</unittitle>
+              </did>
+              <custodhist>
+                <p>Ex-dono « A Monsieur et Madame Pascal amical hommage <persname normal="Le Chatelier, Henry (1850-1936)" source="Sudoc" authfilenumber="032716850" role="070">H. Le Chatelier</persname> ».
+
+</p>
+              </custodhist>
+            </c>
+            <c id="Calames-2019181412296619">
+              <did>
+                <unitid type="division">1.8.3.3.</unitid>
+                <unittitle>Portrait de Mr Pascal dessiné au crayon.</unittitle>
+              </did>
+              <scopecontent>
+                <p> Note ms. « Mon père … pour son ouvrage des lois… », « Portrait de Mr Pascal fait par mon père ».</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019181412296620">
+              <did>
+                <unitid type="division">1.8.3.4.</unitid>
+                <unittitle>	Reproduction encadrée d'un portrait gravé sur cuivre de <persname normal="Pascal, Blaise (1623-1662)" source="Sudoc" authfilenumber="027059073" role="sujet">Blaise Pascal</persname>.
+</unittitle>
+              </did>
+            </c>
+            <c id="Calames-2019181412296621">
+              <did>
+                <unitid type="division">1.8.3.5.</unitid>
+                <unittitle>	Photo de groupe avec Adolphe Pacault.</unittitle>
+                <unitdate era="ce" calendar="gregorian" normal="1956">1956</unitdate>
+              </did>
+              <scopecontent>
+                <p>Adolphe Pacault au premier rang. Episode datant du 13 novembre 1956, rue Paul Bert.</p>
+              </scopecontent>
+            </c>
+          </c>
+          <c id="Calames-2019181412296622">
+            <did>
+              <unitid type="division">1.8.4.</unitid>
+              <unittitle>Photographies sur plaque de verre (plaques au lactate d’argent).</unittitle>
+            </did>
+            <c id="Calames-2019181412296623">
+              <did>
+                <unitid type="division">1.8.4.1.</unitid>
+                <unittitle>Deux petites boites en carton carrées contenant chacune 11 plaques de verre.</unittitle>
+                <physdesc>
+                  <physfacet type="conditionnement">2 boites en carton</physfacet>
+                  <dimensions>10 x 8,5 cm</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>Les photos présentent l’ancienne manufacture des poudres.</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019181412296624">
+              <did>
+                <unitid type="division">1.8.4.2.</unitid>
+                <unittitle>Ensemble de 31 plaques sur verre dont 19 sont légendées/numérotées et 12 sans légendes. Ces dernières montrent des images de la manufacture des poudres.</unittitle>
+              </did>
+              <scopecontent>
+                <p>Lot légendé</p>
+                <p>N°3558 : Mélangeur, sortie de la fonte</p>
+                <p>N°277. Série 93 : Vue générale des Hauts fourneaux</p>
+                <p>N°3550 : Hauts-fourneaux et parcs à minerai vus à vol d’oiseau (fer)</p>
+                <p>N°3549 : Fer. Hauts-Fourneaux et parcs à minerai […] à vol d’oiseaux</p>
+                <p>N°348 : Série 93. Atelier Bessermer. Période des étincelles</p>
+                <p>N°355 : Série 93. Coulée des scories Thomas</p>
+                <p>N°356 : Série 93. Déchargement des scories</p>
+                <p> N°3569. Coulage de l’acier dans les lingotières</p>
+                <p>Sans n° : Four Martin de 35 tonnes (reproduction d’une photo)</p>
+                <p>N° 352 : Série 93. Vue du four Martin</p>
+                <p>N°3556 : Le puddlage sorti de la loupe</p>
+                <p>N°3554 : Fer. Pilonnage de la loupe</p>
+                <p>N°354 : Série 93. Convertisseur Bessemer</p>
+                <p>N°265 B. Série 93 : Ouverture de Haut Fourneau et écoulement de la fonte</p>
+                <p>N°344. Série 93 : Arrivée des Poches</p>
+                <p>N°262. Série 93 : Coulée des Hauts Fourneaux Seraing</p>
+                <p>N°3557 : Mélangeur au repos</p>
+                <p>N°3551 : Hauts fourneaux et récupérateurs</p>
+              </scopecontent>
+            </c>
+          </c>
+          <c id="Calames-2019181515415625">
+            <did>
+              <unitid type="division">1.8.5.</unitid>
+              <unittitle>Photographies encadrées</unittitle>
+              <physloc>dans la vitrine de droite</physloc>
+              <origination> Choisies par Adolphe Pacault pour décorer son bureau.</origination>
+            </did>
+            <c id="Calames-2019181515415626">
+              <did>
+                <unitid type="division">1.8.5.1.</unitid>
+                <unittitle>Photographie noir et blanc et de Paul Pascal et Adolphe Pacault lors d’une réception.</unittitle>
+              </did>
+            </c>
+            <c id="Calames-2019181515415627">
+              <did>
+                <unitid type="division">1.8.5.2.</unitid>
+                <unittitle>Portrait noir et blanc de Paul Pascal (jeune)</unittitle>
+              </did>
+              <custodhist>
+                <p>Offerte à Adolphe Pacault par Paul Pascal. Avec mention ms. « A l’élève, à l’ami et j’espère au continuateur. P. Pascal ».</p>
+              </custodhist>
+            </c>
+            <c id="Calames-2019181515415628">
+              <did>
+                <unitid type="division">1.8.5.3.</unitid>
+                <unittitle>Portrait de Paul Pascal dans un laboratoire. Entouré d’instruments de recherche.</unittitle>
+              </did>
+            </c>
+          </c>
+        </c>
+        <c id="Calames-201917161236631">
+          <did>
+            <unitid type="cote">1.9.</unitid>
+            <unittitle>Objets de <persname role="sujet" normal="Pascal, Paul (1880-1968)" source="Sudoc" authfilenumber="03156464X">Paul Pascal</persname></unittitle>
+          </did>
+          <c id="Calames-2019171413457938">
+            <did>
+              <unitid type="division"> 1.9.1.</unitid>
+              <unittitle>Tampon en laiton, poignée en bois, pour marquer aux initiales P P
+</unittitle>
+            </did>
+          </c>
+          <c id="Calames-201918171438043">
+            <did>
+              <unitid type="division"> 1.9.2.</unitid>
+              <unittitle>	Deux étuis en bois couverts de cuir contenant des fume-cigarettes en os, corne et laiton</unittitle>
+            </did>
+          </c>
+          <c id="Calames-201918171438044">
+            <did>
+              <unitid type="division"> 1.9.3.</unitid>
+              <unittitle>Epée d’académicien de Paul Pascal</unittitle>
+              <physdesc>
+                <physfacet type="conditionnement"> Boite à fermeture laiton. Intérieur rembourré de feutrine bleue et toile blanche contenant l’épée d’académicien de Paul Pascal.</physfacet>
+                <dimensions>Boîte  de bois toilée noire d’approximativement 100cm x 16 cm x 8cm. </dimensions>
+              </physdesc>
+              <unitdate era="ce" calendar="gregorian" normal="1909">1909</unitdate>
+            </did>
+            <scopecontent>
+              <p>Lame d'épée « Coulaux et Cie à <geogname normal="Klingenthal (Bas-Rhin)" source="Sudoc" authfilenumber="028694732" role="lieu de production">Klingenthal</geogname> France »</p>
+              <p>Lame à section triangulaire 88 cm, garde en laiton laqué et pommeau ivoire. Capuce portant « pax bellum » avec motif de moisson et d‘usine dans un livre ouvert. Couronne de laurier. Signature « Recker Brasier ». Sur la garde bobine électrique stylisée avec « 1909 ». Sur la poignée figure gravée d’Athéna pallas et bombe gravée sur la plaquette ivoire. Insert argent « PP » sur le pommeau. Foureau en peau de serpent gris. Attache et bouterole laiton. Bouton en ivoire. A lier avec la notice de la remise de l’épée : Cote 1. 3. 22
+</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201918171438045">
+            <did>
+              <unitid type="division">1.9.4.</unitid>
+              <unittitle> Légions d'honneur et décorations.</unittitle>
+            </did>
+            <c id="Calames-20191817129976">
+              <did>
+                <unitid type="division">1.9.4.1.</unitid>
+                <unittitle> Boite noire marquée « ministère de l’instruction publique » contenant une médaille des palmes académiques avec ruban violet et mention ms. « Alfred Pascal »</unittitle>
+              </did>
+            </c>
+            <c id="Calames-201919121475747">
+              <did>
+                <unitid type="division">1.9.4.2.</unitid>
+                <unittitle> Boite noire portant « légion d‘honneur chevalier » légion d‘honneur à ruban rouge </unittitle>
+              </did>
+              <scopecontent>
+                <p>Mention ms. « Alfred Pascal » sur la boite</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-201919121475818">
+              <did>
+                <unitid type="division">1.9.4.3.</unitid>
+                <unittitle> 	Boite rouge portant « légion d‘honneur chevalier » contenant une légion d‘honneur avec ruban rouge avec .</unittitle>
+              </did>
+              <scopecontent>
+                <p>Mention ms. « Paul pascal » sur la boite</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-201919121475819">
+              <did>
+                <unitid type="division">1.9.4.4.</unitid>
+                <unittitle> 	Boite rouge portant « les chimistes du laboratoire, les chimistes et ingénieurs mobilisés à la poudrerie au professeur P. Pascal Angoulême 1er septembre 1917 ». </unittitle>
+              </did>
+              <scopecontent>
+                <p>Contenant la légion d‘honneur de Paul Pascal.</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191214758110">
+              <did>
+                <unitid type="division"> 1.9.4.5.</unitid>
+                <unittitle>Boite rouge en bois contenant un insigne de l’ordre de Medjidie (<unitdate normal="1852">1852</unitdate>).</unittitle>
+                <physdesc>
+                  <dimensions>56 mm</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>insigne Ottoman (<geogname normal="Kirbasan (Turquie)" source="Sudoc" authfilenumber="027434257" role="lieu de production">Turquie</geogname>) en retour de services militaires rendus à la patrie. Cette décoration était aussi attribuée à des étrangers (anglais, français).  </p>
+                <p>Etoile de chevalier « 5ème classe », , fabrication turque du début du XXème siècle en argent ciselé et diamanté, centre en or ciselé et émaillé, la bélière en argent ciselé, doré et émaillé. Marque turque au revers. Ruban ancien supérieur, rouge à liseré vert.</p>
+              </scopecontent>
+            </c>
+          </c>
+          <c id="Calames-2019191214758111">
+            <did>
+              <unitid type="division">1.9.5.</unitid>
+              <unittitle> 	Appliques murales en aluminium.</unittitle>
+              <unitdate normal="1961">1961</unitdate>
+            </did>
+            <scopecontent>
+              <p>Pièce 1 : à l'effigie du Professeur Paul Pascal, membre de l’insitut. » Signature <persname normal="Cochet, Robert Eugène Joseph  (1903-1988)" source="Sudoc" authfilenumber="260012998" role="producteur">R. Cochet</persname> 1961. Pièce 2 : motif de forêt et mention « magnétochimie chimie générale chimie industrielle chimie de guerre ».</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2019191214758113">
+            <did>
+              <unitid type="division">1.9.6.</unitid>
+              <unittitle> Médailler : Lot de 52 médailles.</unittitle>
+            </did>
+            <scopecontent>
+              <p>Décrites depuis le haut à gauche par rangées horizontales.</p>
+            </scopecontent>
+            <c id="Calames-2019191214758112">
+              <did>
+                <unitid type="division">1.9.6.1.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> ronde en aluminium  à l’effigie de <persname normal="Sainte-Claire Deville, Henri (1818-1881)" source="Sudoc" authfilenumber="03480997X" role="sujet">Henri Sainte-Claire-Deville</persname>.</unittitle>
+                <physdesc>
+                  <dimensions>6 cm de diamètre.</dimensions>
+                </physdesc>
+                <unitdate era="ce" calendar="gregorian" normal="1954">1954</unitdate>
+              </did>
+              <scopecontent>
+                <p>Avers à l’effigie de Henri Sainte-Claire-Deville 1818-1881, par J. Martel. Revers « Centenaire de l’aluminium Paris 1954 ».</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191214758114">
+              <did>
+                <unitid type="division"> 1.9.6.2.</unitid>
+                <unittitle>	Broche. « Henri IV bienvenue à Pau ». Note ms. de  M. Pacault.</unittitle>
+                <physdesc>
+                  <dimensions>4 x 3,5 cm</dimensions>
+                </physdesc>
+              </did>
+            </c>
+            <c id="Calames-2019191214758115">
+              <did>
+                <unitid type="division">1.9.6.3.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> ronde en argent  à l’effigie de <persname role="sujet">Konglish Vetenskaps</persname>.</unittitle>
+                <physdesc>
+                  <dimensions>3 cm de diamètre</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>A l’Avers Konglish Vetenskaps academien 1815 ». Revers : Figure d’un homme plantant un arbre « efterkommande »</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191214758116">
+              <did>
+                <unitid type="division"> 1.9.6.4.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> rectangulaire en bronze  à l’effigie de <persname normal="Appell, Paul (1855-1930)" source="Sudoc" authfilenumber="035118768" role="sujet">Paul Appell</persname></unittitle>
+                <physdesc>
+                  <dimensions>7 x 5,6 cm</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>Avers à l’effigie de Paul Appell. Revers, Paul Appell à l’occasion de son cinquantenaire universitaire, ses admirateurs et ses amis juin <unitdate normal="1927">1927</unitdate> ».</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191214758117">
+              <did>
+                <unitid type="division">1.9.6.5.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> ronde en étain. </unittitle>
+                <physdesc>
+                  <dimensions>6 cm de diamètre</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>Avers : buste en effigie. Revers « établissements Kuhlmann 1825-1925 ». [Médaille pour le centenaire des établissements Kulhmann]</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191214758118">
+              <did>
+                <unitid type="division">1.9.6.6.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Plaque</genreform> rectangulaire en étain  à l’effigie de <persname normal="Le Chatelier, Henry (1850-1936)" source="Sudoc" authfilenumber="032716850" role="sujet">Henri Le Chatelier</persname></unittitle>
+                <physdesc>
+                  <dimensions>7 x 5,2 cm</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>Avers : effigie d’Henri Le Chatelier. Revers : « la science et l’industrie à Henri le Chatelier ». Représenté en pied avec ses appareils scientifiques.</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191214758119">
+              <did>
+                <unitid type="division">1.9.6.7.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> ronde en cuivre.</unittitle>
+                <physdesc>
+                  <dimensions>7,5 cm de diamètre</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>Avers : Académie des Sciences  signé G. Simon. Revers : 1666 3è centenaire 1966. Insère d’une médaille de 1667 : <emph render="italic">Apollo Palatinus. Regia scient. Acad. Instit. 1667</emph>.</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191214758120">
+              <did>
+                <unitid type="division">1.9.6.8.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> ronde en étain. Avers : <emph render="italic">Société chimique de France</emph>.</unittitle>
+                <physdesc>
+                  <dimensions>7 cm de diamètre</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>Effigie de Louis Pasteur, Martin Berthelot, Victor Grignard, Henri Moissan, Paul Sabatier, Jean Baptiste Dumas. Signé R. Cochet 1957. Revers : « 1857-1957 ». Liste de noms  :  Arnaudon, Rosing, Girard, Dumas, Pasteur, Balard, Saint-Claire-Deville, Wurtz, Berthelot, Debray, Cloez, Fridiel, Schutzenberger, lamy, Gautier, Jungfleisch, Grimaux, Lauth, Willm, De Clermont, Silva, Le Bel, Combes, Scheurer, Kestren, Maquenne, Moissan, Tarnet, Riban, Harniot, Engel, Auger, Haller, Lindet, Bouveault, Pascalis, Behal, De Laire, Poulinc, Bertrand, André, Blaise, Moureu, Urbain, Delepine, Matignon, Grignard, Jolibois, Le Chatelier, Du Pont, Sabatier, Tiffeneau, Hackspill, Delaby, Thesmar, Dufraisse, Portevin, Le Beau, Trefouel, Chaudron, Velluz.</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191214758121">
+              <did>
+                <unitid type="division">1.9.6.9.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> rectangulaire en bronze  à l’ effigie de <persname normal="Moureu, Charles (1863-1929)" source="Sudoc" authfilenumber="académie de médecine" role="sujet">Charles Moureu</persname> »</unittitle>
+                <physdesc>
+                  <dimensions>7 x 5,3 cm.</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>Avers à l’ effigie de « CH. Moureu » signé Gabevil. Revers « CH. Moureu membre de l’institut de l’académie de médecine. Professeur au <corpname normal="Collège de France" source="Sudoc" authfilenumber="026370921" role="340">college de France</corpname> Grand-officier de la légion d’honneur 1863-1929 ».</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191214758122">
+              <did>
+                <unitid type="division">1.9.6.10.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> rectangulaire en bronze  à l’effigie de <persname normal="Schützenberger, Paul (1829-1897)" source="Sudoc" authfilenumber="034806296" role="sujet">P. Schützenberger</persname></unittitle>
+                <physdesc>
+                  <dimensions>7 x 5,3 cm.</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p> Avers effigie de P. Schützenberger par Gurbain. Revers : « 1829-1929. Chimie minérale, matière colorante, industries chimiques Albuminoides ».</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191214758123">
+              <did>
+                <unitid type="division">1.9.6.11.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> rectangulaire en bronze  à l’effigie de <persname normal="Haller, Albin (1849-1925)" source="Sudoc" authfilenumber="03510130X" role="sujet">Albin Haller</persname>.</unittitle>
+                <physdesc>
+                  <dimensions>6,8 x 5 cm.</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>Avers effigie de  Albin Haller de l’Institut par René Baudignon. Revers : Laurier « A Albin Haller professeur de chimie organique à la Sorbonne, ses collègues, ses élèves, ses amis [191 ?] »</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191214758124">
+              <did>
+                <unitid type="division"> 1.9.6.12.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> ronde en Bronze à l’effigie de <persname normal="Bertrand, Gabriel (1867-1962)" source="Sudoc" authfilenumber="073010901" role="sujet">Gabriel Bertrand</persname>.</unittitle>
+                <physdesc>
+                  <dimensions>8 cm de diamètre.</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>Avers à l’effigie de Gabriel Bertrand membre de l’Institut ». Revers : alambique, serpent, champignon, laurier « Venins et vaccination antivenimeuses cellulose et bois sucres bactéries du sorbose lac, laccol, laccase, oxydases, diastases, co-diastases, manganèse, et infiniment petits chimiques. Engrais catalytique, synergie des biocatalyseur. Chloropicrine et destruction des parasites. »</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191214758125">
+              <did>
+                <unitid type="division">1.9.6.13.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> rectangulaire en bronze. Coins sup. Obliques à l’effigie de Charles Barois.</unittitle>
+                <physdesc>
+                  <dimensions>8 x 6 cm.</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>Avers à l’effigie de Charles Barois par <persname normal="Lefebvre, Hippolyte (1863-1935)" source="Sudoc" authfilenumber="180883046" role="070">Hippolyte Lefebvre</persname>. Revers : « Le district nord de la <corpname normal="Société de l'industrie minérale (France)" source="Sudoc" authfilenumber="026635410" role="sujet">société de l’industrie minérale</corpname> à son président Charles Le Barois membre de l’institut commandeur de la légion d’honneur ». Avec un paysage de mines.</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191412382926">
+              <did>
+                <unitid type="division">1.9.6.14.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> rectangulaire en bronze. Avers : Effigie de Henri Abraham Morlon. Revers : effigie Athena Palas. Mention « A Henri Abraham professeur à la Sorbonne l’école normale supérieur ses amis ses élèves 1838 ».</unittitle>
+                <physdesc>
+                  <dimensions>7 x 6,1 cm.</dimensions>
+                </physdesc>
+              </did>
+            </c>
+            <c id="Calames-2019191412382927">
+              <did>
+                <unitid type="division">1.9.6.15.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> rectangulaire en bronze à l’effigie de <persname normal="Grignard, Victor (1871-1935)" source="Sudoc" authfilenumber="030745462" role="sujet">Victor Grignard</persname>.</unittitle>
+                <physdesc>
+                  <dimensions>8 x 6 cm.</dimensions>
+                </physdesc>
+                <unitdate era="ce" calendar="gregorian" normal="1934">1934</unitdate>
+              </did>
+              <scopecontent>
+                <p>Avers : à Victor Grignard ses collègues ses amis ses élèves 12 mai 1934  par L. Bertola Paris 1934. Revers : Alambique portant  R M g X  temple des sciences, une nouvelle pierre apportée au temple des sciences prix Nobel 1912.</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191412382928">
+              <did>
+                <unitid type="division">1.9.6.16.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> rectangulaire en broze à l’effigie de <persname normal="Picard, Émile (1856-1941)" source="Sudoc" authfilenumber="088747328" role="sujet">Emile Picard</persname>.</unittitle>
+                <physdesc>
+                  <dimensions>7 x 5,2 cm.</dimensions>
+                </physdesc>
+                <unitdate era="ce" calendar="gregorian" normal="1927">1927</unitdate>
+              </did>
+              <scopecontent>
+                <p>Avers :  Emile Picard de l’académie Française secrétaire perpétuel de l’académie des sciences. Par G. Prudhomme. Revers : A Emile Picard professeur d’analyses supérieures à la Sorbonne professeur à l’école centrale ses admirateurs ses amis cinquantième anniversaire de son entrée dans l’enseignement 1927  . Effigie de flambeau et buste d’Athéna Pallas.</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191412382929">
+              <did>
+                <unitid type="division">1.9.6.17.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> rectangulaire en bronze à l’effigie d’<persname normal="Goursat, Édouard (1858-1936)" source="Sudoc" authfilenumber="031538231" role="sujet">Edouard Goursat</persname>.</unittitle>
+                <physdesc>
+                  <dimensions>7 x 6,4 cm.</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>Avers à l’effigie d’Edouard Goursat par A. Morlon. Revers : flambeau et « Edouard Goursat membre de l’institut professeur à la Sorbonne ses élèves ses amis 1935 ».</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191412382930">
+              <did>
+                <unitid type="division">1.9.6.18.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> ronde en étain.</unittitle>
+                <physdesc>
+                  <dimensions> 7,3 cm de diamètre.</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>Avers : motif de canons, deux canons de campagne, une pièce de 75, mortier, un lance missile « service des poudres professeur P. Pascal président du comité scientifique des poudres 1967 » par R. Cochet. Revers : lauriers « 28 mai 1775 ».</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191412382931">
+              <did>
+                <unitid type="division"> 1.9.6.19.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> rectangulaire en bronze.</unittitle>
+                <physdesc>
+                  <dimensions>8,6 x 6,3 cm.</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>Avers : Ecole centrale des arts et manufactures avec figures de personnes étudiant dans une bibliothèque avec instruments géométriques. Revers : Paul Pascal membre de l’institut professeur de chimie générale et minérale 1926-1950. Motif d’abeille et architectural.</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191412382932">
+              <did>
+                <unitid type="division">1.9.6.20.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> rectangulaire en bronze, bords supérieur arrondi.</unittitle>
+                <physdesc>
+                  <dimensions>7,4 x 5 cm de diamètre.</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>Avers : figure féminine assise. Revers : motif de laurier « Association des anciens élèves de l’Institut de chimie de Lille à M. le professeur P. Pascal juin <unitdate normal="1928">1928</unitdate> ».</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191412382933">
+              <did>
+                <unitid type="division"> 1.9.6.21.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> ronde en argent.</unittitle>
+                <physdesc>
+                  <dimensions>3,2 cm de diamètre.</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>Avers. Buste d’Athena pallas « A l’institut de France ». Revers : Laurier « Paul Pascal <unitdate normal="1945">1945</unitdate> ».</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191412382934">
+              <did>
+                <unitid type="division">1.9.6.22.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> ronde en bronze à l’effigie de <persname normal="Laignel-Lavastine, Maxime (1875-1953)" source="Sudoc" authfilenumber="031928242" role="sujet">Laignel-Lavastine</persname>.</unittitle>
+                <physdesc>
+                  <dimensions>8 cm de diamètre.</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p> Avers : effigie de « Professeur Laignel-Lavastine <unitdate normal="1937">1937</unitdate> » par De Hérain. Revers : Deux coqs deux serpents « A M. Laignel Lavastine professeur d’histoire de la médecine recherches sur le plexus solaire ».
+</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191412382935">
+              <did>
+                <unitid type="division">1.9.6.23.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> ronde en cuivre à l’effigie de <persname normal="Hackspill, Louis (1880-1963)" source="Sudoc" authfilenumber="059887613" role="sujet">Louis Hackspill</persname> .</unittitle>
+                <physdesc>
+                  <dimensions> 7 cm  de diamètre.</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p> Avers :  Louis Hackspill membre de l’institut par R. Cochet. Revers :   Strasbourg 1919 Paris 1932 Nancy 1913 ENSCP 1938. Motif d’église sapin et vigne avec Azote phosphore métaux alcalins et alcalinaux terreux hunawihr</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191412382936">
+              <did>
+                <unitid type="division">1.9.6.24.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> ronde en Bronze à l’effigie de <persname normal="Béhal, Auguste (1859-1941)" source="Sudoc" authfilenumber="027376656" role="sujet">Auguste Behal</persname>.</unittitle>
+                <physdesc>
+                  <dimensions> 7,4 cm  de diamètre.</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>Avers : buste d’Auguste Behal. Revers « professeur de chimie organique à la faculté de pharmacie membre de l’Académie des sciences et de l’Académie de médecine <unitdate era="ce" calendar="gregorian" normal="1935">1935</unitdate>”
+ </p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191412382937">
+              <did>
+                <unitid type="division"> 1.9.6.25.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> rectangulaire en bronze à l’effigie de <persname normal="Maurain, Charles (1871-1967)" source="Sudoc" authfilenumber="029957583" role="sujet">Charles Maurain</persname>.</unittitle>
+                <physdesc>
+                  <dimensions>7 x 6,2 cm.</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>Avers : effigie de Charles Maurain par Morlon. Revers :  A notre doyen Charles Maurain témoignage de reconnaissance et d‘affection <unitdate era="ce" calendar="gregorian" normal="1941">1941</unitdate>.</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191412382938">
+              <did>
+                <unitid type="division"> 1.9.6.26.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> ronde en bronze à l’effigie de <persname source="Sudoc" normal="Broglie, Maurice de (1875-1960)" authfilenumber="032659636" role="sujet">Maurice De Broglie</persname>.</unittitle>
+                <physdesc>
+                  <dimensions>7,6 cm de diamètre.</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>Avers : à l'effigie de Maurice De Broglie  par Morlon. Revers : outils scientifique, à notre illustre maître ses amis ses élèves ses disciples <unitdate era="ce" calendar="gregorian" normal="1945">1945</unitdate> ».</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191412382939">
+              <did>
+                <unitid type="division">1.9.6.27.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> ronde en cuivre à l’effigie de <persname normal="Léauté, André (1882-1966)" source="Sudoc" authfilenumber="076180808" role="sujet">André Léauté</persname>.</unittitle>
+                <physdesc>
+                  <dimensions>6,5 cm de diamètre.</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>Avers : André Léauté ingénieur professeur 1958. Revers : Mesurer. Mais la mesure ne serait rien de la critique qui ne serait rien non plus sans l’imagination. Raymond Mason.
+</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191412382940">
+              <did>
+                <unitid type="division"> 1.9.6.28.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> ronde en bronze à l’effigie de <persname normal="Delaby, Raymond (1891-1958)" source="Sudoc" authfilenumber="050560085" role="sujet">Raymond Delaby</persname>.</unittitle>
+                <physdesc>
+                  <dimensions>6,9 cm de diamètre.</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>Avers :  effigie Professeur Raymond Delaby  par R. Cochet. Revers :  1891-1958 officier de la légion d‘honneur professeur à la faculté de pharmacie membre de l’Académie nationale de médecine et de l’académie de pharmacie président de la société chimique de France.</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191412382941">
+              <did>
+                <unitid type="division">1.9.6.29.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> ronde en bronze.</unittitle>
+                <physdesc>
+                  <dimensions>7 cm de diamètre.</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>Avers à l’effigie du « Professeur <persname normal="Dupont, Georges (1884-1958)" source="Sudoc" authfilenumber="05963393X" role="sujet">Georges Dupont</persname> 1884-1958 », par R. Cochet. Revers : gravure de la cour aux Ernest d’Ecole Normale Supérieure de la rue d’Ulm et « Directeur de l’Ecole Normale Supérieure doyen de la faculté des sciences de Bordeaux, professeur à la Sorbonne et à l’Ecole Centrale des Arts et Manufacture, président de la Société Chimique de France. Ecole Française de Papèterie,  Institut du Pin.</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191412382942">
+              <did>
+                <unitid type="division"> 1.9.6.30.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> ronde en argent à l’effigie de Paul Pascal.</unittitle>
+                <physdesc>
+                  <dimensions>7 cm de diamètre.</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>Avers effigie du professeur Paul Pascal membre de l’institut par R. Cochet 1961. Revers : Chimie de guerre magnétochimie chimie générale chimie industrielle » sur motif de forêt. Sur la tranche <unitdate normal="19620601">1er juin 1962</unitdate>.</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191412382943">
+              <did>
+                <unitid type="division">1.9.6.31.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> ronde en argent.</unittitle>
+                <physdesc>
+                  <dimensions>5 cm de diamètre.</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>Avers : effigie de « Pierre Puget ». Revers : « Lycée de Marseille école des beaux-arts de Marseille Prix d’honneur de la ville Mathématique spéciale Pascal Paul ».</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191412382944">
+              <did>
+                <unitid type="division">1.9.6.32.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> ronde en bronze.</unittitle>
+                <physdesc>
+                  <dimensions>5,8 cm de diamètre.</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>Avers Effigie de Marianne et « république française » par Daniel Dupuis. Revers : laurier « Lycée de Marseille concours général mathématiques spéciales mathématique 5e accessit Pascal Paul 1901
+
+</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191412382945">
+              <did>
+                <unitid type="division">1.9.6.33.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> rectangulaire en étain à l’effigie de <persname normal="Stas, Jean-Servais (1813-1891 ; chimiste)" source="Sudoc" authfilenumber="073933945" role="sujet">Jean Servais Stas</persname>.</unittitle>
+                <unitdate normal="1920">1920</unitdate>
+                <physdesc>
+                  <dimensions>5,5 x 4 cm.</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>Avers effigie de Jean Servais Stas par Bernard Dubok. Revers :  société chimique de Belgique Paul pascal, 1920.</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191412382946">
+              <did>
+                <unitid type="division">1.9.6.34.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> ronde en étain à l’effigie de <persname normal="Leblanc, Nicolas (1742-1806)" source="Sudoc" authfilenumber="034784594" role="sujet">Nicolas Leblanc</persname>.</unittitle>
+                <physdesc>
+                  <dimensions>5 cm de diamètre.</dimensions>
+                </physdesc>
+                <unitdate era="ce" calendar="gregorian" normal="1920">1920</unitdate>
+              </did>
+              <scopecontent>
+                <p>Avers effigie de Nicolas Leblanc né en 1742 mort en 1806  par Daniel Dupuis. Revers : Laurier Société chimique de France M. Paul Pascal Conférence du 30 avril 1920.</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191412382947">
+              <did>
+                <unitid type="division">1.9.6.35.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> ronde en bronze à l’effigie de <emph render="italic">Fondation Kuhlmann</emph> .</unittitle>
+                <physdesc>
+                  <dimensions>6,1 cm diamètre.</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>Avers effigie de kuhlmann « Fondation Kuhlmann ». Revers : société des sciences de l’agriculture et des arts de Lille P. Pascal fondation Kulhmann 1881.</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191412382948">
+              <did>
+                <unitid type="division">1.9.6.36.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> ronde en bronze à l’effigie de <persname normal="Pacault, Adolphe (1918-2008)" source="Sudoc" authfilenumber="027055078" role="sujet">Adolphe Pacault</persname>.</unittitle>
+                <physdesc>
+                  <dimensions>7,2 cm de diamètre.</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>Avers effigie d’Adolphe Pacault avec le <corpname normal="Centre de Recherche Paul Pascal (Pessac)" source="Sudoc" authfilenumber="155040499" role="sujet">CRPP</corpname> en arrière-plan « A. Pacault centre de recherche Paul Pascal. Monnaie de Paris ». Revers : « plus on sait moins on affirme. à mes collaborateurs, à mes amis A. Pacault ».</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191412382949">
+              <did>
+                <unitid type="division">1.9.6.37.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> ronde en bronze à l’effigie de <persname normal="Julia, Gaston (1893-1978)" source="Sudoc" authfilenumber="030090725" role="sujet">Gaston Julia</persname>.</unittitle>
+                <unitdate era="ce" calendar="gregorian" normal="1961">1961</unitdate>
+                <physdesc>
+                  <dimensions>6,4 cm de diamètre.</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>Avers : effigie  de Gaston Julia. Revers : A Gaston Julia membre de l’académie des sciences professeur à la Sorbonne et à l’école polytechnique ses confrères ses collègues ses élèves ses amis  jubilée scientifique 16 décembre 1961.</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191412382950">
+              <did>
+                <unitid type="division">1.9.6.38.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> ronde en argent allégorie hygieia asklepios.</unittitle>
+                <physdesc>
+                  <dimensions>4 cm de diamètre.</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>Avers allégorie de l’hygiène et de la médecine avec <emph render="italic">hygieia asklepios </emph>. Revers : institutet kungl Kronilska Mediko-Kirurgiska 1810-1860 avec caducée serpent et coq.</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191412382951">
+              <did>
+                <unitid type="division">1.9.6.39.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> ronde en bronze  à l’effigie de <persname normal="Halpern, Bernard (1904-1978)" source="Sudoc" authfilenumber="026912996" role="sujet">Bernard Halpern</persname></unittitle>
+                <physdesc>
+                  <dimensions>6,9 cm de diamètre.</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>Avers. Effigie de Bernard Halpern 1864 par Passavant. Revers : Allergie immunologie antihistaminiques phénothiazines et histamines.</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191412382952">
+              <did>
+                <unitid type="division">1.9.6.40.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> ronde en bronze à l’effigie de <persname normal="Kirrmann, Albert (1900-1974)" source="Sudoc" authfilenumber="034664181" role="sujet">Albert Kirrmann</persname></unittitle>
+                <physdesc>
+                  <dimensions>7 cm de diamètre.</dimensions>
+                </physdesc>
+                <unitdate era="ce" calendar="gregorian" normal="1969">1969</unitdate>
+              </did>
+              <scopecontent>
+                <p>Avers cathédrale de Strasbourg ? effigie du professeur Albert Kirrmann » par R. Cochet 1969. Revers : fronton de l’école normale supérieure de la rue d’Ulm. « école normale supérieure 1955 1970 cinétique et polarographie organiques mécanismes réactionnels transposition allylique aldéhydes substitués hétérocycles oxygènes »</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191412382953">
+              <did>
+                <unitid type="division">1.9.6.41.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> ronde en bronze  à l’effigie de <persname normal="Dupuy, Gaston (19..-....)" source="Sudoc" authfilenumber="077898400" role="sujet">Gaston Dupuy</persname></unittitle>
+                <physdesc>
+                  <dimensions>7 cm de diamètre.</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>Avers effigie de Gaston Dupuy membre de l’institut » par R. Cochet 1975. Revers : Vue du CNRS de Toulouse et « microscopes électroniques de 1 et 3 millions de volt CNRS Toulouse ».
+4ème rang</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191412382954">
+              <did>
+                <unitid type="division"> 1.9.6.42.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> ronde en bronze, plaque or.  Apollon sur son char.</unittitle>
+                <physdesc>
+                  <dimensions>10 cm de diamètre.</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>Avers Apollon sur son char, avec <emph render="italic">qu’est-ce que l’homme dans la nature? un néant à l’égard de l’infini un tou</emph>t. Revers : à l’égard du néant un milieu entre rien et tout. Blaise Pascal. Et « sur cette terre si pleine d’interrogations, au moins une certitude : mes vœux ». motifs d'œil lumineux dans le triangle, personnes qui gravissent une montagne vers la lune et mention labyrinthe.</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191412382955">
+              <did>
+                <unitid type="division">1.9.6.43.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> ronde en bronze à l’effigie du Professeur<persname role="sujet" normal="Tayeau, Francis (1913-1998)" source="Sudoc" authfilenumber="092638082">Francis Tayeau</persname>.</unittitle>
+                <physdesc>
+                  <dimensions>7 cm de diamètre.</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>Avers. Effigie du Professeur Francis Tayeau. Revers : fronton de la faculté de médecine et de pharmacie de bordeaux (bâtiment place de la victoire) « membre de l’académie de médecine 1973 doyen de la faculté de médecine et pharmacie de bordeaux 1961-1969 ».</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191412382956">
+              <did>
+                <unitid type="division">1.9.6.44.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> ronde en bronze à l’effigie du « docteur <persname normal="Peynaud, Émile (1912-2004)" source="Sudoc" authfilenumber="034104623" role="sujet">Emile Peynaud</persname></unittitle>
+                <physdesc>
+                  <dimensions>6,7 cm de diamètre.</dimensions>
+                </physdesc>
+                <unitdate era="ce" calendar="gregorian" normal="1977">1977</unitdate>
+              </did>
+              <scopecontent>
+                <p>Avers : à l’effigie du « docteur Emile Peynaud » par Dominique Biechaud. Revers : « Jubilé d’une collaboration scientifique 1977 professeur <persname role="sujet" normal="Ribéreau-Gayon, Jean (1905-1991)" source="Sudoc" authfilenumber="027097854">Jean Ribereau-Gayon</persname> Docteur Emile Peynaud à l' <corpname normal="Université de Bordeaux (1441-1970)" source="Sudoc" authfilenumber="030142199" role="sujet">Université de Bordeaux</corpname> ».
+</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191412382957">
+              <did>
+                <unitid type="division">1.9.6.45.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> ronde en bronze. Avers : à l’effigie de <persname normal="Ribéreau-Gayon, Jean (1905-1991)" source="Sudoc" authfilenumber="027097854" role="sujet">Jean Ribereau-Gayon</persname>.</unittitle>
+                <physdesc>
+                  <dimensions>6,7 cm de diamètre.</dimensions>
+                </physdesc>
+                <unitdate era="ce" calendar="gregorian" normal="1977">1977</unitdate>
+              </did>
+              <scopecontent>
+                <p>Avers : à l’effigie de Jean Ribereau-Gayon» par Dominique Biechaud. Revers : « Jubilé d’une collaboration scientifique 1977 professeur Jean Ribereau-Gayon Docteur Emile Peynaud à l' <corpname normal="Université de Bordeaux (1441-1970)" source="Sudoc" authfilenumber="030142199" role="sujet">Université de Bordeaux</corpname></p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191412382958">
+              <did>
+                <unitid type="division">1.9.6.46.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> ronde en bronze à l’effigie d’Athena palas.</unittitle>
+                <physdesc>
+                  <dimensions>4,2 cm de diamètre.</dimensions>
+                </physdesc>
+                <unitdate era="ce" calendar="gregorian" normal="1890">1890</unitdate>
+              </did>
+              <scopecontent>
+                <p>Avers : effigie d’Athena palas, par A. Desaile. Revers : laurier <emph render="italic">certificat d’étude à MR P. Pascal 1890</emph></p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191412382959">
+              <did>
+                <unitid type="division">1.9.6.47.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> ronde en argent à l’effigie de Marianne.</unittitle>
+                <physdesc>
+                  <dimensions>4,5 cm de diamètre.</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>Avers effigie de Marianne « république française » par Vauthier Galle F. Revers : Couronne de Laurier « préfecture de police épidémie colérique 1884 Mr Pascal ».
+</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191412383060">
+              <did>
+                <unitid type="division">1.9.6.48.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> ronde en argent.</unittitle>
+                <physdesc>
+                  <dimensions>3,4 cm de diamètre.</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>Avers allégorie ville de Lille. Revers « société des sciences de l’agriculture et des arts de Lille 1802-1866.</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191412383061">
+              <did>
+                <unitid type="division"> 1.9.6.49.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> ronde en bronze, à l’effigie de « <persname normal="Champetier, Georges (1905-1980)" source="Sudoc" authfilenumber="031566545" role="sujet">Georges Champetier</persname>.</unittitle>
+                <physdesc>
+                  <dimensions>7 cm de diamètre.</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>Avers à l’effigie de « Georges Champetier membre de l’académie des sciences ». Revers : fronton de L’EPCI « directeur de l’école supérieur de physique et de chimie. Chimie macromoléculaire » par R. Joly.</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191412383062">
+              <did>
+                <unitid type="division">1.9.6.50.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> ronde en bronze. Avers à l' effigie de <persname normal="Chaudron, Georges (1891-1976)" source="Sudoc" authfilenumber="026782677" role="sujet">Georges Chaudron</persname>.</unittitle>
+                <physdesc>
+                  <dimensions> 6,8cm de diamètre.</dimensions>
+                </physdesc>
+              </did>
+              <scopecontent>
+                <p>Avers à l’effigie de « Georges Champetier membre de l’académie des sciences ». Revers : fronton de L’EPCI « directeur de l’école supérieur de physique et de chimie. Chimie macromoléculaire » par R. Joly.</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191412383063">
+              <did>
+                <unitid type="division">1.9.6.51.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> ronde en laiton. Avers : à l'effigie de <persname normal="Bordes, François (1919-1981 ; professeur de géologie et d'anthropologie préhistorique)" source="Sudoc" authfilenumber="02673947X" role="sujet">François Bordes</persname>.</unittitle>
+                <physdesc>
+                  <dimensions>6,8cm de diamètre.</dimensions>
+                </physdesc>
+                <unitdate era="ce" calendar="gregorian" normal="1984">1984</unitdate>
+              </did>
+              <scopecontent>
+                <p>Avers : effigie de François Bordes, Brives 1919 Tucson 1981 » par J. Nauttel. Revers « professeur à l’université de Bordeaux, directeur de l’institut du quaternaire. Ses amis ses élèves 1984.</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019191412383064">
+              <did>
+                <unitid type="division">1.9.6.52.</unitid>
+                <unittitle><genreform type="genre, forme et fonction" normal="médaille">Médaille</genreform> ronde plaquée argent, Avers à l' effigie « <persname normal="Sadron, Charles (1902-1993)" source="Sudoc" authfilenumber="030732751" role="sujet">Charles Sadron</persname>.</unittitle>
+              </did>
+              <scopecontent>
+                <p>Avers effigie Charles Sadron fondateur du CRM 1947 par R. Cochet. Revers : fronton du CNRS Strasbourg, centre de recherche sur les macro molécules Strasbourg 1947-1977.</p>
+              </scopecontent>
+            </c>
+          </c>
+        </c>
+      </c>
+      <c id="Calames-2019171213316527">
+        <did>
+          <unitid type="cote">2</unitid>
+          <unittitle>Fonds historique <persname authfilenumber="027055078" role="070" normal="Pacault, Adolphe (1918-2008)" source="Sudoc">Adolphe Pacault</persname> (1918-2008) </unittitle>
+        </did>
+        <c id="Calames-2019171213316528">
+          <did>
+            <unitid type="division">2.1.</unitid>
+            <unittitle>	Notes de Cours et de lecture d'Adolphe Pacault</unittitle>
+          </did>
+          <c id="Calames-201912114141919157">
+            <did>
+              <unitid type="division">2.1.1.</unitid>
+              <unittitle> Notes prises en 1935 par Adolphe Pacault. Document intitulé <emph render="italic">Manipulation Physique</emph></unittitle>
+              <physdesc>
+                <physfacet type="technique">Ensemble relié, paginé ms</physfacet>
+                <dimensions>24 x 18 cm</dimensions>
+                <extent>108 feuillets</extent>
+              </physdesc>
+              <unitdate era="ce" calendar="gregorian" normal="1935">1935</unitdate>
+            </did>
+          </c>
+          <c id="Calames-201912114141919158">
+            <did>
+              <unitid type="division">2.1.2.</unitid>
+              <unittitle> Notes prises en <unitdate normal="1936/1937">1936-1937</unitdate>. Titre : 1. Etude Générale des Métaux. 2. Monographie. 
+</unittitle>
+              <physdesc>
+                <dimensions>24 x 18 cm</dimensions>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Ensemble constitué de deux parties : ff. 1 à 24 non relié, ff. 25 à 57 relié par de gros anneaux en métal.</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2019171513420650">
+            <did>
+              <unitid type="division">2.1.3.</unitid>
+              <unittitle>	Cahier de travaux pratiques de physique générale en <unitdate normal="1938">1938</unitdate></unittitle>
+              <physdesc>
+                <dimensions>24 x 18 cm</dimensions>
+                <extent>134 f</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Dates : du 8 novembre 1937 au 19 mai 1938. Il s’agit certainement des TP relatifs aux cours théoriques en cote 2.1.2 (cote précédente). de nombreux tampons dans le corps de texte « Travaux pratiques de Physique Générale [date]</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2019171513420651">
+            <did>
+              <unitid type="division">
+2.1.4.</unitid>
+              <unittitle>	Notes de lecture</unittitle>
+              <physdesc>
+                <physfacet type="support">Non paginé. Relié par de gros anneaux en métal.</physfacet>
+              </physdesc>
+              <unitdate era="ce" calendar="gregorian" normal="1942/1943">1942-1943</unitdate>
+            </did>
+            <scopecontent>
+              <p>Notes inspirées de livres de : <persname role="070" normal="Travers, Alexandre (1883-1949)" source="Sudoc" authfilenumber="060648511">Travers</persname>, <persname role="070" normal="Damiens, Augustin (1886-1946)" source="Sudoc" authfilenumber="067065147">Damiens</persname> (cours de la <corpname role="340" normal="Université Paris Descartes. Faculté de pharmacie de Paris" source="Sudoc" authfilenumber="028136411">Faculté de Pharmacie de Paris</corpname>), Pascal (cours sur les métalloïdes), <persname role="070" normal="Lamirand, Jean-Baptiste (1871-1958)" source="Sudoc" authfilenumber="059159162">Lamirand</persname>, Copeaux et Pujeot, <persname role="070" normal="Dupont, Georges (1884-1958)" source="Sudoc" authfilenumber="05963393X">Dupont</persname> (<subject normal="Chimie industrielle" source="Sudoc" authfilenumber="027355705">Chimie industrielle</subject>). </p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2019111131181317">
+            <did>
+              <unitid type="division">2.1.5.</unitid>
+              <unittitle>
+Cahier relié intitulé <emph render="italic">Montages et Manipulations II</emph>. <corpname role="340" normal="École normale supérieure (Paris ; 1794-1985)" source="Sudoc" authfilenumber="026375354">E.N.S, </corpname><unitdate normal="1942/1943">1942-1943</unitdate>.
+</unittitle>
+              <physdesc>
+                <physfacet type="reliure">Cahier</physfacet>
+                <dimensions>21 x 17 cm.</dimensions>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cours de l'ecole normale supérieure sur les montages et manipulations de chimie.</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2019111131181378">
+            <did>
+              <unitid type="division">2.1.6.</unitid>
+              <unittitle>
+Cahier relié intitulé, <emph render="italic">Leçon d’agrégation III</emph><corpname role="340" normal="École normale supérieure (Paris ; 1794-1985)" source="Sudoc" authfilenumber="026375354">E.N.S,</corpname><unitdate calendar="gregorian" normal="1942/1943">1942-1943</unitdate>.</unittitle>
+              <physdesc>
+                <physfacet type="reliure">Cahier</physfacet>
+                <extent>21 x 17 cm.</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cours de l'ecole normale supérieure de l'agrégation de chimie.</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2019111131181379">
+            <did>
+              <unitid type="division">2.1.7.</unitid>
+              <unittitle>	 Cinq cahiers ms. d’Adolphe Pacault, datant <unitdate normal="1942/1945">1942-1945</unitdate> : notes de cours de l’ENS : leçons d’agrégation.</unittitle>
+              <physdesc>
+                <physfacet type="reliure">	 Cinq cahiers</physfacet>
+                <dimensions>	 21 x 17 cm.</dimensions>
+              </physdesc>
+            </did>
+          </c>
+          <c id="Calames-20191111311813710">
+            <did>
+              <unitid type="division">2.1.8.</unitid>
+              <unittitle>
+Douze cahiers de notes de recherche ms. par Adolphe Pacault : conférence, réunions, notes de lecture. Dates : 1965-1982. 
+</unittitle>
+            </did>
+          </c>
+          <c id="Calames-20191111311813711">
+            <did>
+              <unitid type="division">2.1.9.</unitid>
+              <unittitle>Lot de trois chemises cartonnées contenant des cours et notes d’Adolphe Pacault, des extraits d’articles. Dates : <unitdate normal="1920/1960">1920-1960</unitdate>.
+</unittitle>
+              <physdesc>
+                <physfacet type="conditionnement">Chemises cartonnées</physfacet>
+              </physdesc>
+            </did>
+          </c>
+          <c id="Calames-20191111311813712">
+            <did>
+              <unitid type="division">2.1.10.</unitid>
+              <unittitle>Lot de deux chemises cartonnées contenant des cours et des notes de recherche sur la cinétique. <unitdate normal="1951/1973">1951-1973</unitdate>. Documents manuscrits et tapuscrits.</unittitle>
+              <physdesc>
+                <physfacet type="conditionnement">Chemises cartonnées</physfacet>
+              </physdesc>
+            </did>
+          </c>
+        </c>
+        <c id="Calames-20191111311813713">
+          <did>
+            <unitid type="cote">
+2.2.</unitid>
+            <unittitle>Ouvrages ayant appartenu à <persname role="sujet" normal="Pacault, Adolphe (1918-2008)" source="Sudoc" authfilenumber="027055078">Adolphe Pacault
+</persname></unittitle>
+          </did>
+          <c id="Calames-20191111311813714">
+            <did>
+              <unitid type="division">2.2.1.</unitid>
+              <unittitle> Ouvrages présentant les différentes tables mathématiques.</unittitle>
+              <physdesc>
+                <dimensions>19 x 12,5 cm.</dimensions>
+              </physdesc>
+            </did>
+            <custodhist>
+              <p>Ex-libris « Pacault » sur garde blanche supérieure.</p>
+            </custodhist>
+          </c>
+          <c id="Calames-20191111311813715">
+            <did>
+              <unitid type="division">2.2.2.</unitid>
+              <unittitle>	 Publications du laboratoire de Chimie Physique (Paris) entre 1942 et 1965.</unittitle>
+              <physdesc>
+                <physfacet type="reliure">Deux volumes.</physfacet>
+              </physdesc>
+              <unitdate era="ce" calendar="gregorian" normal="1942/1965">1942-1965</unitdate>
+            </did>
+            <scopecontent>
+              <p>Recueils factices de publications scientifiques.</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-20191111311813716">
+            <did>
+              <unitid type="division">2.2.3.</unitid>
+              <unittitle>Publications du centre de recherche Paul Pascal entre 1966 (ouverture du centre) et 1976.</unittitle>
+              <physdesc>
+                <physfacet type="réglure">Cinq volumes.</physfacet>
+              </physdesc>
+              <unitdate era="ce" calendar="gregorian" normal="1966/1976">1966-1976</unitdate>
+            </did>
+          </c>
+        </c>
+        <c id="Calames-2019111131464331">
+          <did>
+            <unitid type="cote">2.3.</unitid>
+            <unittitle>	Discours et manifestations scientifiques</unittitle>
+          </did>
+          <c id="Calames-201912114141920172">
+            <did>
+              <unitid type="division">2.3.1.</unitid>
+              <unittitle>Pochette contenant un ensemble de photographies relatives aux manifestations scientifiques du centre 
+</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1970/2004">1970-2004</unitdate>
+            </did>
+            <c id="Calames-2019115201186243">
+              <did>
+                <unitid type="division">2.3.1.1.</unitid>
+                <unittitle>Photo de groupe « <emph render="italic">Société chimique</emph> » <unitdate normal="1950">1950</unitdate>. </unittitle>
+              </did>
+              <scopecontent>
+                <p>Présence d’Adolphe Pacault</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019115201181044">
+              <did>
+                <unitid type="division">2.3.1.2.</unitid>
+                <unittitle>Photo d’<persname normal="Pacault, Adolphe (1918-2008)" source="Sudoc" authfilenumber="027055078" role="sujet">Adolphe Pacault</persname></unittitle>
+              </did>
+              <scopecontent>
+                <p>Portrait, sans lieu ni date.</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019115201181045">
+              <did>
+                <unitid type="division">2.3.1.3.</unitid>
+                <unittitle>Photo prise lors du congrès "la science et l’industrie" le <unitdate normal="20040622">22 juin 2004</unitdate>. Adolphe Pacault. 
+</unittitle>
+              </did>
+            </c>
+            <c id="Calames-2019115201181046">
+              <did>
+                <unitid type="division">2.3.1.4.</unitid>
+                <unittitle>Lot de 11 photos en noir et blanc : Séminaire de <subject normal="Biophysique" source="Sudoc" authfilenumber="027837238">biophysique</subject> vers <unitdate normal="1970">1970</unitdate>.
+</unittitle>
+              </did>
+            </c>
+            <c id="Calames-2019115201186324">
+              <did>
+                <unitid type="division">2.3.1.5.</unitid>
+                <unittitle>	Planche de photos, le <unitdate normal="20031219">19 décembre 2003</unitdate>.
+</unittitle>
+              </did>
+            </c>
+            <c id="Calames-2019115201152718">
+              <did>
+                <unitid type="division">2.3.1.6.</unitid>
+                <unittitle>	Lot de cinq photos en noir et blanc de <persname role="sujet" normal="Pascal, Paul (1880-1968)" source="Sudoc" authfilenumber="03156464X">Paul Pascal</persname>.</unittitle>
+              </did>
+            </c>
+            <c id="Calames-2019115201152719">
+              <did>
+                <unitid type="division">2.3.1.7.</unitid>
+                <unittitle>	Lot de 9 photos relatives à la remise d’une médaille à <persname normal="Pascal, Paul (1880-1968)" source="Sudoc" authfilenumber="03156464X" role="sujet">Paul Pascal</persname>.
+</unittitle>
+              </did>
+            </c>
+            <c id="Calames-20191152011662510">
+              <did>
+                <unitid type="division">2.3.1.8.</unitid>
+                <unittitle>Lot de quatre photographies (années 70) d’une conférence scientifique qui eurent lieu au <corpname normal="Centre de Recherche Paul Pascal (Pessac)" source="Sudoc" authfilenumber="155040499" role="sujet">CRPP</corpname></unittitle>
+              </did>
+            </c>
+            <c id="Calames-20191152011662511">
+              <did>
+                <unitid type="division">2.3.1.9.</unitid>
+                <unittitle>
+Lot de 18 photos relatives à la vie du <corpname normal="Centre de Recherche Paul Pascal (Pessac)" source="Sudoc" authfilenumber="155040499" role="sujet">CRPP</corpname>.</unittitle>
+              </did>
+            </c>
+          </c>
+          <c id="Calames-2019115201181047">
+            <did>
+              <unitid type="division">2.3.2.</unitid>
+              <unittitle>Exemplaire du quotidien « Les Etoiles » daté du <unitdate era="ce" calendar="gregorian" normal="19460129">29 janvier 1946</unitdate>. La page 4 propose un article sur l’élection de Paul Pascal à l’Institut, écrit par G. Mury. Et accompagné du texte original.
+
+</unittitle>
+            </did>
+          </c>
+          <c id="Calames-20191152011527111">
+            <did>
+              <unitid type="division">2.3.3.</unitid>
+              <unittitle>	Lettre de <persname role="070" normal="Pascal, Paul (1880-1968)" source="Sudoc" authfilenumber="03156464X">Pascal</persname> rédigée le <unitdate normal="19500124">24 mai 1950</unitdate> à Paris à destination des plusieurs condisciples. Et la réponse à cette lettre par Pacault rédigée à la même date.
+</unittitle>
+              <physdesc>
+                <physfacet type="support">Lettre</physfacet>
+              </physdesc>
+            </did>
+          </c>
+          <c id="Calames-2019115201186325">
+            <did>
+              <unitid type="division">2.3.4.</unitid>
+              <unittitle>	Carte de remerciement envoyé par <persname normal="Papon, Pierre (1939-.... ; physicien)" source="Sudoc" authfilenumber="027057607" role="070">Pierre Papon</persname> à <persname role="660" normal="Vidal, Christian" source="Sudoc" authfilenumber="153632437">Vidal</persname> pour l’envoi de l’article « Proceedings du symposium international ».</unittitle>
+            </did>
+          </c>
+          <c id="Calames-20191152014071915">
+            <did>
+              <unitid type="division">2.3.5.</unitid>
+              <unittitle>	Newsletter du <corpname role="340" normal="Centre de Recherche Paul Pascal (Pessac)" source="Sudoc" authfilenumber="155040499">CRPP</corpname> nommée « Un point sait tout », n°60 du vendredi <unitdate normal="19901012">12 octobre 1990</unitdate>.</unittitle>
+            </did>
+          </c>
+          <c id="Calames-20191152014071916">
+            <did>
+              <unitid type="division">2.3.6.</unitid>
+              <unittitle> 
+Possible discours d’Adolphe Pacault pour les 25 ans du CRPP Le<unitdate normal="19901006">6 octobre 1990</unitdate>. 3 p. agrafés, contient un transparent à projeter.</unittitle>
+            </did>
+          </c>
+          <c id="Calames-20191152014071917">
+            <did>
+              <unitid type="division">2.3.7.</unitid>
+              <unittitle>	Allocution de Mr le Ministre de l’Education Nationale M. <persname normal="Fouchet, Christian (1911-1974)" source="Sudoc" authfilenumber="13977856X" role="070">Christian Fouchet</persname> le mardi <unitdate calendar="gregorian" normal="19661213">13 décembre 1966</unitdate> lors de la remise de la Médaille d’or du CNRS. 6 f. tapuscrits reliés par une agrafe. 
+</unittitle>
+            </did>
+          </c>
+          <c id="Calames-20191152014071918">
+            <did>
+              <unitid type="division">2.3.8.</unitid>
+              <unittitle>Programme du colloque « Loin de l’équilibre ». document relié non paginé, et dossier du colloque.</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1966">1966</unitdate>
+            </did>
+            <scopecontent>
+              <p>Contient aussi plusieurs feuillets non reliés traitant de la publication de l’ouvrage lié à ce colloque (copie d’articles, correspondance, lettre du remerciement).
+Une chemise cartonnée jaune comportant d’une part, un ensemble de photographies relatives à des manifestations scientifiques. D’autres part une documentation écrite sur diverses manifestations (les 25 ans du CRPP, colloque loin de l’équilibre, Allocution de Mr. Le ministre de l’éducation nationale Mr. Christian Fouchet, le mardi 13 décembre 1966 lors de la remise de la Médaille d’or du CNRS.</p>
+            </scopecontent>
+          </c>
+        </c>
+        <c id="Calames-2019115201281801">
+          <did>
+            <unitid type="cote">2.4.</unitid>
+            <unittitle> Outils de travail / Éléments de carrière personnelle et à propos des membres du CRRP</unittitle>
+          </did>
+          <c id="Calames-20191152015249736">
+            <did>
+              <unitid type="division">2.4.1.</unitid>
+              <unittitle>
+2.4.1.	Cahier relié ms. faisant office de carnet de texte. Pacault y écrit des notes quotidiennes sur ses cours, ses élèves. Dates extrêmes : <unitdate normal="1984/1992">1984-1992</unitdate></unittitle>
+            </did>
+          </c>
+          <c id="Calames-2019115201138193">
+            <did>
+              <unitid type="division">2.4.2.</unitid>
+              <unittitle>Carnet alphabétique contenant des informations personnelles des membres du CRPP. Pour chaque personne : une photo d’identité, ainsi que le cursus universitaire et professionnel.</unittitle>
+            </did>
+          </c>
+          <c id="Calames-20191152015249738">
+            <did>
+              <unitid type="division">2.4.3.</unitid>
+              <unittitle>Deux cartes de visite d’Adolphe Pacault « Monsieur A. Pacault Membre correspondant de l’Institut de France. Professeur Emérite à l’Université Bordeaux I, Directeur honoraire du Centre de Recherche Paul Pascal du CNRS. » Ainsi que l’adresse du CRPP et l’adresse de son domicile.</unittitle>
+            </did>
+          </c>
+        </c>
+        <c id="Calames-2019115201514801">
+          <did>
+            <unitid type="cote">2.5.</unitid>
+            <unittitle>Dossier de presse A propos d’<persname normal="Pacault, Adolphe (1918-2008)" source="Sudoc" authfilenumber="027055078" role="sujet">Adolphe Pacault</persname></unittitle>
+          </did>
+          <c id="Calames-20191152015249740">
+            <did>
+              <unitid type="division">2.5.1.</unitid>
+              <unittitle>
+ Ouvrage relié « Notice sur les Titres et Travaux Scientifiques de A. Pacault ». 65 p. 
+</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2000">2000</unitdate>
+            </did>
+            <scopecontent>
+              <p>Accompagné d’une annexe « Compléments de la notice 1978-2000 ». 2 p.</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2019115201201843">
+            <did>
+              <unitid type="division">2.5.2.</unitid>
+              <unittitle>	Deux coupures de journal sur la remise de la médaille du mérite d’Adolphe Pacault par le ministre Curien en <unitdate normal="1985">1985</unitdate>. 
+</unittitle>
+            </did>
+          </c>
+        </c>
+        <c id="Calames-2019115201542111">
+          <did>
+            <unitid type="cote">2.6.</unitid>
+            <unittitle>Correspondance avec <persname role="660" normal="Mrozowski, Stanislaw" source="Sudoc" authfilenumber="172300339">Mrozowski</persname></unittitle>
+          </did>
+          <c id="Calames-20191152015249743">
+            <did>
+              <unitid type="division">2.6.1.</unitid>
+              <unittitle>Ensemble de 5 photographies prises lorsque  Mrozowski  reçut le titre de « Docteur Honoris Causa ».
+</unittitle>
+            </did>
+          </c>
+          <c id="Calames-20191152015249744">
+            <did>
+              <unitid type="division">2.6.2.</unitid>
+              <unittitle>Ensemble de correspondance traitant de l’organisation  de la rentrée solennelle de l’Université de Bordeaux le <unitdate normal="19641019">19 octobre 1964</unitdate></unittitle>
+            </did>
+            <scopecontent>
+              <p>Rentrée solennelle de l’Université de Bordeaux le 19 octobre 1964 à l’occasion de laquelle le titre de » Docteur Honoris Causa » fut décerné à Mrozowski. Correspondance entre Adolphe Pacault et Stawnislas Mrozowski (1964-1972)</p>
+            </scopecontent>
+          </c>
+        </c>
+        <c id="Calames-201911520199521">
+          <did>
+            <unitid type="cote">2.7.</unitid>
+            <unittitle>Photographies</unittitle>
+          </did>
+          <c id="Calames-20191152015250146">
+            <did>
+              <unitid type="division">2.7.1.</unitid>
+              <unittitle>	Evènements du CRPP</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1967/2004">1967-2004</unitdate>
+            </did>
+            <c id="Calames-201911521112833">
+              <did>
+                <unitid type="division">2.7.1.1.</unitid>
+                <unittitle>	Visite de M.<persname normal="Curien, Hubert (1924-2005)" source="Sudoc" authfilenumber="028822390" role="sujet"> Hubert Curien </persname>au CRPP en <unitdate normal="1985">1985</unitdate></unittitle>
+              </did>
+              <scopecontent>
+                <p>Coffret bordeaux en tissu : Remise de la médaille du Mérite National par Hubert Curien à Adolphe Pacault en 1985. Deux albums photos contenant des photographies similaires mais dans un ordre différent. Les Numéros d’identification correspondent à ceux inscrits d’origine au revers des pages. Les noms sont à lire sur les photos de gauche à droite. Ne figure que les noms des personnes identifiées. </p>
+                <p>28. Jacques Valade, professeur de Chimie organique</p>
+                <p>29. Hubert Curien, Jacques Valade</p>
+                <p>30. Pacault reçoit Curien, accompagné de Georges Abadie (préfet en 1985)</p>
+                <p>25. André Marchand, H. Curien, Adolphe Pacault. Accueil des autorités</p>
+                <p>26. Curien, Pierre Bothorel (succède à Pacault à la direction du CRPP)</p>
+                <p>27. Pierre Marchand. Allocution.</p>
+                <p>40. Assemblée</p>
+                <p>24. Pierre Bothorel s’adresse à Pacault et Curien</p>
+                <p>10. Bothorel, Pacault, Curien : remise de la médaille du mérite national à Pacault</p>
+                <p>11. Pacault montre sa médaille</p>
+                <p>12. Idem</p>
+                <p>16, 17. Remerciements de Pacault</p>
+                <p>18, 8. Pacault, Botherel</p>
+                <p>19. Allocution Valade</p>
+                <p>20, 21. Valde remet la médaille à Pacault</p>
+                <p>41. Allocution de Curien</p>
+                <p>37, 39, 38, 34, 35. Remise de la médaille à Pacault</p>
+                <p>7. Assemblée</p>
+                <p>31. Médaille : Pacault, Marchand</p>
+                <p>36, 32. Allocution Pacault</p>
+                <p>9. Curien, Joly, Marchand</p>
+                <p>15. Pacault, Franc Metras, Jean Victor Zanchetta, Elisabeth Poquet</p>
+                <p>55. Pacault, Pointraud, Jean Lacombe (futur président de l’université de Bordeaux)</p>
+                <p>49. Couple Pacault</p>
+                <p>48. Assemblée</p>
+                <p>14. Pacault, Jean-Louis Haut-Couturier (Directeur ENSEIRB)</p>
+                <p>53. Bothorel, Marchand, Jacques Maire (directeur scientifique à Carbone-Loraine)</p>
+                <p>5. Mme Pacault</p>
+                <p>6. Mme Valade, Pacault, Mme Pacault</p>
+                <p>45. ?, Pacault, Mme Valade, Bothorel</p>
+                <p>44. Raymond Calas (professeur de chimie organique), Pacault, Robert Gay (professeur en cristallographie)</p>
+                <p>46. Couple Pacault, couple Valade, couple Joussot-Dubien (Jacques), couple Bothorel (Pierre et Monique)</p>
+                <p>50, 51. Anciens de CRPP</p>
+                <p>52. Famille Pacault (Gendre, Fille, Fils, M. et Mme Pacault)</p>
+                <p>47=46</p>
+                <p>43. Couple Pacault avec personnalités du monde industriel (aérospatial notamment) </p>
+                <p>54. Robert Pointraud, J. Lacombe</p>
+                <p>13. M. Mme Pacault</p>
+                <p>1, 3. Sur les marches du CRPP. Personnels du CRPP</p>
+              </scopecontent>
+              <scopecontent>
+                <p>Album photo en cuir vert. Annoté : BIAIS 17/09/1985. Jacques Biais était un professeur et membre du CRPP. Amateur de photo. A l’occasion de la Remise de la médaille du mérite National par Curien à Adolphe Pacault. Les pages sont constituées de deux à trois photos : dans la description patronymique, le / marque la séparation entre les photos. Les personnalités sont décrites de gauche à droite.
+1. ?
+2. Marchand, Pacault / Favard (Professeur de Paris en Physique, Chimie), ?, Jean-Pierre Vairon
+3. ?, Monique Jousset-Dubien, ?
+4. 5. 6. 7. ?
+8. Bothorel, Annie Février (Technicienne CRPP), Pacault / Bothorel, Pacault
+9. Personnel du CRPP
+10. Pacault, Marchand au premier plan. Ivan Joyeux, Jacques Dufour au second plan (techniciens verriers)
+11. 12. Groupes divers
+13. Sur les deux photos : Jean Hoareau, Pacault, Jean de Santos
+14. Christian Vidal, Jeanine Zanchetta
+15. Idem / Bothorel, Jean Cherville (CESTA CEA : Centre d’étude scientifique et technique)
+16. ?
+17. En haut : Francis Bois, Jean de Santos / François Boissard (Cesta CEA), ?, Jean Claverie (professeur en Chimie du solide) / Zanchetta, Bois
+18. Personnels CRPP / Rey (concierge)
+19. R. Pointraud, Pacault
+&amp;lt;/item&amp;gt;&amp;lt;item&amp;gt;2.7.1.1.3.	Pochette composé de 23 photographies prises à l’occasion de la visite de Curien en 1985.</p>
+              </scopecontent>
+              <scopecontent>
+                <p>Pochette composé de 30 photographies prises à l’occasion de la visite de Curien en 1985.</p>
+              </scopecontent>
+              <scopecontent>
+                <p>Pochette composée de 34 photographies prises à l’occasion de la visite de Curien en 1985.</p>
+              </scopecontent>
+              <scopecontent>
+                <p>Trois pochettes cartonnées contenant chacune une photo : Deux d’entre-elles représentent Adolphe Pacault au moment de sa remise de la médaille du mérite. La dernière est une photo de groupe du personnel et des chercheurs du CRPP devant le laboratoire.</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-201911521112834">
+              <did>
+                <unitid type="division">2.7.1.2.</unitid>
+                <unittitle>	Portes ouvertes du CRPP à l’occasion de ses 25 ans : <unitdate normal="1990">1990</unitdate>.</unittitle>
+              </did>
+              <c id="Calames-2022310153346341">
+                <did>
+                  <unitid type="division">2.7.1.2.1.</unitid>
+                  <unittitle>Pochette présentant un ensemble de 24 photos.</unittitle>
+                </did>
+                <scopecontent>
+                  <p>Pochette présentant un ensemble de 24 photos : Pacault.
+1. Chantal Garrigou-Lagrange
+2. 
+3. M et Mme Pacault
+4. Léon joyeux, Garrigou-Lagrange, Georges fourche, Jean-Pierre Manceau et son épouse
+5.-10. Adolphe Pacault
+11.-13. Remise de médailles du CRPP remise à l’occasion à certains membres du personnel. Elles ont été fabriquées à l’hôtel de la monnaie à Pessac. Ici Jacques Duffour (verrier du CRPP) reçoit une des médailles.
+14 15 Monique Joussot-Dubien
+16.-18. Bernard Lemanceau
+19.-24. André marchand.</p>
+                </scopecontent>
+              </c>
+              <c id="Calames-2022310153527383">
+                <did>
+                  <unitid type="division">2.7.1.2.2.</unitid>
+                  <unittitle>Pochette présentant un ensemble de 44 photos.</unittitle>
+                </did>
+                <scopecontent>
+                  <p>1. 2. Lemanceau, marchand, ?, CLuzot (administrateur CRPP), Mme Broca, Pacault, Monique Joussot-Dubien, Jacques Duffour
+5. Curien/Bothorel
+6. Curien, Roger Naslain, Bothorel
+7. Lascombe, Curien, Naslain
+8. Joly, Curien, Naslain
+9 et 10 Bothorel
+11 12 Martine Ricci, Annie Fevrier, Curien
+15 François Carbonnat, Francis Ardouin, Annie Février, Martin Ricci
+27 Présentation d’une expérience de Rayon X. Philippe Barois, Curien, Phlippe Méléard
+35 M. et Mme REY, concierges en 1990.</p>
+                </scopecontent>
+              </c>
+              <c id="Calames-2022310153443334">
+                <did>
+                  <unitid type="division">2.7.1.2.3.</unitid>
+                  <unittitle>Pochette de 16 photos</unittitle>
+                </did>
+              </c>
+              <c id="Calames-2022310153443335">
+                <did>
+                  <unitid type="division">2.7.1.2.4.</unitid>
+                  <unittitle>Deux pochettes (en double) présentant un ensemble de 17 photos chacune.</unittitle>
+                </did>
+              </c>
+              <c id="Calames-2022310153443336">
+                <did>
+                  <unitid type="division">2.7.1.2.5.</unitid>
+                  <unittitle>Pochette contenant 27 photos.</unittitle>
+                </did>
+              </c>
+              <c id="Calames-2022310153443337">
+                <did>
+                  <unitid type="division">2.7.1.2.6.</unitid>
+                  <unittitle>	Pochette contenant 36 photos de cette journée : présentation de machines du labo, allocution, assemblées.</unittitle>
+                </did>
+              </c>
+              <c id="Calames-202231016301001">
+                <did>
+                  <unitid type="division">2.7.1.2.7.</unitid>
+                  <unittitle>	Pochette de 18 photos : repas, convives. Différentes figures présentes dans les ensembles précédents.</unittitle>
+                </did>
+              </c>
+              <c id="Calames-20223101633969610">
+                <did>
+                  <unitid type="division">2.7.1.2.8.</unitid>
+                  <unittitle>Pochette de 48 photos : allocution, assemblées, convives (repas).</unittitle>
+                </did>
+              </c>
+              <c id="Calames-2022310163950610">
+                <did>
+                  <unitid type="division">2.7.1.2.9.</unitid>
+                  <unittitle>	Pochette de 12 photos : Allocution, assemblée.</unittitle>
+                </did>
+              </c>
+              <c id="Calames-2022310163950611">
+                <did>
+                  <unitid type="division">2.7.1.2.10.</unitid>
+                  <unittitle>	Pochette de 16 photos : convives (repas).</unittitle>
+                </did>
+              </c>
+              <c id="Calames-2022310163950612">
+                <did>
+                  <unitid type="division">2.7.1.2.11.</unitid>
+                  <unittitle>	Pochette de 21 photos : assemblées devant des posters de présentation des travaux du CRPP et autres photos de groupes de convives.</unittitle>
+                </did>
+              </c>
+              <c id="Calames-20223101633998513">
+                <did>
+                  <unitid type="division">2.7.1.2.12.</unitid>
+                  <unittitle>	Pochette de 8 photos : convives, plats.</unittitle>
+                </did>
+              </c>
+              <c id="Calames-20223101633998514">
+                <did>
+                  <unitid type="division">2.7.1.2.13.</unitid>
+                  <unittitle>Pochette de 11 photos : assemblée, discussions dans le hall d’entrée du CRPP.</unittitle>
+                </did>
+              </c>
+              <c id="Calames-20223101633998515">
+                <did>
+                  <unitid type="division">2.7.1.2.14.</unitid>
+                  <unittitle>	Boite plastique bleue contenant 29 photos : assemblée, démonstrations d’expériences, pot, dînée.</unittitle>
+                </did>
+              </c>
+              <c id="Calames-20223101633998516">
+                <did>
+                  <unitid type="division">2.7.1.2.15.</unitid>
+                  <unittitle>Pochette contenant photos de groupes : allocution, repas, danse.</unittitle>
+                </did>
+              </c>
+              <c id="Calames-20223101633998517">
+                <did>
+                  <unitid type="division">2.7.1.2.16.</unitid>
+                  <unittitle>
+		Pochette de 11 photos : démonstrations en laboratoires, photos de verres de chimie.</unittitle>
+                </did>
+              </c>
+              <c id="Calames-20223101633998518">
+                <did>
+                  <unitid type="division">2.7.1.2.17.</unitid>
+                  <unittitle>	Pochette de 24 photos : démonstrations d’expériences, visite du labo.</unittitle>
+                </did>
+              </c>
+            </c>
+            <c id="Calames-20191152015251147">
+              <did>
+                <unitid type="division">2.7.1.3.</unitid>
+                <unittitle>Journées du CRPP <unitdate normal="19881219">19/22 décembre 1988</unitdate> et autres évènements internes au CRPP. 
+</unittitle>
+              </did>
+              <scopecontent>
+                <p>Pour la numérotation des photos : le premier chiffre correspond à la page, le second combiné à une lettre correspond à la photographie.</p>
+              </scopecontent>
+              <scopecontent>
+                <p>1. 13A. Didier Roux : Dispositif de Couette.</p>
+                <p>1. 12A. Bernon : Appareil de diffraction au Rayon X.</p>
+                <p>2. 6A. 1e rang : Bernard Lemaire.</p>
+                <p>2. 5A. Jean Coulon, Jacques Boissade, ?, Didier Roux.</p>
+                <p>3. 1A. Assistance
+3. 2A. Jean Duffourcq.</p>
+                <p>4. 3A. Didier Roux.</p>
+                <p>4. 4A. Bernon.</p>
+                <p>5. 9A et 5. 10A. Etudiants du CRPP avec Bothorel.</p>
+                <p>6. 19A. Et 6. 11A Dufourc : Spectroscopie de résonance magnétique nucléaire (marque Bruker).</p>
+                <p>7. 14A. Imagerie en biologie. Philippe Méléard.</p>
+                <p>7. 15A. Jean Claude Rouillon.</p>
+                <p>8. 18A. Cuve Langmuir – Blodgett. (Création de couches mono-moléculaires).</p>
+                <p>9. 23A. et 9. 24A : Etiennette Dulost.</p>
+                <p>10. 12A. François Carbonnet, Pierre Delhaes, Pierre Bothorel, Tinh, GAsparou (Directeur de l’Ecole de Chimie de Bordeaux), Francis Hardouin (Futur président de l’université de Bordeaux)
+11. Jean El Zegarray.</p>
+                <p>12. A4. Jérôme Bibette.</p>
+                <p>13. 5A. François Carbonnet (Directeur de l’UFR de Chimie de Bordeaux).</p>
+                <p>13. 1A. Achard (ingénieure CNRS).</p>
+                <p>14. 5A. Jean Coulon (professeur à l’école de Chimie).</p>
+                <p>15. 8A., 7A. Catherine Léon.</p>
+                <p>16. 12A, 13A. Serge Flandrois.</p>
+                <p>17. 23A : Adolphe Pacault.</p>
+                <p>18. 5A, 1A : Céline Lalanne (Thésarde de Pierre Delhaès).</p>
+                <p>19. 3A, 2A. Philippe Méléart.</p>
+                <p>20. 8A, 9A : Philippe Rechetti (directeur du CRPP).</p>
+                <p>21. 13A. Oscar Babagbeto.</p>
+                <p>22. 10A. Frédéric Nallet (Professeur d’université).</p>
+                <p>23. 14A. Patrick Hanusse : Expérience de structure spatio-temporelle (A lier avec un ouvrage de Vidal).</p>
+                <p>24. 17A, 18A : Roussel (Biologie Physique).</p>
+                <p>25. 19A. 20A : François Argoult.</p>
+                <p>26. 22A, 23A : Philippe Méléard, Jean Duffourq   2 thésards.</p>
+                <p>27. 1A. Roussel, Georges Escourd, Duffourcq, Henri Faucon, Duffourc, Méléard.</p>
+                <p>28. 23A. Chantal Carrigou-Lagrange (Droit).</p>
+                <p>29. 7A. Joly, Duras.</p>
+                <p>30. 24A. Françoise Mozac.</p>
+                <p>31. 14A. François Carbonnet.</p>
+                <p>32. 17A : Départ à la retraite de François Carbonnet : Mme Françoise Carbonnet.</p>
+                <p>32. 16A. Bernard Klein. Directeur de l’école de Chimie après Gasparou.</p>
+                <p>33. 18A. Francis Hardouin.</p>
+                <p>33. 19A. Jean Duffourq, Didier Roux.</p>
+                <p>34. 13A. Adolphe Pacault, Pierre Bothorel, LE Roumain (Calvitie), Pierre Delhaes, Henri Gasparou.</p>
+                <p>35. 20A. Jean Claude Doux (Mécanicien).</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019122121421416">
+              <did>
+                <unitid type="division">2.7.1.4.</unitid>
+                <unittitle> Album photo réalisé à l’occasion de la Visite de Mr Kourilsky.
+Directeur général du CNRS </unittitle>
+              </did>
+              <scopecontent>
+                <p>7 photos annotées : salle du bâtiment et phrases humoristiques]. Cet album contient également des photos de la visite de Mr Curien Ministre de la recherche, 26 janvier 1990. (17 photos annotées de phrases humoristiques). Dans cet album les photos sont collées sur des feuilles blanches perforées, c’est une préparation pour la publication d’une newsletter interne.
+</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019122121421417">
+              <did>
+                <unitid type="division">2.7.1.5.</unitid>
+                <unittitle>	Pacault, Directeur de Chimie du CNRS, Jacques Chaban Delmas lors d’une visite de ce dernier le 26 mars 1979. 
+</unittitle>
+              </did>
+              <scopecontent>
+                <p>Manipulation d’appareils scientifiques.</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2019122121421418">
+              <did>
+                <unitid type="division">2.7.1.6.</unitid>
+                <unittitle>	Lot de quatre photos prises à époques différentes : ensemble du personnels du CRPP   chercheurs.</unittitle>
+              </did>
+              <c id="Calames-202231193277032">
+                <did>
+                  <unitid type="division">2.7.1.6.1.</unitid>
+                  <unittitle>	Photo du 20 mai 1965 : à l’occasion de l’ouverture du CRPP.</unittitle>
+                </did>
+              </c>
+              <c id="Calames-202231193277033">
+                <did>
+                  <unitid type="division">2.7.1.6.2.</unitid>
+                  <unittitle>	prise à l’occasion du colloque « Loin de l’équilibre ». 27, 28, 29 septembre 1978.</unittitle>
+                </did>
+              </c>
+              <c id="Calames-202231193277034">
+                <did>
+                  <unitid type="division">2.7.1.6.3.</unitid>
+                  <unittitle>	Lot de deux photos en noir et blanc.</unittitle>
+                </did>
+              </c>
+              <c id="Calames-202231193277035">
+                <did>
+                  <unitid type="division">2.7.1.6.4.</unitid>
+                  <unittitle>	Photo couleur.</unittitle>
+                </did>
+              </c>
+            </c>
+            <c id="Calames-2019122121421419">
+              <did>
+                <unitid type="division">2.7.1.7.</unitid>
+                <unittitle>	Lot de 18 photos d’une expérience scientifique</unittitle>
+              </did>
+            </c>
+          </c>
+          <c id="Calames-201911521112836">
+            <did>
+              <unitid type="division">2.7.2.</unitid>
+              <unittitle>Evènements extérieurs au CRPP. Colloques et conférences.</unittitle>
+            </did>
+            <c id="Calames-2022311931425576">
+              <did>
+                <unitid type="division">2.7.2.1.</unitid>
+                <unittitle>	Album photo bleu contenant des photos du congrès SIS « Surfactant International Symposium » qui eut lieu au Château de Vayres en 1984. Sur les Colloides microémulsion. Certaines photo. Montrent un épisode de Jurade à laquelle Pierre Lalane à participé.
+1. Bothorel (micron), Valade (gris)
+3. Bernard Klein (barbe centre), Valade au micro
+6. Bothorel/valade.
+</unittitle>
+              </did>
+            </c>
+            <c id="Calames-2022311931425577">
+              <did>
+                <unitid type="division">2.7.2.2.</unitid>
+                <unittitle>	Album photo : 25 ans de présence de Jacques Duffour le<unitdate normal="19780609"> 9 juin 1978</unitdate>.</unittitle>
+              </did>
+            </c>
+            <c id="Calames-2022311931425578">
+              <did>
+                <unitid type="division">2.7.2.3.</unitid>
+                <unittitle>Remise du George Skakel Memorial Award.</unittitle>
+              </did>
+              <scopecontent>
+                <p>Une attestation de remise de prix additionné de deux reproductions photographiques du prix   l’album photo correspondant à cet évènement : une de pacault (relise de orix de Pacault : 1973) et remise de prix de Mzorowski (1969). Groupe scientifique des matériaux carbonés aux Etats-Unis. Tous les deux ans il y avait une conférence internationale aux USA, ils donnaient deux médailles pour des scientifiques éminents dans le domaine. Il s’agit du George Skakel Memorial Award remis à Adolphe Pacault  le 7 juin 1973. L’album comprend 12 photographies sur lesquelles sont figurés : 
+•	Adolphe Pacault, Howard E. Martins (Ph. 2)
+•	Martin M. Turban (ph. 3)
+•	Leslie H. Juel, Frederick L. Shea Jr., Barthley J. fleming, Martin M. Turban John P. Sachs (de la gauche vers la droite, Ph. 7).
+•	Sabi Ergun, Howard E. Martens (ph 8)</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2022311931425579">
+              <did>
+                <unitid type="division">2.7.2.4.</unitid>
+                <unittitle>Trentenaire de l’Adera. <unitdate normal="199712">Décembre 1997</unitdate>.</unittitle>
+              </did>
+              <scopecontent>
+                <p>Onze photographies issues de cet évènement : allocution des membres et invités de l’association. Est joint une carte de Vœux de 1998.</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2022311931425580">
+              <did>
+                <unitid type="division">2.7.2.5.</unitid>
+                <unittitle>Conférence à Pittsburgh en 1963. Photos 1 à 9.</unittitle>
+              </did>
+            </c>
+            <c id="Calames-2022311931425581">
+              <did>
+                <unitid type="division">2.7.2.6.</unitid>
+                <unittitle>	40e anniversaire du GFEC.</unittitle>
+              </did>
+              <scopecontent>
+                <p>32 photographies de l’évènement accompagné d’une lettre à destination d’Adolphe Pacault, signé par Jean-Pierre Joly.
+40e anniversaire GFEC / <unitdate normal="2001">2001</unitdate></p>
+                <p>1. 2. Agnes Oberlin.</p>
+                <p>3. M. Delhaes.</p>
+                <p>4. Pacault, Marchand, Serge Flandrois, Pierre Ehrburger.</p>
+                <p>5. Pacault, Pierre Olry, Ehrburger, Xavier Bourrat, Jacques Counard, François Beguin.</p>
+                <p>6. Jacques Maire, Delhaes, Marchand.</p>
+                <p>
+8.9. Marchand.</p>
+                <p>11.12. Pacault.</p>
+                <p>13 Pacault marchand</p>
+                <p>14 Daniel Guerard, couple Counard.</p>
+                <p>15 André Hamwi, Jean Michel Rouzaud.</p>
+                <p>17 Agnes oberlin, Jean-François Desprèz.</p>
+                <p>18 Oberlin, Joly.</p>
+                <p>21 François Béguin.</p>
+                <p>22 Delhaes.</p>
+                <p>25 Oberlin,Sylvie Bonnamie, Daniel Guerard, François Begain.</p>
+                <p>30 Serge Flandrois, Jean-Pierre Issi, Sandrine Berthon-Fabry (Université Sophia Antipolis.).</p>
+              </scopecontent>
+            </c>
+          </c>
+          <c id="Calames-20191152015251148">
+            <did>
+              <unitid type="division">2.7.3.</unitid>
+              <unittitle>Photos d’Adolphe Pacault et Paul Pascal</unittitle>
+            </did>
+            <c id="Calames-202231110350532">
+              <did>
+                <unitid type="division">2.7.3.1.</unitid>
+                <unittitle>
+	Album (classeur bordeaux) composée de photos noir et blanc.</unittitle>
+              </did>
+              <scopecontent>
+                <p>1 à 4 : Groupes de personnalités dont Pacault et Pascal. Sorbonne 1950.
+5 : Adolphe Pacault, Prix Cahours, 13/11/1956.
+6 à 17 : Photos représentant Pascal et Pacault, portraits et photos de groupe.
+18 à 29 : photos de groupes, certaines sont prises sur un  bateau.</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-202231110350533">
+              <did>
+                <unitid type="division">2.7.3.2.</unitid>
+                <unittitle>	Photographie de groupe en noir et blanc datée du <unitdate normal="19650520">20 mai 1965</unitdate>.</unittitle>
+              </did>
+              <scopecontent>
+                <p>Remise de la légion d’honneur. La photo est prise devant le bâtiment de la recherche de Chimie à Talence. Joussou-Dubien, Hoareau, Visiteur Japonais, Marchand, Hubersfeld (professeur à Paris), Pacault, Visiteur Américain, Mac Clure, Bothorel.</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-202231110303474">
+              <did>
+                <unitid type="division">2.7.3.3.</unitid>
+                <unittitle>	Allocution de Pacault. A l’ancienne Faculté des sciences Cours Pasteur (Musée d’Aquitaine) vers <unitdate normal="1958/1960">1958/1960</unitdate>.</unittitle>
+              </did>
+            </c>
+            <c id="Calames-202231110303475">
+              <did>
+                <unitid type="division">2.7.3.4.</unitid>
+                <unittitle><unitdate normal="1966">Printemps 1966</unitdate>, Chez M. Lemanceaux à Bordeaux.</unittitle>
+              </did>
+              <scopecontent>
+                <p>Paul Pascal et Adolphe Pacault accompagnés de leurs épouses.</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-2022311103296006">
+              <did>
+                <unitid type="division">2.7.3.5.</unitid>
+                <unittitle>	Deux portraits d’Adoplhe Pacault à son bureau de travail, <unitdate normal="1982">1982.</unitdate></unittitle>
+              </did>
+            </c>
+            <c id="Calames-2022311103296007">
+              <did>
+                <unitid type="division">2.7.3.6.</unitid>
+                <unittitle>	Portrait noir et blanc d’Adolphe Pacault, <unitdate normal="1973">juillet 1973</unitdate>.</unittitle>
+              </did>
+            </c>
+            <c id="Calames-2022311103103898">
+              <did>
+                <unitid type="division">2.7.3.7.</unitid>
+                <unittitle>	Photo d’Adolphe Pacault,<unitdate normal="199507"> Juillet 1995</unitdate>.</unittitle>
+              </did>
+            </c>
+            <c id="Calames-2022311103103899">
+              <did>
+                <unitid type="division">2.7.3.8.</unitid>
+                <unittitle> Portrait coul. D’Adolphe Pacault, 	<unitdate normal="199812">Décembre 1998</unitdate>.</unittitle>
+              </did>
+            </c>
+            <c id="Calames-2022311103138010">
+              <did>
+                <unitid type="division">2.7.3.9.</unitid>
+                <unittitle>Adolphe Pacault et …, <unitdate normal="20041105">5 novembre 2004</unitdate>.</unittitle>
+              </did>
+            </c>
+            <c id="Calames-2022311103138011">
+              <did>
+                <unitid type="division">2.7.3.10.</unitid>
+                <unittitle>	2 photos de Paul Pascal donnant un cour.</unittitle>
+              </did>
+            </c>
+            <c id="Calames-2022311103138012">
+              <did>
+                <unitid type="division">2.7.3.11.</unitid>
+                <unittitle>	2 photos de Paul Pascal et Adolphe Pacault.</unittitle>
+              </did>
+            </c>
+          </c>
+          <c id="Calames-2019115201394449">
+            <did>
+              <unitid type="division">2.7.4.</unitid>
+              <unittitle>Photos illustrant la vie privée d’Adolphe Pacault.</unittitle>
+            </did>
+            <c id="Calames-2022311103216612">
+              <did>
+                <unitid type="division">
+2.7.4.1.</unitid>
+                <unittitle>	2 photos (double) d’une scène familiale de vacances.</unittitle>
+              </did>
+            </c>
+            <c id="Calames-2022311103216613">
+              <did>
+                <unitid type="division">
+2.7.4.2.</unitid>
+                <unittitle> 
+2 photos (double) d’une villégiature de vacances (piscine et transats).</unittitle>
+              </did>
+            </c>
+            <c id="Calames-2022311103216614">
+              <did>
+                <unitid type="division">
+2.7.4.3.</unitid>
+                <unittitle>	2 photos (double) portrait de chien.</unittitle>
+              </did>
+            </c>
+            <c id="Calames-2022311103216615">
+              <did>
+                <unitid type="division">
+2.7.4.4.</unitid>
+                <unittitle>	Photographie d’une bâtisse ancienne.</unittitle>
+              </did>
+            </c>
+            <c id="Calames-2022311103216616">
+              <did>
+                <unitid type="division">
+2.7.4.5.</unitid>
+                <unittitle>	2 photos de chat (double).</unittitle>
+              </did>
+            </c>
+            <c id="Calames-2022311103216617">
+              <did>
+                <unitid type="division">
+2.7.6.1.</unitid>
+                <unittitle>	2 photos d’un astronaute sur la lune.</unittitle>
+              </did>
+            </c>
+          </c>
+          <c id="Calames-2019115201394450">
+            <did>
+              <unitid type="division">2.7.5.</unitid>
+              <unittitle>Le bâtiment du CRPP.</unittitle>
+            </did>
+            <c id="Calames-202231110337332">
+              <did>
+                <unitid type="division">2.7.5.1.</unitid>
+                <unittitle>	Pochette contenant un ensemble de photographies du bâtiment du CRPP.</unittitle>
+              </did>
+              <scopecontent>
+                <p>Phases de construction, post-construction. Contient deux photos de groupe devant le bâtiment. 39 pièces.</p>
+              </scopecontent>
+            </c>
+            <c id="Calames-202231110337333">
+              <did>
+                <unitid type="division">2.7.5.2.</unitid>
+                <unittitle>	Pochette cartonnée contenant une photographie du CRPP</unittitle>
+              </did>
+            </c>
+          </c>
+          <c id="Calames-2019115201394451">
+            <did>
+              <unitid type="division">2.7.6.</unitid>
+              <unittitle> Diapositives et fiches manuscrites pour préparer la reproduction et la répartition par personne des photos des diapositives.</unittitle>
+              <physdesc>
+                <physfacet type="conditionnement">Boite en carton</physfacet>
+              </physdesc>
+            </did>
+          </c>
+          <c id="Calames-2019115201394452">
+            <did>
+              <unitid type="division">2.7.7.</unitid>
+              <unittitle>Un trieur vert de type répertoire.</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1957/2000">1957-2000</unitdate>
+            </did>
+            <scopecontent>
+              <p>Chaque intercalaire comporte des documents (des photos la plupart du temps, des articles de presses, quelques échanges de courrier) : un intercalaire correspond à une année (dates 1957-2000). Les photos sont toutes datées et l’évènement y est souvent annoté : conférence, départ à la retraite d’un collègue, remise d’une légion d’honneur. La plupart des photos ou ensemble de photos sont signalés par une date et le nom de l’évènement.</p>
+            </scopecontent>
+          </c>
+        </c>
+        <c id="Calames-201911520123771">
+          <did>
+            <unitid type="cote">2.8.</unitid>
+            <unittitle>Objets 
+
+
+</unittitle>
+          </did>
+          <c id="Calames-2019122111133202">
+            <did>
+              <unitid type="division">2.8.1.</unitid>
+              <unittitle>Règle à calcul ayant appartenu à M. Pacault. 
+</unittitle>
+              <physdesc>
+                <physfacet type="matériau">En bois plaquée dans un étui en carton</physfacet>
+              </physdesc>
+            </did>
+          </c>
+          <c id="Calames-2019122101149482">
+            <did>
+              <unitid type="division">2.8.2.</unitid>
+              <unittitle>Appareils photos</unittitle>
+            </did>
+            <scopecontent>
+              <p>Appareil Kodac modèle 42 optic 3,5. Etui cuir correspondant. Appareil ouvert mécanismes bloqués pour envisager la fermeture.</p>
+              <p>Lux mètre Appareil de mesure de l’intensité lumineuse pour la photographie dans un étui en cuir.</p>
+              <p>Etui en cuir circulaire contenant un capot de protection d’optique.</p>
+              <p>Un étui de cuir noir tenant un appareil photo canon made in Japan 45 mm modèle 1 :1.9.</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2019122101149623">
+            <did>
+              <unitid type="division">2.8.3.</unitid>
+              <unittitle>Reproduction photographique couleur in-folio d’une photo du médailler d’Adolphe Pacault.</unittitle>
+            </did>
+            <scopecontent>
+              <p>Médailles actuellement absentes de la vitrine. Treize médailles y sont représentées : sur le recto l’Avers des médaille, sur le verso, leur revers.</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2019122111133205">
+            <did>
+              <unitid type="division">2.8.4.</unitid>
+              <unittitle>	Bobine de film en 16mm couleur. « Loin de l’équilibre » par A. Bedos.</unittitle>
+              <materialspec>Format boite 40x40cm. Maintenue par une sangle noire en tissu. 
+</materialspec>
+            </did>
+          </c>
+        </c>
+      </c>
+    </dsc>
+  </archdesc>
+</ead>

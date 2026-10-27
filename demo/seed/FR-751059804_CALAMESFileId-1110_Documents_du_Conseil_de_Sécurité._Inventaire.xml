@@ -1,0 +1,2910 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ead>
+  <eadheader>
+    <eadid countrycode="FR" identifier="FR-751059804_CALAMESFileId-1110" mainagencycode="341720001" url="https://calames.abes.fr/pub/ms/FileId-1110">FR-751059804_CALAMESFileId-1110_Documents du Conseil de Sécurité. Inventaire</eadid>
+    <filedesc>
+      <titlestmt>
+        <titleproper>Documents du Conseil de Sécurité. Inventaire<date normal="1950/2010">1950-2010</date></titleproper>
+        <author>Bibliothèque Cujas de droit et de sciences économiques (Paris). Département des périodiques</author>
+      </titlestmt>
+      <publicationstmt>
+        <publisher>Agence bibliographique de l'Enseignement supérieur</publisher>
+        <date>2011</date>
+      </publicationstmt>
+    </filedesc>
+    <profiledesc>
+      <creation>Créé et encodé manuellement par la Bibliothèque Cujas selon la DTD EAD 2002.</creation>
+      <langusage>Catalogue rédigé en <language langcode="fre">français</language></langusage>
+    </profiledesc>
+  </eadheader>
+  <archdesc level="recordgrp">
+    <did>
+      <unittitle>Documents du <corpname normal="Nations Unies. Conseil de sécurité" source="Sudoc" authfilenumber="029083699" role="producteur">Conseil de sécurité</corpname>. <unitdate era="ce" calendar="gregorian" normal="1950/2010">1950-2010</unitdate></unittitle>
+      <repository><corpname authfilenumber="751059804" normal="Bibliothèque Cujas de droit et de sciences économiques (Paris)" source="Bibliothèque Cujas de droit et de sciences économiques (Paris)">Bibliothèque Cujas</corpname>. Département des périodiques. <address><addressline>2, rue Cujas</addressline><addressline>75005 Paris</addressline><addressline>tél. : 01.44.07.80.12 ou 79.51</addressline><addressline>fax : 01.44.07.80.94</addressline></address><extref href="http://biu-cujas.univ-paris1.fr">site web : http://biu-cujas.univ-paris1.fr</extref></repository>
+      <langmaterial>
+        <language langcode="fre">Français</language>
+      </langmaterial>
+      <physdesc>
+        <extent>Le fonds compte 188 cartons</extent>
+      </physdesc>
+    </did>
+    <bioghist>
+      <p>Le Conseil de sécurité des Nations Unies est l'organe exécutif de l'Organisation des Nations Unies (ONU). Il a « la responsabilité principale du maintien de la paix et de la sécurité internationales » selon la Charte des Nations Unies et dispose pour cela de pouvoirs spécifiques tels que le maintien de la paix, l'établissement de sanctions internationales et l'intervention militaire. Certaines décisions, appelées résolutions, du Conseil de sécurité ont force exécutoire et « les Membres de l'Organisation conviennent d'accepter et d'appliquer les décisions du Conseil de sécurité ».
+
+Il se réunit au siège des Nations Unies à New York après avoir siégé dans différentes capitales, telles que Paris ou Addis-Abeba. Ses membres doivent y être présents en permanence, du fait que le Conseil peut être réuni à tout moment, notamment en cas de crise exceptionnelle, ce que ne permettait pas la Charte de la Société des Nations.
+
+Le Conseil de sécurité est composé de quinze membres : cinq permanents pourvus du droit de veto (Chine, États-Unis, France, Royaume-Uni, Russie) et dix élus pour une durée de deux ans (renouvelés par moitié tous les ans).
+
+</p>
+    </bioghist>
+    <relatedmaterial>
+      <p>Les documents officiels (reliés), procès-verbaux, suppléments, résolutions et index du Conseil de sécurité sont accessibles à la bibliothèque Cujas sous la cote 8.007 et 8.007 R.</p>
+    </relatedmaterial>
+    <accessrestrict>
+      <p>Les documents sont consultables en salle de lecture des périodiques de la bibliothèque Cujas en ayant, au préalable, pris rendez-vous.</p>
+    </accessrestrict>
+    <userestrict>
+      <p>Les photocopies sont interdites.</p>
+    </userestrict>
+    <dsc>
+      <c id="Calames-201110211110164211" level="otherlevel" otherlevel="notice">
+        <did>
+          <unitid type="cote"> ONU 2591-2593</unitid>
+          <unittitle>  Conseil de sécurité : Ordre du jour</unittitle>
+          <unitdate era="ce" calendar="gregorian" normal="1950/1974">1950-1974</unitdate>
+          <physdesc>
+            <extent>3 cartons</extent>
+          </physdesc>
+        </did>
+        <scopecontent>
+          <p>Cotes des Nations Unies :</p>
+          <p>S/Agenda</p>
+        </scopecontent>
+        <c id="Calames-201110261110335932">
+          <did>
+            <unitid type="cote">ONU 2591</unitid>
+            <unittitle>Ordre du jour</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="1950/1962">1950-1962</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cotes des Nations Unies :</p>
+            <p>S/Agenda/498 à 1026</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-20111026111087343">
+          <did>
+            <unitid type="cote">ONU 2592</unitid>
+            <unittitle>Ordre du jour</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="1963/1968">1963-1968</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cotes des Nations Unies :</p>
+            <p>S/Agenda/1028 à 1418</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-20111026111087344">
+          <did>
+            <unitid type="cote">ONU 2593</unitid>
+            <unittitle>Ordre du jour</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="1968/1974">1968-1974</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cotes des Nations Unies :</p>
+            <p>S/Agenda/1419 à 1869</p>
+          </scopecontent>
+        </c>
+      </c>
+      <c level="otherlevel" otherlevel="notice" id="Calames-201110251710177962">
+        <did>
+          <unitid type="cote">ONU 2594-2689 et 3729-3767</unitid>
+          <unittitle> Conseil de sécurité : Documents de sessions</unittitle>
+          <unitdate era="ce" calendar="gregorian" normal="1950/2010">1950-2010</unitdate>
+          <physdesc>
+            <extent>135 cartons</extent>
+          </physdesc>
+        </did>
+        <scopecontent>
+          <p>Cotes des Nations Unies :</p>
+          <p>S/</p>
+        </scopecontent>
+        <c id="Calames-201110281510329372">
+          <did>
+            <unitid type="cote">ONU 2594-2605</unitid>
+            <unittitle>5<emph render="super">ème</emph> à 14<emph render="super">ème</emph> sessions</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="1950/1959">1950-1959</unitdate>
+            <physdesc>
+              <extent>12 cartons</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cotes des Nations Unies :</p>
+            <p>S/1748 à S/4249</p>
+          </scopecontent>
+          <c id="Calames-2011102816103703">
+            <did>
+              <unitid type="cote">ONU 2594</unitid>
+              <unittitle>5<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1950">1950</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/1748 à S/1957</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201110281610444684">
+            <did>
+              <unitid type="cote">ONU 2595</unitid>
+              <unittitle>6<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1951">1951</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/1958 à S/2035</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201110281610444685">
+            <did>
+              <unitid type="cote">ONU 2596</unitid>
+              <unittitle>6<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1951">1951</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2036 à S/2131</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201110281610444686">
+            <did>
+              <unitid type="cote">ONU 2597</unitid>
+              <unittitle>6<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1951">1951</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2132 à S/2460</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201110281610444687">
+            <did>
+              <unitid type="cote">ONU 2598</unitid>
+              <unittitle>7<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1952">1952</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2463 à S/2891</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201110281610444688">
+            <did>
+              <unitid type="cote">ONU 2599</unitid>
+              <unittitle>8<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1953">1953</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2893 à S/3161</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201110281610444689">
+            <did>
+              <unitid type="cote">ONU 2600</unitid>
+              <unittitle>9<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1954">1954</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/3162 à S/3339</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011102816105396810">
+            <did>
+              <unitid type="cote">ONU 2601</unitid>
+              <unittitle>10<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1955">1955</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/3340 à S/3524</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011102816105396811">
+            <did>
+              <unitid type="cote">ONU 2602</unitid>
+              <unittitle>11<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1956">1956</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/3525 à S/3763</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011102816105396812">
+            <did>
+              <unitid type="cote">ONU 2603</unitid>
+              <unittitle>12<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1957">1957</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/3764 à S/3930</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011102816105396813">
+            <did>
+              <unitid type="cote">ONU 2604</unitid>
+              <unittitle>13<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1958">1958</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/3931 à S/4143</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011102816105396814">
+            <did>
+              <unitid type="cote">ONU 2605</unitid>
+              <unittitle>14<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1959">1959</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/4144 à S/4249</p>
+            </scopecontent>
+          </c>
+        </c>
+        <c id="Calames-201110281510199843">
+          <did>
+            <unitid type="cote">ONU 2606-2661</unitid>
+            <unittitle>15<emph render="super">ème</emph> à 30<emph render="super">ème</emph> sessions</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="1960/1975">1960-1975</unitdate>
+            <physdesc>
+              <extent>56 cartons</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cotes des Nations Unies :</p>
+            <p>S/4250 à S/11882</p>
+          </scopecontent>
+          <c id="Calames-2011102816101046816">
+            <did>
+              <unitid type="cote">ONU 2606</unitid>
+              <unittitle>15<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1960">1960</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/4250 à S/4450</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-20111028161089683">
+            <did>
+              <unitid type="cote">ONU 2607</unitid>
+              <unittitle>15<emph render="super">ème</emph> et 16<emph render="super">ème</emph>  sessions</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1960/1961">1960-1961</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/4451 à S/4699</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201110281610167504">
+            <did>
+              <unitid type="cote">ONU 2608</unitid>
+              <unittitle>16<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1961">1961</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/4700 à S/4900</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201110281610167505">
+            <did>
+              <unitid type="cote">ONU 2609</unitid>
+              <unittitle>16<emph render="super">ème</emph> et 17<emph render="super">ème</emph> sessions</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1961/1962">1961-1962</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/4901 à S/5052</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-20111028161005786">
+            <did>
+              <unitid type="cote">ONU 2610</unitid>
+              <unittitle>17<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1962">1962</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/5053 à S/5130</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-20111028161005787">
+            <did>
+              <unitid type="cote">ONU 2611</unitid>
+              <unittitle>17<emph render="super">ème</emph> et 18<emph render="super">ème</emph> sessions</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1962/1963">1962-1963</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/5131 à S/5339</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-20111028161005788">
+            <did>
+              <unitid type="cote">ONU 2612</unitid>
+              <unittitle>18<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1963">1963</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/5340 à S/5405</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-20111028161005789">
+            <did>
+              <unitid type="cote">ONU 2613</unitid>
+              <unittitle>18<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1963/1964">1963-1964</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/5406 à S/5499</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201110281610057810">
+            <did>
+              <unitid type="cote">ONU 2614</unitid>
+              <unittitle>19<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1964">1964</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/5501 à S/5657</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201110281610057811">
+            <did>
+              <unitid type="cote">ONU 2615</unitid>
+              <unittitle>19<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1964">1964</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/5658 à S/5783</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011103110103829612">
+            <did>
+              <unitid type="cote">ONU 2616</unitid>
+              <unittitle>19<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1964">1964</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/5784 à S/5950</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011103110103829613">
+            <did>
+              <unitid type="cote">ONU 2617</unitid>
+              <unittitle>19<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1964">1964</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/5951 à S/6073</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011103110103829614">
+            <did>
+              <unitid type="cote">ONU 2618</unitid>
+              <unittitle>19<emph render="super">ème</emph> et 20<emph render="super">ème</emph> sessions</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1964/1965">1964-1965</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/6074 à S/6210</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011103110103829615">
+            <did>
+              <unitid type="cote">ONU 2619</unitid>
+              <unittitle>20<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1965">1965</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/6211 à S/6469</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011103110103829616">
+            <did>
+              <unitid type="cote">ONU 2620</unitid>
+              <unittitle>20<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1965">1965</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/6470 à S/6664</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011103110103829617">
+            <did>
+              <unitid type="cote">ONU 2621</unitid>
+              <unittitle>20<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1965">1965</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/6665 à S/6849</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011103110103829618">
+            <did>
+              <unitid type="cote">ONU 2622</unitid>
+              <unittitle>20<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1965">1965</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/6850 à S/7031</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201110311010343719">
+            <did>
+              <unitid type="cote">ONU 2623</unitid>
+              <unittitle>20<emph render="super">ème</emph> et 21<emph render="super">ème</emph> sessions</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1965/1966">1965-1966</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/7032 à S/7231</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201110311010343720">
+            <did>
+              <unitid type="cote">ONU 2624</unitid>
+              <unittitle>21<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1966">1966</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/7232 à S/7455</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201110311010343721">
+            <did>
+              <unitid type="cote">ONU 2625</unitid>
+              <unittitle>21<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1966">1966</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/7456 à S/7643</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201110311010343722">
+            <did>
+              <unitid type="cote">ONU 2626</unitid>
+              <unittitle>21<emph render="super">ème</emph> et 22<emph render="super">ème</emph> sessions</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1966/1967">1966-1967</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/7644 à S/7781</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201110311010343723">
+            <did>
+              <unitid type="cote">ONU 2627</unitid>
+              <unittitle>22<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1967">1967</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/7782 à S/7874</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011103111105239024">
+            <did>
+              <unitid type="cote">ONU 2628</unitid>
+              <unittitle>22<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1967/1969">1967-1969</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <controlaccess>
+              <subject normal="Moyen-Orient -- 1967-...." source="Sudoc" authfilenumber="02757962X">Moyen-Orient -- 1967-....</subject>
+              <subject normal="Force d'urgence des Nations unies" source="Sudoc" authfilenumber="07860138X">Force d'urgence des Nations unies</subject>
+              <subject normal="Suez, Canal de (Égypte)" source="Sudoc" authfilenumber="02724962X">Suez, Canal de (Égypte)</subject>
+            </controlaccess>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/7875 à S/7930</p>
+              <p>ADD/1-200</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011103111101953125">
+            <did>
+              <unitid type="cote">ONU 2629</unitid>
+              <unittitle>22<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1969">1969</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <controlaccess>
+              <subject normal="Moyen-Orient -- 1967-...." source="Sudoc" authfilenumber="02757962X">Moyen-Orient -- 1967-....</subject>
+              <subject normal="Force d'urgence des Nations unies" source="Sudoc" authfilenumber="07860138X">Force d'urgence des Nations unies</subject>
+              <subject normal="Suez, Canal de (Égypte)" source="Sudoc" authfilenumber="02724962X">Suez, Canal de (Égypte)</subject>
+            </controlaccess>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/7930</p>
+              <p>ADD/201-487</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011103111101953126">
+            <did>
+              <unitid type="cote">ONU 2630</unitid>
+              <unittitle>22<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1970">1970</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <controlaccess>
+              <subject normal="Moyen-Orient -- 1967-...." source="Sudoc" authfilenumber="02757962X">Moyen-Orient -- 1967-....</subject>
+              <subject normal="Force d'urgence des Nations unies" source="Sudoc" authfilenumber="07860138X">Force d'urgence des Nations unies</subject>
+              <subject normal="Suez, Canal de (Égypte)" source="Sudoc" authfilenumber="02724962X">Suez, Canal de (Égypte)</subject>
+            </controlaccess>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/7930</p>
+              <p>ADD/488-739</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011103111101953127">
+            <did>
+              <unitid type="cote">ONU 2631</unitid>
+              <unittitle>22<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1970">1970</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <controlaccess>
+              <subject normal="Moyen-Orient -- 1967-...." source="Sudoc" authfilenumber="02757962X">Moyen-Orient -- 1967-....</subject>
+              <subject normal="Force d'urgence des Nations unies" source="Sudoc" authfilenumber="07860138X">Force d'urgence des Nations unies</subject>
+              <subject normal="Suez, Canal de (Égypte)" source="Sudoc" authfilenumber="02724962X">Suez, Canal de (Égypte)</subject>
+            </controlaccess>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/7930</p>
+              <p>ADD/740-1147</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011103111101953128">
+            <did>
+              <unitid type="cote">ONU 2632</unitid>
+              <unittitle>22<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1971">1971-&amp;gt;</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <controlaccess>
+              <subject normal="Moyen-Orient -- 1967-...." source="Sudoc" authfilenumber="02757962X">Moyen-Orient -- 1967-....</subject>
+              <subject normal="Force d'urgence des Nations unies" source="Sudoc" authfilenumber="07860138X">Force d'urgence des Nations unies</subject>
+              <subject normal="Suez, Canal de (Égypte)" source="Sudoc" authfilenumber="02724962X">Suez, Canal de (Égypte)</subject>
+            </controlaccess>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/7930</p>
+              <p>ADD/1148-&amp;gt;</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111212114235943">
+            <did>
+              <unitid type="cote">ONU 2633</unitid>
+              <unittitle>22<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1972">1972</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <controlaccess>
+              <subject normal="Moyen-Orient -- 1967-...." source="Sudoc" authfilenumber="02757962X">Moyen-Orient -- 1967-....</subject>
+              <subject normal="Force d'urgence des Nations unies" source="Sudoc" authfilenumber="07860138X">Force d'urgence des Nations unies</subject>
+              <subject normal="Suez, Canal de (Égypte)" source="Sudoc" authfilenumber="02724962X">Suez, Canal de (Égypte)</subject>
+            </controlaccess>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/7930</p>
+              <p>ADD/1472-&amp;gt;</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011103111101953129">
+            <did>
+              <unitid type="cote">ONU 2634</unitid>
+              <unittitle>22<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1967">1967</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/7932 à S/8053</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011103111101953130">
+            <did>
+              <unitid type="cote">ONU 2635</unitid>
+              <unittitle>22<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1973">1973</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <controlaccess>
+              <subject normal="Moyen-Orient -- 1967-...." source="Sudoc" authfilenumber="02757962X">Moyen-Orient -- 1967-....</subject>
+              <subject normal="Force d'urgence des Nations unies" source="Sudoc" authfilenumber="07860138X">Force d'urgence des Nations unies</subject>
+              <subject normal="Suez, Canal de (Égypte)" source="Sudoc" authfilenumber="02724962X">Suez, Canal de (Égypte)</subject>
+            </controlaccess>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/7930</p>
+              <p>ADD/1853-&amp;gt;</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011103111102673431">
+            <did>
+              <unitid type="cote">ONU 2636</unitid>
+              <unittitle>22<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1967">1967</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/8054 à S/8196</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011103111102673432">
+            <did>
+              <unitid type="cote">ONU 2637</unitid>
+              <unittitle>22<emph render="super">ème</emph> et 23<emph render="super">ème</emph> sessions</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1967/1968">1967-1968</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/8197 à S/8357</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011103111102673433">
+            <did>
+              <unitid type="cote">ONU 2638</unitid>
+              <unittitle>23<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1968">1968</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/8358 à S/8555</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011103111102673434">
+            <did>
+              <unitid type="cote">ONU 2639</unitid>
+              <unittitle>23<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1968">1968</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/8556 à S/8785</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011103111101281235">
+            <did>
+              <unitid type="cote">ONU 2640</unitid>
+              <unittitle>23<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1968">1968</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/8786 à S/8840</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011103111101281236">
+            <did>
+              <unitid type="cote">ONU 2641</unitid>
+              <unittitle>23<emph render="super">ème</emph> et 24<emph render="super">ème</emph> sessions</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1968/1969">1968-1969</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/8844 à S/9100</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011103111101135937">
+            <did>
+              <unitid type="cote">ONU 2642</unitid>
+              <unittitle>24<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1969">1969</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/9101 à S/9231</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011103111101135938">
+            <did>
+              <unitid type="cote">ONU 2643</unitid>
+              <unittitle>24<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1969">1969</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/9233 à S/9292</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011103111101135939">
+            <did>
+              <unitid type="cote">ONU 2644</unitid>
+              <unittitle>24<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1969">1969</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/9293 à S/9463</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011103111102176540">
+            <did>
+              <unitid type="cote">ONU 2645</unitid>
+              <unittitle>24<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1969">1969</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/9463 à S/9576</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011103111102176541">
+            <did>
+              <unitid type="cote">ONU 2646</unitid>
+              <unittitle>24<emph render="super">ème</emph> et 25<emph render="super">ème</emph> sessions</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1969/1970">1969-1970</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/9578 à S/9771</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011103111102176542">
+            <did>
+              <unitid type="cote">ONU 2647</unitid>
+              <unittitle>25<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1970">1970</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/9772 à S/9844</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011103111102176543">
+            <did>
+              <unitid type="cote">ONU 2648</unitid>
+              <unittitle>25<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1970">1970</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/9846 à S/9962</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011103111103432844">
+            <did>
+              <unitid type="cote">ONU 2649</unitid>
+              <unittitle>25<emph render="super">ème</emph> et 26<emph render="super">ème</emph> sessions</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1970">1970</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/9963 à S/10069</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011103111103434345">
+            <did>
+              <unitid type="cote">ONU 2650</unitid>
+              <unittitle>26<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1971">1971</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/10070 à S/10228</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011103111103434346">
+            <did>
+              <unitid type="cote">ONU 2651</unitid>
+              <unittitle>26<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1971">1971</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/10229 à S/10370</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011103111103434347">
+            <did>
+              <unitid type="cote">ONU 2652</unitid>
+              <unittitle>26<emph render="super">ème</emph> et 27<emph render="super">ème</emph> sessions</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1971/1972">1971-1972</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/10371 à S/10579</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011103111103434348">
+            <did>
+              <unitid type="cote">ONU 2653</unitid>
+              <unittitle>27<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1972">1972</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/10580 à S/10840</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011103111103434349">
+            <did>
+              <unitid type="cote">ONU 2654</unitid>
+              <unittitle>27<emph render="super">ème</emph> et 28<emph render="super">ème </emph>sessions</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1972">1972</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/10842 à S/10998</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011103111103434350">
+            <did>
+              <unitid type="cote">ONU 2655</unitid>
+              <unittitle>28<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1973">1973</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/11001 à S/11056</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011103111103434351">
+            <did>
+              <unitid type="cote">ONU 2656</unitid>
+              <unittitle>28<emph render="super">ème</emph> et 29<emph render="super">ème</emph> sessions. Rapports sur l'application du cessez-le-feu au Moyen-Orient.</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1973/1974">1973-1974</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <controlaccess>
+              <subject normal="Moyen-Orient -- 1967-...." source="Sudoc" authfilenumber="02757962X">Moyen-Orient -- 1967-....</subject>
+              <subject normal="Force d'urgence des Nations unies" source="Sudoc" authfilenumber="07860138X">Force d'urgence des Nations unies</subject>
+            </controlaccess>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/11057</p>
+              <p>ADD/1-330</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011103111105540652">
+            <did>
+              <unitid type="cote">ONU 2657</unitid>
+              <unittitle>29<emph render="super">ème</emph> et 30<emph render="super">ème</emph> sessions. Rapports sur l'application du cessez-le-feu au Moyen-Orient.</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1974/1975">1974-1975</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <controlaccess>
+              <subject normal="Moyen-Orient -- 1967-...." source="Sudoc" authfilenumber="02757962X">Moyen-Orient -- 1967-....</subject>
+              <subject normal="Force d'urgence des Nations unies" source="Sudoc" authfilenumber="07860138X">Force d'urgence des Nations unies</subject>
+            </controlaccess>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/11057</p>
+              <p>ADD/331-576</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-20111031111069353">
+            <did>
+              <unitid type="cote">ONU 2658</unitid>
+              <unittitle>28<emph render="super">ème</emph> et 29<emph render="super">ème</emph> sessions</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1973/1974">1973-1974</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/11058 à S/11239</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-20111031111069354">
+            <did>
+              <unitid type="cote">ONU 2659</unitid>
+              <unittitle>29<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1974">1974</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/11240 à S/11499</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-20111031111069355">
+            <did>
+              <unitid type="cote">ONU 2660</unitid>
+              <unittitle>29<emph render="super">ème</emph> et 30<emph render="super">ème</emph> sessions</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1974/1975">1974-1975</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/11500 à S/11647</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201110311110183156">
+            <did>
+              <unitid type="cote">ONU 2661</unitid>
+              <unittitle>30<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1975">1975</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/11648 à S/11882</p>
+            </scopecontent>
+          </c>
+        </c>
+        <c id="Calames-201110281610109844">
+          <did>
+            <unitid type="cote">ONU 2662-2683</unitid>
+            <unittitle>Suite 30<emph render="super">ème</emph> à 56<emph render="super">ème</emph> sessions</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="1975/2001">1975-2001</unitdate>
+            <physdesc>
+              <extent>22 cartons</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cotes des Nations Unies :</p>
+            <p>S/11883 à S/2001</p>
+          </scopecontent>
+          <c id="Calames-20111121011177032">
+            <did>
+              <unitid type="cote">ONU 2662</unitid>
+              <unittitle>Suite 30<emph render="super">ème</emph> et 31<emph render="super">ème</emph> sessions</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1975/1976">1975-1976</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/11883 à S/12010</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-20111121011177033">
+            <did>
+              <unitid type="cote">ONU 2663</unitid>
+              <unittitle>31<emph render="super">ème</emph> et 32<emph render="super">ème</emph> sessions</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1976/1977">1976-1977</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/12011 à S/12299</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-20111121011195624">
+            <did>
+              <unitid type="cote">ONU 2664</unitid>
+              <unittitle>32<emph render="super">ème</emph> et 33<emph render="super">ème</emph> sessions</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1977/1978">1977-1978</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/12300 à S/12519</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-20111121011195625">
+            <did>
+              <unitid type="cote">ONU 2665</unitid>
+              <unittitle>33<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1978">1978</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/12520 à S/12860</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-20111121011195626">
+            <did>
+              <unitid type="cote">ONU 2666</unitid>
+              <unittitle>33<emph render="super">ème</emph> et 34<emph render="super">ème</emph> sessions</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1978/1979">1978-1979</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/12861 à S/13430</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-20111121011195627">
+            <did>
+              <unitid type="cote">ONU 2667</unitid>
+              <unittitle>34<emph render="super">ème</emph> et 35<emph render="super">ème</emph> sessions</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1980">1980</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/13431 à S/13998</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-20111121011195628">
+            <did>
+              <unitid type="cote">ONU 2668</unitid>
+              <unittitle>35<emph render="super">ème</emph> et 36<emph render="super">ème</emph> sessions</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1980/1981">1980-1981</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/14000 à S/14777</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-20111121011195629">
+            <did>
+              <unitid type="cote">ONU 2669</unitid>
+              <unittitle>36<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1981/1982">1981-1982</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/14778 à S/15449</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111210111956210">
+            <did>
+              <unitid type="cote">ONU 2670</unitid>
+              <unittitle>37<emph render="super">ème</emph> et 38<emph render="super">ème</emph> sessions</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1982/1983">1982-1983</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/15452 à S/15998</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111210111956211">
+            <did>
+              <unitid type="cote">ONU 2671</unitid>
+              <unittitle>38<emph render="super">ème</emph> et 39<emph render="super">ème</emph> sessions</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1983/1984">1983-1984</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/16000 à S/16413</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111210111956212">
+            <did>
+              <unitid type="cote">ONU 2672</unitid>
+              <unittitle>39<emph render="super">ème</emph> et 40<emph render="super">ème</emph> sessions</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1984/1985">1984-1985</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/16415 à S/16999</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111210111956213">
+            <did>
+              <unitid type="cote">ONU 2673</unitid>
+              <unittitle>40<emph render="super">ème</emph> et 41<emph render="super">ème</emph> sessions</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1985/1986">1985-1986</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/17001 à S/17997</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111210114881214">
+            <did>
+              <unitid type="cote">ONU 2674</unitid>
+              <unittitle>41<emph render="super">ème</emph> et 42<emph render="super">ème</emph> sessions</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1986/1987">1986-1987</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/18003 à S/18998</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111210114881215">
+            <did>
+              <unitid type="cote">ONU 2675</unitid>
+              <unittitle>42<emph render="super">ème</emph> et 43<emph render="super">ème</emph> sessions</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1987/1988">1987-1988</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/19017 à S/19800</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111210114881216">
+            <did>
+              <unitid type="cote">ONU 2676</unitid>
+              <unittitle>43<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1988/1989">1988-1989</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/19801 à S/20349</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111210114881217">
+            <did>
+              <unitid type="cote">ONU 2677</unitid>
+              <unittitle>43<emph render="super">ème</emph> et 44<emph render="super">ème</emph> sessions</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1988/1989">1988-1989</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/20350 à S/20690</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111210114881218">
+            <did>
+              <unitid type="cote">ONU 2678</unitid>
+              <unittitle>44<emph render="super">ème</emph>, 45<emph render="super">ème</emph> et 46<emph render="super">ème</emph> sessions</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1989/1991">1989-1991</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/20691 à S/23280</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111210114881219">
+            <did>
+              <unitid type="cote">ONU 2679</unitid>
+              <unittitle>46<emph render="super">ème</emph> et 47<emph render="super">ème</emph> sessions</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1991/1992">1991-1992</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/23281 à S/24995</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111210114881220">
+            <did>
+              <unitid type="cote">ONU 2680</unitid>
+              <unittitle>47<emph render="super">ème</emph> et 48<emph render="super">ème</emph> sessions</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1992/1996">1992-1996</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/24996 à S/26841</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111210114881221">
+            <did>
+              <unitid type="cote">ONU 2681</unitid>
+              <unittitle>Sans titre</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1994">1994</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111210114881222">
+            <did>
+              <unitid type="cote">ONU 2682</unitid>
+              <unittitle>Sans titre [incomplet]</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1995/1997">1995-1997</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111210114881223">
+            <did>
+              <unitid type="cote">ONU 2683</unitid>
+              <unittitle>Sans titre [incomplet]</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="1998/2001">1998-2001</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/</p>
+            </scopecontent>
+          </c>
+        </c>
+        <c id="Calames-201110281610109845">
+          <did>
+            <unitid type="cote">ONU 2684-2689 et 3729-3767</unitid>
+            <unittitle>57<emph render="super">ème</emph> à 65<emph render="super">ème</emph> sessions</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="2002/2010">2002-2010</unitdate>
+            <physdesc>
+              <extent>45 cartons</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cotes des Nations Unies : </p>
+            <p>S/2002/3 à S/2010</p>
+          </scopecontent>
+          <c id="Calames-20111121111304682">
+            <did>
+              <unitid type="cote">ONU 2684</unitid>
+              <unittitle>57<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2002">2002</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2002/3 à S/2002/673</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-20111121111407653">
+            <did>
+              <unitid type="cote">ONU 2685</unitid>
+              <unittitle>57<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2002">2002</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2002/674 à S/2002/802</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-20111121111407654">
+            <did>
+              <unitid type="cote">ONU 2686</unitid>
+              <unittitle>57<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2002">2002</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2002/803 à S/2002/1006</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-20111121111407655">
+            <did>
+              <unitid type="cote">ONU 2687</unitid>
+              <unittitle>57<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2002">2002</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2002/1007 à S/2002/1146</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-20111121111407656">
+            <did>
+              <unitid type="cote">ONU 2688</unitid>
+              <unittitle>58<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2003">2002</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2002/1147 à S/2002/1215</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-20111121111407657">
+            <did>
+              <unitid type="cote">ONU 2689</unitid>
+              <unittitle>57<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2002">2002</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2002/1216 à S/2002/1445</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-20111121111214688">
+            <did>
+              <unitid type="cote">ONU 3729</unitid>
+              <unittitle>58<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2003">2003</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2003/1 à S/2003/231</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-20111121111559069">
+            <did>
+              <unitid type="cote">ONU 3730</unitid>
+              <unittitle>58<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2003">2003</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2003/232 à S/2003/421</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111211115590610">
+            <did>
+              <unitid type="cote">ONU 3731</unitid>
+              <unittitle>58<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2003">2003</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2003/422 à S/2003/599</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111211115590611">
+            <did>
+              <unitid type="cote">ONU 3732</unitid>
+              <unittitle>58<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2003">2003</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2003/600 à S/2003/789</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111211115590612">
+            <did>
+              <unitid type="cote">ONU 3733</unitid>
+              <unittitle>58<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2003">2003</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2003/790 à S/2003/1014</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111211115590613">
+            <did>
+              <unitid type="cote">ONU 3734</unitid>
+              <unittitle>58<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2003">2003</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2003/1015-&amp;gt;</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111211115590614">
+            <did>
+              <unitid type="cote">ONU 3735</unitid>
+              <unittitle>59<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2004">2004</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2004/2 à S/2004/140</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-20111121111167815">
+            <did>
+              <unitid type="cote">ONU 3736</unitid>
+              <unittitle>59<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2004">2004</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2004/141 à S/2004/320</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-20111121111167816">
+            <did>
+              <unitid type="cote">ONU 3737</unitid>
+              <unittitle>59<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2004">2004</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2004/330 à S/2004/530</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-20111121111167817">
+            <did>
+              <unitid type="cote">ONU 3738</unitid>
+              <unittitle>59<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2004">2004</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2004/531 à S/2004/725</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-20111121111167818">
+            <did>
+              <unitid type="cote">ONU 3739</unitid>
+              <unittitle>59<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2004">2004</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2004/726 à S/2004/949</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-20111121111167819">
+            <did>
+              <unitid type="cote">ONU 3740</unitid>
+              <unittitle>59<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2004">2004</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2004/950-&amp;gt;</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111211111076520">
+            <did>
+              <unitid type="cote">ONU 3741</unitid>
+              <unittitle>60<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2005">2005</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2005/6 à S/2005/126</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111211111076521">
+            <did>
+              <unitid type="cote">ONU 3742</unitid>
+              <unittitle>60<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2005">2005</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2005/127 à S/2005/320</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111211111014022">
+            <did>
+              <unitid type="cote">ONU 3743</unitid>
+              <unittitle>60<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2005">2005</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2005/321 à S/2005/461</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111211115912523">
+            <did>
+              <unitid type="cote">ONU 3744</unitid>
+              <unittitle>60<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2005">2005</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2005/462 à S/2005/630</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111211115912524">
+            <did>
+              <unitid type="cote">ONU 3745</unitid>
+              <unittitle>60<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2005">2005</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2005/637-&amp;gt;</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111211115912525">
+            <did>
+              <unitid type="cote">ONU 3746</unitid>
+              <unittitle>61<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2006">2006</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2006/1 à S/2006/84</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111211115912526">
+            <did>
+              <unitid type="cote">ONU 3747</unitid>
+              <unittitle>61<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2006">2006</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2006/85 à S/2006/210</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111211115912527">
+            <did>
+              <unitid type="cote">ONU 3748</unitid>
+              <unittitle>61<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2006">2006</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2006/211 à S/2006/339</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111211115912528">
+            <did>
+              <unitid type="cote">ONU 3749</unitid>
+              <unittitle>61<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2006">2006</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2006/440 à S/2006/460</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111211115912529">
+            <did>
+              <unitid type="cote">ONU 3750</unitid>
+              <unittitle>61<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2006">2006</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2006/461 à S/2006/672</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111211115912530">
+            <did>
+              <unitid type="cote">ONU 3751</unitid>
+              <unittitle>61<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2006">2006</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2006/673 à S/2006/810</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111211115912531">
+            <did>
+              <unitid type="cote">ONU 3752</unitid>
+              <unittitle>61<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2006">2006</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2006/811 à S/2006/919</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111211115912532">
+            <did>
+              <unitid type="cote">ONU 3753</unitid>
+              <unittitle>61<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2006">2006</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2006/920-&amp;gt;</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-20111121111779633">
+            <did>
+              <unitid type="cote">ONU 3754</unitid>
+              <unittitle>62<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2007">2007</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2007/1 à S/2007/199</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111211114975034">
+            <did>
+              <unitid type="cote">ONU 3755</unitid>
+              <unittitle>62<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2007">2007</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2007/200 à S/2007/424</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111211114975035">
+            <did>
+              <unitid type="cote">ONU 3756</unitid>
+              <unittitle>62<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2007">2007</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2007/425 à S/2007/610</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111211114975036">
+            <did>
+              <unitid type="cote">ONU 3757</unitid>
+              <unittitle>62<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2007">2007</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2007/611-&amp;gt;</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-2011112111145037">
+            <did>
+              <unitid type="cote">ONU 3758</unitid>
+              <unittitle>63<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2008">2008</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2008/1 à S/2008/188</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111211112395338">
+            <did>
+              <unitid type="cote">ONU 3759</unitid>
+              <unittitle>63<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2008">2008</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2008/189 à S/2008/322</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111211112395339">
+            <did>
+              <unitid type="cote">ONU 3760</unitid>
+              <unittitle>63<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2008">2008</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2008/323 à S/2008/479</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111211112395340">
+            <did>
+              <unitid type="cote">ONU 3761</unitid>
+              <unittitle>63<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2008">2008</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2008/480 à S/2008/647</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111211112395341">
+            <did>
+              <unitid type="cote">ONU 3762</unitid>
+              <unittitle>63<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2008">2008</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2008/648-&amp;gt;</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111211112395342">
+            <did>
+              <unitid type="cote">ONU 3763</unitid>
+              <unittitle>64<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2009">2009</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2009/1 à S/2009/211</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111211112395343">
+            <did>
+              <unitid type="cote">ONU 3764</unitid>
+              <unittitle>64<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2009">2009</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2009/212 à S/2009/314</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111211112395344">
+            <did>
+              <unitid type="cote">ONU 3765</unitid>
+              <unittitle>64<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2009">2009</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2009/315 à S/2009/445</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111211112395345">
+            <did>
+              <unitid type="cote">ONU 3766</unitid>
+              <unittitle>64<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2009">2009</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2009/446-&amp;gt;</p>
+            </scopecontent>
+          </c>
+          <c id="Calames-201111211112395346">
+            <did>
+              <unitid type="cote">ONU 3767</unitid>
+              <unittitle>65<emph render="super">ème</emph> session</unittitle>
+              <unitdate era="ce" calendar="gregorian" normal="2009">2010</unitdate>
+              <physdesc>
+                <extent>1 carton</extent>
+              </physdesc>
+            </did>
+            <scopecontent>
+              <p>Cotes des Nations Unies :</p>
+              <p>S/2010</p>
+            </scopecontent>
+          </c>
+        </c>
+      </c>
+      <c level="otherlevel" otherlevel="notice" id="Calames-201110251710198123">
+        <did>
+          <unitid type="cote">ONU 2690-2716 et 3769-3773</unitid>
+          <unittitle>Conseil de sécurité : Procès-verbaux</unittitle>
+          <unitdate era="ce" calendar="gregorian" normal="1982/2006">1982-2006</unitdate>
+          <physdesc>
+            <extent>32 cartons</extent>
+          </physdesc>
+        </did>
+        <scopecontent>
+          <p>Cotes des Nations Unies :</p>
+          <p>S/PV</p>
+        </scopecontent>
+        <c id="Calames-201110261310578122">
+          <did>
+            <unitid type="cote">ONU 2690</unitid>
+            <unittitle>Procès-verbaux</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="1982">1982</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+            <langmaterial>
+              <language langcode="eng">anglais</language>
+            </langmaterial>
+          </did>
+          <scopecontent>
+            <p>Cotes des Nations Unies :</p>
+            <p>S/PV 2322 à S/PV 2359</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-20111026131048753">
+          <did>
+            <unitid type="cote">ONU 2691</unitid>
+            <unittitle>Procès-verbaux</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="1982">1982</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+            <langmaterial>
+              <language langcode="eng">anglais</language>
+            </langmaterial>
+          </did>
+          <scopecontent>
+            <p>Cotes des Nations Unies :</p>
+            <p>S/PV 2360 à S/PV 2410</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-20111026131048754">
+          <did>
+            <unitid type="cote">ONU 2692</unitid>
+            <unittitle>Procès-verbaux</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="1983">1983</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+            <langmaterial>
+              <language langcode="eng">anglais</language>
+            </langmaterial>
+          </did>
+          <scopecontent>
+            <p>Cotes des Nations Unies :</p>
+            <p>S/PV 2411 à S/PV 2456</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-20111026131048755">
+          <did>
+            <unitid type="cote">ONU 2693</unitid>
+            <unittitle>Procès-verbaux</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="1983">1983</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+            <langmaterial>
+              <language langcode="eng">anglais</language>
+            </langmaterial>
+          </did>
+          <scopecontent>
+            <p>Cotes des Nations Unies :</p>
+            <p>S/PV 2457 à S/PV 2508</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-20111026131037186">
+          <did>
+            <unitid type="cote">ONU 2694</unitid>
+            <unittitle>Procès-verbaux</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="1984">1984</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+            <langmaterial>
+              <language langcode="eng">anglais</language>
+            </langmaterial>
+          </did>
+          <scopecontent>
+            <p>Cotes des Nations Unies :</p>
+            <p>S/PV 2509 à S/PV 2565</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-20111026131037187">
+          <did>
+            <unitid type="cote">ONU 2695</unitid>
+            <unittitle>Procès-verbaux</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="1985">1985</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+            <langmaterial>
+              <language langcode="eng">anglais</language>
+            </langmaterial>
+          </did>
+          <scopecontent>
+            <p>Cotes des Nations Unies :</p>
+            <p>S/PV 2567 à S/PV 2599</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-20111026131037188">
+          <did>
+            <unitid type="cote">ONU 2696</unitid>
+            <unittitle>Procès-verbaux</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="1985/1986">1985-1986</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+            <langmaterial>
+              <language langcode="eng">anglais</language>
+            </langmaterial>
+          </did>
+          <scopecontent>
+            <p>Cotes des Nations Unies :</p>
+            <p>S/PV 2600 à S/PV 2654</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-201110261310419539">
+          <did>
+            <unitid type="cote">ONU 2697</unitid>
+            <unittitle>Procès-verbaux</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="1986">1986</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cotes des Nations Unies :</p>
+            <p>S/PV 2655 à S/PV 2730</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-2011102716101956210">
+          <did>
+            <unitid type="cote">ONU 2698</unitid>
+            <unittitle>Procès-verbaux</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="1987">1987</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cotes des Nations Unies :</p>
+            <p>S/PV 2731 à S/PV 2778</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-2011102716101957811">
+          <did>
+            <unitid type="cote">ONU 2699</unitid>
+            <unittitle>Procès-verbaux</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="1988">1988</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cotes des Nations Unies :</p>
+            <p>S/PV 2780 à S/PV 2834</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-2011102716105318712">
+          <did>
+            <unitid type="cote">ONU 2700</unitid>
+            <unittitle>Procès-verbaux</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="1989">1989</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cotes des Nations Unies :</p>
+            <p>S/PV 2835 à S/PV 2902</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-2011102716105318713">
+          <did>
+            <unitid type="cote">ONU 2701</unitid>
+            <unittitle>Procès-verbaux</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="1990">1990</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cotes des Nations Unies :</p>
+            <p>S/PV 2904 à S/PV 2972</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-2011102716102664014">
+          <did>
+            <unitid type="cote">ONU 2702</unitid>
+            <unittitle>Procès-verbaux</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="1991">1991</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cotes des Nations Unies :</p>
+            <p>S/PV 2973 à S/PV 3025</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-2011102716102664015">
+          <did>
+            <unitid type="cote">ONU 2703</unitid>
+            <unittitle>Procès-verbaux</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="1992">1992</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cotes des Nations Unies :</p>
+            <p>S/PV 3026 à S/PV 3118</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-2011102716102664016">
+          <did>
+            <unitid type="cote">ONU 2704</unitid>
+            <unittitle>Procès-verbaux</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="1992">1992</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cotes des Nations Unies :</p>
+            <p>S/PV 3119 à S/PV 3156</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-2011102716101698417">
+          <did>
+            <unitid type="cote">ONU 2705</unitid>
+            <unittitle>Procès-verbaux</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="1993">1993</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cote des Nations Unies :</p>
+            <p>S/PV 3157 à S/PV 3241</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-2011102716101698418">
+          <did>
+            <unitid type="cote">ONU 2706</unitid>
+            <unittitle>Procès-verbaux</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="1993">1993</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cote des Nations Unies :</p>
+            <p>S/PV 3242 à S/PV 3325</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-2011102716101698419">
+          <did>
+            <unitid type="cote">ONU 2707</unitid>
+            <unittitle>Procès-verbaux</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="1994">1994</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cote des Nations Unies :</p>
+            <p>S/PV 3327 à S/PV 3410</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-2011102716101698420">
+          <did>
+            <unitid type="cote">ONU 2708</unitid>
+            <unittitle>Procès-verbaux</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="1994">1994</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cote des Nations Unies :</p>
+            <p>S/PV 3411 à S/PV 3485</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-2011102716101698421">
+          <did>
+            <unitid type="cote">ONU 2709</unitid>
+            <unittitle>Procès-verbaux</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="1987">1995</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cote des Nations Unies :</p>
+            <p>S/PV 3486 à S/PV 3600</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-2011102716103253122">
+          <did>
+            <unitid type="cote">ONU 2710</unitid>
+            <unittitle>Procès-verbaux</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="1996">1996</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cote des Nations Unies :</p>
+            <p>S/PV 3601 à S/PV 3729</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-2011102716103253123">
+          <did>
+            <unitid type="cote">ONU 2711</unitid>
+            <unittitle>Procès-verbaux</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="1997">1997</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cote des Nations Unies :</p>
+            <p>S/PV 3730 à S/PV 3846</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-2011102716103253124">
+          <did>
+            <unitid type="cote">ONU 2712</unitid>
+            <unittitle>Procès-verbaux</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="1998/2000">1998-2000</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cote des Nations Unies :</p>
+            <p>S/PV 3847 à S/PV 4097</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-2011102716103253125">
+          <did>
+            <unitid type="cote">ONU 2713</unitid>
+            <unittitle>Procès-verbaux</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="2002">2002</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cote des Nations Unies :</p>
+            <p>S/PV 4492 à S/PV 4617</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-2011102716102857826">
+          <did>
+            <unitid type="cote">ONU 2714</unitid>
+            <unittitle>Procès-verbaux</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="2002">2002</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cote des Nations Unies :</p>
+            <p>S/PV 4618 à S/PV 4709</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-2011102716102857827">
+          <did>
+            <unitid type="cote">ONU 2715</unitid>
+            <unittitle>Procès-verbaux</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="2003">2003</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cote des Nations Unies :</p>
+            <p>S/PV 4710 à S/PV 4825</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-2011102716102857828">
+          <did>
+            <unitid type="cote">ONU 2716</unitid>
+            <unittitle>Procès-verbaux</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="2003">2003</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cote des Nations Unies :</p>
+            <p>S/PV 4826 à S/PV 4891</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-2011102815105917129">
+          <did>
+            <unitid type="cote">ONU 3769</unitid>
+            <unittitle>Procès-verbaux</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="2004">2004</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cote des Nations Unies :</p>
+            <p>S/PV 4892 à S/PV 4970</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-2011102815105917130">
+          <did>
+            <unitid type="cote">ONU 3770</unitid>
+            <unittitle>Procès-verbaux</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="2004">2004</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cote des Nations Unies :</p>
+            <p>S/PV 4971-&amp;gt;</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-2011102815105973431">
+          <did>
+            <unitid type="cote">ONU 3771</unitid>
+            <unittitle>Procès-verbaux</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="2005">2005</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cote des Nations Unies :</p>
+            <p>S/PV 5108 à S/PV 5342</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-2011102815102796832">
+          <did>
+            <unitid type="cote">ONU 3772</unitid>
+            <unittitle>Procès-verbaux</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="2006">2006</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cote des Nations Unies :</p>
+            <p>S/PV 5343 à S/PV 5474</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-2011102815102796833">
+          <did>
+            <unitid type="cote">ONU 3773</unitid>
+            <unittitle>Procès-verbaux</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="2006">2006</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cote des Nations Unies :</p>
+            <p>S/PV 5475 à S/PV 5611</p>
+          </scopecontent>
+        </c>
+      </c>
+      <c level="otherlevel" otherlevel="notice" id="Calames-20111025171019624">
+        <did>
+          <unitid type="cote">ONU 3774-3785</unitid>
+          <unittitle>Conseil de sécurité : Comités</unittitle>
+          <unitdate era="ce" calendar="gregorian" normal="1965/2010">1965-20XX</unitdate>
+          <physdesc>
+            <extent>12 cartons</extent>
+          </physdesc>
+        </did>
+        <scopecontent>
+          <p>Cotes des Nations Unies :</p>
+          <p>S/AC</p>
+        </scopecontent>
+        <c id="Calames-201110261110151712">
+          <did>
+            <unitid type="cote">ONU 3774</unitid>
+            <unittitle>Comité</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="2001/2004">2001-2004</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cotes des Nations Unies :</p>
+            <p>S/AC.29 à S/AC.43</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-201110261110204683">
+          <did>
+            <unitid type="cote">ONU 3775</unitid>
+            <unittitle>Comité du Conseil de sécurité créé par la résolution 1540</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="2004">2004-&amp;gt;</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cotes des Nations Unies :</p>
+            <p>S/AC.44</p>
+          </scopecontent>
+          <controlaccess>
+            <subject normal="Non-prolifération nucléaire" source="Sudoc" authfilenumber="027727580">Non-prolifération nucléaire</subject>
+          </controlaccess>
+        </c>
+        <c id="Calames-201110261110297654">
+          <did>
+            <unitid type="cote">ONU 3776</unitid>
+            <unittitle>Comité du Conseil de sécurité créé par la résolution 1540</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="2004">2004-&amp;gt;</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cotes des Nations Unies :</p>
+            <p>S/AC.44</p>
+          </scopecontent>
+          <controlaccess>
+            <subject normal="Non-prolifération nucléaire" source="Sudoc" authfilenumber="027727580">Non-prolifération nucléaire</subject>
+          </controlaccess>
+        </c>
+        <c id="Calames-201110261110297965">
+          <did>
+            <unitid type="cote">ONU 3777</unitid>
+            <unittitle>Comité</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="2005">2005-&amp;gt;</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cotes des Nations Unies :</p>
+            <p>S/AC.45</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-201110261110469536">
+          <did>
+            <unitid type="cote">ONU 3778</unitid>
+            <unittitle>Comités</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="1965/1970">1965-1970</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cotes des Nations Unies :</p>
+            <p>S/AC.14 à S/AC.20 et S/AC/SR</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-20111026121048787">
+          <did>
+            <unitid type="cote">ONU 3779</unitid>
+            <unittitle>Conseil d'administration de la <corpname normal="Nations Unies. Conseil de sécurité. Commission d'indemnisation" source="Sudoc" authfilenumber="059355379" role="sujet">commission d'indemnisation</corpname></unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="1994/1998">1994-&amp;gt;</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cotes des Nations Unies :</p>
+            <p>S/AC.26</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-20111026121092658">
+          <did>
+            <unitid type="cote">ONU 3780</unitid>
+            <unittitle>Conseil d'administration de la <corpname normal="Nations Unies. Conseil de sécurité. Commission d'indemnisation" source="Sudoc" authfilenumber="059355379" role="sujet">commission d'indemnisation</corpname></unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="1999/2000">1999-&amp;gt;</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cotes des Nations Unies :</p>
+            <p>S/AC.26</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-20111026121013629">
+          <did>
+            <unitid type="cote">ONU 3781</unitid>
+            <unittitle>Conseil d'administration de la <corpname normal="Nations Unies. Conseil de sécurité. Commission d'indemnisation" source="Sudoc" authfilenumber="059355379" role="sujet">commission d'indemnisation</corpname></unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="1998/1999">1998-1999</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cotes des Nations Unies :</p>
+            <p>S/AC.26</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-201110261210136210">
+          <did>
+            <unitid type="cote">ONU 3782</unitid>
+            <unittitle>Conseil d'administration de la <corpname normal="Nations Unies. Conseil de sécurité. Commission d'indemnisation" source="Sudoc" authfilenumber="059355379" role="sujet">commission d'indemnisation</corpname></unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="2000">2000</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cotes des Nations Unies :</p>
+            <p>S/AC.26</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-201110261210136211">
+          <did>
+            <unitid type="cote">ONU 3783</unitid>
+            <unittitle>Conseil d'administration de la <corpname normal="Nations Unies. Conseil de sécurité. Commission d'indemnisation" source="Sudoc" authfilenumber="059355379" role="sujet">commission d'indemnisation</corpname></unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="2000">2000</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cotes des Nations Unies :</p>
+            <p>S/AC.26</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-201110261210136212">
+          <did>
+            <unitid type="cote">ONU 3784</unitid>
+            <unittitle>Conseil d'administration de la <corpname normal="Nations Unies. Conseil de sécurité. Commission d'indemnisation" source="Sudoc" authfilenumber="059355379" role="sujet">commission d'indemnisation</corpname></unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="2001">2001</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cotes des Nations Unies :</p>
+            <p>S/AC.26</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-201110261210443113">
+          <did>
+            <unitid type="cote">ONU 3785</unitid>
+            <unittitle>Comité créé par la résolution 1267</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="2002/2005">2002-&amp;gt;</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cotes des Nations Unies :</p>
+            <p>S/AC.37</p>
+          </scopecontent>
+          <controlaccess>
+            <subject normal="Afghanistan -- Politique et gouvernement" source="Sudoc" authfilenumber="028933168">Afghanistan -- Politique et gouvernement</subject>
+            <subject normal="Terrorisme -- Lutte contre" source="Sudoc" authfilenumber="079459684">Terrorisme -- Lutte contre</subject>
+            <subject normal="Talibans" source="Sudoc" authfilenumber="03508667X">Talibans</subject>
+            <subject normal="Opium" source="Sudoc" authfilenumber="027787966">Opium</subject>
+          </controlaccess>
+        </c>
+      </c>
+      <c id="Calames-201110251710139535" level="otherlevel" otherlevel="notice">
+        <did>
+          <unitid type="cote">ONU 3768</unitid>
+          <unittitle>Déclaration du président du Conseil de sécurité</unittitle>
+          <unitdate era="ce" calendar="gregorian" normal="2003/2009">2003-2009</unitdate>
+          <physdesc>
+            <extent>1 carton</extent>
+          </physdesc>
+        </did>
+        <scopecontent>
+          <p>Cotes des Nations Unies :</p>
+          <p>S/PRST</p>
+        </scopecontent>
+      </c>
+      <c level="otherlevel" otherlevel="notice" id="Calames-201110251810456256">
+        <did>
+          <unitid type="cote">ONU 3786-3787</unitid>
+          <unittitle>Conseil de sécurité : Décisions et résolutions</unittitle>
+          <unitdate era="ce" calendar="gregorian" normal="1951/1990">1951-19XX</unitdate>
+          <physdesc>
+            <extent>2 cartons</extent>
+          </physdesc>
+        </did>
+        <scopecontent>
+          <p>Cotes des Nations Unies :</p>
+          <p>S/INF et S/Res</p>
+        </scopecontent>
+        <c level="otherlevel" otherlevel="notice" id="Calames-2011102517103706">
+          <did>
+            <unitid type="cote">ONU 3786</unitid>
+            <unittitle> Décisions et résolutions</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="1951/1970">1951-1970</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cotes des Nations Unies :</p>
+            <p>S/INF/4 à S/INF/26</p>
+          </scopecontent>
+        </c>
+        <c level="otherlevel" otherlevel="notice" id="Calames-201110251710353437">
+          <did>
+            <unitid type="cote">ONU 3787</unitid>
+            <unittitle>Sans titre</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="1965/1980">1965-19XX</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cotes des Nations Unies :</p>
+            <p>S/Res/200-&amp;gt;</p>
+          </scopecontent>
+        </c>
+      </c>
+      <c level="otherlevel" otherlevel="notice" id="Calames-201110251710174688">
+        <did>
+          <unitid type="cote">ONU 3714-3716</unitid>
+          <unittitle>Organismes reliés au Conseil de sécurité</unittitle>
+          <unitdate era="ce" calendar="gregorian" normal="1999/2007">1999-2007</unitdate>
+          <physdesc>
+            <extent>3 cartons</extent>
+          </physdesc>
+        </did>
+        <c id="Calames-201110261210594682">
+          <did>
+            <unitid type="cote">ONU 3714</unitid>
+            <unittitle><corpname normal="Cour pénale internationale" source="Sudoc" authfilenumber="05065294X" role="sujet">Cour pénale internationale</corpname> : Assemblée des états partis</unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="2002/2006">2002-&amp;gt;</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cote des Nations Unies :</p>
+            <p>ICC-ACP</p>
+          </scopecontent>
+          <controlaccess>
+            <subject normal="Assemblée des états parties au statut de Rome de la Cour pénale internationale. Session (1 ; 2002 ; New York)" source="Sudoc" authfilenumber="086849549">Assemblée des états parties au statut de Rome de la Cour pénale internationale. Session (1 ; 2002 ; New York)</subject>
+          </controlaccess>
+        </c>
+        <c id="Calames-201110261210298753">
+          <did>
+            <unitid type="cote">ONU 3715</unitid>
+            <unittitle>
+              <corpname normal="Nations Unies. Commission de consolidation de la paix" source="Sudoc" authfilenumber="144122766" role="sujet">Commission de consolidation de la paix</corpname>
+            </unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="2007">2007</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cote des Nations Unies :</p>
+            <p>PBC</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-2011102612104304">
+          <did>
+            <unitid type="cote">ONU 3716</unitid>
+            <unittitle>Commission préparatoire de la <corpname normal="Cour pénale internationale" source="Sudoc" authfilenumber="05065294X" role="sujet">Cour pénale internationale</corpname></unittitle>
+            <unitdate era="ce" calendar="gregorian" normal="1999/2000">1999-2000</unitdate>
+            <physdesc>
+              <extent>1 carton</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Cote des Nations Unies :</p>
+            <p>PCN-ICC</p>
+          </scopecontent>
+        </c>
+      </c>
+    </dsc>
+  </archdesc>
+</ead>

@@ -80,6 +80,7 @@ FILTERABLE_ATTRIBUTES = [
     "access_restrict",
     "century",
     "phys_facet_types",
+    "source_file",
 ]
 
 # Fields available for sorting
@@ -128,6 +129,47 @@ def _wait_for_task(client: meilisearch.Client, task_uid: int, timeout: int = 60)
             return
         time.sleep(0.2)
     raise TimeoutError(f"MeiliSearch task {task_uid} did not complete within {timeout}s")
+
+
+def ensure_index(client: meilisearch.Client, index_name: str) -> meilisearch.index.Index:
+    """Create the index if missing, then (re)apply settings. Idempotent."""
+    try:
+        client.get_index(index_name)
+    except meilisearch.errors.MeilisearchApiError:
+        task = client.create_index(index_name, {"primaryKey": "id"})
+        _wait_for_task(client, task.task_uid)
+        print(f"Index '{index_name}' créé.")
+    index = client.index(index_name)
+    configure_index(client, index)
+    return index
+
+
+def index_file(client: meilisearch.Client, index: meilisearch.index.Index, ead_file: Path) -> int:
+    """
+    (Re)index a single EAD file: drop the documents previously produced by this
+    file, then push the new ones. Returns the number of documents indexed.
+    Raises on parse error (the previous documents are kept in that case).
+    """
+    root = parse_ead(ead_file)
+    docs = components_to_docs(root)
+    for doc in docs:
+        doc["source_file"] = ead_file.name
+
+    remove_file(client, index, ead_file.name)
+    last_task_uid = None
+    for i in range(0, len(docs), BATCH_SIZE):
+        task = index.add_documents(docs[i : i + BATCH_SIZE], primary_key="id")
+        last_task_uid = task.task_uid
+    if last_task_uid is not None:
+        _wait_for_task(client, last_task_uid, timeout=600)
+    return len(docs)
+
+
+def remove_file(client: meilisearch.Client, index: meilisearch.index.Index, file_name: str) -> None:
+    """Delete every document produced by a given source file."""
+    escaped = file_name.replace("\\", "\\\\").replace('"', '\\"')
+    task = index.delete_documents(filter=f'source_file = "{escaped}"')
+    _wait_for_task(client, task.task_uid, timeout=300)
 
 
 def index_directory(

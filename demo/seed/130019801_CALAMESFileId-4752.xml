@@ -1,0 +1,562 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ead>
+  <eadheader>
+    <eadid identifier="FR-130019801_CALAMESFileId-4752" mainagencycode="341720001" countrycode="FR" url="https://calames.abes.fr/pub/ms/FileId-4752">130019801_CALAMESFileId-4752</eadid>
+    <filedesc>
+      <titlestmt>
+        <titleproper>Fonds Sandrine Musso (1973-2021)</titleproper>
+      </titlestmt>
+      <publicationstmt>
+        <publisher>Agence Bibliographique de l’Enseignement supérieur</publisher>
+        <date calendar="gregorian" era="ce" normal="20260126" type="publication de l'IR">26 janv 2026</date>
+      </publicationstmt>
+    </filedesc>
+    <profiledesc>
+      <creation>Créé et encodé par le secteur Archives de la recherche de la Médiathèque de la MMSH selon la DTD EAD 2002.</creation>
+      <langusage>
+        <language langcode="fre">français</language>
+      </langusage>
+      <descrules>Description conforme à ISAD(G).</descrules>
+    </profiledesc>
+  </eadheader>
+  <archdesc level="fonds">
+    <did>
+      <unittitle>Fonds Sandrine Musso (1973-2021)</unittitle>
+      <origination>
+        <persname normal="Musso, Sandrine (1973-2021)" source="Sudoc" authfilenumber="133228592" role="producteur">Sandrine Musso</persname>
+      </origination>
+      <repository>
+        <corpname normal="Maison méditerranéenne des sciences de l'homme (Aix-en-Provence, Bouches-du-Rhône)" source="Répertoire_des_Centres_de_Ressources" authfilenumber="130019801">MMSH</corpname>
+      </repository>
+      <unitdate era="ce" calendar="gregorian" normal="1945/1981">1945-1981</unitdate>
+      <langmaterial>
+        <language langcode="fre">Français</language>
+      </langmaterial>
+      <physdesc>
+        <physfacet type="support">18 enregistrements vidéos au format mp4, 9 documents sonores au format wav, 3 photographies, 4 fichiers texte enregistrés au format PDF/A</physfacet>
+        <dimensions>44khz/16bits, JPG, MP4, PDF/A</dimensions>
+        <extent>Durée : à déterminer (en cours de traitement)</extent>
+      </physdesc>
+    </did>
+    <scopecontent>
+      <p>Les travaux de Sandrine Musso portent sur les politiques du corps, le traitement social de la maladie, les inégalités appréhendées à travers l’histoire du sida/VIH, ainsi que sur l’engagement et la réflexivité dans la conduite de la recherche.
+</p>
+      <p>Ses archives rendent compte de ses activités d’enseignement et de recherche au sein du département d’anthropologie d’Aix-Marseille Université et de la formation en sciences sociales de l’EHESS à Marseille, de son travail de terrain auprès des acteurs institutionnels, associatifs et militants à Marseille, ainsi que des préparatifs de l’exposition « VIH/sida : l’épidémie n’est pas finie ! » (Mucem, 15 décembre 2021-2 mai 2022).</p>
+      <p>Les enregistrements et les programmes issus de deux événements qui lui ont été consacrés documentent la réception de son travail, tant dans le monde académique qu’auprès des acteurs de terrain.
+</p>
+    </scopecontent>
+    <bioghist>
+      <p>Sandrine Musso était anthropologue, maîtresse de conférences à Aix-Marseille Université et membre du Centre Norbert Elias.</p>
+    </bioghist>
+    <relatedmaterial>
+      <p>Dans le cadre des conférences de l'IDEMEC, archivées au sein du secteur Archives de la recherche de la Médiathèque de la MMSH, un enregistrement a été conservé et mis en ligne : Sandrine Musso, "Violences invisibles, violences indicibles : le sida et l'immigration post-coloniale en France", <emph render="italic">Conférence dans le cadre du séminaire inter-laboratoire Violence(s)</emph>, enregistré à Aix-en-Provence le 20 mars 2019, 33min (cote : <extref href="https://calames.abes.fr/pub/ms/Calames-20231017161846827152">MMSH-PH-2812</extref>).  </p>
+    </relatedmaterial>
+    <dsc type="othertype">
+      <c id="Calames-20260205102851191">
+        <did>
+          <unittitle>
+            Cours d'introduction à l’anthropologie pour les étudiants en formation à distance diffusé sous le titre  « Façonnements sociaux du biologique »
+          </unittitle>
+          <unitdate normal="2018">2018</unitdate>
+          <physdesc>
+            <physfacet type="support">14 <genreform type="type de document" normal="images animées">vidéos</genreform> au format MP4</physfacet>
+            <extent>4h</extent>
+            <dimensions>6,5 Go</dimensions>
+          </physdesc>
+        </did>
+        <scopecontent>
+          <p>Sandrine Musso, maîtresse de conférences à <corpname normal="Aix-Marseille Université (2012-....)" source="Sudoc" authfilenumber="15863621X" role="sujet">Aix-Marseille Université</corpname>, a été chargée de mettre en place dans le cadre de l’<subject normal="Enseignement universitaire" source="Sudoc" authfilenumber="027335747">enseignement</subject> à <subject normal="Enseignement à distance" source="Sudoc" authfilenumber="027491528">distance</subject> des étudiant·es de licence 1 d’<subject authfilenumber="040663140" source="Sudoc" normal="Anthropologie">anthropologie</subject>, un cours d’introduction à la discipline. Elle a choisi de l'organiser autour de son domaine, l’anthropologie médicale - et en particulier la question transversale du <subject normal="Corps humain" authfilenumber="027230996" source="Sudoc">corps</subject> - et en dialogue avec d’autres domaines des sciences du vivant. </p>
+          <p>La collection comprend quatorze enregistrements : une présentation une introduction, sept séances thématiques (Rites, Naissance, Puberté, Maladie, Mort, Sexe et genre, Âge). L’ensemble se conclut par des perspectives scientifiques suivies de consignes pédagogiques.</p>
+          <p>Les enregistrement se présentent sous la forme d'une série de diapositives commentée par Sandrine Musso. Celle-ci apparait en personne uniquement dans la séance introductive (MMSH-PH-100286).</p>
+        </scopecontent>
+        <custodhist>
+          <p>Les enregistrements ont été réalisés en 2018 par Sandrine Musso et <persname normal="Curt, Emmanuel" role="participant">Emmanuel Curt</persname>
+            (Service de formation à distance, Aix-Marseille Université) dans le cadre
+            de la dispensation de cours à distance. Ils ont été conservés sur l'ordinateur de Sandrine Musso qui les a confiés à Carine Baxerres, puis par cette dernière au Secteur Archives de la recherche de la Médiathèque au moment de la préparation d'un numéro <emph render="italic"><extref href="https://journals.openedition.org/anthropologiesante/11869">Anthropologie &amp;amp; Santé</extref></emph> dédié  à Sandrine Musso qui présente ces enregistrements.</p>
+        </custodhist>
+        <relatedmaterial>
+          <p>Une partie des enregistrements  est accessible en accès restreint sur amUpod. </p>
+        </relatedmaterial>
+        <c id="Calames-202602111744214672">
+          <did>
+            <unitid type="cote">MMSH-PH-100286</unitid>
+            <unittitle> Présentation du cours  « Façonnements sociaux du biologique »</unittitle>
+            <physdesc>
+              <extent>8min 22s</extent>
+              <dimensions>1,21Go</dimensions>
+            </physdesc>
+          </did>
+          <dao href="https://nakala.fr/10.34847/nkl.c8b620vs" title="Ecoute en ligne sans téléchargement"/>
+          <relatedmaterial>
+            <p>Un diaporama au format PDF coté  MMSH-PH-100286-D accompagne le film.</p>
+          </relatedmaterial>
+        </c>
+        <c id="Calames-202602111744214673">
+          <did>
+            <unitid type="cote">MMSH-PH-100287</unitid>
+            <unittitle>Séance 1 : introduction du cours du « Façonnements sociaux du biologique »</unittitle>
+            <physdesc>
+              <extent>56min</extent>
+              <dimensions>903Mo</dimensions>
+            </physdesc>
+          </did>
+          <dao href="https://nakala.fr/10.34847/nkl.c8b620vs" title="Ecoute en ligne sans téléchargement"/>
+        </c>
+        <c id="Calames-202602111959537714">
+          <did>
+            <unitid type="cote">MMSH-PH-100288</unitid>
+            <unittitle>Séance 2 du cours  « Façonnements sociaux du biologique » : rites et rites de passage</unittitle>
+            <physdesc>
+              <extent>42min 37s</extent>
+              <dimensions>760 Mo</dimensions>
+            </physdesc>
+          </did>
+          <dao href="https://nakala.fr/10.34847/nkl.1e6ff16w" title="Ecoute en ligne sans téléchargement"/>
+        </c>
+        <c id="Calames-202602111959537715">
+          <did>
+            <unitid type="cote">MMSH-PH-100289</unitid>
+            <unittitle> Séance 3 du cours  « Façonnements sociaux du biologique » : la naissance, les naissances (partie 1)</unittitle>
+            <physdesc>
+              <extent>20min 50s</extent>
+              <dimensions>361 Mo</dimensions>
+            </physdesc>
+          </did>
+          <dao href="https://nakala.fr/10.34847/nkl.7b29glt6" title="Ecoute en ligne sans téléchargement"/>
+        </c>
+        <c id="Calames-202602111959537716">
+          <did>
+            <unitid type="cote">MMSH-PH-100290</unitid>
+            <unittitle> Séance 4 du cours  « Façonnements sociaux du biologique » : la naissance, les naissances (partie 2)</unittitle>
+            <physdesc>
+              <extent>23min 42s</extent>
+              <dimensions>233 Mo</dimensions>
+            </physdesc>
+          </did>
+          <dao href="https://nakala.fr/10.34847/nkl.1cf8j0uq" title="Ecoute en ligne sans téléchargement"/>
+        </c>
+        <c id="Calames-202602111959537717">
+          <did>
+            <unitid type="cote">MMSH-PH-100291</unitid>
+            <unittitle>Séance 5 du cours  « Façonnements sociaux du biologique » :  : puberté physiologique, puberté sociale (partie 1)</unittitle>
+            <physdesc>
+              <extent>17min</extent>
+              <dimensions>296 Mo</dimensions>
+            </physdesc>
+          </did>
+          <relatedmaterial>
+            <p>Un diaporama au format PDF coté  MMSH-PH-100291-D accompagne le film.</p>
+          </relatedmaterial>
+          <dao href="https://nakala.fr/10.34847/nkl.c32b4g7h" title="Ecoute en ligne sans téléchargement"/>
+        </c>
+        <c id="Calames-202602111959537718">
+          <did>
+            <unitid type="cote">MMSH-PH-100292</unitid>
+            <unittitle>Séance 6 du cours  « Façonnements sociaux du biologique »  : puberté physiologique, puberté sociale (partie 2)</unittitle>
+            <physdesc>
+              <extent>17min</extent>
+              <dimensions>316 Mo</dimensions>
+            </physdesc>
+          </did>
+          <relatedmaterial>
+            <p>Un diaporama au format PDF coté  MMSH-PH-100292-D accompagne le film.</p>
+          </relatedmaterial>
+          <dao href="https://nakala.fr/10.34847/nkl.a3f8y39l" title="Ecoute en ligne sans téléchargement"/>
+        </c>
+        <c id="Calames-202602111959537719">
+          <did>
+            <unitid type="cote">MMSH-PH-100293</unitid>
+            <unittitle>Séance 7 du cours  « Façonnements sociaux du biologique » : la maladie (partie 1)</unittitle>
+            <physdesc>
+              <extent>23min 18</extent>
+              <dimensions>377 Mo</dimensions>
+            </physdesc>
+          </did>
+          <relatedmaterial>
+            <p>Un diaporama au format PDF coté  MMSH-PH-100293-D accompagne le film.</p>
+          </relatedmaterial>
+          <dao href="https://nakala.fr/10.34847/nkl.ddd3v68j" title="Ecoute en ligne sans téléchargement"/>
+        </c>
+        <c id="Calames-2026021119595377110">
+          <did>
+            <unitid type="cote">MMSH-PH-100294</unitid>
+            <unittitle>Séance 8 du cours  « Façonnements sociaux du biologique »  : la maladie. Anthropologie des épidémies (partie 2)</unittitle>
+            <physdesc>
+              <extent>31min 33</extent>
+              <dimensions>522 Mo</dimensions>
+            </physdesc>
+          </did>
+          <relatedmaterial>
+            <p>Un diaporama au format PDF coté  MMSH-PH-100294-D accompagne le film.</p>
+          </relatedmaterial>
+          <dao href="https://nakala.fr/10.34847/nkl.7f1d36xk" title="Ecoute en ligne sans téléchargement"/>
+        </c>
+        <c id="Calames-2026021119595377111">
+          <did>
+            <unitid type="cote">MMSH-PH-100295</unitid>
+            <unittitle>Séance 9 du cours  « Façonnements sociaux du biologique »  : la mort</unittitle>
+            <physdesc>
+              <extent>13min 22</extent>
+              <dimensions>231 Mo</dimensions>
+            </physdesc>
+          </did>
+          <dao href="https://nakala.fr/10.34847/nkl.7f1d36xk" title="Ecoute en ligne sans téléchargement"/>
+        </c>
+        <c id="Calames-2026021119595377112">
+          <did>
+            <unitid type="cote">MMSH-PH-100296</unitid>
+            <unittitle>Séance 10 du cours  « Façonnements sociaux du biologique » : sexe et genre</unittitle>
+            <physdesc>
+              <extent>29min 30</extent>
+              <dimensions>533 Mo</dimensions>
+            </physdesc>
+          </did>
+          <dao href="https://nakala.fr/10.34847/nkl.d1ea7r83" title="Ecoute en ligne sans téléchargement"/>
+        </c>
+        <c id="Calames-2026021119595377113">
+          <did>
+            <unitid type="cote">MMSH-PH-100297</unitid>
+            <unittitle>Séance 11 du cours  « Façonnements sociaux du biologique » : l’âge</unittitle>
+            <physdesc>
+              <extent>25 min 18</extent>
+              <dimensions>430 Mo</dimensions>
+            </physdesc>
+          </did>
+          <dao href="https://nakala.fr/10.34847/nkl.d1ea7r83" title="Ecoute en ligne sans téléchargement"/>
+        </c>
+        <c id="Calames-2026021119595377114">
+          <did>
+            <unitid type="cote">MMSH-PH-100298</unitid>
+            <unittitle>Séance 12 récapitulative du cours « Façonnements sociaux du biologique »</unittitle>
+            <physdesc>
+              <extent>14min 23</extent>
+              <dimensions>225 Mo</dimensions>
+            </physdesc>
+          </did>
+          <dao href="https://nakala.fr/10.34847/nkl.cbfft0q1" title="Ecoute en ligne sans téléchargement"/>
+        </c>
+        <c id="Calames-2026021119595377115">
+          <did>
+            <unitid type="cote">MMSH-PH-100299</unitid>
+            <unittitle>Consignes liées aux séances du cours « Façonnements sociaux du biologique » et à l'évaluation</unittitle>
+            <physdesc>
+              <extent>4min 19</extent>
+              <dimensions>62  Mo</dimensions>
+            </physdesc>
+          </did>
+          <dao href="https://nakala.fr/10.34847/nkl.77bb3a0k" title="Ecoute en ligne sans téléchargement"/>
+        </c>
+      </c>
+      <c id="Calames-20260212128315216">
+        <did>
+          <unittitle>Six entretiens sur la lutte contre le Sida à Marseille dans le cadre d'un projet d'histoire orale inachevé</unittitle>
+          <physdesc>
+            <physfacet type="support">12 fichiers numériques, format wave (44.1khz/16bits)</physfacet>
+            <extent>13h 5min</extent>
+            <dimensions>7,16Go</dimensions>
+          </physdesc>
+          <unitdate era="ce" calendar="gregorian" normal="2018">2018</unitdate>
+        </did>
+        <scopecontent>
+          <p>En février 2018, Sandrine Musso, accompagnée des étudiant·es de master 1 en sciences sociales à l’EHESS Judith Atcha, Sarah Bourcier, Océane Chapuis, Michele Marchioro, Bérénice Mauguil Belluci et Anna Scherbakova, Margot Mottet-Caisson, a enregistré six entretiens de personnes  impliquées dans la <subject authfilenumber="182196632" normal="Réduction des risques" source="Sudoc">prévention</subject> et l’intervention, institutionnelle ou/et militante, dans le champ de la lutte contre le Sida. Ces témoins sont des relations proches Sandrine Musso, qui ont été actifs à Marseille dans années 1980 à 2000 auprès des <subject normal="Usagers de drogues" authfilenumber="43192418" source="Sudoc">usagers de drogues</subject>, premières victimes de l'<subject authfilenumber="02745357X" source="Sudoc" normal="Épidémies">épidémie</subject> dans cette ville. </p>
+          <p>Tous les entretiens débutent avec la même interrogation ”Quand avez-vous entendu parler du Sida pour la première fois ?” et se terminent sur la question “Dans le cadre d’une exposition sur le Sida, quel objet, évocateur de votre parcours, souhaiteriez-vous voir exposer ?”. Sandrine Musso laisse les étudiant·es poser les questions mais intervient régulièrement pour les préciser.</p>
+        </scopecontent>
+        <bioghist>
+          <p>En 2017, Sandrine Musso est chargée de coordonner, avec Mona Claro et Agnès Martial, de l'enseignement “L’enquête collective” dans le cadre du Master 1 en sciences sociales l’EHESS à Marseille. La thématique, sur deux ans, est celle des acteurs de l'éducation à la sexualité. Sandrine Musso contacte la Phonothèque de la Médiathèque de la MMSH en octobre 2017 pour présenter le projet à l’équipe (échange de courriel archivé sous la cote MUS-C-001). Elle propose une collaboration pour la mise en place d’une collecte d'<genreform type="genre, forme et fonction" normal="entretien">entretiens</genreform>. </p>
+          <p>Dans ce cadre, une <subject normal="Enseignement -- Travail de groupe" source="Sudoc" authfilenumber="02725447X">formation</subject> sur la méthode de l’enquête orale et la construction de la <subject normal="Entretiens en ethnologie" source="Sudoc" authfilenumber="027500950">grille d'enquête</subject> est menée par <persname normal="Ginouvès, Véronique" source="Sudoc" authfilenumber="034003150" role="participant">Véronique Ginouvès</persname> à la MMSH en février 2018. Le jour de la formation, trois entretiens tests sont enregistrés sur des zoom H4, comme exercice afin de prendre en main le magnétophone numérique, être en capacité d'expliquer la signature des contrats d’autorisation et savoir enregistrer une bande annonce pour débuter les entretiens.
+Pour le projet, la phonothèque a prêté quatre enregistreurs numériques. </p>
+          <p>Le projet intègre, outre la phonothèque, l’équipe du centre de ressource du Mucem, l’historien <persname role="participant" normal="Xambo, Jean-Baptiste" source="Sudoc" authfilenumber="187461678">Jean-Baptiste Xambo</persname> et l’anthropologue <persname role="participant" normal="Chantraine, Renaud (19..-....)" source="Sudoc" authfilenumber="250386429">Renaud Chantraine</persname>. </p>
+          <p>L’objectif est double : apporter des matériaux pour l’organisation d’une <subject normal="Expositions et société" source="Sudoc" authfilenumber="027731588">exposition</subject> à venir sur le Sida au <corpname normal="Musée des civilisations de l'Europe et de la Méditerranée (Marseille)" source="Sudoc" authfilenumber="088717372" role="participant">Mucem</corpname> dont elle est co-commissaire et constituer un fonds d’<subject normal="Histoire orale" source="Sudoc" authfilenumber="027518523">archives orales</subject> sur l'histoire de la lutte contre le <subject normal="Sida" source="Sudoc" authfilenumber="027785785">sida</subject> à <geogname role="sujet" normal="Marseille (Bouches-du-Rhône)" source="Sudoc" authfilenumber="027238687">Marseille</geogname>.
+  Le projet est s'interrompt en raison de l'état de santé de Sandrine Musso.</p>
+        </bioghist>
+        <relatedmaterial>
+          <p>Après la disparition de Sandrine Musso, ses collègues Pascal Cesaro et Renaud Chantraine ont proposé un montage à partir de cinq des entretiens qui a été publié dans l’article « <extref href="https://doi.org/10.4000/anthropologiesante">Voilà, on commence. Alors vous allez dire la première question ?</extref> », <title role="sujet">Anthropologie &amp;amp; Santé</title>, 24 bis (hors-série), 2022</p>
+        </relatedmaterial>
+        <c id="Calames-202602121220392917">
+          <did>
+            <unitid type="cote">MMSH-PH-8561</unitid>
+            <unittitle>Pierre Toubiana témoigne sur la politique en santé publique de la ville de Marseille en matière de la lutte contre le Sida des années 1990 à nos jours</unittitle>
+            <physdesc>
+              <extent>1h 53min</extent>
+              <dimensions>1,14Go</dimensions>
+            </physdesc>
+            <unitdate era="ce" calendar="gregorian" normal="2018-02-13">13 février 2018</unitdate>
+          </did>
+          <scopecontent>
+            <p><persname role="070" normal="Toubiana, Pierre (19-....)" source="Sudoc" authfilenumber="293669449">Pierre Toubiana</persname> retrace tout d’abord son parcours professionnel. Après des études de médecine dans les années 1980, et plusieurs années en tant qu'instituteur, il travaille comme chargé d’étude pour une mission de l’<corpname normal="Observatoire régional de santé (Provence-Alpes-Côte d’Azur)" source="Sudoc" authfilenumber="293669139" role="sujet">Observatoire régional de la santé</corpname>, à Marseille, sur le Sida (1990-1994). Il participe aux débuts de la structuration d’un réseau médical pour faire face à la maladie et contribue également à la mise en place d’une enquête et aux premières campagnes de <subject normal="Autotests de dépistage de l'infection par le VIH" source="Sudoc" authfilenumber="197854508">dépistage</subject> du VIH dans les <subject normal="Prisonniers -- Soins médicaux" source="Sudoc" authfilenumber="027245306">prisons</subject> de la région de Marseille.
+En 1995, par concours, il devient médecin territorial et est recruté en tant que médecin de <subject authfilenumber="04076804X" source="Sudoc" normal="Santé publique">santé publique</subject> à la Ville de Marseille, alors que l’administration de <persname normal="Gaudin, Jean-Claude (1939-2024)" source="Sudoc" authfilenumber="026884178" role="sujet">Jean-Claude Gaudin</persname> se met en place. </p>
+            <p>Il est impliqué dans la <subject source="Sudoc" authfilenumber="294146776" normal="Mission Sida Toxicomanie (Ville de Marseille)">Mission Sida Toxicomanie</subject>, créée en 1994 par <persname normal="Mattei, Jean-François (1943-.... ; médecin)" source="Sudoc" authfilenumber="027017567" role="sujet">Jean-François Mattéi</persname>, médecin et député des Bouches-du-Rhône et élu à la Ville de Marseille. L'objectif est de structurer la prévention, le dépistage et la réduction des <subject normal="Facteurs de risque" source="Sudoc" authfilenumber="027653072">risques</subject> liés au VIH et aux usages de drogues dans la ville. Le député en devient le directeur, puis à partir de 1997 Pierre Toubiana prend le relais.
+Dans un premier temps, la mission a pour objectif de dresser un état des lieux à travers des auditions de professionnels et d’associations, à une époque où les <subject normal="Mouvements de lutte contre le sida" source="Sudoc" authfilenumber="166839590">associations</subject> exercent une pression sur les municipalités, alors que  celle-ci n’ont pas encore de compétence dans ce domaine et ne disposent d’aucune donnée épidémiologique. Un budget et une équipe pluridisciplinaire se met en place pour coordonner les actions existantes. Les premières actions sont axées sur la réduction des risques auprès des <subject normal="Toxicomanes" source="Sudoc" authfilenumber="027254240">usagers</subject> de drogues, premières victimes à <geogname normal="Marseille 16e Arrondissement (Bouches-du-Rhône)" source="Sudoc" authfilenumber="285539167" role="sujet">Marseille</geogname>, comme dans d’autres villes d’Europe du Sud, plutôt que sur la prévention sexuelle. </p>
+            <p>L’action emblématique est l’installation des <subject normal="Programme d'échange de seringues" source="Sudoc" authfilenumber="040832392">automates</subject> d’échange de <subject normal="Seringues" source="Sudoc" authfilenumber="04078715X">seringues</subject>, qui a nécessité un consensus entre les différents partenaires. C’est à cette période que <persname normal="Frappas, Mylène (1953-....)" role="sujet" source="Sudoc" authfilenumber="294146431">Mylène Frappas</persname> rejoint la mission ainsi que l’Association Méditerranéenne de Prévention et de Traitement des Addictions. L’<corpname normal="Addiction Méditerranée (association)" source="Sudoc" authfilenumber="293694958" role="sujet">AMPTA</corpname> travaille, en convention avec la Mission, sur les diagnostics des besoins des usagers de drogues et mène des actions de <geogname role="sujet" normal="Marseille 14e Arrondissement (Bouches-du-Rhône)" source="Sudoc" authfilenumber="285539140">proximité</geogname> dans les <geogname normal="Marseille 15e Arrondissement (Bouches-du-Rhône)" source="Sudoc" authfilenumber="285539159" role="sujet">quartiers Nord</geogname>.
+</p>
+            <p>En réponse à une question, il précise le contexte de deux enquêtes. La première sur les connaissances des médecins libéraux de Marseille sur la maladie, la seconde, menée en prison et réalisée par l’ORS à la demande du Ministère de la santé, sur le dépistage du VIH. L’enquête a montré que la contamination passait par les usagers de drogues et ont mis en évidence des problèmes de prise en charge et de santé mentale, ainsi qu’une stigmatisation administrative des détenus <subject normal="Infections à VIH -- Patients" source="Sudoc" authfilenumber="033864942">séropositifs</subject> dans leur dossier.
+</p>
+            <p>Il revient ensuite sur la mise en place des premiers automates à seringues voulu par Jean-François Mattei qu’il a coordonné et détaille leur installation sur la voie publique dans toutes les mairies de secteur. Il précise la gestion de l’alimentation et de la maintenance de ces dispositifs. La prise de contact avec les usagers afin de leur faire connaître le dispositif, était assurée par quatre associations et supervisée par un comité de pilotage. Cette première action a lancé un travail de proximité plus large, intégré dans les Centre d'accueil et d'accompagnement à la réduction des risques pour usagers de drogues (CAARUD) à partir de 2006 (1h).
+</p>
+            <p>Il rappelle que pour les personnes contaminées par transmission sexuelle, il n’y avait pas d'actions de prévention dédiées de la part de la ville. Dans son souvenir, l’association la plus active auprès de la communauté homosexuelle était <corpname normal="AIDES (France)" source="Sudoc" authfilenumber="030878977" role="sujet">Aides</corpname>. L’une des premières campagnes municipales de prévention du VIH a mis à disposition des <subject normal="Préservatifs" source="Sudoc" authfilenumber="027388107">préservatifs</subject> (100 000/an). </p>
+            <p>Il se souvient qu’au moment du vote des subventions pour la Mission, notamment pour les actions en direction des personnes homosexuelles, toutes leurs actions étaient votées à l’unanimité en conseil municipal sauf lorsqu’il y avait des élus du <corpname normal="Front national (France ; 1972-2018)" source="Sudoc" authfilenumber="028008162" role="sujet">Front National</corpname>. </p>
+            <p>Il évoque la prévention en milieu festif, et mentionne dans ce cadre le projet « Plus belle la nuit », qui a évolué vers une coordination avec les associations à un niveau national. Il commente diverses initiatives municipales en direction des différentes “populations clés” : détenus, travailleurs du sexe, et plus récemment migrants subsahariens (en lien avec l’Office de l’<subject normal="Travailleurs migrants" source="Sudoc" authfilenumber="027736164">immigration</subject>), femmes comoriennes.
+Il observe que peu de projets ont été réalisés auprès des populations du Maghreb et des jeunes des pays de l’Est. </p>
+            <p>Il décrit les actions de médiation auprès des habitants, pour faire connaître le travail d’associations comme le Sleep’In. Il regrette qu’il n’y ait toujours pas de salle de consommation de drogues à Marseille malgré les efforts de préparation à sa mise en place et revient ensuite sur le débat public autour de ce type de salle. </p>
+            <p>A propos du nom même de la mission “Sida-Toxicomanie”, il note qu’il met l’accent sur un lien <subject normal="Épidémiologie" source="Sudoc" authfilenumber="027731456">épidémiologique</subject> évident à Marseille entre usagers de drogues et épidémie. La mission était alors autonome et directement rattachée à l’élu. Aujourd’hui, elle est intégrée aux services <subject normal="Services municipaux" source="Sudoc" authfilenumber="027763234">municipaux</subject>.
+</p>
+            <p>À la question « Qu’est-ce que le Sida a changé pour vous ? », il répond qu’il a toujours été <subject normal="Évaluation d'impact sur la santé" source="Sudoc" authfilenumber="224249800">médecin</subject> sans patient, au service d’une action collective de prévention. Ce sont les patients, les associations et les acteurs locaux qui lui ont tout appris sur cette maladie, et lui ont permis de faire le pont entre connaissance scientifique et savoir issu du terrain. </p>
+            <p>Pour conclure, s’il devait exposer un objet à exposer dans un musée, il proposerait quelque chose représentant la conscience, le courage, le pragmatisme et la conviction.
+</p>
+            <p>Alors que l’entretien se termine, il relate deux anecdotes qui datent de 1997 ou 1998 : une intervention d’<corpname role="sujet" normal="Act up Marseille" source="Sudoc" authfilenumber="057460205">Act’Up</corpname> à la Mairie de Marseille pendant le discours de Jean-François Mattéi et le soutien l’Olympique de Marseille et de clubs de supporters comme MPT, concrétisé par un clip de prévention impliquant le joueur de <corpname normal="Olympique de Marseille" source="Sudoc" authfilenumber="027544419" role="sujet">foot</corpname> Cédric Carrasso. </p>
+          </scopecontent>
+          <userestrict>
+            <p>Consultation sur demande motivée.</p>
+          </userestrict>
+        </c>
+        <c id="Calames-2026022311151392018">
+          <did>
+            <unitid type="cote">MMSH-PH-8559</unitid>
+            <unittitle>Mylène Frappas, éducatrice de rue, témoigne de l’impact du Sida sur les pratiques professionnelles et les politiques des drogues et de santé à Marseille dans les années 1980 et 1990</unittitle>
+            <physdesc>
+              <extent>2h 3min</extent>
+              <dimensions>1,3Go</dimensions>
+            </physdesc>
+            <unitdate era="ce" calendar="gregorian" normal="2018-02-14">14 février 2028</unitdate>
+          </did>
+          <scopecontent>
+            <p>Au début des années 1980, <persname normal="Frappas, Mylène (1953-....)" role="070" authfilenumber="294146431" source="Sudoc">Mylène Frappas</persname> travaillait comme <subject normal="Éducation de rue" source="Sudoc" authfilenumber="184334646">éducatrice de rue</subject> dans le <geogname normal="Marseille (Bouches-du-Rhône) -- Quartier des Aygalades" source="Sudoc" authfilenumber="160642051" role="sujet">quartier des Aygalades</geogname>, à Marseille. Elle y rencontrait des usagers d’<subject source="Sudoc" normal="Héroïne (drogue)" authfilenumber="027248758">héroïne </subject>souffrant de maladies infectieuses que l’on ne parvenait pas à diagnostiquer. Elle décrit une convergence entre ses observations de terrain et les informations relayées par les médias concernant les premiers cas de Sida dans la communauté homosexuelle.
+</p>
+            <p>Elle retrace son parcours : une formation rémunérée d’éducatrice spécialisée à Marseille, suivie pendant trois ans. Son travail consistait à s’immerger dans un milieu pour aller vers les personnes en difficulté et les accompagner dans des parcours de promotion individuelle, tout en participant à un travail collectif de développement du territoire.
+</p>
+            <p> Les premières victimes qu’elle a rencontrées étaient des <subject authfilenumber="027314790" source="Sudoc" normal="Jeunes adultes">jeunes de 18 à 25 ans</subject>, désireux de dépasser les clivages sociaux, passionnés de musique et de fête, souvent voyageurs et insérés professionnellement. Ils étaient loin des stéréotypes associés aux usagers de drogue des quartiers populaires. La maladie a interrompu brutalement leurs trajectoires.
+À cette période, l’évolution de la maladie était rapide — de 12 à 18 mois — et l’ambiance était marquée par la sidération et le désarroi.
+Elle n’avait pas prévu de se consacrer aux questions de drogues et de Sida ; elle poursuivait alors des études sur le travail. Le Sida a constitué un tournant dans sa carrière.
+Quelques années plus tard, dans le même quartier, une autre génération d’usagers de drogues est apparue, principalement consommatrice de médicaments. Il s’agissait de jeunes en situation d’échec, peu qualifiés, peu mobiles, fortement ancrés dans leur territoire et leur communauté. La drogue faisait office d’automédication, en l’absence de prise en charge psychologique par les institutions publiques.
+Elle évoque les services de prévention existant au début des années 1980, souvent incrédules ou suspicieux face à la proximité des éducateurs avec les jeunes malades et leurs familles (23 min) . Elle s’est alors tournée vers une psychologue (en 1982 ou 1983) d’un service de psychiatrie de l’hôpital Édouard-Toulouse, rue du Coq à Marseille. Ce recours a constitué un appui structurant dans son travail. À cette époque, il n’existait pas de dispositifs organisés, mais des individus qui, dans le cadre de leurs fonctions professionnelles, étaient confrontés à une situation nouvelle et tentaient d’y répondre.
+Elle souligne le rôle déterminant de l’hôpital Houphouët-Boigny (15e arrondissement), spécialisé en maladies tropicales, qui a accueilli les premiers malades. </p>
+            <p>La lutte contre la maladie commence à se structurer à la fin des années 1980 
+(36 min). Elle est d’abord portée par des acteurs volontaires, sans reconnaissance institutionnelle. L’activisme des homosexuels, en particulier, a été déterminant : ils ont affirmé la légitimité de leur savoir profane et se sont imposés comme interlocuteurs des médecins, des institutions et des chercheurs. Une première étape majeure de la prévention institutionnelle est franchie en 1987 avec la mise en vente libre des <subject normal="Seringues" source="Sudoc" authfilenumber="04078715X">seringues</subject> en pharmacie. Les hémophiles, victimes de l’affaire du sang contaminé, ont également contribué à faire évoluer l’opinion publique et les politiques.
+La prévention auprès des usagers de drogues arrive plus tard, à Marseille seulement à partir du début des années 1990, et marque une rupture avec les dispositifs traditionnels. L’institution publique ne se positionne clairement sur la réduction des risques qu’à partir de 1993, puis plus tard sur la réduction des dommages.
+</p>
+            <p>Elle revient sur son parcours : au moment de l’arrivée de la gauche au pouvoir, au début des années 1980, elle travaillait pour les missions locales des 13e et 14e arrondissements auprès de jeunes en situation de délinquance (43 min). Son champ d’action portait sur les politiques publiques de l’emploi, la vie sans emploi et le retour à l’emploi par l’insertion. C’est dans ce cadre qu’elle recevait des usagers de drogues, des anciens détenus ou des personnes présentant des troubles de santé mentale, ce qui l’a maintenue en lien avec la question du Sida. Influencée par des modèles sud-américains, de nouveaux principes d’intervention auprès des usagers de drogues émergent. Dans ce contexte, elle s’implique dans l’expérimentation d’un lieu de santé communautaire à <geogname normal="Marseille (Bouches-du-Rhône) -- Quartier La Rose" source="Sudoc" authfilenumber="166027596" role="sujet">La Rose</geogname>, quartier marqué par une forte consommation d’héroïne (13e arrondissement).
+</p>
+            <p>Forte de ces expériences, elle rejoint en 1991 l’Association Méditerranéenne de Prévention et de Traitement des Addictions (AMPTA - fondée en 1984) (50 min). Elle commence par réaliser un état des lieux auprès de différentes catégories de publics et participe à la constitution d’une équipe pluriprofessionnelle (1991-1996). Son action couvre l’ensemble de la ville de Marseille, en lien avec la politique de la ville. Elle mentionne avoir été sollicitée par des entreprises, via des CHSCT et des syndicats, à propos de l’usage de drogues sur le lieu de travail, soulevant des enjeux de sécurité, de productivité et aussi, de protection des salariés usagers de drogue.
+</p>
+            <p>La politique de prévention se consolide, avec notamment la mise à disposition de seringues à partir de 1993-1994 en lien avec les pharmaciens, parallèlement aux avancées du soin avec l’arrivée des premières thérapies (63 min) . Elle souligne qu’il s’agit d’une réussite majeure de santé publique, rendue possible par la mobilisation des acteurs, y compris des usagers eux-mêmes. Elle insiste sur l’interaction nécessaire entre le terrain, les savoirs et les politiques publiques pour construire des équilibres durables.
+</p>
+            <p>En 1995, elle rejoint la Mission Sida Toxicomanie de la Ville de Marseille, créée sous l’impulsion du député et élu Jean-François Mattei (69 min) . Elle participe à sa préfiguration à travers l’audition de l’ensemble des acteurs marseillais. Ce travail révèle la nécessité d’une coordination et d’une stratégie locale. Elle intègre ensuite l’équipe constituée en 1995, où elle restera jusqu’en 2015.
+Dans les premiers temps, les sources de financement de la Mission demeurent incertaines.
+ La rôle de Mylène consistait à assurer le lien entre toxicomanie et territoire. Elle devient par la suite directrice de la Mission.</p>
+            <p>Concernant les risques liés à la sexualité des usagers de drogues, elle estime que cette dimension a longtemps été insuffisamment prise en compte, même si des progrès ont été réalisés par la suite. L’approche catégorielle dominante à l’époque ne permettait pas de croiser suffisamment les problématiques. </p>
+            <p>La fin des années 1990 est marquée par l’inscription institutionnelle et la construction de l’action publique. Elle souligne le fort soutien de la municipalité apporté à la Mission, à l’exception des élus du Front national.</p>
+            <p>Elle revient sur l’installation des automates distributeurs de seringues dans tous les secteurs de la ville, ainsi que sur l’important travail de médiation et de communication mené autour de cette opération en 1997 et 1998.
+(91 min) Elle décrit les dispositifs qui ont suivi (emplois de proximité, ensuite intégrés aux CAARUD) ainsi que leurs sources de financement.
+</p>
+            <p>Elle détaille le travail mené autour du projet de <subject normal="Salle de consommation à moindre risque" authfilenumber="164859829" source="Sudoc">salle de consommation de drogues</subject> à Marseille et les raisons politiques de l’échec de sa mise en place (98 min).
+</p>
+            <p> Dans la perspective d’une exposition consacrée au Sida, elle propose de présenter la première pochette distribuée dans le quartier de La Rose, ancêtre du Stéribox.</p>
+            <p>À la question de Sandrine — « Qu’est-ce que le Sida a fait à ton champ professionnel ? » — elle répond que la maladie a profondément bouleversé les pratiques de santé publique. Elle a permis la prise en compte de la parole des personnes concernées, aboutissant notamment à la loi de 2002 sur les droits des usagers. Elle a imposé une transformation des pratiques professionnelles et confirmé l’importance des savoirs profanes. Elle conclut que le Sida l’a également profondément bouleversée sur le plan humain.
+</p>
+            <p>L'entretien est mené par Sandrine Musso, Margot Mottet-Caisson et Judith Atcha.</p>
+          </scopecontent>
+          <userestrict>
+            <p>Consultation sur demande motivée.</p>
+          </userestrict>
+        </c>
+        <c id="Calames-202602231292184019">
+          <did>
+            <unitid type="cote">MMSH-PH-8558</unitid>
+            <unittitle>Céline Offerlé, directrice du CRIPS PACA, témoigne de son engagement dans la prévention du VIH et des transformations sociales et politiques liées à la lutte contre le Sida à Marseille dans les années 1990 et 2000</unittitle>
+            <physdesc>
+              <extent>1h 31min</extent>
+              <dimensions>xxx</dimensions>
+            </physdesc>
+            <unitdate era="ce" calendar="gregorian" normal="2018-02-16">16 février 2028</unitdate>
+          </did>
+          <scopecontent>
+            <p><persname normal="Offerlé, Céline" source="Sudoc" authfilenumber="277423775" role="070">Céline Offerlé</persname> entend parler du Sida au moment des campagnes d’information des années 1990, notamment à travers la bande dessinée Jo de Derib. Elle perd également un ami, décédé en 1996 en Alsace d’une maladie « qu’on ne nommait pas ».
+</p>
+            <p>En 2005, elle rejoint <subject authfilenumber="030878977" source="Sudoc" normal="AIDES (France)">Aides</subject> à Nice en tant que bénévole, d’abord sur des actions de terrain, puis à des fonctions administratives, avant de devenir présidente pour la région PACA. Elle rejoint le <subject authfilenumber="086219103" normal="Centre régional d'information et de prévention du sida (Provence-Alpes-Côte-d'Azur)" source="Sudoc">CRIPS PACA</subject> en 2007.
+ Elle décrit l’évolution des missions du CRIPS depuis sa fondation en 1993.
+</p>
+            <p>Elle revient sur son entrée à Aides, le fonctionnement de l’association, ses méthodes, ses activités, ses publics et la formation des bénévoles. Elle évoque la notion de démocratie sanitaire (14 min). Elle raconte ses actions de sensibilisation auprès des coiffeurs africains de Nice. Elle aborde la terminologie utilisée pour désigner les différents publics ciblés, par exemple HSH plutôt que « gay », ou « personnes vivant avec le VIH » plutôt que « malades ».</p>
+            <p>Le Sida a révélé les lacunes du système sanitaire ainsi que les inégalités dans le droit et l’accès aux soins. Concernant les usagers de drogues, elle évoque la mobilisation d’une population pour trouver des solutions à sa propre santé dans un paysage sanitaire qui ne les prenait pas en compte. À cette période, ils représentaient près de la moitié des cas de VIH dans le sud de la France. Elle cite le mouvement « Limiter la casse », visant à accéder à du matériel d’injection propre pour répondre à l’urgence de l’épidémie et éviter le partage de seringues. Cette mobilisation a conduit à l’autorisation de la vente libre de seringues en pharmacie en 1987, à l’introduction des traitements de substitution en 1995, puis à la création des CAARUD en 2004.
+L’histoire de la prévention du VIH est, selon elle, emblématique d’un mouvement de transformation sociale initié par les individus eux-mêmes : la diffusion de la maladie a été stoppée en une dizaine d’années grâce à la mobilisation de la communauté pour elle-même.
+</p>
+            <p>Elle évoque les actions de prévention menées à Marseille et à Nice dans les années 2000 et aujourd’hui, notamment celles à destination de la communauté trans péruvienne à Nice, cumulant plusieurs vulnérabilités (travail du sexe, situations administratives irrégulières) (45 min).
+</p>
+            <p> La discussion se poursuit sur les personnes trans. Elle mentionne les orientations générales d’Aides sur ces questions, qu’elle a portées en tant qu’administratrice et responsable régionale. L’objectif était notamment de favoriser l’émergence de structures communautaires et d’accompagner les personnes trans dans la structuration d’une parole politique collective.
+</p>
+            <p>De nouvelles pratiques et de nouvelles réalités émergent. Aujourd’hui, il n’existe plus de méthode ou de plan unique pour lutter contre le VIH, les catégorisations et les temporalités étant devenues plus fluides. Elle défend une approche globale de la santé sexuelle, attentive aux parcours individuels, l’approche strictement populationnelle n’étant plus pleinement opérante.
+(68 min) Elle décrit le fonctionnement des groupes de parole d’Aides, conçus comme des espaces-temps permettant aux personnes de se renforcer (empowerment) et de porter une parole politique collective, capable d’interpeller les pouvoirs publics, de proposer des améliorations du système de santé et de se mobiliser pour leurs droits. Elle souligne combien l’approche militante d’Aides — fondée sur l’innovation, l’autonomie et la transformation du rapport soignant/soigné — a façonné son parcours personnel.
+</p>
+            <p>Elle évoque ensuite son parcours au CRIPS à partir de 2007 et l’approche de cet structure concernant la prévention : exigence d’une information fiable et actualisée, capacité de prise de distance, apport de la sociologie à la santé, et travail auprès d’un public jeune, différent de celui d’Aides. Elle insiste sur une éducation à la sexualité dans toutes ses dimensions (pornographie, normes de genre, etc.), plutôt que sur la seule prévention du VIH. Les publics et les approches diffèrent ainsi de ceux d’Aides.
+</p>
+            <p>Dans l’éventualité d’une exposition consacrée au Sida, elle propose la seringue, à la fois objet de contamination et de soin.</p>
+            <p>L'entretien est mené par Sandrine Musso, Sarah Bourcier et Oceane Chapuis
+dans les locaux du CRIPS, 5 rue Saint-Jacques à Marseille.</p>
+          </scopecontent>
+          <userestrict>
+            <p>Consultation sur demande motivée.</p>
+          </userestrict>
+        </c>
+        <c id="Calames-2026022312263018720">
+          <did>
+            <unitid type="cote">MMSH-PH-8557</unitid>
+            <unittitle>La psychiatre Béatrice Tamboul témoigne de son parcours dans la réduction des risques et la lutte contre le Sida, à Marseille et à l’international, de la fin des années 1980 à nos jours</unittitle>
+            <physdesc>
+              <extent>2h 7min</extent>
+              <dimensions>1,35 Go</dimensions>
+            </physdesc>
+            <unitdate era="ce" calendar="gregorian" normal="2018-02-19">19 février 2028</unitdate>
+          </did>
+          <scopecontent>
+            <p><persname source="Sudoc" authfilenumber="192708945" normal="Stambul, Béatrice (1948-2023)" role="070">Béatrice Tamboul</persname>l est psychiatre. Elle a entendu parler du Sida à la radio dans les années 1980 et a rencontré son premier patient séropositif à Aix-en-Provence, où elle exerçait en 1985 ou 1986, à une période où on savait peu de choses sur la maladie et sa transmission. Puis, en 1989, elle a participé à un groupe de travail composé de juristes et de médecins. Elle se souvient de débats dominés par la peur.
+</p>
+            <p>Elle décrit son parcours professionnel : des études de médecine à Paris à la fin des années 1960, un internat en psychiatrie dans les années 1970 dans le Nord de la France, une pratique à l’hôpital à Aix à partir de 1983, un engagement à <subject authfilenumber="028170989" normal="Médecins du monde" source="Sudoc">Médecins du Monde</subject> en 1989. À travers l’engagement humanitaire, en un an ou deux, elle s’est spécialisée en réduction des risques auprès des usagers de drogues. Elle fonde le centre méthadone à l'hôpital d’Aix en 1995 dans la villa Floréal, où elle poursuit sa carrière jusqu'à la retraite.
+</p>
+            <p>Elle revient sur le contexte peu favorable en France dans le milieu professionnel de l’addictologie, la réduction des risques et le VIH au moment de la création du bus d’<subject authfilenumber="040832392" normal="Programme d'échange de seringues" source="Sudoc">échange de seringues</subject> : pas d’initiatives pragmatiques, des dispositifs et méthodes dépassés, comme le sevrage, et le refus d’admettre le lien entre les usagers de drogue et le VIH, en décalage par rapport aux pratiques de terrain des associations qui géraient des bus (14 min). Elle cite en exemple le Royaume-Uni, qui a évité l’épidémie de VIH auprès des usagers de drogues en mettant en place des bus dès 1987, et aussi le bus de Paris place de la Nation, “une révélation”, un dispositif à “bas seuil d’exigence” qui allait vers les gens sur leur lieu de consommation.
+Elle participe à la mise en place du bus de Marseille en 1994 pour Médecins du Monde, à un moment où 49 % des personnes contaminées à Marseille sont usagers de drogue (24 min). Un ancien détenu usager de drogue séropositif est recruté au sein de l’équipe de soin. En parallèle, la permanence d’AIDES ouvre et des Stéribox sont distribués en pharmacie suite au travail mené par l’AMPTA. Entre 1994 et 1995, les chiffres tombent à 18 % de contaminés parmi les usagers.
+Elle évoque le cas de prostituées usagères de drogues, des “semi-professionnelles” qui se prostituaient pour pouvoir consommer.
+Les gens mouraient et leur histoire est souvent morte avec eux, même quand ils avaient des familles. On faisait avorter les femmes séropositives.</p>
+            <p>Elle revient sur l'histoire du bus de Marseille, son équipement, son équipe. Il stationnait trois fois par semaine, le soir à la Poste Colbert et le dimanche aux Réformés. Il n'opérait que dans le centre-ville où les usagers se concentraient (même si des personnes relais allaient dans les quartiers nord). L’équipe se rendait aussi dans des squats pour ramasser les seringues usagées afin qu’elles ne soient pas utilisées. C'était l’époque de l'héroïne, mais d’autres produits circulaient sans qu’on connaisse leur composition. Ce n’est qu’en 1996-1997 que les drogues ont commencé à être analysées. Elle évoque les liens de l’équipe du bus avec les hôpitaux (urgences de la Conception), la police et les pharmaciens. 80 000 seringues par an étaient distribuées.
+ </p>
+            <p>Elle se souvient de Momo, l’usager qui devient salarié de Médecins du Monde pour le bus (52 min). Elle évoque la notion d’accueil inconditionnel. La réduction des risques ne fonctionne que si l’usager est au centre du dispositif. Momo est le fondateur d’ASUD (Autosupport des usagers de drogue) Marseille. Elle mentionne aussi Paolo, un autre séropositif qui a survécu. Elle ne connaît plus de jeunes séropositifs. Tous ceux qu’elle connaît aujourd’hui ont plus de 50 ans.</p>
+            <p>Elle revient sur les débuts d’ASUD en 1995, les personnes qui y ont travaillé et les complications au moment du passage en CAARUD. Elle devient présidente au début des années 2000 et l'est toujours au moment de l’entretien. Elle parle des difficultés à trouver des locaux, d’être acceptée par les riverains et les CIQ dans le 1er arrondissement, des relations aux élus et des financements.
+</p>
+            <p>Sur ses expériences à l’international en matière de réduction des risques, elle mentionne l’IHRA (International Harm Reduction Association), devenue HRI (Harm Reduction International), dont elle a été membre (78 min). En termes de transfert d’expérience, elle a monté le premier bus d’échange de seringues à Saint-Pétersbourg pour MSF sur des financements européens. Elle décrit des usages de teintures d'opium dans de grosses seringues partagées et d'amphétamines. L'héroïne arrive seulement en 1997. Après deux voyages en 1995 et 1996, le bus démarre en 1997 sur un marché en banlieue (200 personnes le premier jour). Il fonctionne toujours. C'était la première action de MSF à l’étranger sur ce thème.
+(89 min) Elle évoque des actions de prévention de MSF en Birmanie depuis les années 2000 et plus récemment en Tanzanie et en Côte d’Ivoire, l’Afrique étant au centre du trafic mondial de drogue qui arrive d'Afghanistan par la côte orientale. Elle a aussi participé à une mission exploratoire en Palestine et à des actions de formation en Tunisie et surtout au Maroc. Elle mentionne aussi des formations à la réduction des risques de MSF dans plusieurs villes de Russie en lien avec le réseau des Open Society Foundations (OSF) de George Soros, qui ont abouti à la création de centres méthadone dont certains ont continué à être soutenus par MSF. Elle évoque la situation catastrophique en termes de prise en charge des dommages à Kaliningrad au moment d’une forte épidémie vers 1999-2000.
+</p>
+            <p>Elle continue sur des remarques sur ses relations avec d'autres acteurs et la prévention en France et l’évolution des méthodes depuis les années 1990 (102 min) . Elle détaille l'utilité des nouvelles seringues serties. Elle enchaîne sur la question des salles de consommation à moindre risque. Un des fondamentaux de la réduction de risque est d’élargir l’offre des services en prévention. Il faut penser à toutes les étapes de l’injection. Elle cite en exemple des filtres (filtre de cigarette, bout de coton, stéri-filtre, filtres toupie) utilisés par les usagers pour purifier les produits et les accessoires (roule-ta-paille) pour les “sniffeurs”.
+À une question sur les risques de transmission sexuelle et la “Prep”, elle apporte peu d’éléments. Elle suggère de se renseigner sur les pratiques récentes de chemsex.
+</p>
+            <p>Sur ce que le Sida a changé dans son champ professionnel et ses pratiques : il a la spécificité d’avoir permis de créer une alliance thérapeutique inédite entre les personnes concernées et les professionnels de santé, qui s’est étendue ensuite à tout le champ médical. C’est une avancée politique.</p>
+            <p>La seringue est un objet qui pourrait faire l’objet d’une exposition consacrée à la lutte contre le Sida. Elle parle d'actions concrètes de formation pour apprendre aux usagers à s’injecter et à se poser un garrot. 
+</p>
+            <p>L'entretien est mené par Sandrine Musso, Anna Shcherbakova et Bérénice Mauguil Belluci
+ au domicile de Béatrice Tambul à Marseille 5e.</p>
+          </scopecontent>
+          <userestrict>
+            <p>Consultation sur demande motivée.</p>
+          </userestrict>
+        </c>
+        <c id="Calames-2026022312412270121">
+          <did>
+            <unitid type="cote">MMSH-PH-8555</unitid>
+            <unittitle>Caroline Gasiglia, infirmière, témoigne de son engagement dans la lutte contre le VIH, de ses débuts hospitaliers à son action associative, principalement à Marseille, des années 1980 à 2000</unittitle>
+            <physdesc>
+              <extent>1h 50min</extent>
+              <dimensions>1,16 Go</dimensions>
+            </physdesc>
+            <unitdate era="ce" calendar="gregorian" normal="2018-02-19">19 février 2028</unitdate>
+          </did>
+          <scopecontent>
+            <p><persname role="070" normal="Gasiglia, Caroline" source="Sudoc" authfilenumber="294146539">Caroline Gasiglia</persname> entend parler du sida pour la première fois à l’occasion de la mort de Klaus Nomi, en 1983.</p>
+            <p> Elle évoque ses premiers contacts avec des personnes atteintes du sida dans son entourage à Nice, au début des années 1980, alors qu’elle est élève infirmière, puis à partir de 1984 à Marseille, lorsqu’elle débute sa carrière d’infirmière. Elle travaille d’abord à l’hôpital Sainte-Marguerite de Marseille, notamment au service des détenus, puis, à partir de 1993, dans le champ médico-social, au sein d’un programme d’échange de seringues (premier lieu fixe à Marseille, porte d’Aix), qui expérimente les prémices des traitements de substitution, en partenariat avec l’hôpital Desbief.
+Elle explique le rôle du <subject normal="Mouvements de lutte contre le sida" authfilenumber="166839590" source="Sudoc">militantisme </subject> contre le sida en France, qui a permis de faire évoluer la relation entre médecins et malades . « C’est la première fois que les médecins disaient : “Je ne sais pas” », commente-t-elle. Elle cite notamment la loi de 2002 sur la démocratie sanitaire.</p>
+            <p>Elle évoque ensuite le contexte de la création puis de l’activité de Transit à Marseille, lieu d’accueil fixe où elle a travaillé de 1993 à 2002, ainsi que la mise en place des premiers traitements à partir de 1996 .
+(22 min) . Elle décrit les positionnements des différentes structures associatives vis-à-vis de ces traitements et souligne les résultats très positifs de la réduction des risques de contamination au VIH auprès des usagers de drogues. Elle mentionne la constitution et les activités des acteurs du réseau marseillais, notamment les associations Le Tipi (dont elle est présidente au moment de l’entretien), Aides, le Bus des femmes, Autre Regard, Solidarité Enfant Sida, SOS, le foyer de la Corniche, le Sleep In, Habitat et Soins, la SOUSTO-ACT et ASUD Marseille.
+</p>
+            <p>Entre 2005 et 2007, après la fermeture de Transit en 2002 et un cycle d’études dans le champ médico-social, elle devient coordinatrice thérapeutique à So Le Si et se consacre pleinement à la lutte contre le sida auprès des familles et des enfants (54 min). Elle travaille ensuite comme conseillère en milieu carcéral dans le cadre du dispositif des ASC (associations de santé communautaire), avec un financement de Sidaction. Elle poursuit son engagement dans la lutte contre le sida auprès de personnes en situation de migration et de travailleuses du sexe. Elle décrit son positionnement professionnel fondé sur le regard positif inconditionnel, l’empathie et la congruence.</p>
+            <p>Elle commente l’évolution du regard porté sur les personnes vivant avec le VIH et sur les modes de contamination (76 min). Elle constate qu’aujourd’hui la connaissance du grand public a progressé, mais que, corrélativement, le VIH n’est plus considéré comme une priorité de santé publique. Il n’existe plus d’appels à projets spécifiques sur la prévention du VIH. Selon elle, la bascule s’opère autour de 2008, période durant laquelle plusieurs associations de prévention sont fragilisées par le manque de subventions. Le VIH commence alors à être décrit comme une maladie chronique, alors qu’il s’agit d’une maladie liée à des modes de contamination et vécue différemment selon les contextes culturels. Elle insiste sur l’importance d’une approche pluridisciplinaire et transculturelle pour appréhender cette maladie.</p>
+            <p>En réponse à une question concernant le public homosexuel HSH face au risque du VIH, elle le décrit comme transversal à l’ensemble des publics. Elle évoque son action au sein du TRT-5, collectif associatif de lutte contre le sida à l’origine du militantisme contre le VIH (Act Up Paris, Aides, Arcades Sida, Nova Donna, Dessine-moi un mouton, Sol En Si, Sida Info Service, Action Traitements). S’ensuivent des remarques sur le militantisme, le cadre légal et les salles d’injection, inexistantes à Marseille.
+</p>
+            <p>Caroline Gasiglia évoque les situations en Italie et en Espagne concernant la prévention auprès des usagers de drogues, puis élargit son propos à la situation mondiale de la lutte contre le VIH, marquée par de fortes inégalités entre l’Europe, l’Asie et l’Afrique.
+</p>
+            <p>Dans l’éventualité d’une exposition consacrée au sida/VIH, elle propose une affiche d’Aides représentant une tête de mort composée de corps entrelacés.
+</p>
+          </scopecontent>
+          <scopecontent>
+            <p>L'entretien est mené par Sandrine Musso, Océane Chapuis, Sarah Bourcier et Michele Marchioro au Centre Norbert Elias à la Vieille Charité, Marseille 2e.</p>
+          </scopecontent>
+          <userestrict>
+            <p>Consultation sur demande motivée.</p>
+          </userestrict>
+        </c>
+        <c id="Calames-2026022312412270122">
+          <did>
+            <unitid type="cote">MMSH-PH-8556</unitid>
+            <unittitle>Alexandre Olénine retrace son parcours professionnel dans la lutte contre le Sida, de son engagement au sein d’Aides et de la formation des acteurs de santé à la réduction des risques et à l’action communautaire, dans les années 1990 et 2000 à Marseille</unittitle>
+            <physdesc>
+              <extent>2h 23min</extent>
+              <dimensions>1,51 Go</dimensions>
+            </physdesc>
+            <unitdate era="ce" calendar="gregorian" normal="2018-02-19">19 février 2028</unitdate>
+          </did>
+          <scopecontent>
+            <p><persname role="070" normal="Olénine, Alexandre ">Alexandre Olénine</persname> entend parler du Sida pour la première fois en juin 1983, à travers un article de <title normal="Libération (périodique ; France ; 1973-....)" source="Sudoc" authfilenumber="027279677" role="sujet">Libération</title> dans lequel la maladie est décrite comme le « cancer gay ». Il a alors 19 ans et est étudiant à Paris. Il précise qu’il est homosexuel et séronégatif.
+</p>
+            <p>Au cours des années 1980, il entre progressivement dans le <subject normal="Mouvements de lutte contre le sida" authfilenumber="166839590" source="Sudoc">militantisme </subject>contre la maladie (Aides Alsace) et travaille parallèlement dans le domaine de la réinsertion des jeunes en tant que formateur. En 1990, il rejoint Aides Formation, filiale de l’association <subject authfilenumber="030878977" source="Sudoc" normal="AIDES (France)">Aides</subject>, dédiée à la formation des professionnels à la prise en charge et à la prévention de l’épidémie de Sida. À partir de l’expérience des acteurs de terrain, Aides développe un processus de théorisation, puis élabore des méthodes de formation.
+Il décrit le fonctionnement d’Aides Formation : les méthodes utilisées, le recrutement des intervenants issus du terrain et l’organisation des formations. Il évoque la transformation sociale favorisée par l’action d’Aides : la remise en question de la relation patient/médecin à travers les actions militantes, des dispositifs innovants devenus des acquis (aide à domicile), l’évolution des postures vis-à-vis des malades. Plus largement, il souligne le travail mené sur les normes, les valeurs, les droits à la santé et à la sexualité.
+Il aborde ensuite la prise en compte progressive des usagers de drogues dans l’action d’Aides et dans les politiques de santé.
+</p>
+            <p>En 1991, il s’installe à Marseille et poursuit son travail au sein d’Aides Formation, à une période marquée par la professionnalisation de l’association et l’obtention de subventions importantes. Il évoque un contexte marseillais très différent de celui qu’il avait connu à Strasbourg.
+En 1996, il quitte Aides. Après une formation, il commence à travailler au Planning familial 13 en 1999, où il assure à la fois des permanences d’accueil et des interventions en milieu scolaire. Il juge les méthodes plus conventionnelles et le discours plus moralisateur que ceux d’Aides. Après un changement de carrière de dix ans, il rejoint le Tipi - un CAARUD - en 2016.</p>
+            <p>Il revient sur les formations dispensées par Aides, financées par les DASS, auprès de différents publics, notamment les médecins, et sur la posture à adopter face aux malades 
+(56 min).
+Il décrit sa propre posture vis-à-vis des malades et l’évolution de la perception de la maladie, marquée par une « reprise du pouvoir médical » et une « médicalisation de la prévention » (traitements préventifs). Il critique l’abandon de la recherche d’un vaccin et le manque de prise en compte, par exemple, des migrants arrivant déjà contaminés ou personnes infectées depuis longtemps et subissant des effets secondaires. Il parle d’un retour à une forme de déni de la maladie, proche des campagnes de prévention anciennes comme « Le Sida, il ne passera pas par moi ». Selon lui, le dépistage systématique est inopérant et ne prend pas en compte les vulnérabilités.
+</p>
+            <p>Concernant la communauté gay, il explique que le rapport à la transmission a changé, les jeunes générations n’ayant pas connu les morts liées à la maladie. Il enchaîne sur des considérations relatives aux discriminations dans le milieu gay (79 min).
+Il raconte un exercice de prévention mis en place par Aides, intitulé Feux de brousse, qui durait trois heures (86 min). Cet exercice visait à faire comprendre que la maladie est invisible et que tout le monde peut être en contact avec elle. Ce type de dispositif n’est plus utilisé aujourd’hui.
+</p>
+            <p>Suite à une question de Sandrine, Alexandre revient sur sa contribution à la prise en compte du Sida au Planning familial auprès d’un public de femmes. Il évoque la dimension politique héritée de son expérience à Aides, ainsi que les questions de féminisme, de genre et de rapports sociaux (95 min) .</p>
+            <p>Il revient brièvement sur une mission menée en Russie et en Pologne dans les années 1990, où la prévention était peu développée(102 min) . Il évoque la situation des personnes homosexuelles et les pratiques à risque des usagers de drogues.
+</p>
+            <p>Il revient sur son expérience au Tipi. Il relate la création de cet « ovni associatif » doté d’une forte dimension d’auto-support. Le Tipi a été le premier à mener des actions de prévention en milieu festif. Il évoque l’institutionnalisation relative, à partir de 2006, des CAARUD (Centres d’accueil et d’accompagnement à la réduction des risques pour usagers de drogues) et des associations communautaires. Mais aujourd’hui encore, le Tipi a su rester militant et centré sur les personnes et leurs paroles. Son avenir est incertain, faute de nouvelles subventions pour la lutte contre le Sida : certains acquis sont en train de se perdre.
+</p>
+            <p>Il se souvient d’archives personnelles : un calendrier des Sœurs de la perpétuelle indulgence de 1995, spécial Sida, des affiches de prévention russes et des textes de Daniel Defert (127 min).
+Un objet représentatif de la lutte contre le Sida qui pourrait être présenté dans un musée serait une seringue usagée, telle qu’on pouvait en trouver dans les squats en 1987. Il estime que la mémoire des victimes est plus vive dans communaut gay comparée aux victimes usagers de drogues, dont beaucoup sont morts dans la rue, dans l’anonymat.
+
+</p>
+            <p>L'entretien est mené par Sandrine Musso, Anna Shcherbakova et Bérénice Mauguil Belluci au domicile d'Alexandre Olénine.
+</p>
+          </scopecontent>
+          <userestrict>
+            <p>Consultation sur demande motivée.</p>
+          </userestrict>
+        </c>
+      </c>
+      <c id="Calames-2026021211515561116">
+        <did>
+          <unittitle>Archives témoignant de la réception du travail de Sandrine Musso</unittitle>
+          <physdesc>
+            <physfacet type="support">Fichiers numériques : 4 films (format MP4) et 1 affiche</physfacet>
+            <extent>6h 21min</extent>
+            <dimensions>33,4Go</dimensions>
+          </physdesc>
+        </did>
+        <scopecontent>
+          <p>Après la disparition de Sandrine Musso en 2021, des proches, collègues, étudiants, militants associatifs lui rendent hommage, retracent son parcours intellectuel et d’engagement, et font état de la réception de son travail inachevé dans le domaine de l'anthropologie de la maladie. 
+Outre les différents hommages publiés (listés ici : <extref href="https://journals.openedition.org/anthropologiesante/11880">https://journals.openedition.org/anthropologiesante/11880</extref>), deux manifestations lui ont été dédiées à Marseille dont les archives ont été conservées avec le fonds.</p>
+        </scopecontent>
+        <c id="Calames-202602121224223417">
+          <did>
+            <unitid type="cote">Cotes à indiquer</unitid>
+            <unittitle>Femmage à Sandrine Musso : journée organisée au Mucem</unittitle>
+            <physdesc>
+              <physfacet type="support">4 fichiers MP4</physfacet>
+              <extent>6h 21min</extent>
+              <dimensions>33,4Go</dimensions>
+            </physdesc>
+            <unitdate era="ce" calendar="gregorian" normal="2022-04-06">6 avril 2022</unitdate>
+          </did>
+          <scopecontent>
+            <p>Programme et captations vidéo d'une journée dédiée à la mémoire de Sandrine Musso, organisée au Mucem par le commissariat et le comité de suivi de l’exposition « VIH/Sida : l’épidémie n’est pas finie ! », le Laboratoire de sciences sociales appliquées (LaSSA) et le Groupe organisateur de la thérapie (GOT), avec le soutien du LPED et du Centre Norbert Elias.</p>
+          </scopecontent>
+        </c>
+        <c id="Calames-2026021220352033020">
+          <did>
+            <unitid type="cote">Cotes à indiquer</unitid>
+            <unittitle>Programme de la journée organisée sur le thème : Sandrine Musso. Une vie anthropologue</unittitle>
+            <physdesc>
+              <physfacet type="support">1 programme et 3 photographies</physfacet>
+            </physdesc>
+            <unitdate era="ce" calendar="gregorian" normal="2022-04-06">16 juin 2022</unitdate>
+          </did>
+          <scopecontent>
+            <p>Programme et photographies d’une rencontre dédiée à Sandrine Musso, organisée par l’association Amades et le Centre Norbert Elias à l’occasion du colloque de l’Amades et en lien avec la parution d’un numéro spécial de la revue <title role="sujet">Anthropologie et santé</title> intitulé : « <extref href="https://journals.openedition.org/anthropologiesante/10823">Sandrine Musso. Œuvre et posture en anthropologie politique, publique et impliquée</extref> ».
+
+Cet événement, qui s’est tenu le 16 juin 2022 au tiers-lieu Coco Velten à Marseille, a réuni collègues, étudiantes et militants afin de lui rendre hommage et de retracer son parcours de recherche et d’engagement.
+</p>
+          </scopecontent>
+        </c>
+      </c>
+    </dsc>
+  </archdesc>
+</ead>

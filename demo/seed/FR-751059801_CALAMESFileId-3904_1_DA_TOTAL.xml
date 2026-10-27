@@ -1,0 +1,2795 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ead>
+  <eadheader>
+    <eadid countrycode="FR" identifier="FR-751059801_CALAMESFileId-3904" mainagencycode="341720001" url="https://calames.abes.fr/pub/ms/FileId-3904">FR-751059801_CALAMESFileId-3904_1_DA_TOTAL</eadid>
+    <filedesc>
+      <titlestmt>
+        <titleproper>Inventaire de la correspondance d'Eugène Lambert</titleproper>
+        <author>Sorbonne Université</author>
+      </titlestmt>
+      <publicationstmt>
+        <publisher>Agence bibliographique de l'Enseignement supérieur</publisher>
+        <date>2022</date>
+      </publicationstmt>
+    </filedesc>
+    <profiledesc>
+      <creation>Créé et encodé manuellement par Cyrille Martinez, responsable de la Bibliothèque Georges Ascoli et Paul Hazard.</creation>
+      <langusage>Catalogue rédigé en <language langcode="fre">français</language></langusage>
+      <descrules>Encodage en XLM conformement à la DTD EAD version 2002.</descrules>
+    </profiledesc>
+  </eadheader>
+  <archdesc level="recordgrp">
+    <did>
+      <unittitle><genreform type="genre, forme et fonction" normal="correspondance">Correspondance</genreform> d'<persname normal="Lambert, Eugène (1825-1900)" source="Sudoc" authfilenumber="084721359" role="producteur">Eugène Lambert</persname> - Lettres de Georges Sand.</unittitle>
+      <unitid type="cote">1 DA</unitid>
+      <unitdate era="ce" calendar="gregorian" normal="1852/1887">1852-1887</unitdate>
+      <physdesc>
+        <extent>3 classeurs de lettres, 98 correspondantes et correspondants différents</extent>
+      </physdesc>
+      <physloc>Bibliothèque Georges Ascoli et Paul Hazard, Contact : Mail. cyrille.martinez@sorbonne-universite.fr / Tél. 01 40 46 27 32</physloc>
+      <repository><corpname normal="Sorbonne Université" authfilenumber="751059801" source="Répertoire_des_Centres_de_Ressources">Sorbonne Université</corpname>, Bibliothèque Georges Ascoli et Paul Hazard</repository>
+    </did>
+    <acqinfo>
+      <p>En mai 1938, <persname normal="Estienne, Rose (....-....)" role="390">Rose Julie Marie Mathilde Valentine Estienne</persname>, seconde épouse d’Eugène Lambert, fait don de la correspondance de ce dernier à l’Université de Paris, qui la dépose à la bibliothèque de l’Institut de langue et littérature française dont les collections viendront alimenter la Bibliothèque Ascoli en 1971.</p>
+    </acqinfo>
+    <custodhist>
+      <p>Les documents ont probablement été conditionnées dans des classeurs et sous pochettes plastiques dans les années 1982/1983, lorsque <persname normal="Lubin, Georges (1904-2000)" source="Sudoc" authfilenumber="026996944" role="sujet">Georges Lubin</persname> prend connaissance de ce fonds. Les lettres portent encore sa marque à travers les dates indiquées au crayon de papier. </p>
+    </custodhist>
+    <accessrestrict>
+      <p>Le fonds est librement communicable à la  Bibliothèque Georges Ascoli et Paul Hazard, ceci avec une prise de rendez-vous préalable auprès de la dite bibliothèque.</p>
+    </accessrestrict>
+    <bioghist>
+      <p>Eugène Lambert, né à Paris le 25 septembre 1825, avait été camarade de Maurice Sand à l’atelier de Delacroix. « Titi » parisien mâtiné de rapin, très blagueur et spirituel, il se montra un hôte sympathique et amusant. Venu à Nohant rendre visite à George Sand pour un mois en juin 1844, il y resta douze ans, traité comme un membre de la famille. 
+Revenu à Paris, il fera un riche mariage et deviendra un peintre en vogue, par ses portraits de chiens et de chats, spécialité qui ne lui assura pas l’immortalité, mais lui procura une grande aisance. Son fils Georges sera le filleul de George Sand. Celle-ci lui a dédié l’un de ses plus beaux romains, Les Maîtres sonneurs. Il meurt à Paris le 17 mai 1900.
+</p>
+    </bioghist>
+    <scopecontent>
+      <p>Eugène Lambert est un élément précieux de la troupe théâtrale de George Sand à Nohant. Il interprétera des rôles comiques, mais surtout secondera Maurice Sand et Manceau dans l’élaboration des spectacles et la peinture des décors du « Grand théâtre de Nohant ». Les lettres que lui adressent George Sand témoignent de leur grande complicité. Georges Lubin a intégré ces lettres dans la correspondance générale de George Sand. Les lettres des autres correspondants sont inédites. Elles fournissent pourtant un éclairage intéressant sur les rapports qu’entretiennent quelques proches de George Sand.</p>
+      <p>La correspondance d'Eugène Lambert compte 98 correspondants différents, parmi lesquels : <persname normal="Sand, George (1804-1876)" source="Sudoc" authfilenumber="027121577" role="070">George Sand</persname>, Blaise Bonnin (pseudonyme de George Sand), Alexandre Manceau, <persname normal="Aucante, Emile (1822-1908)" source="Sudoc" authfilenumber="085644781" role="070">Emile Aucante</persname>, <persname normal="Sand, Maurice (1823-1889)" source="Sudoc" authfilenumber="027121593" role="070">Maurice Sand</persname>, <persname normal="Clésinger-Sand, Solange (1828-1899)" source="Sudoc" authfilenumber="033514984" role="070">Solange Sand</persname>, <persname normal="Borie, Victor (1818-1880)" source="Sudoc" authfilenumber="035156570" role="070">Victor Borie</persname>, <persname normal="Droz, Gustave (1832-1895)" source="Sudoc" authfilenumber="029540518" role="070">Gustave Droz</persname>, J. Rouam.</p>
+    </scopecontent>
+    <processinfo>
+      <p>Un inventaire complet et détaillé a débuté en 2022. Les lettres de George Sand ayant été les plus étudiées et décrites par le passé, et faisant l'objet d'un conditionnement  à part, l'inventaire et la numérisation a débuté par celles-ci.  Les numérisations sont mises en ligne sur SorbonNum, la bibliothèque numérique patrimoniale de Sorbonne Université.</p>
+    </processinfo>
+    <dsc>
+      <c id="Calames-2022102610446751">
+        <did>
+          <unitid type="cote">1 DA</unitid>
+          <unittitle>Lettre reçues par <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname>.</unittitle>
+        </did>
+        <processinfo>
+          <note type="absent">
+            <p>En cours de Classement.</p>
+          </note>
+        </processinfo>
+      </c>
+      <c id="Calames-2022391131684145" level="file">
+        <did>
+          <unitid type="division">SAND</unitid>
+          <unittitle>George Sand</unittitle>
+          <physdesc>
+            <extent>151 lettres signées George Sand</extent>
+          </physdesc>
+        </did>
+        <c id="Calames-20222415248861" level="item">
+          <did>
+            <unitid type="division">SAND_1</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1852-03-03">3 mars 1852</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="027244520" normal="Paris (France)" role="lieu de production" source="Sudoc">Paris</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4395" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4395/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202224162122842" level="item">
+          <did>
+            <unitid type="division">SAND_2</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1852-04-02">2 avril 1852</unitdate>
+            <physdesc>
+              <extent>3/4 de p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="027244520" normal="Paris (France)" role="lieu de production" source="Sudoc">Paris</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4404" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4404/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202224162122843" level="item">
+          <did>
+            <unitid type="division">SAND_3</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1852-04-09">9 avril 1852</unitdate>
+            <physdesc>
+              <extent>3 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4408" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4408/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202227142303754" level="item">
+          <did>
+            <unitid type="division">SAND_4</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1852-04-18">18 avril 1852</unitdate>
+            <physdesc>
+              <extent>2 p</extent>
+              <dimensions>in-16</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4403" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4403/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202227142303755" level="item">
+          <did>
+            <unitid type="division">SAND_5</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1852-04-27">27  avril 1852</unitdate>
+            <physdesc>
+              <extent>2 p</extent>
+              <dimensions>in-16</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4402" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4402/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202227142303756" level="item">
+          <did>
+            <unitid type="division">SAND_6</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1852-05-09">9 mai 1852</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-16</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4405" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4405/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202227142303757" level="item">
+          <did>
+            <unitid type="division">SAND_7</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1852-05-10">10  mai 1852</unitdate>
+            <physdesc>
+              <dimensions>13x 7,5</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4409" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4409/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202227142303758" level="item">
+          <did>
+            <unitid type="division">SAND_8 </unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1852-05-22">22 mai 1852</unitdate>
+            <physdesc>
+              <extent>2 p</extent>
+              <dimensions> in-16</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4398" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4398/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202227142303759" level="item">
+          <did>
+            <unitid type="division">SAND_9</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1852-06-11">11 juin 1852</unitdate>
+            <physdesc>
+              <extent>2 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4396" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4396/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022271423037510" level="item">
+          <did>
+            <unitid type="division">SAND_10</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1852-06-19">19 juin 1852</unitdate>
+            <physdesc>
+              <extent>2 p</extent>
+              <dimensions>in-16</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4412" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4412/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022271423037511" level="item">
+          <did>
+            <unitid type="division">SAND_11</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1852-10-1/1852-10-31">mi-octobre 1852</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="027244520" normal="Paris (France)" role="lieu de production" source="Sudoc">Paris</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4407" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4407/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022271522782612" level="item">
+          <did>
+            <unitid type="division">SAND_12</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="15-10-1852">15 octobre 1852</unitdate>
+            <physdesc>
+              <extent>2 p</extent>
+              <dimensions> in-16</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4411" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4411/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022271522782613" level="item">
+          <did>
+            <unitid type="division">SAND_13</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="16-10-1852">[16] octobre 1852</unitdate>
+            <physdesc>
+              <extent>3 p 1/4 </extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="027244520" normal="Paris (France)" role="lieu de production" source="Sudoc">Paris</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4406" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4406/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022271522782614" level="item">
+          <did>
+            <unitid type="division">SAND_14</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="22-10-1852">22 octobre 1852</unitdate>
+            <physdesc>
+              <extent>1 p 1/2</extent>
+              <dimensions>in-16</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="027244520" normal="Paris (France)" role="lieu de production" source="Sudoc">Paris</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4401" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4401/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022271522782615" level="item">
+          <did>
+            <unitid type="division">SAND_15</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="23-10-1852">23 octobre 1852</unitdate>
+            <physdesc>
+              <extent>2 p</extent>
+              <dimensions>in-16</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="027244520" normal="Paris (France)" role="lieu de production" source="Sudoc">Paris</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4400" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4400/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022271522256216" level="item">
+          <did>
+            <unitid type="division">SAND_16</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1852-10-24">24 octobre 1852</unitdate>
+            <physdesc>
+              <extent>2 p</extent>
+              <dimensions>in-16</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="027244520" normal="Paris (France)" role="lieu de production" source="Sudoc">Paris</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4410" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4410/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022271522256217" level="item">
+          <did>
+            <unitid type="division">SAND_17</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1852-10-26">26 octobre 1852</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions> petit in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="027244520" normal="Paris (France)" role="lieu de production" source="Sudoc">Paris</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4414" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4414/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022271522256219" level="item">
+          <did>
+            <unitid type="division">SAND_18</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1852-12-10">[10] décembre 1852</unitdate>
+            <physdesc>
+              <extent>1 p 1/2 </extent>
+              <dimensions>petit in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4413" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4413/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022271522256220" level="item">
+          <did>
+            <unitid type="division">SAND_19</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1852-12-18">18 décembre 1852</unitdate>
+            <physdesc>
+              <extent>3 p 1/2</extent>
+              <dimensions> petit in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4416" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4416/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022271522256221" level="item">
+          <did>
+            <unitid type="division">SAND_20</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1852-12-29">[29] décembre 1852</unitdate>
+            <physdesc>
+              <extent>2 p 1/2 </extent>
+              <dimensions> petit in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4415" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4415/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202227162187521" level="item">
+          <did>
+            <unitid type="division">SAND_21</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1852">[1852]</unitdate>
+            <physdesc>
+              <extent>1/2 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à : s.d.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4397" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4397/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202227162187522" level="item">
+          <did>
+            <unitid type="division">SAND_22</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1853-01-02">2 janvier 1853</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4462" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4462/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202227162187523" level="item">
+          <did>
+            <unitid type="division">SAND_23</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1853-01-25">25 janvier 1853</unitdate>
+            <physdesc>
+              <extent>2 p 1/4</extent>
+              <dimensions>in-16</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4432" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4432/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202227162187524" level="item">
+          <did>
+            <unitid type="division">SAND_24</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1853-02-02">2 février 1853</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions> in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4464" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4464/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202227162187525" level="item">
+          <did>
+            <unitid type="division">SAND_25</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1853-02-01/1853-02-28">mi-février 1853</unitdate>
+            <physdesc>
+              <extent>3 p 1/4</extent>
+              <dimensions> in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">[Nohant]</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4450" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4450/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202227162187526" level="item">
+          <did>
+            <unitid type="division">SAND_26</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1853-02-28">28 février 1853</unitdate>
+            <physdesc>
+              <extent>1 p 1/2</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+            <p>Post scriptum de Sand précédé d'une lettre d'<persname authfilenumber="030195802" normal="Manceau, Alexandre (1817-1865)" role="070" source="Sudoc">Alexandre Manceau</persname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4435" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4435/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202227162187527" level="item">
+          <did>
+            <unitid type="division">SAND_27</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1853-03-05">5 mars 1853</unitdate>
+            <physdesc>
+              <extent>2 p 1/2</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+            <p>Post scriptum de Sand précédé d'une lettre d'<persname authfilenumber="030195802" normal="Manceau, Alexandre (1817-1865)" role="070" source="Sudoc">Alexandre Manceau</persname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4426" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4426/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022040413233037429" level="item">
+          <did>
+            <unitid type="division">SAND_28</unitid>
+            <unittitle>Lettre de <persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1853-05-31/1853-06-30">Mai ou juin 1853</unitdate>
+            <physdesc>
+              <extent>3 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4420" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4420/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022281424596628" level="item">
+          <did>
+            <unitid type="division">SAND_29</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1853-06-07">7 juin 1853</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+            <p>Post scriptum de Sand précédé d'une lettre d'Alexandre Manceau</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4433" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4433/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022281424596629" level="item">
+          <did>
+            <unitid type="division">SAND_30</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1853-09-10">10 septembre 1853</unitdate>
+            <physdesc>
+              <extent>2 p</extent>
+              <dimensions>petit in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="027244520" normal="Paris (France)" role="lieu de production" source="Sudoc">Paris</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4455" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4455/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022281424596630">
+          <did>
+            <unitid type="division">SAND_31</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1853-09-13">13 septembre 1853</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="027244520" normal="Paris (France)" role="lieu de production" source="Sudoc">Paris</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4461" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4461/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022281424596631">
+          <did>
+            <unitid type="division">SAND_32</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1853-12-11">11 décembre 1853</unitdate>
+            <physdesc>
+              <extent>3 p</extent>
+              <dimensions> 1/2 in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4483" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4483/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022281424596632">
+          <did>
+            <unitid type="division">SAND_33</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1853-12-20">20 décembre 1853</unitdate>
+            <physdesc>
+              <extent>4 p</extent>
+              <dimensions>petit in-16°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4434" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4434/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202228142114933">
+          <did>
+            <unitid type="division">SAND_34</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1853-12-26">26 décembre 1853</unitdate>
+            <physdesc>
+              <extent>4 p </extent>
+              <dimensions>petit in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4449" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4449/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202228142114934">
+          <did>
+            <unitid type="division">SAND_35</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1853-12-26">27 décembre 1853</unitdate>
+            <physdesc>
+              <extent>1 p 1/4</extent>
+              <dimensions>petit in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4472" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4472/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202228142114935">
+          <did>
+            <unitid type="division">SAND_36</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1853">      [1853]</unitdate>
+            <physdesc>
+              <extent>fragment de papier</extent>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4470" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4470/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202228142114936">
+          <did>
+            <unitid type="division">SAND_37</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1854-01-03">3 janvier 1854</unitdate>
+            <physdesc>
+              <extent>3 p</extent>
+              <dimensions>petit in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4484" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4484/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202228142114937">
+          <did>
+            <unitid type="division">SAND_38</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1854-01-18">18 janvier 1854</unitdate>
+            <physdesc>
+              <extent>1 p 1/2</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4475" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4475/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202228142114938">
+          <did>
+            <unitid type="division">SAND_39</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1854-01-22">22 janvier 1854</unitdate>
+            <physdesc>
+              <extent>1/2 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4441" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4441/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202228142114939">
+          <did>
+            <unitid type="division">SAND_40</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1854-02-02">2 février 1854</unitdate>
+            <physdesc>
+              <extent>4 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4423" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4423/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202228142371740">
+          <did>
+            <unitid type="division">SAND_41</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1854-02-05">5 février 1854</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4454" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4454/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202228142371741">
+          <did>
+            <unitid type="division">SAND_42</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1854-04-12">[12] avril 1854</unitdate>
+            <physdesc>
+              <extent>3 p</extent>
+              <dimensions>in-16</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">[Nohant]</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4436" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4436/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202228142371742">
+          <did>
+            <unitid type="division">SAND_43</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1854-04-14">[14] avril 1854</unitdate>
+            <physdesc>
+              <extent>2 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4438" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4438/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202228142371743">
+          <did>
+            <unitid type="division">SAND_44</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1854-05-25">25  mai 1854</unitdate>
+            <physdesc>
+              <extent>3 p 1/2</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4456" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4456/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202228142371744">
+          <did>
+            <unitid type="division">SAND_45</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1854-12-31">31 décembre 1854</unitdate>
+            <physdesc>
+              <extent>4 p</extent>
+              <dimensions>petit in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4451" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4451/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022281521672145">
+          <did>
+            <unitid type="division">SAND_46</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1855-01-01">1<emph render="italic">er</emph> janvier 1855</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4479" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4479/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022281521672146">
+          <did>
+            <unitid type="division">SAND_47</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1855-01-06">6 janvier 1855</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4443" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4443/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022281521672147">
+          <did>
+            <unitid type="division">SAND_48</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1855-02-10">10 février 1855</unitdate>
+            <physdesc>
+              <extent>2 p 3/4</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4444" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4444/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022281521672148">
+          <did>
+            <unitid type="division">SAND_49</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1855-04-02">2 avril 1855</unitdate>
+            <physdesc>
+              <extent>1/2 p</extent>
+              <dimensions>in-16</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="07132464X" normal="Frascati (Italie)" role="lieu de production" source="Sudoc">Frascati</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4431" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4431/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022281521672149">
+          <did>
+            <unitid type="division">SAND_50</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1855-04-26">26 avril 1855</unitdate>
+            <physdesc>
+              <extent>3 p</extent>
+              <dimensions>in-4°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname normal="Passignano (Italie)" role="lieu de production">Passignano</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4439" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4439/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022281521672150">
+          <did>
+            <unitid type="division">SAND_51</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1855-04-28">28 avril 1855</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-4°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="027226042" normal="Florence (Italie)" role="lieu de production" source="Sudoc">Florence</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4458" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4458/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022281521672151">
+          <did>
+            <unitid type="division">SAND_52</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1855-10-30">30 octobre 1855</unitdate>
+            <physdesc>
+              <extent>2 p 1/4</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4429" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4429/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022281521672152">
+          <did>
+            <unitid type="division">SAND_53</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1856-12-18">18 décembre 1856</unitdate>
+            <physdesc>
+              <extent>4 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4474" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4474/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022281521672153">
+          <did>
+            <unitid type="division">SAND_54</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1858-01-04">4 janvier 1858</unitdate>
+            <physdesc>
+              <extent>3 p</extent>
+              <dimensions>in-16</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4442" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4442/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022281521672154">
+          <did>
+            <unitid type="division">SAND_55</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1859-01-02">2 janvier 1859</unitdate>
+            <physdesc>
+              <extent>1 p 1/2 </extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4463" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4463/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022281521672155">
+          <did>
+            <unitid type="division">SAND_56</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1860-03-07">7 mars 1860</unitdate>
+            <physdesc>
+              <extent>1/2 p</extent>
+              <dimensions>petit in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="027244520" normal="Paris (France)" role="lieu de production" source="Sudoc">Paris</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4476" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4476/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022281521672156">
+          <did>
+            <unitid type="division">SAND_57</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1860-04-11">11 avril 1860</unitdate>
+            <physdesc>
+              <extent>1/2 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4428" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4428/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022041115293551159">
+          <did>
+            <unitid type="division">SAND_58</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1860-10-05">5 octobre 1860</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4447" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4447/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022281525792857">
+          <did>
+            <unitid type="division">SAND_59</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1860-11-21">21 novembre 1860</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4437" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4437/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022281525792858">
+          <did>
+            <unitid type="division">SAND_60</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1861-01-07">7 janvier 1861</unitdate>
+            <physdesc>
+              <extent>1 p 1/2</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4480" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4480/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022281525792859">
+          <did>
+            <unitid type="division">SAND_61</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1862-01-03">3 janvier 1862</unitdate>
+            <physdesc>
+              <extent>2 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4467" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4467/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022281525792860">
+          <did>
+            <unitid type="division">SAND_62</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1862-03-20">20 mars 1862</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-16</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="027244520" normal="Paris (France)" role="lieu de production" source="Sudoc">Paris</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4482" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4482/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022281525792861">
+          <did>
+            <unitid type="division">SAND_63</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1862-03-27">27 mars 1862</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-16</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="027244520" normal="Paris (France)" role="lieu de production" source="Sudoc">Paris</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4465" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4465/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022281525792862">
+          <did>
+            <unitid type="division">SAND_64</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1862-05-02">2 mai 1862</unitdate>
+            <physdesc>
+              <extent>2 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4478" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4478/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022281525792863">
+          <did>
+            <unitid type="division">SAND_65</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1862-05-15">15 mai 1862</unitdate>
+            <physdesc>
+              <extent>1 p 1/2</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4424" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4424/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022281525792864">
+          <did>
+            <unitid type="division">SAND_66</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1862-05-21">21 mai 1862</unitdate>
+            <physdesc>
+              <extent>4 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4466" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4466/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022291525243065">
+          <did>
+            <unitid type="division">SAND_67</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1862-07-14">14 juillet 1862</unitdate>
+            <physdesc>
+              <extent>3 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4430" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4430/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022291525243066">
+          <did>
+            <unitid type="division">SAND_68</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1862-09-06">6 septembre 1862</unitdate>
+            <physdesc>
+              <extent>2 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4427" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4427/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022291525243067">
+          <did>
+            <unitid type="division">SAND_69</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1862-10-08">8 octobre 1862</unitdate>
+            <physdesc>
+              <extent>2 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4452" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4452/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022291525243068">
+          <did>
+            <unitid type="division">SAND_70</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1863-01-04">4 janvier 1863</unitdate>
+            <physdesc>
+              <extent>4 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4460" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4460/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022041115293551174">
+          <did>
+            <unitid type="division">SAND_71</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1863-01-04">4 janvier 1863</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4440" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4440/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022291525243069">
+          <did>
+            <unitid type="division">SAND_72</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1863-06-10">10 juin 1863</unitdate>
+            <physdesc>
+              <extent>4 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4453" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4453/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022291525243070">
+          <did>
+            <unitid type="division">SAND_73</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1863-07-17">17 juillet 1863</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4477" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4477/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022291525243071">
+          <did>
+            <unitid type="division">SAND_74</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1863-07-22">22 juillet 1863</unitdate>
+            <physdesc>
+              <extent>2 p 1/4</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4471" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4471/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022291525243072">
+          <did>
+            <unitid type="division">SAND_75</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1864-07-26">26 juillet 1864</unitdate>
+            <physdesc>
+              <extent>3 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="027296857" normal="Palaiseau (Essonne)" role="lieu de production" source="Sudoc">Palaiseau</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4445" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4445/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022291525243073">
+          <did>
+            <unitid type="division">SAND_76</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1864-10-20">20 octobre 1864</unitdate>
+            <physdesc>
+              <extent>4 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="027296857" normal="Palaiseau (Essonne)" role="lieu de production" source="Sudoc">Palaiseau</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4399" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4399/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022291525243074">
+          <did>
+            <unitid type="division">SAND_77</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1865-07-28">23 juillet 1865</unitdate>
+            <physdesc>
+              <extent>3 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="027296857" normal="Palaiseau (Essonne)" role="lieu de production" source="Sudoc">Palaiseau</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4331" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4331/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022291525243075">
+          <did>
+            <unitid type="division">SAND_78</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1865-07-25">25 août 1865</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="027296857" normal="Palaiseau (Essonne)" role="lieu de production" source="Sudoc">Palaiseau</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4365" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4365/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022291525243076">
+          <did>
+            <unitid type="division">SAND_79</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1865-09-18">18 septembre 1865</unitdate>
+            <physdesc>
+              <extent>3 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="027296857" normal="Palaiseau (Essonne)" role="lieu de production" source="Sudoc">Palaiseau</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4355" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4355/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202229162860977">
+          <did>
+            <unitid type="division">SAND_80</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1865-10-16">16 octobre 1865</unitdate>
+            <physdesc>
+              <extent>4 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="027296857" normal="Palaiseau (Essonne)" role="lieu de production" source="Sudoc">Palaiseau</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4325" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4325/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202229162860978">
+          <did>
+            <unitid type="division">SAND_81</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1865-10-22">22 novembre 1865</unitdate>
+            <physdesc>
+              <extent>2 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="027244520" normal="Paris (France)" role="lieu de production" source="Sudoc">Paris</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4448" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4448/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202229162860979">
+          <did>
+            <unitid type="division">SAND_82</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1866-01-03">3 janvier 1866</unitdate>
+            <physdesc>
+              <extent>1 p </extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4318" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4318/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202229162860980">
+          <did>
+            <unitid type="division">SAND_83</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1866-01-10">10 janvier 1866</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4468" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4468/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202229162860981">
+          <did>
+            <unitid type="division">SAND_84</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1866-01-20">20 janvier 1866</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4359" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4359/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202229162860982">
+          <did>
+            <unitid type="division">SAND_85</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1866-01-28">28 janvier 1866</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4321" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4321/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202229162860984">
+          <did>
+            <unitid type="division">SAND_86</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1866-02-01/1866-02-28">[février] 1866</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-16</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">[Nohant]</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4353" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4353/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-20222101425817584">
+          <did>
+            <unitid type="division">SAND_87</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1866-04-11">11 avril 1866</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="027244520" normal="Paris (France)" role="lieu de production" source="Sudoc">Paris</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4328" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4328/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-20222101425817585">
+          <did>
+            <unitid type="division">SAND_88</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" id="Calames-2022041115293551174" normal="1866-04-18">18 avril 1866</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="027296857" normal="Palaiseau (Essonne)" role="lieu de production" source="Sudoc">Palaiseau</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4337" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4337/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022041115293551190">
+          <did>
+            <unitid type="division">SAND_89</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1866-04-01/1866-04-30">avril 1866</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="027244520" normal="Paris (France)" role="lieu de production" source="Sudoc">Paris</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4301" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4301/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022041115293551191">
+          <did>
+            <unitid type="division">SAND_90</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1866-04-01/1866-04-30">[avril] 1866</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-16</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="027244520" normal="Paris (France)" role="lieu de production" source="Sudoc">Paris</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4314" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4314/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022041115293551192">
+          <did>
+            <unitid type="division">SAND_91</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1866-05-08">8 mai 1866</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-16</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="027244520" normal="Paris (France)" role="lieu de production" source="Sudoc">Paris</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4332" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4332/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-20222101425817586">
+          <did>
+            <unitid type="division">SAND_92</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1867-01-08">8 janvier 1867</unitdate>
+            <physdesc>
+              <extent>2 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="027244520" normal="Paris (France)" role="lieu de production" source="Sudoc">Paris</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4315" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4315/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-2022041115293551194">
+          <did>
+            <unitid type="division">SAND_93</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1867-01-26">26  janvier  1867</unitdate>
+            <physdesc>
+              <extent>3 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4352" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4352/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-20222101425817587">
+          <did>
+            <unitid type="division">SAND_94</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1867-02-27">27 févier 1867</unitdate>
+            <physdesc>
+              <extent>3 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4329" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4329/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-20222101425817588">
+          <did>
+            <unitid type="division">SAND_95</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1867-04-01/1867-04-30">avril 1867</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">[Nohant]</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4347" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4347/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-20222101425817589">
+          <did>
+            <unitid type="division">SAND_96</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1867-08-18">18 août 1867</unitdate>
+            <physdesc>
+              <extent>2 p 1/2</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4305" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4305/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-20222101425817590">
+          <did>
+            <unitid type="division">SAND_97</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1867-10-14">14 octobre 1867</unitdate>
+            <physdesc>
+              <extent>4 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4312" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4312/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-20222101425817591">
+          <did>
+            <unitid type="division">SAND_98</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1867-12-17">5 décembre 1867</unitdate>
+            <physdesc>
+              <extent>2 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4324" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4324/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-20222101425817592">
+          <did>
+            <unitid type="division">SAND_99</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1853-12-26">17 décembre 1867</unitdate>
+            <physdesc>
+              <extent>2 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4358" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4358/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-20222101425817593">
+          <did>
+            <unitid type="division">SAND_100</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1867-12-30">30 décembre 1867</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4322" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4322/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-20222101425817594">
+          <did>
+            <unitid type="division">SAND_101</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1868-02-07">7 février 1868</unitdate>
+            <physdesc>
+              <extent>1 p 3/4</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4361" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4361/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-20222101425817595">
+          <did>
+            <unitid type="division">SAND_102</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1868-02-11">11 février 1868</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="027244520" normal="Paris (France)" role="lieu de production" source="Sudoc">Paris</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4341" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4341/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-20222101425817596">
+          <did>
+            <unitid type="division">SAND_103</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1868-03-17">17 mars 1868</unitdate>
+            <physdesc>
+              <extent>3 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4363" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4363/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-20222101425817597">
+          <did>
+            <unitid type="division">SAND_104</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1868-04-25">25 avril 1868</unitdate>
+            <physdesc>
+              <extent>3 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4369" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4369/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-20222101425817598">
+          <did>
+            <unitid type="division">SAND_105</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Alexandre Dumas fils</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1868-05-28">28 mai 1868</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="027244520" normal="Paris (France)" role="lieu de production" source="Sudoc">Paris</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4336" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4336/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-20222101425817599">
+          <did>
+            <unitid type="division">SAND_106</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1868-06-06">6 juin 1868</unitdate>
+            <physdesc>
+              <extent>2 p 3/4</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4425" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4425/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202221016225591100">
+          <did>
+            <unitid type="division">SAND_107</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1868-06-16">16 juin 1868</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4350" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4350/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202221016225591101">
+          <did>
+            <unitid type="division">SAND_108</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1868-07-06/1868-07-07">6 et 7 juillet 1868</unitdate>
+            <physdesc>
+              <extent>3 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4333" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4333/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202221016225591102">
+          <did>
+            <unitid type="division">SAND_109</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1868-09-17">17 août 1868</unitdate>
+            <physdesc>
+              <extent>4 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4346" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4346/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202221016225591103">
+          <did>
+            <unitid type="division">SAND_110</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1868-09-29">29 septembre 1868</unitdate>
+            <physdesc>
+              <extent>1 p 3/4</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="027244520" normal="Paris (France)" role="lieu de production" source="Sudoc">Paris</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4345" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4345/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202221016225591104">
+          <did>
+            <unitid type="division">SAND_111</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1868-12-20">20 décembre 1868</unitdate>
+            <physdesc>
+              <extent>4 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4349" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4349/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202221016225591105">
+          <did>
+            <unitid type="division">SAND_112</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1868">[1868]</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">[Nohant]</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4362" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4362/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202221016225591106">
+          <did>
+            <unitid type="division">SAND_113</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1869-01-02">2 janvier 1869</unitdate>
+            <physdesc>
+              <extent>3 p 1/2</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4319" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4319/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202221016225591107">
+          <did>
+            <unitid type="division">SAND_114</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1869-03-12">12 mars 1869</unitdate>
+            <physdesc>
+              <extent>2 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4368" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4368/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202221016225591108">
+          <did>
+            <unitid type="division">SAND_115</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1869-05-01">1<emph render="super">er</emph> mai 1869</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4326" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4326/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202221016225591109">
+          <did>
+            <unitid type="division">SAND_116</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1869-07-07">7 juillet 1869</unitdate>
+            <physdesc>
+              <extent>3 p 1/2</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4320" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4320/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202221016225591110">
+          <did>
+            <unitid type="division">SAND_117</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1869-08-14">14 août 1869</unitdate>
+            <physdesc>
+              <extent>4 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4306" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4306/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202221016225591111">
+          <did>
+            <unitid type="division">SAND_118</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1869-09-04">4 septembre 1869</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4302" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4302/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202221016225591112">
+          <did>
+            <unitid type="division">SAND_119</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1870-01-04">4 janvier 1870</unitdate>
+            <physdesc>
+              <extent>4 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4348" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4348/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202221016225591113">
+          <did>
+            <unitid type="division">SAND_120</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1870-01-20">20 janvier 1870</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4340" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4340/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202221016225591114">
+          <did>
+            <unitid type="division">SAND_121</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1870-01-26">26 janvier 1870</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4327" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4327/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202221016225591115">
+          <did>
+            <unitid type="division">SAND_122</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1870-05-24">24 mai 1870</unitdate>
+            <physdesc>
+              <extent>3 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4354" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4354/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202221016225591116">
+          <did>
+            <unitid type="division">SAND_123</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1870-08-23">23 août 1870</unitdate>
+            <physdesc>
+              <extent>3 p 1/2</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4307" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4307/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202221016225591117">
+          <did>
+            <unitid type="division">SAND_124</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1870-09-05">5 septembre 1870</unitdate>
+            <physdesc>
+              <extent>3 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4366" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4366/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202221115214197118">
+          <did>
+            <unitid type="division">SAND_125</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1870-02-02">2 février 1871</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4304" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4304/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202221115214197119">
+          <did>
+            <unitid type="division">SAND_126</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1871-01-13">13 janvier 1871</unitdate>
+            <physdesc>
+              <extent>3 p 1/2</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4309" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4309/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202221115214197120">
+          <did>
+            <unitid type="division">SAND_127</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1871-02-09">9 février 1871</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-16</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4310" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4310/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202221115214197121">
+          <did>
+            <unitid type="division">SAND_128</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1871-06-10">10 juin 1871</unitdate>
+            <physdesc>
+              <extent>4 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4330" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4330/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202221115214197122">
+          <did>
+            <unitid type="division">SAND_129</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1871-07-09">9 juillet 1871</unitdate>
+            <physdesc>
+              <extent>3 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4311" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4311/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202221115214197123">
+          <did>
+            <unitid type="division">SAND_130</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1871-09-08">8 septembre 1871</unitdate>
+            <physdesc>
+              <extent>2 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4343" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4343/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202221115214197124">
+          <did>
+            <unitid type="division">SAND_131</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1872-05-31">31 mai 1872</unitdate>
+            <physdesc>
+              <extent>1/2 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4335" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4335/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202221115214197125">
+          <did>
+            <unitid type="division">SAND_132</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1872-07-08">8 juillet 1872</unitdate>
+            <physdesc>
+              <extent>3 p</extent>
+              <dimensions>in--8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4296" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4296/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202221115214197126">
+          <did>
+            <unitid type="division">SAND_133</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1872-10-25">25 octobre 1872</unitdate>
+            <physdesc>
+              <extent>4 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4338" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4338/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202221115214197127">
+          <did>
+            <unitid type="division">SAND_134</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1873-01-04">4 janvier 1873</unitdate>
+            <physdesc>
+              <extent>4 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4303" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4303/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202221115214197128">
+          <did>
+            <unitid type="division">SAND_135</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1873-05-15">15 mai 1873</unitdate>
+            <physdesc>
+              <extent>1/2 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4344" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4344/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202221115214197129">
+          <did>
+            <unitid type="division">SAND_136</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1873-09-01">1<emph render="super">er</emph> septembre 1873</unitdate>
+            <physdesc>
+              <extent>6 p 1/2</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4457" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4457/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202221115214197130">
+          <did>
+            <unitid type="division">SAND_137</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, George (...-...)" role="660" source="Sudoc">George Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1874-07-11">11 juillet 1874</unitdate>
+            <physdesc>
+              <extent>1/2 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4300" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4300/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202221115214197131">
+          <did>
+            <unitid type="division">SAND_138</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1874-08-08">8 août 1874</unitdate>
+            <physdesc>
+              <extent>3 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4313" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4313/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202221115214197132">
+          <did>
+            <unitid type="division">SAND_139</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1874-09-09">9 août 1874</unitdate>
+            <physdesc>
+              <extent>2 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4351" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4351/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202221115214197133">
+          <did>
+            <unitid type="division">SAND_140</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1874-09-17">17 août 1874</unitdate>
+            <physdesc>
+              <extent>1 p 1/2</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4334" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4334/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202221115214197134">
+          <did>
+            <unitid type="division">SAND_141</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1874-11-01">1<emph render="super">er</emph> novembre 1874</unitdate>
+            <physdesc>
+              <extent>2 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4308" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4308/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202221115214197135">
+          <did>
+            <unitid type="division">SAND_142</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1874-11-05">5 novembre 1874</unitdate>
+            <physdesc>
+              <extent>4 p</extent>
+              <dimensions>in-16</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4357" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4357/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-202221115214197136">
+          <did>
+            <unitid type="division">SAND_143</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, George (...-...)" role="660" source="Sudoc">George Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1875-01-01">1<emph render="super">er</emph> janvier 1875</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4316" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4316/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-20222111520974137">
+          <did>
+            <unitid type="division">SAND_144</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1875-01-05">5 janvier 1875</unitdate>
+            <physdesc>
+              <extent>4 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4367" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4367/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-20222111520974138">
+          <did>
+            <unitid type="division">SAND_145</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, George (...-...)" role="660" source="Sudoc">George Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1875-03-07">7 mars 1875</unitdate>
+            <physdesc>
+              <extent>3 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4356" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4356/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-20222111520974139">
+          <did>
+            <unitid type="division">SAND_146</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, George (...-...)" role="660" source="Sudoc">George Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1875-03-25">25 mars 1875</unitdate>
+            <physdesc>
+              <extent>1 p 1/2</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4317" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4317/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-20222111520974140">
+          <did>
+            <unitid type="division">SAND_147</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1875-06-01">1<emph render="super">er</emph> juin 1875</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="027244520" normal="Paris (France)" role="lieu de production" source="Sudoc">Paris</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4342" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4342/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-20222111520974141">
+          <did>
+            <unitid type="division">SAND_148</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Esther (...-...)" role="660" source="Sudoc">Esther</persname> et <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1875-07-06">6 juillet 1875</unitdate>
+            <physdesc>
+              <extent>2 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4360" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4360/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-20222111520974142">
+          <did>
+            <unitid type="division">SAND_149</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1875-11-24">24 octobre 1875</unitdate>
+            <physdesc>
+              <extent>3 p 1/2</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4339" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4339/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-20222111520974143">
+          <did>
+            <unitid type="division">SAND_150</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, George (...-...)" role="660" source="Sudoc">George Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1876-02-02">2 janvier 1876</unitdate>
+            <physdesc>
+              <extent>2 p 1/2</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4323" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4323/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+        <c id="Calames-20222111520974144">
+          <did>
+            <unitid type="division">SAND_151</unitid>
+            <unittitle>Lettre de 					<persname authfilenumber="027121577" normal="Sand, George (1804-1876)" role="070" source="Sudoc">George Sand</persname> à <persname authfilenumber="084721359" normal="Lambert, Eugène (1825-1900)" role="660" source="Sudoc">Eugène Lambert</persname></unittitle>
+            <unitdate calendar="gregorian" era="ce" normal="1876-01-23">23 janvier 1876</unitdate>
+            <physdesc>
+              <extent>1 p</extent>
+              <dimensions>in-8°</dimensions>
+            </physdesc>
+          </did>
+          <scopecontent>
+            <p>Écrite à <geogname authfilenumber="030919118" normal="Nohant-Vic (Indre)" role="lieu de production" source="Sudoc">Nohant</geogname>.</p>
+          </scopecontent>
+          <daogrp>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/idurl/1/4364" role="rebond" title="Numérisation disponible en ligne"/>
+            <daoloc href="https://patrimoine.sorbonne-universite.fr/iiif/4364/manifest" role="iiif_manifest" title="Manifeste IIIF"/>
+          </daogrp>
+        </c>
+      </c>
+    </dsc>
+  </archdesc>
+</ead>
