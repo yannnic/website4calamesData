@@ -236,6 +236,20 @@ def test_other_text_and_own_authorities():
     check("série corp_names_own vide (héritée seulement)", serie["corp_names_own"], [])
 
 
+def test_inherited_fields():
+    print("\n=== inherited_fields / date_from_children ===")
+    docs = components_to_docs(parse_ead(TEST_DIR / "test_inherit_simple.xml"))
+    check("dossier-latin : langue propre, le reste hérité", by_id(docs, "#dossier-latin")["inherited_fields"],
+          ["access_restrict", "repository", "repository_id", "use_restrict"])
+    check("dossier-normal : langue héritée aussi", "languages" in by_id(docs, "#dossier-normal")["inherited_fields"], True)
+    check("fonds : rien d'hérité", docs[0]["inherited_fields"], [])
+    docs = components_to_docs(parse_ead(TEST_DIR / "test_date_topdown.xml"))
+    check("dossier sans date : date héritée", by_id(docs, "#dossier-sans-date")["inherited_fields"], ["date"])
+    docs = components_to_docs(parse_ead(TEST_DIR / "test_date_bottomup.xml"))
+    check("fonds sans date : date calculée d'après les enfants", docs[0]["date_from_children"], True)
+    check("série E datée : date propre", by_id(docs, "#serie-E")["date_from_children"], False)
+
+
 # ---------------------------------------------------------------------------
 # Commentaire de tête (file_comment)
 # ---------------------------------------------------------------------------
@@ -263,5 +277,6 @@ if __name__ == "__main__":
     test_physfacet()
     test_genreform()
     test_other_text_and_own_authorities()
+    test_inherited_fields()
     test_file_comment()
     print("\nTerminé.")

@@ -157,6 +157,9 @@ class Component:
     # test. Displayed, not searched.
     file_comment: str = ""
 
+    # Date computed from the descendants' dates (_propagate_dates_up), not declared.
+    date_from_children: bool = False
+
 
 # ---------------------------------------------------------------------------
 # Helpers
@@ -713,6 +716,7 @@ def _propagate_dates_up(comp: Component) -> None:
 
     comp.date_start = date_start
     comp.date_end   = date_end
+    comp.date_from_children = True
     comp.date_normal = (
         f"{date_start}/{date_end}" if date_start and date_end
         else str(date_start or date_end)
@@ -928,6 +932,11 @@ def _comp_to_doc(comp: Component, resolved: dict, position: int = 0,
         "biography": comp.biography,
         "other_text": comp.other_text,
         **{f"{f}_own": getattr(comp, f) for f in OWN_FIELDS},
+        # Simply inherited fields whose value comes from an ancestor ("date": the
+        # whole date group); with *_own, lets the interface tell own from inherited.
+        "inherited_fields": [f for f in sorted(INHERITED_FIELDS) if not getattr(comp, f) and resolved[f]]
+                            + (["date"] if not comp.date_normal and resolved["date_normal"] else []),
+        "date_from_children": comp.date_from_children,
         "creators": comp.creators,
         "creator_names": [c["name"] for c in comp.creators],
         "subjects": resolved["subjects"],

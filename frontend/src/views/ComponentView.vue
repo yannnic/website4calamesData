@@ -152,6 +152,7 @@
         </h1>
         <div class="meta" style="margin:.35rem 0 1rem;font-size:.9rem;color:var(--color-muted);text-align:center">
           <span v-if="comp.date_display">{{ comp.date_display }}</span>
+          <span v-if="comp.date_display && dateOrigin(comp)" class="origin-badge">{{ dateOrigin(comp) }}</span>
         </div>
         <!-- Racine d'un fichier rattaché (liaisons) : sa description de test -->
         <TestFileComment :comment="comp.file_comment" />
@@ -167,47 +168,50 @@
         <dl class="meta-grid" v-if="comp.extents?.length || comp.phys_facets?.length || comp.languages?.length || comp.access_restrict || comp.use_restrict">
           <template v-if="comp.extents?.length"><dt>Importance</dt><dd>{{ comp.extents.join(' — ') }}</dd></template>
           <template v-if="comp.phys_facets?.length"><dt>Support</dt><dd>{{ comp.phys_facets.join(' — ') }}</dd></template>
-          <template v-if="comp.languages?.length"><dt>Langues</dt><dd>{{ comp.languages.join(', ') }}</dd></template>
-          <template v-if="comp.access_restrict"><dt>Accès</dt><dd>{{ comp.access_restrict }}</dd></template>
-          <template v-if="comp.use_restrict"><dt>Utilisation</dt><dd>{{ comp.use_restrict }}</dd></template>
+          <template v-if="comp.languages?.length"><dt>Langues</dt><dd>{{ comp.languages.join(', ') }} <span v-if="isInheritedField(comp, 'languages')" class="origin-badge">héritée</span></dd></template>
+          <template v-if="comp.access_restrict"><dt>Accès</dt><dd>{{ comp.access_restrict }} <span v-if="isInheritedField(comp, 'access_restrict')" class="origin-badge">héritée</span></dd></template>
+          <template v-if="comp.use_restrict"><dt>Utilisation</dt><dd>{{ comp.use_restrict }} <span v-if="isInheritedField(comp, 'use_restrict')" class="origin-badge">héritée</span></dd></template>
         </dl>
 
         <!-- Termes d'indexation -->
+        <p v-if="SHOW_ORIGIN && hasIndexTerms" class="origin-legend">
+          Corpus de test : en pointillés, les termes hérités d'un ancêtre ; « héritée » : valeur prise à un ancêtre.
+        </p>
         <dl v-if="hasIndexTerms" class="index-terms">
           <template v-if="comp.subjects?.length">
             <dt>Sujets</dt>
             <dd class="tag-list">
-              <RouterLink v-for="s in comp.subjects" :key="s" :to="{ path: '/search', query: { subject: s } }" class="tag">{{ s }}</RouterLink>
+              <RouterLink v-for="s in comp.subjects" :key="s" :to="{ path: '/search', query: { subject: s } }" class="tag" :class="{ 'tag--inherited': isInheritedTerm(comp, 'subjects', s) }" :title="isInheritedTerm(comp, 'subjects', s) ? 'hérité d\'un ancêtre' : null">{{ s }}</RouterLink>
             </dd>
           </template>
           <template v-if="comp.pers_names?.length">
             <dt>Personnes</dt>
             <dd class="tag-list">
-              <RouterLink v-for="s in comp.pers_names" :key="s" :to="{ path: '/search', query: { pers_name: s } }" class="tag">{{ s }}</RouterLink>
+              <RouterLink v-for="s in comp.pers_names" :key="s" :to="{ path: '/search', query: { pers_name: s } }" class="tag" :class="{ 'tag--inherited': isInheritedTerm(comp, 'pers_names', s) }" :title="isInheritedTerm(comp, 'pers_names', s) ? 'hérité d\'un ancêtre' : null">{{ s }}</RouterLink>
             </dd>
           </template>
           <template v-if="comp.corp_names?.length">
             <dt>Collectivités</dt>
             <dd class="tag-list">
-              <RouterLink v-for="s in comp.corp_names" :key="s" :to="{ path: '/search', query: { corp_name: s } }" class="tag">{{ s }}</RouterLink>
+              <RouterLink v-for="s in comp.corp_names" :key="s" :to="{ path: '/search', query: { corp_name: s } }" class="tag" :class="{ 'tag--inherited': isInheritedTerm(comp, 'corp_names', s) }" :title="isInheritedTerm(comp, 'corp_names', s) ? 'hérité d\'un ancêtre' : null">{{ s }}</RouterLink>
             </dd>
           </template>
           <template v-if="comp.fam_names?.length">
             <dt>Familles</dt>
             <dd class="tag-list">
-              <RouterLink v-for="s in comp.fam_names" :key="s" :to="{ path: '/search', query: { q: s } }" class="tag">{{ s }}</RouterLink>
+              <RouterLink v-for="s in comp.fam_names" :key="s" :to="{ path: '/search', query: { q: s } }" class="tag" :class="{ 'tag--inherited': isInheritedTerm(comp, 'fam_names', s) }" :title="isInheritedTerm(comp, 'fam_names', s) ? 'hérité d\'un ancêtre' : null">{{ s }}</RouterLink>
             </dd>
           </template>
           <template v-if="comp.geo_names?.length">
             <dt>Lieux</dt>
             <dd class="tag-list">
-              <RouterLink v-for="s in comp.geo_names" :key="s" :to="{ path: '/search', query: { geo_name: s } }" class="tag">{{ s }}</RouterLink>
+              <RouterLink v-for="s in comp.geo_names" :key="s" :to="{ path: '/search', query: { geo_name: s } }" class="tag" :class="{ 'tag--inherited': isInheritedTerm(comp, 'geo_names', s) }" :title="isInheritedTerm(comp, 'geo_names', s) ? 'hérité d\'un ancêtre' : null">{{ s }}</RouterLink>
             </dd>
           </template>
           <template v-if="comp.genre_forms?.length">
             <dt>Genre/forme</dt>
             <dd class="tag-list">
-              <RouterLink v-for="s in comp.genre_forms" :key="s" :to="{ path: '/search', query: { genre_form: s } }" class="tag">{{ s }}</RouterLink>
+              <RouterLink v-for="s in comp.genre_forms" :key="s" :to="{ path: '/search', query: { genre_form: s } }" class="tag" :class="{ 'tag--inherited': isInheritedTerm(comp, 'genre_forms', s) }" :title="isInheritedTerm(comp, 'genre_forms', s) ? 'hérité d\'un ancêtre' : null">{{ s }}</RouterLink>
             </dd>
           </template>
         </dl>
@@ -261,6 +265,7 @@ import ChildrenDensity from '../components/ChildrenDensity.vue'
 import TreeNode from '../components/TreeNode.vue'
 import TestFileComment from '../components/TestFileComment.vue'
 import RawEad from '../components/RawEad.vue'
+import { SHOW_ORIGIN, isInheritedTerm, isInheritedField, dateOrigin } from '../utils/origin'
 
 const route  = useRoute()
 const router = useRouter()

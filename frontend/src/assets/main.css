@@ -294,6 +294,15 @@ footer.site-footer {
 }
 .cote::after { content: ' ·'; color: var(--color-border); }
 
+/* ---- Corpus de test : origine des valeurs (propre / héritée) ---- */
+.tag.tag--inherited { border-style: dashed; font-style: italic; opacity: .75; }
+.origin-badge {
+  font-size: .68rem; font-style: normal; color: #8a5a14;
+  background: #fdf1de; border: 1px solid #f0d9b0; border-radius: 999px;
+  padding: 0 .45rem; margin-left: .35rem; white-space: nowrap; vertical-align: middle;
+}
+.origin-legend { font-size: .75rem; color: #8a5a14; margin: .6rem 0 .3rem; }
+
 /* ---- Detail panel ---- */
 .detail-panel {
   background: var(--color-surface);
