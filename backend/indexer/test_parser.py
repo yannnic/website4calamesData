@@ -221,6 +221,22 @@ def test_genreform():
 
 
 # ---------------------------------------------------------------------------
+# Texte non structuré (other_text) et autorités propres (*_own)
+# ---------------------------------------------------------------------------
+
+def test_other_text_and_own_authorities():
+    print("\n=== other_text / *_own ===")
+    docs = components_to_docs(parse_ead(TEST_DIR / "test_liaisons_maitre.xml"))
+    check("other_text = <custodhist> sans son <head>", docs[0]["other_text"],
+          "Don de la famille Lemarchand en 1952.")
+    docs = components_to_docs(parse_ead(TEST_DIR / "test_agents.xml"))
+    serie = by_id(docs, "#serie-A")
+    check("série pers_names_own = sa personne seulement", serie["pers_names_own"], ["Durand, Marie"])
+    check("série pers_names = propre + héritée", serie["pers_names"], ["Durand, Marie", "Martin, Paul"])
+    check("série corp_names_own vide (héritée seulement)", serie["corp_names_own"], [])
+
+
+# ---------------------------------------------------------------------------
 # Commentaire de tête (file_comment)
 # ---------------------------------------------------------------------------
 
@@ -246,5 +262,6 @@ if __name__ == "__main__":
     test_agents()
     test_physfacet()
     test_genreform()
+    test_other_text_and_own_authorities()
     test_file_comment()
     print("\nTerminé.")

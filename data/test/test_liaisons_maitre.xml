@@ -17,6 +17,11 @@
 
      Les fichiers rattachés héritent du maître : conditions d'accès, langue,
      organisme responsable et (cumulatif) sujet « Botanique ».
+
+     Recherche plein texte (test_liaisons.py) : historique de conservation cherché
+     (« Lemarchand »), titre du maître complétant une requête (« mousses quillebeuf »)
+     sans la satisfaire seul, sujet propre avant sujet hérité (« botanique »), cote
+     sous toutes ses formes (« qb1/1 »), expression entre guillemets.
 -->
 <ead>
   <eadheader>
@@ -31,6 +36,7 @@
       <repository><corpname authfilenumber="999999999">Bibliothèque de test</corpname></repository>
     </did>
     <accessrestrict><p>Communicable sur rendez-vous</p></accessrestrict>
+    <custodhist><head>Historique</head><p>Don de la famille Lemarchand en 1952.</p></custodhist>
     <controlaccess>
       <subject normal="Botanique">Botanique</subject>
     </controlaccess>

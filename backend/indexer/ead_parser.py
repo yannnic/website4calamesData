@@ -110,6 +110,7 @@ class Component:
     abstract: str
     scope_content: str
     biography: str
+    other_text: str                     # all other descriptive text (see OTHER_TEXT_TAGS)
 
     # Agents
     creators: list[dict]                # [{"name": …, "role": …, "type": "person"|"corp"}]
@@ -176,7 +177,7 @@ def _inner_text(el: Optional[etree._Element], skip_tags: tuple[str, ...] = ()) -
     if el.text:
         parts.append(el.text.strip())
     for child in el:
-        if child.tag in skip_full:
+        if child.tag in skip_full or not isinstance(child.tag, str):
             if child.tail:
                 parts.append(child.tail.strip())
             continue
@@ -485,8 +486,27 @@ def _parse_controlaccess(el: etree._Element) -> dict:
 # Narrative fields
 # ---------------------------------------------------------------------------
 
+# Descriptive elements whose text is searched with a low weight (other_text),
+# besides the fields that have their own (title, scopecontent, bioghist…).
+# Direct children of the component, then of its <did>.
+OTHER_TEXT_TAGS = (
+    "custodhist", "acqinfo", "arrangement", "appraisal", "accruals", "processinfo",
+    "phystech", "altformavail", "originalsloc", "relatedmaterial", "separatedmaterial",
+    "otherfindaid", "bibliography", "fileplan", "odd", "note", "prefercite",
+)
+OTHER_DID_TAGS = ("note", "materialspec", "physloc")
+
+
+def _other_text(el: etree._Element) -> str:
+    did = _find(el, "did")
+    parts = [_inner_text(c, skip_tags=("head",)) for t in OTHER_TEXT_TAGS for c in _findall(el, t)]
+    if did is not None:
+        parts += [_inner_text(c, skip_tags=("head",)) for t in OTHER_DID_TAGS for c in _findall(did, t)]
+    return " ".join(p for p in parts if p)
+
+
 def _parse_narrative(el: etree._Element) -> dict:
-    """Extract scope/content, biography/history from direct children of el."""
+    """Extract scope/content, biography/history and the other descriptive text of el."""
     scope_parts = []
     for sc in _findall(el, "scopecontent"):
         scope_parts.append(_inner_text(sc, skip_tags=("head",)))
@@ -497,7 +517,7 @@ def _parse_narrative(el: etree._Element) -> dict:
         bio_parts.append(_inner_text(bh, skip_tags=("head",)))
     biography = " ".join(bio_parts)
 
-    return {"scope_content": scope_content, "biography": biography}
+    return {"scope_content": scope_content, "biography": biography, "other_text": _other_text(el)}
 
 
 def _parse_conditions(el: etree._Element) -> dict:
@@ -572,6 +592,7 @@ def _build_component(
         abstract=did_data.get("abstract", ""),
         scope_content=narrative["scope_content"],
         biography=narrative["biography"],
+        other_text=narrative["other_text"],
         creators=did_data.get("creators", []),
         subjects=access["subjects"],
         geo_names=access["geo_names"],
@@ -879,6 +900,11 @@ def _rebase(comp: Component, anchor: Anchor) -> None:
         _rebase(child, anchor)
 
 
+# Authority fields searched with a high weight for the component's own values
+# ("<field>_own") and a low one for the union with the inherited values ("<field>").
+OWN_FIELDS = ("subjects", "geo_names", "genre_forms", "corp_names", "pers_names", "fam_names")
+
+
 def _comp_to_doc(comp: Component, resolved: dict, position: int = 0,
                  ancestor_titles: list[str] | None = None, parent_children_count: int = 0) -> dict:
     """Build one Elasticsearch document from a Component and its resolved fields."""
@@ -900,6 +926,8 @@ def _comp_to_doc(comp: Component, resolved: dict, position: int = 0,
         "abstract": comp.abstract,
         "scope_content": comp.scope_content,
         "biography": comp.biography,
+        "other_text": comp.other_text,
+        **{f"{f}_own": getattr(comp, f) for f in OWN_FIELDS},
         "creators": comp.creators,
         "creator_names": [c["name"] for c in comp.creators],
         "subjects": resolved["subjects"],

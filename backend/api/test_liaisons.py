@@ -1,7 +1,8 @@
 """
 Teste : l'indexation et l'API de fichiers EAD liés (liaisons.tsv) : ordre des
 fichiers rattachés sous leur parent, héritage à travers les fichiers, fil d'Ariane,
-filtre ead_id, dépliage de l'arbre (nombre de descendants, /children?details,
+filtre ead_id, recherche plein texte (texte non structuré, titres des ancêtres,
+autorités propres / héritées, cotes, expressions), dépliage de l'arbre (nombre de descendants, /children?details,
 /subtree), mise à jour incrémentale (comme le watcher) et /raw.
 
 Indexe data/test/test_liaisons*.xml avec data/test/liaisons.tsv dans un index
@@ -146,6 +147,44 @@ def test_found_by_inherited_subject(client):
     # level=item : sans regroupement (la pièce couvre seule son fichier).
     res = get(client, "/search", q="botanique lichens", level="item", limit=100)
     assert [h["node_id"] for h in res["hits"]] == ["test-liaisons-vol2#v2-1"]
+
+
+def ids(res):
+    return [h["node_id"] for h in res["hits"]]
+
+
+def test_fulltext_other_text(client):
+    # <custodhist> : cherché (other_text), sans <head>
+    res = get(client, "/search", q="lemarchand", limit=100)
+    assert ids(res) == [master_root(client)["node_id"]]
+    assert get(client, "/search", q="historique", limit=100)["total_hits"] == 0
+
+
+def test_fulltext_ancestor_title_completes_query(client):
+    # « quillebeuf » n'est que dans le titre du maître (et celui de v1-1)
+    res = get(client, "/search", q="mousses quillebeuf", level="item", limit=100)
+    assert ids(res) == ["test-liaisons-vol1#v1-2"]
+    # Seul, le titre d'un ancêtre ne suffit pas : pas toutes les pièces du fonds.
+    res = get(client, "/search", q="quillebeuf", level="item", limit=100)
+    assert ids(res) == ["test-liaisons-vol1#v1-1"]
+
+
+def test_fulltext_own_subject_first(client):
+    # Les racines des fichiers rattachés héritent de « Botanique » ; le maître le déclare.
+    res = get(client, "/search", q="botanique", level="fonds", limit=100)
+    assert res["hits"][0]["node_id"] == master_root(client)["node_id"]
+    assert res["total_hits"] > 1
+
+
+def test_fulltext_cote_any_form(client):
+    for q in ("QB 1/1", "qb1/1", "QB.1.1"):
+        res = get(client, "/search", q=q, level="item", limit=100)
+        assert ids(res)[0] == "test-liaisons-vol1#v1-1", q
+
+
+def test_fulltext_phrase(client):
+    assert ids(get(client, "/search", q='"sur les mousses"', level="item")) == ["test-liaisons-vol1#v1-2"]
+    assert get(client, "/search", q='"les sur mousses"', level="item")["total_hits"] == 0
 
 
 def test_tree_expansion(client):

@@ -58,12 +58,22 @@ INDEX_SETTINGS = {
             "fr_stop": {"type": "stop", "stopwords": "_french_"},
             "fr_stemmer": {"type": "stemmer", "language": "light_french"},
         },
+        "tokenizer": {
+            # Runs of letters or of digits: "Ms 1234", "MS.1234" and "ms1234" → ms, 1234
+            "cote_tokens": {"type": "pattern", "pattern": "\\p{L}+|\\p{N}+", "group": 0},
+        },
         "analyzer": {
             # Stop words are removed before folding: the French list contains accented forms.
             "fr_text": {
                 "tokenizer": "standard",
                 "filter": ["fr_elision", "lowercase", "fr_stop", "asciifolding", "fr_stemmer"],
             },
+            # Without stemming nor stop words: bonus for exact matches and phrases.
+            "fr_exact": {
+                "tokenizer": "standard",
+                "filter": ["fr_elision", "lowercase", "asciifolding"],
+            },
+            "cote": {"tokenizer": "cote_tokens", "filter": ["lowercase", "asciifolding"]},
         },
     },
 }
@@ -72,6 +82,8 @@ _TEXT    = {"type": "text", "analyzer": "fr_text"}
 _TEXT_KW = {**_TEXT, "fields": {"kw": {"type": "keyword", "ignore_above": 1024}}}
 _KW      = {"type": "keyword", "ignore_above": 1024}
 _INT     = {"type": "integer"}
+_EXACT   = {"exact": {"type": "text", "analyzer": "fr_exact"}}
+_TEXT_EXACT = {**_TEXT, "fields": _EXACT}
 
 # Only the fields searched, filtered, aggregated or sorted on are mapped;
 # everything else is kept in _source for display ("dynamic": false).
@@ -79,18 +91,29 @@ INDEX_MAPPINGS = {
     "dynamic": False,
     "properties": {
         # Full-text fields (fields with a .kw sub-field are also filtered exactly)
-        "title":            _TEXT_KW,
-        "abstract":         _TEXT,
-        "scope_content":    _TEXT,
-        "biography":        _TEXT,
-        "unitid":           _TEXT_KW,
+        "title":            {**_TEXT, "fields": {**_TEXT_KW["fields"], **_EXACT}},
+        "abstract":         _TEXT_EXACT,
+        "scope_content":    _TEXT_EXACT,
+        "biography":        _TEXT_EXACT,
+        "other_text":       _TEXT_EXACT,   # other descriptive text (custodhist, acqinfo, notes…)
+        "date_display":     _TEXT,
+        "ancestor_titles":  _TEXT,
+        "unitid":           {**_TEXT, "fields": {**_TEXT_KW["fields"],
+                                                 "cote": {"type": "text", "analyzer": "cote"}}},
         "creator_names":    _TEXT_KW,
+        # Authorities: <field> = own + inherited (filters, display), <field>_own = own only
         "subjects":         _TEXT,
         "geo_names":        _TEXT,
         "genre_forms":      _TEXT,
         "corp_names":       _TEXT,
         "pers_names":       _TEXT_KW,
         "fam_names":        _TEXT,
+        "subjects_own":     _TEXT_EXACT,
+        "geo_names_own":    _TEXT_EXACT,
+        "genre_forms_own":  _TEXT_EXACT,
+        "corp_names_own":   _TEXT_EXACT,
+        "pers_names_own":   _TEXT_EXACT,
+        "fam_names_own":    _TEXT_EXACT,
         "phys_facets":      _TEXT,
         "phys_facet_types": _TEXT_KW,
         # Structure

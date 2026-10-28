@@ -5,23 +5,38 @@ from __future__ import annotations
 import re
 from typing import Any
 
-# Full-text fields searched by `q`, with their relative weight.
+# Full-text fields searched by `q`, with their relative weight (see INDEXING.md,
+# « Plein texte »): the component's own text and authorities first; what it
+# inherits from its ancestors (authorities, titles, date) with a low weight.
+OWN_AUTHORITIES = ["pers_names", "corp_names", "fam_names", "subjects", "geo_names", "genre_forms"]
 SEARCH_FIELDS = [
     "title^4",
     "unitid^3",
     "creator_names^3",
-    "pers_names^2",
-    "corp_names^2",
-    "fam_names^2",
-    "subjects^2",
-    "geo_names^2",
-    "genre_forms^2",
+    *[f"{f}_own^2" for f in OWN_AUTHORITIES],
+    # own + inherited: an inherited value only reaches this low weight
+    *[f"{f}^0.3" for f in OWN_AUTHORITIES],
     "abstract^1.5",
     "scope_content",
     "biography",
     "phys_facets",
     "phys_facet_types",
+    "other_text^0.5",
+    "date_display^0.5",
+    "ancestor_titles^0.3",
 ]
+
+# Without stemming: bonus when the query appears as such (exact words, in order).
+EXACT_FIELDS = ["title.exact^3", *[f"{f}_own.exact^2" for f in OWN_AUTHORITIES]]
+
+# "Quoted phrases" are matched without stemming nor stop words (all words, in order).
+PHRASE_FIELDS = ["title.exact", "abstract.exact", "scope_content.exact", "biography.exact",
+                 "other_text.exact", *[f"{f}_own.exact" for f in OWN_AUTHORITIES]]
+
+# Cotes: "Ms 1234", "MS.1234" and "ms1234" are the same (analyzer "cote").
+COTE_FIELD = "unitid.cote"
+
+_PHRASE = re.compile(r'"([^"]+)"')
 
 # Facets returned by the search endpoints (all keyword fields).
 SEARCH_FACETS = ["repository", "level", "century", "subjects_norm", "geo_names_norm",
@@ -33,16 +48,46 @@ def text_query(text: str, fields: list[str] = SEARCH_FIELDS) -> dict:
     Every term must match (operator AND). Exact terms may be spread across fields
     (cross_fields); typo-tolerant matching (1 typo from 7 chars, 2 from 11) applies
     within a single field and ranks below exact matches.
+
+    With the default fields (search across everything):
+      - "quoted phrases" must appear as such, in one field;
+      - bonus for exact words (no stemming) in the title or own authorities;
+      - a cote typed in any form matches on its own (Ms 1234 = MS.1234 = ms1234).
     """
-    return {"bool": {
-        "should": [
-            {"multi_match": {"query": text, "fields": fields, "type": "cross_fields",
+    full = fields is SEARCH_FIELDS
+    phrases = _PHRASE.findall(text) if full else []
+    words = _PHRASE.sub(" ", text).strip() if phrases else text
+    should: list[dict] = []
+    if words:
+        should += [
+            {"multi_match": {"query": words, "fields": fields, "type": "cross_fields",
                              "operator": "and", "boost": 2}},
-            {"multi_match": {"query": text, "fields": fields, "type": "best_fields",
+            {"multi_match": {"query": words, "fields": fields, "type": "best_fields",
                              "operator": "and", "fuzziness": "AUTO:7,11", "prefix_length": 1}},
-        ],
-        "minimum_should_match": 1,
-    }}
+        ]
+    if full:
+        should.append({"match": {COTE_FIELD: {"query": _PHRASE.sub(r"\1", text),
+                                              "operator": "and", "boost": 6}}})
+    query: dict = {"bool": {"should": should, "minimum_should_match": 1}}
+    if full and words:
+        # An ancestor's title completes a query but cannot satisfy it alone: at least
+        # one word must be found in the component itself (or in its authorities, own
+        # or inherited). Otherwise every descendant of a matching level would match.
+        query["bool"]["filter"] = [{"multi_match": {
+            "query": words, "fields": [f for f in fields if not f.startswith("ancestor_titles")],
+            "operator": "or", "fuzziness": "AUTO:7,11", "prefix_length": 1}}]
+    if phrases:
+        query["bool"]["must"] = [{"multi_match": {"query": ph, "fields": PHRASE_FIELDS, "type": "phrase"}}
+                                 for ph in phrases]
+        if not words:
+            query["bool"]["minimum_should_match"] = 0
+    if not full:
+        return query
+    # Exact-match bonus: optional, raises the score without filtering.
+    return {"bool": {"must": [query], "should": [
+        {"multi_match": {"query": _PHRASE.sub(r"\1", text), "fields": EXACT_FIELDS,
+                         "type": "phrase", "boost": 2}},
+    ]}}
 
 
 def build_query(q: str, field_terms: list[tuple[str, str]], filters: list[dict]) -> dict:

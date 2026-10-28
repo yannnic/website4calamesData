@@ -222,16 +222,72 @@ réindexés, et les compteurs et positions des parents concernés sont mis à jo
 
 ---
 
+## Plein texte : comparaison avec Calames
+
+Dans Calames, `sp_DocumentIndexFullText` remplit une colonne texte unique par composant
+(`DocumentIndexFullText.fulltext`), par une CTE récursive **descendante** (`a.parent = b.id` :
+l'enfant reçoit les valeurs de son parent). Elle concatène, puis nettoie (`dbo.T()`) :
+
+| Partie | Contenu | Le long de l'arbre |
+|---|---|---|
+| `titre` | Tout le texte (`//text()`) du composant lui-même : did, scopecontent, bioghist, custodhist, acqinfo, notes… (archdesc sans `<dsc>` ; `<c>` sans ses enfants, via `dbo.Hg()`) | **Non cumulé** |
+| `controlaccess` | Texte et `@normal` des `persname`, `corpname`, `geogname`, `famname`, `subject`, `title` | **Cumulé vers le bas** (ancêtres + propres) |
+| `date` | `data(//unitdate)` | **Cumulé vers le bas** (toutes les dates des ancêtres) |
+| `ppnaccess` | `@authfilenumber` des autorités `@source="Sudoc"` (filtrés par `dbo.GetRejete()`) | **Cumulé vers le bas** |
+
+Conséquences : une pièce est trouvée par les autorités et les dates de ses ancêtres ; un fonds
+**n'est pas** trouvé par le texte de ses pièces (contrairement à ce qu'indique
+`sql_procedures_legacy/INDEXES.md`, la CTE n'accumule pas vers le haut).
+
+Non visibles dans le dump SQL : les fonctions `dbo.T()`, `dbo.Hg()`, `dbo.GetRejete()`, et
+l'interrogation (aucun `CONTAINS`/`FREETEXT`, ni définition du catalogue plein texte : analyseur,
+langue, mots vides).
+
+| | Calames (SQL) | Elasticsearch (ici) |
+|---|---|---|
+| Texte propre du composant | Tout son XML, à plat | Tout son texte, en champs pondérés (ci-dessous) |
+| Autorités des ancêtres | Cumulées, même poids que les propres | Cumulées, mais avec un poids faible : les propres d'abord |
+| Titres des ancêtres | Non | Complètent une requête, sans la satisfaire seuls |
+| Dates des ancêtres | Toutes, en texte | La plus proche : en texte (poids faible) et en champs numériques (filtres de période) |
+| Texte des descendants dans le parent | Non | Non ; le regroupement hiérarchique fait remonter le parent quand assez d'enfants sont trouvés |
+
+### Construction du plein texte
+
+Champs cherchés par `q` (`SEARCH_FIELDS`, `backend/api/filters.py`), du plus fort au plus faible :
+
+| Poids | Champs | Contenu |
+|---|---|---|
+| ×4, ×3 | `title`, `unitid`, `creator_names` | Titre, cote, producteurs (`<origination>`) |
+| ×2 | `pers_names_own`, `corp_names_own`, `fam_names_own`, `subjects_own`, `geo_names_own`, `genre_forms_own` | Autorités **propres** du composant |
+| ×1,5 à ×1 | `abstract`, `scope_content`, `biography`, `phys_facets` | Résumé, présentation du contenu, biographie, description physique |
+| ×0,5 | `other_text` | Tout autre texte descriptif : `custodhist`, `acqinfo`, `arrangement`, `appraisal`, `accruals`, `processinfo`, `phystech`, `altformavail`, `originalsloc`, `relatedmaterial`, `separatedmaterial`, `otherfindaid`, `bibliography`, `fileplan`, `odd`, `note`, `prefercite`, et dans `<did>` : `note`, `materialspec`, `physloc` (sans les `<head>`) |
+| ×0,5 | `date_display` | Date en texte (« 1914 » trouve « 1914-1918 ») |
+| ×0,3 | `pers_names`, `corp_names`… | Autorités propres **et héritées** : une valeur héritée n'atteint que ce poids |
+| ×0,3 | `ancestor_titles` | Titres des ancêtres |
+
+Règles de la requête :
+
+- tous les mots doivent être trouvés (ET), éventuellement dans des champs différents ; tolérance
+  aux fautes de frappe (1 à partir de 7 lettres, 2 à partir de 11) ;
+- au moins un mot doit être trouvé **hors** des titres des ancêtres : « lettre quillebeuf » trouve
+  la lettre d'un fonds Quillebeuf, mais « quillebeuf » seul ne renvoie pas toutes ses pièces ;
+- `"expression entre guillemets"` : ces mots, dans cet ordre, dans un même champ, sans
+  racinisation ni mots vides (sous-champs `.exact`, analyseur `fr_exact`) ;
+- bonus quand la requête figure telle quelle dans le titre ou une autorité propre (`.exact`) ;
+- une cote sous n'importe quelle forme : « Ms 1234 », « MS.1234 » et « ms1234 » se valent
+  (`unitid.cote`, analyseur `cote` : suites de lettres ou de chiffres).
+
+Les filtres par facette et les recherches par champ (`subject=…`, `pers_name=…`) portent toujours
+sur l'union propre + héritée : l'héritage reste exact pour eux.
+
 ## Ce qui n'est pas implémenté (par rapport à SQL)
 
 | Fonctionnalité SQL | État | Notes |
 |---|---|---|
-| Accumulation du plein texte des descendants dans les ancêtres (`DocumentIndexFullText`) | **Absent** | Écart majeur : un fonds n'est pas interrogeable sur du texte présent uniquement au niveau pièce |
-| `famname` distinct de `persname` | **Absent** | Les noms de famille sont fondus dans `pers_names` |
+| Texte des dates de **tous** les ancêtres dans le plein texte | **Différent** | Date du plus proche ancêtre daté, en texte et filtrable par période |
 | `EntreeSecondaire` (second terme qualificatif dans un `<controlaccess>`) | **Absent** | Logique catalogaphique ISAD/UNIMARC |
-| `genreform[@type="type_de_document"]` et `[@type="technique"]` séparés | **Absent** | Tous les `<genreform>` sont dans `genre_forms` sans distinction de `@type` |
 | `DocumentIndexDao` (présence de liens DAO) | **Absent** | |
-| `DocumentIndexHistoire` (notes historiques indexées séparément) | **Absent** | Contenu indexé dans le plein texte global Elasticsearch |
+| `DocumentIndexHistoire` (provenance : rôles 390, `acqinfo`, `custodhist`, `note[@type="provenance"]`) | **Partiel** | Pas d'index dédié ; le texte est cherché dans `other_text` |
 | PPN sur les sujets (`<subject @authfilenumber>`) | **Absent** | Uniquement sur `<persname>` pour l'instant |
 
 ---
