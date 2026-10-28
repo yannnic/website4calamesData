@@ -20,12 +20,14 @@ L'héritage et l'accumulation des champs sont résolus **à l'indexation**, pas 
 |---|---|---|
 | `node_id` | `{ead_id}#{xml:id}` | Identifiant Elasticsearch (`_id`). Si `@xml:id` absent, génère `auto-{n}` |
 | `ead_id` | `//eadheader/eadid` | Identifiant de l'instrument de recherche |
-| `parent_id` | `@xml:id` du composant parent | `null` pour la racine |
-| `ancestor_ids` | Liste ordonnée racine → parent direct | Utilisé pour navigation et héritage |
-| `depth` | Profondeur dans l'arbre | `0` = archdesc (fonds), `1` = enfants directs… |
+| `parent_id` | `@xml:id` du composant parent | `null` pour la racine ; pour la racine d'un fichier rattaché, la racine du fichier parent |
+| `ancestor_ids` | Liste ordonnée racine → parent direct | Utilisé pour navigation et héritage. Traverse les fichiers liés |
+| `depth` | Profondeur dans l'arbre | `0` = archdesc d'un fichier de premier niveau, `1` = enfants directs… |
 | `position` | Rang parmi les frères | Ordre de tri dans la navigation |
-| `children_count` | Nombre d'enfants directs | |
+| `children_count` | Nombre d'enfants directs | Fichiers rattachés compris |
 | `parent_children_count` | Nombre d'enfants du parent | `0` pour la racine. Sert au calcul de couverture du regroupement |
+| `file_root` | `true` pour l'archdesc du fichier | Racine d'un fichier, rattaché ou non |
+| `ead_ids` | `ead_id` du fichier et des fichiers qui le contiennent | Filtre `ead_id` de `/search` : un fichier maître couvre ses fichiers rattachés |
 
 ---
 
@@ -175,6 +177,48 @@ Après bottom-up :
 **Différence avec SQL** : `sp_DocumentIndexDate` retient `Cgm_DateLast` (la date la plus récente
 du sous-arbre). Notre implémentation retient la **plage complète** min/max, plus utile pour
 représenter la couverture chronologique réelle d'un fonds.
+
+---
+
+## Liaisons entre fichiers (`liaisons.tsv`)
+
+Les inventaires volumineux sont découpés en plusieurs fichiers EAD que Calames réassemble en
+une seule hiérarchie, d'après [`liaisons.tsv`](https://calames.abes.fr/prod/lstfiles.aspx?chemin=CalamesData%5Csvdata%5C&filtre=liaisons.tsv)
+(`backend/indexer/liaisons.py`). Une ligne par fichier, sans en-tête, séparateur tabulation :
+
+| Colonne | Contenu |
+|---|---|
+| 1 | FileId du fichier |
+| 2 | Libellé |
+| 3 | Chemin d'administration (`admin;RCR;…`) |
+| 4 | Indicateur (non utilisé) |
+| 5 | FileId du fichier **précédent** (succession), `0` sinon |
+| 6 | FileId du fichier **parent** (inclusion), `0` sinon |
+| 7 | Rang parmi les fichiers inclus dans le parent |
+
+- **Inclusion** : la racine du fichier devient un enfant de la racine du fichier parent, après
+  les composants propres de celle-ci, dans l'ordre des rangs (puis du libellé).
+- **Succession** : le fichier est placé juste après le précédent, sous le même parent.
+- Un fichier est relié à sa ligne par le FileId de son `<eadid>` : `@identifier` ou texte
+  (`…_CALAMESFileId-4752`), à défaut `@url` (`…/FileId-4752`). Dans une chaîne de succession,
+  `@url` donne souvent le FileId du premier fichier : un fichier connu par `@url` seulement dont
+  le FileId est détenu par un autre fichier est placé juste après celui-ci.
+- Un fichier dont le parent est absent du corpus est rattaché au plus proche ancêtre présent,
+  à la place du parent manquant. Sans ligne dans `liaisons.tsv`, un fichier reste autonome.
+
+Tout se résout à l'indexation : profondeur, ancêtres, titres d'ancêtres, compteurs et
+**héritage** (simple et cumulatif) traversent les fichiers comme s'il n'y en avait qu'un. Le fil
+d'Ariane, l'arbre de navigation et le regroupement hiérarchique fonctionnent donc sans
+traitement particulier. Les dates ne remontent pas d'un fichier rattaché vers son parent.
+
+Le fichier est cherché dans le dossier EAD (`EAD_DIR/liaisons.tsv`, option `--liaisons` de
+l'indexeur, variable `LIAISONS_FILE` du watcher). Le moissonneur le télécharge à chaque passe
+(`python harvester/harvester.py --liaisons-only` pour ne télécharger que lui).
+
+Indexation complète : les parents sont indexés avant leurs fichiers rattachés. Watcher : un
+fichier réindexé entraîne ses fichiers rattachés (ils en héritent). Après un ajout, une
+suppression ou une modification de `liaisons.tsv`, les fichiers qui changent de parent sont
+réindexés, et les compteurs et positions des parents concernés sont mis à jour.
 
 ---
 

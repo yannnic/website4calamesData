@@ -68,6 +68,10 @@ Champs héritables connus :
 
 La recherche doit tenir compte de ces héritages : un composant peut être trouvé via un champ hérité de son ancêtre.
 
+### Liaisons entre fichiers
+
+Certaines bibliothèques ont des inventaires découpés en plusieurs fichiers EAD, que Calames réorganise par relations d'**inclusion** (un fichier rattaché sous la racine d'un fichier maître, à un rang donné) et de **succession** (un fichier placé juste après un autre). Ces relations sont décrites dans `liaisons.tsv` (https://calames.abes.fr/prod/lstfiles.aspx?chemin=CalamesData%5Csvdata%5C&filtre=liaisons.tsv). Les fichiers liés forment une seule hiérarchie : l'héritage, la navigation et le regroupement les traversent. Détails dans `INDEXING.md`.
+
 ### Regroupement par parent (règle des N frères)
 
 Si une recherche renvoie au moins **N éléments frères** (composants de même niveau partageant le même parent), alors il faut renvoyer le **parent** plutôt que les enfants individuellement. La valeur de N est à définir.

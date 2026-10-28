@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Test : liaisons entre fichiers. Inclus dans le maître 9001, rang 2.
+     Voir test_liaisons_maitre.xml. -->
+<ead>
+  <eadheader>
+    <eadid url="https://calames.abes.fr/pub/ms/FileId-9002">test-liaisons-vol1</eadid>
+  </eadheader>
+  <archdesc level="fonds">
+    <did>
+      <unittitle>Correspondance, volume 1</unittitle>
+      <unitdate normal="1850/1880">1850-1880</unitdate>
+    </did>
+    <controlaccess>
+      <subject normal="Correspondance">Correspondance</subject>
+    </controlaccess>
+    <dsc>
+      <c id="v1-1" level="item">
+        <did><unittitle>Lettre d'Anselme Quillebeuf sur les fougères</unittitle></did>
+      </c>
+      <c id="v1-2" level="item">
+        <did><unittitle>Lettre sur les mousses</unittitle></did>
+      </c>
+    </dsc>
+  </archdesc>
+</ead>

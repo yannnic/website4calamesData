@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Test : liaisons entre fichiers. Inclus dans 9999, absent du corpus : remonte
+     au plus proche ancêtre présent, le maître 9001, à la place de 9999.
+     Voir test_liaisons_maitre.xml. -->
+<ead>
+  <eadheader>
+    <eadid url="https://calames.abes.fr/pub/ms/FileId-9005">test-liaisons-orphelin</eadid>
+  </eadheader>
+  <archdesc level="fonds">
+    <did>
+      <unittitle>Manuscrits isolés</unittitle>
+    </did>
+    <dsc>
+      <c id="orph-1" level="item">
+        <did><unittitle>Herbier manuscrit</unittitle></did>
+      </c>
+    </dsc>
+  </archdesc>
+</ead>

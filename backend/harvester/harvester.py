@@ -7,7 +7,7 @@ Récupère les instruments de recherche EAD d'un entrepôt OAI-PMH
 Usage :
     python harvester.py [--url URL] [--out DIR] [--from DATE] [--set SET[,SET…]]
                         [--limit N] [--delay SECS] [--dry-run]
-                        [--incremental] [--every HOURS]
+                        [--incremental] [--every HOURS] [--liaisons-only]
 
 Options :
     --url URL       URL de base de l'entrepôt OAI-PMH            (env OAI_URL)
@@ -23,6 +23,11 @@ Options :
                     (0 = une seule passe, env HARVEST_EVERY_HOURS)
     --state FILE    Fichier JSON pour mémoriser la date du dernier moissonnage
                     (défaut : harvester_state.json dans --out)
+    --liaisons-only Ne télécharge que liaisons.tsv
+
+À chaque passe, liaisons.tsv (liaisons entre fichiers EAD : inclusion,
+succession, cf. indexer/liaisons.py) est aussi téléchargé dans --out
+(env LIAISONS_URL, vide = désactivé ; défaut : celui de Calames).
 
 Les fichiers sont écrits de façon atomique : un service qui surveille --out
 (cf. indexer/watcher.py) ne voit jamais de fichier partiel.
@@ -50,6 +55,8 @@ from lxml import etree
 # ---------------------------------------------------------------------------
 
 DEFAULT_URL = "https://calames.abes.fr/oai/oai2.aspx"
+DEFAULT_LIAISONS_URL = ("https://calames.abes.fr/prod/lstfiles.aspx"
+                        "?chemin=CalamesData%5Csvdata%5C&filtre=liaisons.tsv")
 OAI_NS     = "http://www.openarchives.org/OAI/2.0/"
 USER_AGENT = "CalamesHarvester/1.0 (contact: voir CLAUDE.md)"
 
@@ -346,6 +353,32 @@ def _write_atomic(dest: Path, content: bytes) -> None:
     os.replace(tmp, dest)
 
 
+def fetch_liaisons(url: str, out_dir: Path) -> None:
+    """
+    Télécharge liaisons.tsv dans out_dir. Calames l'enveloppe dans un document
+    XML (<fichier><contenu>…</contenu></fichier>) : seul le TSV est gardé.
+    En cas d'échec, le fichier précédent est conservé.
+    """
+    try:
+        resp = requests.get(url, headers={"User-Agent": USER_AGENT}, timeout=120)
+        resp.raise_for_status()
+        content = resp.content
+        if content.lstrip().startswith(b"<"):
+            content = (etree.fromstring(content).findtext(".//contenu") or "").encode("utf-8")
+        if not content.strip():
+            raise ValueError("fichier vide")
+    except Exception as exc:
+        print(f"liaisons.tsv : échec du téléchargement ({exc}), fichier précédent conservé.")
+        return
+    out_dir.mkdir(parents=True, exist_ok=True)
+    dest = out_dir / "liaisons.tsv"
+    if dest.exists() and dest.read_bytes() == content:
+        print("liaisons.tsv : inchangé.")
+        return
+    _write_atomic(dest, content)
+    print(f"liaisons.tsv : {len(content.splitlines())} lignes enregistrées.")
+
+
 def _load_from_date(state_file: Path, base_url: str, set_specs: list[Optional[str]]) -> Optional[str]:
     """Date du dernier moissonnage complet, si l'entrepôt et les sets n'ont pas changé."""
     if not state_file.exists():
@@ -401,11 +434,18 @@ def main() -> None:
     parser.add_argument("--state", default=None,
                         metavar="FILE",
                         help="Fichier d'état JSON (défaut : harvester_state.json dans --out)")
+    parser.add_argument("--liaisons-only", action="store_true",
+                        help="Ne télécharge que liaisons.tsv")
 
     args = parser.parse_args()
     out_dir    = Path(args.out)
     state_file = Path(args.state) if args.state else out_dir / "harvester_state.json"
     set_specs  = [s.strip() for s in args.set.split(",") if s.strip()] if args.set else [None]
+
+    liaisons_url = env("LIAISONS_URL", DEFAULT_LIAISONS_URL)
+    if args.liaisons_only:
+        fetch_liaisons(liaisons_url, out_dir)
+        return
 
     while True:
         from_date = args.from_date
@@ -423,6 +463,8 @@ def main() -> None:
             dry_run    = args.dry_run,
             state_file = state_file,
         )
+        if liaisons_url and not args.dry_run:
+            fetch_liaisons(liaisons_url, out_dir)
         if not args.every:
             break
         print(f"Prochain moissonnage dans {args.every:g} h.", flush=True)

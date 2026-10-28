@@ -211,6 +211,9 @@ python harvester.py --dry-run --limit 10
 
 # Restreindre à un établissement (setSpec OAI)
 python harvester.py --set 751059803
+
+# Liaisons entre fichiers seulement (liaisons.tsv, téléchargé aussi à chaque passe)
+python harvester.py --liaisons-only
 ```
 
 #### 4. Indexation (une fois, ou après mise à jour des données)
@@ -223,6 +226,9 @@ python indexer.py ../../data/calames --host http://localhost:9200
 L'index existant est **toujours supprimé et recréé** avant réindexation (c'est aussi
 la seule façon d'appliquer un changement de mapping ou d'analyseur). Avec un Elasticsearch
 sécurisé, ajouter `--password <mot de passe de elastic>`.
+
+Si le dossier contient `liaisons.tsv` (ou avec `--liaisons FICHIER`), les fichiers liés sont
+indexés comme une seule hiérarchie (voir [INDEXING.md](INDEXING.md#liaisons-entre-fichiers-liaisonstsv)).
 
 #### 5. Lancer manuellement les trois services
 
@@ -271,8 +277,8 @@ VITE_API_URL=http://localhost:8000
 
 | Méthode | URL | Description |
 |---|---|---|
-| GET | `/fonds` | Liste tous les fonds (composants racine, `depth = 0`) |
-| GET | `/fonds/{ead_id}` | Composant racine d'un instrument de recherche |
+| GET | `/fonds` | Liste les fonds de premier niveau (`depth = 0` : fichiers non rattachés à un autre) |
+| GET | `/fonds/{ead_id}` | Composant racine d'un instrument de recherche (rattaché ou non) |
 | GET | `/component?node_id=` | Un composant (valeurs brutes EAD, héritage non appliqué) |
 | GET | `/children?node_id=` | Enfants directs d'un composant, triés par position |
 | GET | `/ancestors?node_id=` | Chaîne d'ancêtres (fil d'Ariane) |
@@ -289,7 +295,7 @@ VITE_API_URL=http://localhost:8000
 |---|---|---|
 | `q` | string | Requête plein texte |
 | `level` | string | Niveau EAD (`fonds`, `series`, `subseries`, `file`, `item`, `recordgrp`…) |
-| `ead_id` | string | Restreindre à un instrument de recherche |
+| `ead_id` | string | Restreindre à un instrument de recherche et aux fichiers qui y sont rattachés |
 | `date_from` | int | Année de début (inclusive) |
 | `date_to` | int | Année de fin (inclusive) |
 | `lang` | string | Code langue (`fre`, `eng`, `lat`…) |
@@ -324,6 +330,12 @@ Les champs sont résolus à l'indexation selon deux modes :
 **Héritage simple** — le plus proche ancêtre remplace le vide : langue, date, conditions d'accès, conditions d'utilisation, organisme responsable.
 
 **Héritage cumulatif** — les valeurs s'accumulent sans doublon : sujets, noms géographiques, genres/formes, noms de collectivités, noms de personnes.
+
+### Liaisons entre fichiers
+
+Les fichiers EAD liés dans `liaisons.tsv` (inclusion dans un fichier maître, succession) forment
+une seule hiérarchie : la racine d'un fichier rattaché devient un enfant de la racine de son
+parent et en hérite. Voir [INDEXING.md](INDEXING.md#liaisons-entre-fichiers-liaisonstsv).
 
 ### Compatibilité EAD
 

@@ -8,6 +8,11 @@ Toutes les POLL_INTERVAL secondes, compare le contenu du dossier à l'état conn
 Un fichier n'est traité que lorsque sa taille et sa date de modification sont
 stables entre deux passages (évite d'indexer un dépôt SFTP en cours d'écriture).
 
+Les liaisons entre fichiers (LIAISONS_FILE, voir liaisons.py) sont suivies de la
+même façon : un fichier réindexé entraîne ses fichiers rattachés (ils en
+héritent), et un fichier qui change de parent (ajout, suppression, liaisons
+modifiées) est réindexé sous son nouveau parent.
+
 L'état (mtime, taille, statut, erreur éventuelle) est écrit dans STATE_FILE,
 lu par l'API pour afficher le statut des fichiers déposés.
 
@@ -16,6 +21,7 @@ défini, ses fichiers absents de EAD_DIR y sont copiés (jeu de démonstration).
 
 Variables d'environnement :
     EAD_DIR        dossier surveillé                 (défaut : /data/ead)
+    LIAISONS_FILE  liaisons entre fichiers           (défaut : EAD_DIR/liaisons.tsv)
     SEED_DIR       dossier du jeu de démonstration   (optionnel)
     STATE_FILE     fichier d'état JSON               (défaut : /state/watcher.json)
     ES_HOST, ES_USER, ES_PASSWORD, ES_INDEX
@@ -34,9 +40,11 @@ from pathlib import Path
 
 from elasticsearch import Elasticsearch
 
-from indexer import ensure_index, index_file, make_client, remove_file
+from indexer import ensure_index, index_file, make_client, remove_file, sync_attached
+from liaisons import LIAISONS_FILE as _LIAISONS_NAME, FileGraph, file_id_of, load_liaisons
 
 EAD_DIR       = Path(os.getenv("EAD_DIR", "/data/ead"))
+LIAISONS_FILE = Path(os.getenv("LIAISONS_FILE", str(EAD_DIR / _LIAISONS_NAME)))
 SEED_DIR      = os.getenv("SEED_DIR")
 STATE_FILE    = Path(os.getenv("STATE_FILE", "/state/watcher.json"))
 ES_HOST       = os.getenv("ES_HOST", "http://localhost:9200")
@@ -74,6 +82,36 @@ def scan() -> dict[str, tuple[float, int]]:
             continue
         files[p.name] = (st.st_mtime, st.st_size)
     return files
+
+
+def liaisons_sig() -> tuple[float, int] | None:
+    try:
+        st = LIAISONS_FILE.stat()
+    except FileNotFoundError:
+        return None
+    return (st.st_mtime, st.st_size)
+
+
+# FileId of each file, read again only when the file changes.
+_file_ids: dict[str, tuple[tuple[float, int], str | None]] = {}
+
+
+def read_liaisons(path: Path) -> str:
+    try:
+        return path.read_text(encoding="utf-8-sig")
+    except FileNotFoundError:
+        return ""
+
+
+def make_graph(files: dict[str, tuple[float, int]], liaisons_path: Path = LIAISONS_FILE) -> FileGraph:
+    liaisons = load_liaisons(liaisons_path)
+    ids = {}
+    for name, sig in files.items():
+        cached = _file_ids.get(name)
+        if liaisons and (cached is None or cached[0] != sig):
+            cached = _file_ids[name] = (sig, file_id_of(EAD_DIR / name))
+        ids[name] = cached[1] if liaisons and cached else None
+    return FileGraph(liaisons, ids)
 
 
 def seed_once() -> None:
@@ -140,49 +178,102 @@ def main() -> None:
             del state[name]
     # Documents orphelins : fichier absent du dossier mais présent dans l'index.
     on_disk = scan()
-    for name in in_index - on_disk.keys():
+    orphans = in_index - on_disk.keys()
+    for name in orphans:
         log(f"{name} : absent du dossier, retrait de l'index.")
         remove_file(client, ES_INDEX, name)
         state.pop(name, None)
     save_state(state)
+    # Their parents (unknown here) are refreshed on the first pass.
+    sync_all = bool(orphans)
 
     log(f"Surveillance de {EAD_DIR} (toutes les {POLL_INTERVAL:g} s).")
+    # Liaisons as last applied to the index: a liaisons file changed while the
+    # watcher was stopped is detected (and applied) on the first pass.
+    applied = STATE_FILE.parent / "liaisons.applied.tsv"
+    if not applied.exists():
+        applied.write_text(read_liaisons(LIAISONS_FILE), encoding="utf-8")
+    graph = make_graph({n: sig for n, sig in on_disk.items() if n in state}, applied)
+    prev_lsig = liaisons_sig()
+    lsig = prev_lsig if read_liaisons(applied) == read_liaisons(LIAISONS_FILE) else ("changed",)
     previous: dict[str, tuple[float, int]] = {}
     while True:
         current = scan()
-        changed = False
 
+        ready = []
         for name, sig in sorted(current.items()):
             known = state.get(name)
             if known and (known["mtime"], known["size"]) == sig:
                 continue
             if previous.get(name) != sig:
                 continue  # pas encore stable : on attend le passage suivant
-            state[name] = {"mtime": sig[0], "size": sig[1], "status": "indexing"}
-            save_state(state)
-            t0 = time.time()
-            try:
-                n = index_file(client, ES_INDEX, EAD_DIR / name)
-                state[name].update(status="indexed", docs=n, error=None)
-                log(f"{name} : {n} composants indexés en {time.time() - t0:.1f} s.")
-            except Exception as exc:
-                state[name].update(status="error", docs=0, error=str(exc))
-                log(f"{name} : ERREUR {exc}")
-            state[name]["updated_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
-            changed = True
+            ready.append(name)
+        removed = set(state) - current.keys()
+        cur_lsig = liaisons_sig()
+        liaisons_changed = cur_lsig != lsig and cur_lsig == prev_lsig
+        prev_lsig = cur_lsig
 
-        for name in set(state) - current.keys():
-            log(f"{name} : supprimé, retrait de l'index.")
-            try:
-                remove_file(client, ES_INDEX, name)
-            except Exception as exc:
-                log(f"{name} : ERREUR lors du retrait ({exc})")
-                continue
-            del state[name]
-            changed = True
+        if ready or removed or liaisons_changed or sync_all:
+            if liaisons_changed:
+                log(f"{LIAISONS_FILE.name} modifié.")
+                lsig = cur_lsig
+            for name in sorted(removed):
+                log(f"{name} : supprimé, retrait de l'index.")
+                try:
+                    remove_file(client, ES_INDEX, name)
+                except Exception as exc:
+                    log(f"{name} : ERREUR lors du retrait ({exc})")
+                    continue
+                del state[name]
 
-        if changed:
+            old_graph = graph
+            graph = make_graph({n: sig for n, sig in current.items() if n in state or n in ready})
+            moved = {n for n in graph.order()
+                     if n in old_graph and old_graph.parent_of(n) != graph.parent_of(n)}
+            done: set[str] = set()
+            for name in graph.order():
+                if name in done or (name not in ready and name not in moved):
+                    continue
+                if name in ready:
+                    sig = current[name]
+                    state[name] = {"mtime": sig[0], "size": sig[1], "status": "indexing"}
+                    save_state(state)
+                t0 = time.time()
+                try:
+                    counts = index_file(client, ES_INDEX, EAD_DIR / name, graph)
+                    now = datetime.now(timezone.utc).isoformat(timespec="seconds")
+                    # Cascade: attached files are indexed too, new or modified ones included.
+                    for n, docs in counts.items():
+                        if n in ready:
+                            sig = current[n]
+                            state[n] = {"mtime": sig[0], "size": sig[1], "updated_at": now}
+                        if n in state:
+                            state[n].update(status="indexed", docs=docs, error=None)
+                    done.update(counts)
+                    extra = f" (+ {len(counts) - 1} fichiers rattachés)" if len(counts) > 1 else ""
+                    log(f"{name} : {counts[name]} composants indexés{extra} en {time.time() - t0:.1f} s.")
+                except Exception as exc:
+                    if name in state:
+                        state[name].update(status="error", docs=0, error=str(exc))
+                    log(f"{name} : ERREUR {exc}")
+                if name in state:
+                    state[name]["updated_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
+
+            # Parents that gained or lost attached files, or whose order changed.
+            parents = {p for n in set(old_graph.order()) | set(graph.order())
+                       for p in (old_graph.parent_of(n), graph.parent_of(n)) if p}
+            for parent in sorted(parents):
+                if parent in graph and (sync_all or parent in done or
+                                        old_graph.children_of(parent) != graph.children_of(parent)):
+                    try:
+                        sync_attached(client, ES_INDEX, graph, parent)
+                    except Exception as exc:
+                        log(f"{parent} : ERREUR lors de la mise à jour des rattachements ({exc})")
             save_state(state)
+            if liaisons_changed:
+                applied.write_text(read_liaisons(LIAISONS_FILE), encoding="utf-8")
+            sync_all = False
+
         previous = current
         time.sleep(POLL_INTERVAL)
 

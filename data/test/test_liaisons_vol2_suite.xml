@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Test : liaisons entre fichiers. Successeur de 9003 (volume 2) : placé juste
+     après lui, sous le même parent. Comme dans Calames, @url donne le FileId du
+     premier fichier de la chaîne (9003), @identifier celui du fichier (9004).
+     Voir test_liaisons_maitre.xml. -->
+<ead>
+  <eadheader>
+    <eadid identifier="FR-999999999_CALAMESFileId-9004" url="https://calames.abes.fr/pub/ms/FileId-9003">test-liaisons-vol2-suite</eadid>
+  </eadheader>
+  <archdesc level="fonds">
+    <did>
+      <unittitle>Correspondance, volume 2, suite</unittitle>
+      <unitdate normal="1896/1910">1896-1910</unitdate>
+    </did>
+    <dsc>
+      <c id="v2s-1" level="item">
+        <did><unittitle>Lettre sur les algues</unittitle></did>
+      </c>
+    </dsc>
+  </archdesc>
+</ead>

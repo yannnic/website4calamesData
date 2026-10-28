@@ -243,7 +243,7 @@ def list_persons(
 
 @app.get("/fonds", summary="List all finding aids")
 def list_fonds() -> list[dict]:
-    """Return all fonds-level (root) components."""
+    """Return the top-level components (files not attached under another file)."""
     result = _search(
         query={"term": {"depth": 0}},
         size=1000,
@@ -259,9 +259,9 @@ def list_fonds() -> list[dict]:
 
 @app.get("/fonds/{ead_id}", summary="Get root component of a finding aid")
 def get_fonds(ead_id: str) -> dict:
-    """Return the fonds-level component for a given EAD identifier."""
+    """Return the root (archdesc) component of a given EAD file, attached or not."""
     result = _search(
-        query={"bool": {"filter": [{"term": {"ead_id": ead_id}}, {"term": {"depth": 0}}]}},
+        query={"bool": {"filter": [{"term": {"ead_id": ead_id}}, {"term": {"file_root": True}}]}},
         size=1,
     )
     hits = hits_of(result)

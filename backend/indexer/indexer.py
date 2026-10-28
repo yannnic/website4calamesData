@@ -3,6 +3,11 @@ EAD indexer — parse a directory of EAD files and push documents to Elasticsear
 
 Usage:
     python indexer.py [EAD_DIR] [--host HOST] [--user USER] [--password PWD] [--index INDEX]
+                      [--liaisons FILE]
+
+Files linked in liaisons.tsv (Calames inclusion / succession, see liaisons.py)
+are indexed as one hierarchy: an attached file's root becomes a child of its
+parent file's root, and inherits from it.
 
 Defaults:
     EAD_DIR   : ../../data
@@ -10,6 +15,7 @@ Defaults:
     USER      : elastic (only used when a password is given)
     PASSWORD  : (empty — security disabled, local dev)
     INDEX     : ead_components
+    LIAISONS  : EAD_DIR/liaisons.tsv (if present)
 """
 
 from __future__ import annotations
@@ -28,7 +34,8 @@ if sys.stderr.encoding != "utf-8":
 
 from elasticsearch import Elasticsearch, NotFoundError, helpers
 
-from ead_parser import parse_ead, components_to_docs
+from ead_parser import Anchor, parse_ead, components_to_docs
+from liaisons import LIAISONS_FILE, FileGraph, file_id_of, load_liaisons
 
 # ---------------------------------------------------------------------------
 # Elasticsearch index settings & mapping
@@ -94,6 +101,8 @@ INDEX_MAPPINGS = {
         "depth":            _INT,
         "parent_id":        _KW,
         "ancestor_ids":     _KW,
+        "ead_ids":          _KW,   # the component's file and the files containing it
+        "file_root":        {"type": "boolean"},
         "children_count":   _INT,
         "parent_children_count": _INT,
         "position":         _INT,
@@ -158,20 +167,99 @@ def _bulk(client: Elasticsearch, index_name: str, docs: list[dict], refresh: boo
     helpers.bulk(client, _actions(index_name, docs), chunk_size=BATCH_SIZE, refresh=refresh)
 
 
-def index_file(client: Elasticsearch, index_name: str, ead_file: Path) -> int:
-    """
-    (Re)index a single EAD file: drop the documents previously produced by this
-    file, then push the new ones. Returns the number of documents indexed.
-    Raises on parse error (the previous documents are kept in that case).
-    """
-    root = parse_ead(ead_file)
-    docs = components_to_docs(root)
-    for doc in docs:
-        doc["source_file"] = ead_file.name
+def build_graph(ead_files: list[Path], liaisons_path: Path | None) -> FileGraph:
+    """Place the files according to the liaisons (no liaisons file: all top-level)."""
+    liaisons = load_liaisons(liaisons_path)
+    return FileGraph(liaisons, {p.name: file_id_of(p) if liaisons else None for p in ead_files})
 
+
+def file_docs(ead_file: Path, graph: FileGraph, anchor: Anchor | None) -> list[dict]:
+    """Parse a file into documents, attached under `anchor` (its parent file's root)."""
+    name = ead_file.name
+    siblings = graph.children_of(graph.parent_of(name) if anchor else None)
+    rank = siblings.index(name) if name in siblings else len(siblings)
+    position = (anchor.own_children_count if anchor else 0) + rank
+    docs = components_to_docs(parse_ead(ead_file), anchor, position,
+                              attached_count=len(graph.children_of(name)))
+    for doc in docs:
+        doc["source_file"] = name
+    return docs
+
+
+def _root_doc(client: Elasticsearch, index_name: str, file_name: str) -> dict | None:
+    res = client.search(index=index_name, size=1, query={"bool": {"filter": [
+        {"term": {"source_file": file_name}}, {"term": {"file_root": True}}]}})
+    hits = res["hits"]["hits"]
+    return hits[0]["_source"] if hits else None
+
+
+def index_file(client: Elasticsearch, index_name: str, ead_file: Path,
+               graph: FileGraph | None = None) -> dict[str, int]:
+    """
+    (Re)index an EAD file: drop the documents previously produced by this file,
+    then push the new ones, attached under its parent file when the graph gives
+    one (the parent must already be indexed, otherwise the file stands alone
+    until the parent is). The files attached below it are reindexed too: they
+    inherit from it.
+
+    Returns {file name: documents indexed}. Raises on parse error of ead_file
+    (its previous documents are kept in that case); an attached file that fails
+    is skipped with its own subtree.
+    """
+    graph = graph or FileGraph({}, {ead_file.name: None})
+    parent = graph.parent_of(ead_file.name)
+    parent_doc = _root_doc(client, index_name, parent) if parent else None
+    counts: dict[str, int] = {}
+    _index_subtree(client, index_name, ead_file, graph,
+                   Anchor.from_doc(parent_doc) if parent_doc else None, counts, raise_errors=True)
+    return counts
+
+
+def _index_subtree(client: Elasticsearch, index_name: str, ead_file: Path, graph: FileGraph,
+                   anchor: Anchor | None, counts: dict[str, int], raise_errors: bool = False) -> None:
+    try:
+        docs = file_docs(ead_file, graph, anchor)
+    except Exception as exc:
+        if raise_errors:
+            raise
+        print(f"{ead_file.name} : ERREUR {exc} (fichiers rattachés ignorés)", file=sys.stderr)
+        return
     remove_file(client, index_name, ead_file.name)
     _bulk(client, index_name, docs, refresh="wait_for")
-    return len(docs)
+    counts[ead_file.name] = len(docs)
+    child_anchor = Anchor.from_doc(docs[0])
+    for child in graph.children_of(ead_file.name):
+        _index_subtree(client, index_name, ead_file.parent / child, graph, child_anchor, counts)
+
+
+def sync_attached(client: Elasticsearch, index_name: str, graph: FileGraph, file_name: str) -> None:
+    """
+    Refresh, after files were attached under / detached from `file_name`, the
+    children count of its root, and the positions and siblings count of the
+    root's children (without reindexing them).
+    """
+    root = _root_doc(client, index_name, file_name)
+    if root is None:
+        return
+    res = client.search(index=index_name, size=10000, source_includes=["source_file"],
+                        query={"bool": {"filter": [{"term": {"parent_id": root["node_id"]}},
+                                                   {"term": {"file_root": True}}]}})
+    attached = {h["_source"]["source_file"]: h["_id"] for h in res["hits"]["hits"]}
+    own = root.get("own_children_count", root.get("children_count") or 0)
+    total = own + len(attached)
+    order = graph.children_of(file_name)
+    actions = [{"_op_type": "update", "_index": index_name, "_id": root["node_id"],
+                "doc": {"children_count": total}}]
+    for name, doc_id in attached.items():
+        rank = order.index(name) if name in order else len(order)
+        actions.append({"_op_type": "update", "_index": index_name, "_id": doc_id,
+                        "doc": {"position": own + rank}})
+    helpers.bulk(client, actions, refresh="wait_for")
+    client.update_by_query(
+        index=index_name, conflicts="proceed", refresh=True,
+        query={"term": {"parent_id": root["node_id"]}},
+        script={"source": "ctx._source.parent_children_count = params.n", "params": {"n": total}},
+    )
 
 
 def remove_file(client: Elasticsearch, index_name: str, file_name: str) -> None:
@@ -192,6 +280,7 @@ def index_directory(
     index_name: str,
     shallow: bool = False,
     limit: int | None = None,
+    liaisons_path: Path | None = None,
 ) -> None:
     _start = time.time()
     client = make_client(host, user, password)
@@ -213,6 +302,16 @@ def index_directory(
         print(f"No .xml files found in {ead_dir}", file=sys.stderr)
         return
 
+    liaisons_path = liaisons_path or ead_dir / LIAISONS_FILE
+    graph = build_graph(ead_files, liaisons_path)
+    paths = {p.name: p for p in ead_files}
+    attached = sum(1 for p in ead_files if graph.parent_of(p.name))
+    print(f"Liaisons : {liaisons_path if liaisons_path.is_file() else 'aucune'} "
+          f"({attached} fichiers rattachés à un autre)")
+    # Parents first: an attached file is built from its parent root's document.
+    ead_files = [paths[name] for name in graph.order()]
+    anchors: dict[str, Anchor] = {}
+
     total_docs = 0
     total_errors = 0
     n_files = len(ead_files)
@@ -222,15 +321,15 @@ def index_directory(
     for file_idx, ead_file in enumerate(ead_files, 1):
         print(f"[{file_idx}/{n_files}] {ead_file.name}...", end=" ", flush=True)
         try:
-            root = parse_ead(ead_file)
-            docs = components_to_docs(root)
-            for doc in docs:
-                doc["source_file"] = ead_file.name
+            # A file whose parent failed is indexed standalone.
+            docs = file_docs(ead_file, graph, anchors.get(graph.parent_of(ead_file.name)))
         except Exception as exc:
             print(f"ERROR: {exc}", file=sys.stderr)
             total_errors += 1
             continue
 
+        if graph.children_of(ead_file.name):
+            anchors[ead_file.name] = Anchor.from_doc(docs[0])
         _bulk(client, index_name, docs)
         total_docs += len(docs)
         print(f"{len(docs)} docs indexed.", flush=True)
@@ -274,6 +373,8 @@ def main() -> None:
     parser.add_argument("--index", default="ead_components", help="Elasticsearch index name")
     parser.add_argument("--shallow", action="store_true", help="Only index files directly in EAD_DIR (no subdirectories)")
     parser.add_argument("--limit", type=int, default=None, help="Maximum number of files to index")
+    parser.add_argument("--liaisons", default=None,
+                        help="Calames liaisons.tsv (default: EAD_DIR/liaisons.tsv if present)")
 
     args = parser.parse_args()
 
@@ -290,6 +391,7 @@ def main() -> None:
         index_name=args.index,
         shallow=args.shallow,
         limit=args.limit,
+        liaisons_path=Path(args.liaisons) if args.liaisons else None,
     )
 
 

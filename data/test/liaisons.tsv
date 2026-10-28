@@ -1,0 +1,6 @@
+9001	test liaisons maitre	admin;999999999;	0	0	0	0
+9002	test liaisons vol1	admin;999999999;	0	0	9001	2
+9003	test liaisons vol2	admin;999999999;	0	0	9001	1
+9004	test liaisons vol2 suite	admin;999999999;	0	9003	0	0
+9999	test liaisons absent	admin;999999999;	0	0	9001	3
+9005	test liaisons orphelin	admin;999999999;	0	0	9999	1

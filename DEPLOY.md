@@ -51,6 +51,11 @@ un dossier de l'hôte à la place du volume Docker, puis y copier les fichiers (
 Supprimer un fichier le retire de l'index. Seuls les `*.xml` à la racine du dossier sont pris
 en compte.
 
+**Liaisons entre fichiers** : un `liaisons.tsv` à la racine du dossier EAD (format Calames,
+voir [INDEXING.md](INDEXING.md#liaisons-entre-fichiers-liaisonstsv)) réunit les fichiers liés
+en une seule hiérarchie. Le moissonneur le télécharge à chaque passe ; le watcher applique ses
+modifications (réindexation des seuls fichiers qui changent de parent).
+
 ## Moissonnage OAI-PMH
 
 Le service `harvester` moissonne un entrepôt OAI-PMH au format `oai_ead` (Calames par

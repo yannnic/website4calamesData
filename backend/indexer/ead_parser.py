@@ -757,6 +757,52 @@ def _century_label(year: Optional[int]) -> Optional[str]:
     return _CENTURY_LABELS.get(c, f"{c}e s.")
 
 
+@dataclass
+class Anchor:
+    """
+    Attachment point of an EAD file under the root of its parent file
+    (Calames liaisons, see liaisons.py). Built from the parent root's document.
+    """
+    node_id: str
+    depth: int
+    ancestor_ids: list[str]       # down to and including node_id
+    ancestor_titles: list[str]    # down to and including the root's title
+    ead_ids: list[str]            # the parent file and the files containing it
+    ctx: dict                     # inherited context passed to the attached root
+    children_count: int           # own children + attached files
+    own_children_count: int       # attached files are positioned after these
+
+    @classmethod
+    def from_doc(cls, doc: dict) -> "Anchor":
+        # The resolved fields of a document are exactly the context its
+        # children inherit (see _build_inherited_context).
+        ctx = {f: doc[f] for f in INHERITED_FIELDS if doc.get(f)}
+        if doc.get("date_normal"):
+            ctx["_date_group"] = {f: doc.get(f) for f in DATE_FIELDS}
+        for f in CUMULATIVE_INHERITED_FIELDS:
+            ctx[f"_cumul_{f}"] = list(doc.get(f) or [])
+        return cls(
+            node_id=doc["node_id"],
+            depth=doc["depth"],
+            ancestor_ids=list(doc.get("ancestor_ids") or []) + [doc["node_id"]],
+            ancestor_titles=list(doc.get("ancestor_titles") or []) + [doc.get("title", "")],
+            ead_ids=list(doc.get("ead_ids") or [doc["ead_id"]]),
+            ctx=ctx,
+            children_count=doc.get("children_count") or 0,
+            own_children_count=doc.get("own_children_count", doc.get("children_count") or 0),
+        )
+
+
+def _rebase(comp: Component, anchor: Anchor) -> None:
+    """Move a file's component tree under the anchor (depths and ancestry)."""
+    comp.depth += anchor.depth + 1
+    comp.ancestor_ids = anchor.ancestor_ids + comp.ancestor_ids
+    if comp.parent_id is None:
+        comp.parent_id = anchor.node_id
+    for child in comp.children:
+        _rebase(child, anchor)
+
+
 def _comp_to_doc(comp: Component, resolved: dict, position: int = 0,
                  ancestor_titles: list[str] | None = None, parent_children_count: int = 0) -> dict:
     """Build one Elasticsearch document from a Component and its resolved fields."""
@@ -828,11 +874,37 @@ def _walk_and_index(comp: Component, parent_ctx: dict, docs: list[dict],
                         parent_children_count=len(comp.children))
 
 
-def components_to_docs(root: Component) -> list[dict]:
+def components_to_docs(root: Component, anchor: Anchor | None = None,
+                       position: int = 0, attached_count: int = 0) -> list[dict]:
     """
     Walk the component tree rooted at root and return a flat list of
-    Elasticsearch documents with inheritance fully resolved.
+    Elasticsearch documents with inheritance fully resolved. The root document
+    comes first.
+
+    With an anchor, the file is attached under its parent file's root, at
+    `position` among the anchor's children, and inherits from it.
+    `attached_count` is the number of files attached under this file's root:
+    they count as children of the root.
     """
+    if anchor is not None:
+        _rebase(root, anchor)
     docs: list[dict] = []
-    _walk_and_index(root, {}, docs)
+    _walk_and_index(
+        root, anchor.ctx if anchor else {}, docs, position=position,
+        ancestor_titles=anchor.ancestor_titles if anchor else None,
+        parent_children_count=anchor.children_count if anchor else 0,
+    )
+    ead_ids = (anchor.ead_ids if anchor else []) + [root.ead_id]
+    for doc in docs:
+        doc["file_root"] = False
+        doc["ead_ids"] = ead_ids
+    root_doc = docs[0]
+    root_doc["file_root"] = True
+    root_doc["own_children_count"] = len(root.children)
+    root_doc["children_count"] = len(root.children) + attached_count
+    # The root's own children see the attached files as siblings.
+    if attached_count:
+        for doc in docs[1:]:
+            if doc["parent_id"] == root.node_id:
+                doc["parent_children_count"] = root_doc["children_count"]
     return docs

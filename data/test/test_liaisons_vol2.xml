@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Test : liaisons entre fichiers. Inclus dans le maître 9001, rang 1.
+     Voir test_liaisons_maitre.xml. -->
+<ead>
+  <eadheader>
+    <eadid url="https://calames.abes.fr/pub/ms/FileId-9003">test-liaisons-vol2</eadid>
+  </eadheader>
+  <archdesc level="fonds">
+    <did>
+      <unittitle>Correspondance, volume 2</unittitle>
+      <unitdate normal="1881/1895">1881-1895</unitdate>
+    </did>
+    <dsc>
+      <c id="v2-1" level="item">
+        <did><unittitle>Lettre sur les lichens</unittitle></did>
+      </c>
+    </dsc>
+  </archdesc>
+</ead>

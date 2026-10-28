@@ -123,7 +123,9 @@ def build_filters(
     f: list[dict] = []
     if level:                 f.append(_term("level", level))
     if level_excl:            f.append(_not(_term("level", level_excl)))
-    if ead_id:                f.append(_term("ead_id", ead_id))
+    # ead_ids: the file and the files containing it (liaisons), so that a
+    # parent file also covers the files attached below it.
+    if ead_id:                f.append(_term("ead_ids", ead_id))
     if date_from is not None: f.append({"range": {"date_end": {"gte": date_from}}})
     if date_to is not None:   f.append({"range": {"date_start": {"lte": date_to}}})
     if lang:                  f.append(_term("languages", lang))

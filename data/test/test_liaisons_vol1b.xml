@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Test : liaisons entre fichiers. Sans FileId propre : son @url donne celui du
+     volume 1 (9002), détenu par test_liaisons_vol1.xml. Placé juste après lui.
+     Voir test_liaisons_maitre.xml. -->
+<ead>
+  <eadheader>
+    <eadid url="https://calames.abes.fr/pub/ms/FileId-9002">test-liaisons-vol1b</eadid>
+  </eadheader>
+  <archdesc level="fonds">
+    <did>
+      <unittitle>Correspondance, volume 1 bis</unittitle>
+    </did>
+    <dsc>
+      <c id="v1b-1" level="item">
+        <did><unittitle>Carte postale</unittitle></did>
+      </c>
+    </dsc>
+  </archdesc>
+</ead>

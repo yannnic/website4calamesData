@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Test : liaisons entre fichiers (liaisons.tsv), fichier maître (FileId 9001).
+
+     Arborescence attendue après indexation :
+
+     Fonds Anselme Quillebeuf (9001, ce fichier)
+     ├── Présentation du fonds            composant propre au maître (position 0)
+     ├── Correspondance, volume 2 (9003)  inclus, rang 1                (position 1)
+     ├── Correspondance, volume 2, suite (9004)  successeur de 9003     (position 2)
+     ├── Correspondance, volume 1 (9002)  inclus, rang 2                (position 3)
+     ├── Correspondance, volume 1 bis     sans FileId propre, @url = 9002 (position 4)
+     └── Manuscrits isolés (9005)         inclus dans 9999, absent du corpus,
+                                          lui-même inclus dans 9001, rang 3 (position 5)
+
+     Les fichiers rattachés héritent du maître : conditions d'accès, langue,
+     organisme responsable et (cumulatif) sujet « Botanique ».
+-->
+<ead>
+  <eadheader>
+    <eadid url="https://calames.abes.fr/pub/ms/FileId-9001">test-liaisons-maitre</eadid>
+  </eadheader>
+  <archdesc level="fonds">
+    <did>
+      <unittitle>Fonds Anselme Quillebeuf</unittitle>
+      <unitdate normal="1850/1910">1850-1910</unitdate>
+      <langmaterial><language langcode="fre">français</language></langmaterial>
+      <repository><corpname authfilenumber="999999999">Bibliothèque de test</corpname></repository>
+    </did>
+    <accessrestrict><p>Communicable sur rendez-vous</p></accessrestrict>
+    <controlaccess>
+      <subject normal="Botanique">Botanique</subject>
+    </controlaccess>
+    <dsc>
+      <c id="presentation" level="file">
+        <did><unittitle>Présentation du fonds</unittitle></did>
+      </c>
+    </dsc>
+  </archdesc>
+</ead>
