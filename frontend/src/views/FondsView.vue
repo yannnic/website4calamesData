@@ -15,6 +15,9 @@
       <div style="display:grid;grid-template-columns:1fr 340px;gap:1.5rem;align-items:start">
         <!-- Arbre de navigation -->
         <section>
+          <!-- Comme sur la page d'un composant : dans la colonne principale, avant les enfants -->
+          <RawEad :node-id="fonds.node_id" :has-children="(fonds.children_count ?? 0) > 0"
+                  style="margin:0 0 1.4rem" />
           <h2 style="margin-bottom:.8rem">Plan du fonds</h2>
           <ComponentTree :node-id="fonds.node_id" :initial-title="fonds.title" :depth="0" />
         </section>
@@ -114,8 +117,6 @@
               >{{ g }}</RouterLink>
             </div>
           </template>
-
-          <RawEad :node-id="fonds.node_id" :has-children="(fonds.children_count ?? 0) > 0" />
         </aside>
       </div>
     </template>
