@@ -32,6 +32,11 @@ succession, cf. indexer/liaisons.py) est aussi téléchargé dans --out
 Les fichiers sont écrits de façon atomique : un service qui surveille --out
 (cf. indexer/watcher.py) ne voit jamais de fichier partiel.
 
+Une notice que le serveur refuse ou ne sait pas produire (HTTP 4xx, erreur OAI,
+réponse non XML) est « rejetée » : le passage continue et la date du dernier
+moissonnage avance quand même ; les notices rejetées sont listées dans --state.
+Seules les vraies pannes (réseau, 5xx persistants) la bloquent.
+
 Note : Calames déclare deletedRecord=no, les notices supprimées à la source
 ne sont donc pas signalées et restent dans --out.
 """
@@ -41,8 +46,10 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import sys
 import time
+from copy import deepcopy
 from pathlib import Path
 from typing import Iterator, Optional
 from urllib.parse import urlencode
@@ -179,20 +186,26 @@ def list_identifiers(
 
 def _copy_without_ns(el: etree._Element) -> etree._Element:
     """
-    Reconstruit récursivement un élément sans aucun namespace.
+    Copie un élément en retirant tous les namespaces (balises et attributs).
     Nécessaire car lxml hérite le namespace OAI-PMH dans le contenu <metadata>.
+    Les commentaires et instructions de traitement sont conservés (leur tag
+    n'est pas une chaîne : une copie élément par élément échouait dessus).
     """
-    local = el.tag.split("}", 1)[1] if "}" in el.tag else el.tag
-    new_el = etree.Element(local)
-    for k, v in el.attrib.items():
-        new_el.set(k.split("}", 1)[1] if "}" in k else k, v)
-    new_el.text = el.text
-    new_el.tail = None  # tail appartient au parent, pas à cet élément
-    for child in el:
-        new_child = _copy_without_ns(child)
-        new_child.tail = child.tail
-        new_el.append(new_child)
-    return new_el
+    copy = deepcopy(el)
+    copy.tail = None  # tail appartient au parent, pas à cet élément
+    for node in copy.iter():
+        if not isinstance(node.tag, str):
+            continue
+        if "}" in node.tag:
+            node.tag = node.tag.split("}", 1)[1]
+        for k in [k for k in node.attrib if "}" in k]:
+            node.attrib[k.split("}", 1)[1]] = node.attrib.pop(k)
+    etree.cleanup_namespaces(copy)
+    return copy
+
+
+class RecordRejected(Exception):
+    """Le serveur refuse ou ne sait pas produire cette notice ; les autres continuent."""
 
 
 def get_ead(
@@ -207,7 +220,20 @@ def get_ead(
         "metadataPrefix": prefix,
         "identifier": identifier,
     }
-    root = _get(base_url, params, delay, session)
+    try:
+        root = _get(base_url, params, delay, session)
+    except requests.HTTPError as exc:
+        status = exc.response.status_code if exc.response is not None else 0
+        if not 400 <= status < 500:
+            raise
+        time.sleep(delay)
+        raise RecordRejected(f"HTTP {status}") from exc
+    except etree.XMLSyntaxError as exc:
+        raise RecordRejected(f"réponse non XML ({exc})") from exc
+    except RuntimeError as exc:
+        if not str(exc).startswith("OAI erreur"):
+            raise
+        raise RecordRejected(str(exc)) from exc
     record   = root.find(f".//{{{OAI_NS}}}record")
     if record is None:
         return None
@@ -233,21 +259,28 @@ def get_ead(
 
 def _filename_from_ead(content: bytes, identifier: str) -> str:
     """
-    Extrait l'eadid du contenu EAD pour nommer le fichier.
-    Repli sur l'identifiant OAI nettoyé si absent.
+    Nomme le fichier d'après l'eadid du contenu EAD, suivi de « _oai<N> »
+    (N : numéro OAI de la notice, qui est son FileId Calames) sauf si l'eadid
+    contient déjà ce FileId. Plusieurs notices peuvent avoir le même eadid : sans
+    ce numéro, elles s'écrasaient l'une l'autre.
+    Repli sur l'identifiant OAI nettoyé si l'eadid est absent.
     """
+    m = re.search(r"(\d+)$", identifier)
+    num = m.group(1) if m else ""
     try:
         root   = etree.fromstring(content)
         eadid  = root.find(".//{*}eadid")
         if eadid is not None and eadid.text:
-            text = eadid.text.strip()
+            text = re.sub(r"\.xml$", "", eadid.text.strip(), flags=re.I)
             # Garde uniquement les caractères sûrs pour un nom de fichier
             safe = "".join(c if c.isalnum() or c in "-_." else "_" for c in text)
             if safe:
+                if num and not re.search(rf"FileId-{num}(?!\d)", safe):
+                    safe += f"_oai{num}"
                 return safe + ".xml"
     except Exception:
         pass
-    # Repli : "oai:oaicalames.abes.fr:123" → "oai_calames_123.xml"
+    # Repli : "oai:oaicalames.abes.fr:123" → "oai_oaicalames.abes.fr_123.xml"
     safe = identifier.replace(":", "_").replace("/", "_")
     return safe + ".xml"
 
@@ -279,6 +312,7 @@ def harvest(
     print()
 
     total_seen = total_new = total_skip = total_err = 0
+    rejected: dict[str, str] = {}
     consecutive_err = 0
     complete = True   # False si une limite ou une interruption a tronqué la liste
     harvest_start = time.strftime("%Y-%m-%d")
@@ -302,6 +336,10 @@ def harvest(
                 # Tentative de récupération
                 try:
                     content = get_ead(base_url, prefix, identifier, delay, session)
+                except RecordRejected as exc:
+                    print(f"  REJET {identifier} : {exc}", file=sys.stderr)
+                    rejected[identifier] = str(exc)
+                    continue
                 except Exception as exc:
                     print(f"  ERREUR {identifier} : {exc}", file=sys.stderr)
                     total_err += 1
@@ -332,7 +370,7 @@ def harvest(
 
     print()
     print(f"Terminé. {total_seen} vus, {total_new} fichiers écrits, "
-          f"{total_skip} vides, {total_err} erreurs.", flush=True)
+          f"{total_skip} vides, {len(rejected)} rejetées par le serveur, {total_err} erreurs.", flush=True)
 
     # N'avance la date que si toute la liste a été traitée sans erreur :
     # sinon le prochain passage incrémental sauterait des notices.
@@ -340,7 +378,8 @@ def harvest(
         return
     if complete and total_err == 0:
         state_file.parent.mkdir(parents=True, exist_ok=True)
-        state = {"last_harvest": harvest_start, "url": base_url, "sets": set_specs}
+        state = {"last_harvest": harvest_start, "url": base_url, "sets": set_specs,
+                 "rejected": rejected}
         state_file.write_text(json.dumps(state, indent=2), encoding="utf-8")
         print(f"État mis à jour : {state_file}")
     else:

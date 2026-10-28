@@ -722,6 +722,11 @@ def _open_ead(path: Path) -> tuple[etree._Element, str, etree._Element]:
     if eadid_el is not None:
         ead_id = _inner_text(eadid_el).strip() or eadid_el.get("identifier", "").strip()
     ead_id = ead_id or path.stem
+    # Several OAI records may share an eadid: the harvester then puts the record
+    # number in the file name ("…_oai<N>.xml"). It goes into ead_id too.
+    oai = re.search(r"_oai(\d+)\.xml$", path.name)
+    if oai and not re.search(rf"FileId-{oai.group(1)}(?!\d)", ead_id):
+        ead_id = f"{ead_id}_oai{oai.group(1)}"
 
     archdesc = root.find(_tag("archdesc"))
     if archdesc is None:

@@ -12,7 +12,9 @@ liaisons.tsv has one line per file (tab-separated, no header):
     FileId  label  admin_path  flag  previous_FileId  parent_FileId  rank
 
 previous_FileId / parent_FileId are 0 (or empty) when absent. A file is matched
-to its line through the FileId found in its <eadid>: @identifier or text
+to its line through its FileId: the OAI record number that the harvester puts
+in the file name ("…_oai4752.xml"), otherwise the one found in its <eadid>:
+@identifier or text
 ("..._CALAMESFileId-4752"), else @url (".../FileId-4752"). The url may give the
 FileId of the first file of a succession chain: a file known by its url only,
 whose FileId is held by another file, is placed right after that file.
@@ -31,6 +33,8 @@ from lxml import etree
 LIAISONS_FILE = "liaisons.tsv"
 
 _FILE_ID_RE = re.compile(r"FileId-(\d+)")
+# Harvester file names: "<eadid>_oai<N>.xml", or "oai_oaicalames.abes.fr_<N>.xml" without eadid.
+_OAI_NAME_RE = re.compile(r"(?:_oai|^oai_[\w.]+_)(\d+)\.xml$")
 
 
 @dataclass(frozen=True)
@@ -79,8 +83,20 @@ def load_liaisons(path: Path | None) -> dict[str, Liaison]:
 FileRef = tuple[str, bool]   # (FileId, read from @url only)
 
 
+def oai_file_id(path: Path) -> str | None:
+    """FileId given by the harvester in the file name (OAI record number), if any."""
+    m = _OAI_NAME_RE.search(path.name)
+    return m.group(1) if m else None
+
+
 def file_id_of(path: Path) -> FileRef | None:
-    """Return the Calames FileId of an EAD file, read from its <eadid>."""
+    """
+    Return the Calames FileId of an EAD file: the OAI record number kept by the
+    harvester in the file name, otherwise read from its <eadid>.
+    """
+    num = oai_file_id(path)
+    if num:
+        return num, False
     try:
         for _, el in etree.iterparse(str(path), events=("end",), load_dtd=False,
                                      no_network=True, resolve_entities=False, recover=True):

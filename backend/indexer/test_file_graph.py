@@ -169,3 +169,11 @@ def test_file_id_of(tmp_path: Path):
     assert file_id_of(eadid(url, "FR-1_CALAMESFileId-4911_Fonds")) == ("4911", False)
     assert file_id_of(eadid(url)) == ("5279", True)
     assert file_id_of(eadid('identifier="sans-fileid"')) is None
+
+    # Nom donné par le moissonneur : le numéro OAI prime sur l'eadid.
+    p = tmp_path / "FR-341729802_Fonds_oai4412.xml"
+    p.write_text(f"<ead><eadheader><eadid {url}>FR-341729802 Fonds</eadid></eadheader></ead>", encoding="utf-8")
+    assert file_id_of(p) == ("4412", False)
+    p = tmp_path / "oai_oaicalames.abes.fr_5893.xml"
+    p.write_text("<ead><eadheader><eadid/></eadheader></ead>", encoding="utf-8")
+    assert file_id_of(p) == ("5893", False)

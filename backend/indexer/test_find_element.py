@@ -80,3 +80,15 @@ def test_strip_child_components(tmp_path):
     assert "2 composant(s) <c> non affiché(s)" in xml
     root = find_element(path, "test-mixed-ids#auto-1")
     assert strip_child_components(root) == 2         # les deux séries, sous <dsc>
+
+
+def test_shared_eadid_made_unique_by_oai_number(tmp_path):
+    # Deux notices au même eadid, nommées par le moissonneur avec leur numéro OAI.
+    for n in ("4412", "4439"):
+        (tmp_path / f"FR-341729802_Fonds_oai{n}.xml").write_text(
+            MIXED_IDS.replace("<eadid>test-mixed-ids</eadid>", "<eadid>FR-341729802 Fonds</eadid>"),
+            encoding="utf-8")
+    ids = {parse_ead(p).ead_id for p in tmp_path.glob("*.xml")}
+    assert ids == {"FR-341729802 Fonds_oai4412", "FR-341729802 Fonds_oai4439"}
+    path = tmp_path / "FR-341729802_Fonds_oai4412.xml"
+    assert find_element(path, "FR-341729802 Fonds_oai4412#auto-1") is not None
