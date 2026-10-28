@@ -119,6 +119,8 @@ def test_inheritance_across_files(client):
     item = get(client, "/component", node_id="test-liaisons-vol1#v1-1")
     assert item["depth"] == 2
     assert item["ancestor_titles"] == ["Fonds Anselme Quillebeuf", "Correspondance, volume 1"]
+    # Cotes des ancêtres, celle du maître comprise (fichier parent)
+    assert item["ancestor_unitids"] == ["QB", "QB 1"]
     assert item["ead_ids"] == ["test-liaisons-maitre", "test-liaisons-vol1"]
     assert item["subjects_norm"] == ["Correspondance", "Botanique"]
     assert item["access_restrict"] == "Communicable sur rendez-vous"

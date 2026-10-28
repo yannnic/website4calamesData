@@ -234,7 +234,7 @@
           <li v-for="hit in results.hits" :key="hit.node_id" class="result-card">
             <nav v-if="hit.ancestor_titles?.length" class="result-breadcrumb">
               <template v-for="(title, i) in hit.ancestor_titles" :key="i">
-                <RouterLink :to="cPath(hit.ancestor_ids[i])">{{ title }}</RouterLink>
+                <RouterLink :to="cPath(hit.ancestor_ids[i])"><span v-if="hit.ancestor_unitids?.[i]" class="cote">{{ hit.ancestor_unitids[i] }}</span>{{ title }}</RouterLink>
                 <span class="sep" aria-hidden="true">›</span>
               </template>
             </nav>

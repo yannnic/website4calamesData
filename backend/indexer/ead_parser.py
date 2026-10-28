@@ -840,6 +840,7 @@ class Anchor:
     depth: int
     ancestor_ids: list[str]       # down to and including node_id
     ancestor_titles: list[str]    # down to and including the root's title
+    ancestor_unitids: list[str]   # their cotes, aligned with ancestor_ids
     ead_ids: list[str]            # the parent file and the files containing it
     ctx: dict                     # inherited context passed to the attached root
     children_count: int           # own children + attached files
@@ -859,6 +860,8 @@ class Anchor:
             depth=doc["depth"],
             ancestor_ids=list(doc.get("ancestor_ids") or []) + [doc["node_id"]],
             ancestor_titles=list(doc.get("ancestor_titles") or []) + [doc.get("title", "")],
+            ancestor_unitids=list(doc.get("ancestor_unitids") or [""] * len(doc.get("ancestor_ids") or []))
+                             + [doc.get("unitid", "")],
             ead_ids=list(doc.get("ead_ids") or [doc["ead_id"]]),
             ctx=ctx,
             children_count=doc.get("children_count") or 0,
@@ -967,8 +970,12 @@ def components_to_docs(root: Component, anchor: Anchor | None = None,
         ancestor_titles=anchor.ancestor_titles if anchor else None,
         parent_children_count=anchor.children_count if anchor else 0,
     )
+    # Cotes of the ancestors, aligned with ancestor_ids / ancestor_titles.
+    unitids = dict(zip(anchor.ancestor_ids, anchor.ancestor_unitids)) if anchor else {}
+    unitids.update((doc["node_id"], doc["unitid"]) for doc in docs)
     ead_ids = (anchor.ead_ids if anchor else []) + [root.ead_id]
     for doc in docs:
+        doc["ancestor_unitids"] = [unitids.get(a, "") for a in doc["ancestor_ids"]]
         doc["file_root"] = False
         doc["ead_ids"] = ead_ids
     root_doc = docs[0]
