@@ -20,6 +20,11 @@
     </div>
   </header>
 
+  <div v-if="CORPUS === 'test'" class="corpus-banner">
+    Corpus de test (fichiers ad hoc de <code>data/test</code>) —
+    <a href="/?corpus=">revenir au corpus principal</a>
+  </div>
+
   <main>
     <RouterView v-slot="{ Component }">
       <keep-alive include="HomeView">
@@ -36,6 +41,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { RouterLink, RouterView, useRouter, useRoute } from 'vue-router'
+import { CORPUS } from './api'
 
 const router = useRouter()
 const route  = useRoute()

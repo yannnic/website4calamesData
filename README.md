@@ -100,6 +100,18 @@ Les corpus sont définis dans `corpora.json` :
 
 Chaque corpus a son propre index Elasticsearch — basculer de l'un à l'autre ne détruit pas l'index de l'autre.
 
+### Corpus de test sans relancer
+
+Le corpus de test est **réindexé automatiquement à chaque démarrage de l'API** (quelques
+secondes) et reste interrogeable à côté du corpus principal :
+
+- site : ouvrir `http://localhost:5173/?corpus=test` (un bandeau le signale ; le choix est
+  mémorisé pour l'onglet, `?corpus=` ou le lien du bandeau ramène au corpus principal) ;
+- API : ajouter `corpus=test` à n'importe quel appel, par ex. `/search?q=lettre&corpus=test`.
+
+Variables : `TEST_DATA_DIR` (défaut `data/test`, monté en lecture seule en Docker) et
+`TEST_ES_INDEX` (défaut `ead_components_test`). Pas de dépôt de fichiers dans ce corpus.
+
 ---
 
 ## Mode Docker
@@ -264,6 +276,7 @@ Variables d'environnement de l'API :
 | `NL_LLM_BASE_URL` | `https://api.openai.com/v1` | Base URL LLM OpenAI-compatible |
 | `NL_LLM_API_KEY` | _(vide)_ | Clé API LLM (si vide : fallback recherche brute) |
 | `NL_LLM_MODEL` | `gpt-4o-mini` | Modèle LLM (ex. `gemma-4-31b`, `mistral`, `llama3`) |
+| `TEST_DATA_DIR`, `TEST_ES_INDEX` | `data/test`, `ead_components_test` | Corpus de test (`?corpus=test`) |
 
 Le fichier `frontend/.env.local` configure l'URL de l'API :
 

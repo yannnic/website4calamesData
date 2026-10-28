@@ -16,6 +16,9 @@ Endpoints :
   GET /files              Fichiers EAD du dossier et statut d'indexation
   POST /upload            Dépôt d'un fichier EAD (jeton UPLOAD_TOKEN requis)
 
+Paramètre commun : corpus=test interroge le corpus de test (fichiers ad hoc de
+data/test), indexé automatiquement au démarrage de l'API.
+
 Dépendances : Elasticsearch (ES_HOST), LLM OpenAI-compatible (NL_LLM_*)
 Variables d'environnement : voir README.md
 """
@@ -29,11 +32,12 @@ import secrets
 import sys
 import threading
 from contextlib import asynccontextmanager
+from contextvars import ContextVar
 from pathlib import Path
 from typing import Any, Optional
 
 from elasticsearch import Elasticsearch, NotFoundError
-from fastapi import FastAPI, File, Header, HTTPException, Query, UploadFile
+from fastapi import Depends, FastAPI, File, Header, HTTPException, Query, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import PlainTextResponse
 from lxml import etree
@@ -61,6 +65,7 @@ from .grouping import grouped_search
 # The indexer modules import each other flat (run from backend/indexer).
 sys.path.insert(0, str(Path(__file__).parent.parent / "indexer"))
 from ead_parser import find_element  # noqa: E402
+from indexer import index_directory  # noqa: E402
 
 # ---------------------------------------------------------------------------
 # Configuration (environment variables with sensible defaults)
@@ -71,6 +76,10 @@ ES_USER     = os.getenv("ES_USER", "elastic")
 ES_PASSWORD = os.getenv("ES_PASSWORD", "")
 ES_INDEX    = os.getenv("ES_INDEX", "ead_components")
 DATA_DIR    = Path(os.getenv("DATA_DIR", Path(__file__).parent.parent.parent / "data" / "calames"))
+
+# Corpus de test (?corpus=test) : réindexé à chaque démarrage de l'API.
+TEST_ES_INDEX = os.getenv("TEST_ES_INDEX", "ead_components_test")
+TEST_DATA_DIR = Path(os.getenv("TEST_DATA_DIR", Path(__file__).parent.parent.parent / "data" / "test"))
 
 # Dépôt de fichiers (désactivé si UPLOAD_TOKEN est vide)
 UPLOAD_TOKEN   = os.getenv("UPLOAD_TOKEN", "")
@@ -84,10 +93,40 @@ WATCHER_STATE  = Path(os.getenv("STATE_FILE", "/state/watcher.json"))
 
 _es: Elasticsearch
 
+# Corpus of the current request, set by _select_corpus.
+_test_corpus: ContextVar[bool] = ContextVar("test_corpus", default=False)
+
+
+async def _select_corpus(
+    corpus: Optional[str] = Query(default=None, description="« test » : corpus de test (fichiers ad hoc)"),
+) -> None:
+    # Async so that the value is set in the request's context, which sync
+    # endpoints inherit when run in the thread pool.
+    if corpus not in (None, "", "test"):
+        raise HTTPException(status_code=400, detail=f"Corpus inconnu : {corpus}")
+    _test_corpus.set(corpus == "test")
+
+
+def _index() -> str:
+    return TEST_ES_INDEX if _test_corpus.get() else ES_INDEX
+
+
+def _data_dir() -> Path:
+    return TEST_DATA_DIR if _test_corpus.get() else DATA_DIR
+
 
 def _search(**kwargs: Any) -> Any:
     """Run a search on the components index (exact total hit count)."""
-    return _es.search(index=ES_INDEX, track_total_hits=True, **kwargs)
+    return _es.search(index=_index(), track_total_hits=True, **kwargs)
+
+
+def _index_test_corpus() -> None:
+    if TEST_ES_INDEX == ES_INDEX or not any(TEST_DATA_DIR.glob("*.xml")):
+        return  # corpus principal = corpus de test (dev.ps1 -Corpus test), ou pas de fichiers
+    try:
+        index_directory(TEST_DATA_DIR, ES_HOST, ES_USER, ES_PASSWORD, TEST_ES_INDEX)
+    except Exception as exc:
+        print(f"[corpus test] indexation impossible : {exc}")
 
 
 @asynccontextmanager
@@ -95,6 +134,7 @@ async def lifespan(app: FastAPI):
     global _es
     _es = Elasticsearch(ES_HOST, basic_auth=(ES_USER, ES_PASSWORD) if ES_PASSWORD else None,
                         request_timeout=30)
+    _index_test_corpus()
     _prompt_dir = Path(__file__).parent
     try:
         # Pre-fetch facet values to generate a live NL prompt with real index data.
@@ -137,6 +177,7 @@ app = FastAPI(
     description="Search and navigation API for EAD archival finding aids.",
     version="0.1.0",
     lifespan=lifespan,
+    dependencies=[Depends(_select_corpus)],
 )
 
 app.add_middleware(
@@ -154,7 +195,7 @@ app.add_middleware(
 def _get_by_id(node_id: str) -> dict:
     """Fetch a single document by node_id (the Elasticsearch _id)."""
     try:
-        return _es.get(index=ES_INDEX, id=node_id)["_source"]
+        return _es.get(index=_index(), id=node_id)["_source"]
     except NotFoundError:
         raise HTTPException(status_code=404, detail=f"Component not found: {node_id}")
 
@@ -311,7 +352,7 @@ def get_ancestors(node_id: str = Query(..., description="Component node_id")) ->
 
     # mget returns the documents in the order of ancestor_ids (root first).
     result = _es.mget(
-        index=ES_INDEX,
+        index=_index(),
         ids=ancestor_ids,
         source_includes=["node_id", "level", "depth", "title", "unitid", "ead_id"],
     )
@@ -329,9 +370,9 @@ def get_raw(node_id: str = Query(..., description="Component node_id")) -> str:
     if not source_file:
         raise HTTPException(status_code=404, detail="Source file not recorded for this component (reindex needed)")
 
-    ead_path = DATA_DIR / source_file
+    ead_path = _data_dir() / source_file
     if not ead_path.exists():
-        ead_path = DATA_DIR.parent / source_file
+        ead_path = _data_dir().parent / source_file
     if not ead_path.exists():
         raise HTTPException(status_code=404, detail=f"EAD file not found: {source_file}")
 
@@ -350,6 +391,12 @@ def list_files() -> dict:
     List the .xml files of DATA_DIR with the status written by the watcher :
     pending (pas encore vu), indexing, indexed, error.
     """
+    if _test_corpus.get():
+        # Indexé au démarrage de l'API, sans watcher ; pas de dépôt.
+        return {"upload_enabled": False, "files": [
+            {"name": p.name, "size": p.stat().st_size, "status": "indexed",
+             "docs": None, "error": None, "updated_at": None}
+            for p in sorted(TEST_DATA_DIR.glob("*.xml"))]}
     try:
         state = json.loads(WATCHER_STATE.read_text(encoding="utf-8"))
     except (FileNotFoundError, json.JSONDecodeError):
@@ -380,6 +427,8 @@ async def upload(
 ) -> dict:
     if not UPLOAD_TOKEN:
         raise HTTPException(status_code=403, detail="Le dépôt de fichiers est désactivé sur ce serveur.")
+    if _test_corpus.get():
+        raise HTTPException(status_code=403, detail="Pas de dépôt dans le corpus de test.")
     if not secrets.compare_digest(x_upload_token, UPLOAD_TOKEN):
         raise HTTPException(status_code=401, detail="Jeton de dépôt invalide.")
 

@@ -281,7 +281,7 @@ import { levelLabel } from '../utils/levels'
 import { useRoute, useRouter, RouterLink } from 'vue-router'
 import ChildrenDensity from '../components/ChildrenDensity.vue'
 import { componentPath as cPath, encodeNodeId } from '../router'
-import { api, BASE } from '../api'
+import { api, apiUrl } from '../api'
 
 const route = useRoute()
 const router = useRouter()
@@ -484,13 +484,7 @@ function componentPath(hit) {
   return cPath(hit.node_id)
 }
 
-function buildApiUrl(path, params) {
-  const url = new URL(BASE + path)
-  Object.entries(params).forEach(([k, v]) => {
-    if (v !== null && v !== undefined && v !== '') url.searchParams.set(k, v)
-  })
-  return url.toString()
-}
+const buildApiUrl = apiUrl
 
 function currentSearchApiUrl() {
   if (nlMode.value) return buildApiUrl('/nlsearch', { q: q.value, limit: 20 })

@@ -75,6 +75,8 @@ services:
     volumes:
       - ${EAD_DIR:-ead_data}:/data/ead
       - watcher_state:/state:ro
+      # Corpus de test (?corpus=test), indexé au démarrage de l'API
+      - ./data/test:/data/test:ro
     environment:
       ES_HOST: http://elasticsearch:9200
       ES_PASSWORD: ${ELASTIC_PASSWORD}

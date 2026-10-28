@@ -48,6 +48,15 @@ header.site-header {
   align-items: center;
   gap: 1.5rem;
 }
+.corpus-banner {
+  background: var(--color-accent);
+  color: #fff;
+  text-align: center;
+  font-size: .9rem;
+  padding: .3rem 1rem;
+}
+.corpus-banner a { color: #fff; text-decoration: underline; }
+
 header.site-header .logo {
   font-size: 1.15rem;
   font-weight: bold;

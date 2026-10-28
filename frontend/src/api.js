@@ -1,10 +1,31 @@
 export const BASE = import.meta.env.VITE_API_URL ?? 'http://localhost:8000'
 
-async function fetchOk(path, params) {
+// Corpus de test : ouvrir le site avec ?corpus=test (mémorisé pour l'onglet,
+// ?corpus= pour revenir au corpus principal).
+function initCorpus() {
+  try {
+    const param = new URLSearchParams(window.location.search).get('corpus')
+    if (param !== null) {
+      if (param) sessionStorage.setItem('corpus', param)
+      else sessionStorage.removeItem('corpus')
+    }
+    return sessionStorage.getItem('corpus') || ''
+  } catch {
+    return ''
+  }
+}
+export const CORPUS = initCorpus()
+
+export function apiUrl(path, params = {}) {
   const url = new URL(BASE + path, window.location.origin)
-  Object.entries(params).forEach(([k, v]) => {
+  Object.entries({ ...params, corpus: CORPUS }).forEach(([k, v]) => {
     if (v !== null && v !== undefined && v !== '') url.searchParams.set(k, v)
   })
+  return url.toString()
+}
+
+async function fetchOk(path, params) {
+  const url = apiUrl(path, params)
   const res = await fetch(url)
   if (!res.ok) throw new Error(`API error ${res.status}: ${url}`)
   return res
@@ -30,7 +51,7 @@ export const api = {
   upload: async (file, token) => {
     const body = new FormData()
     body.append('file', file)
-    const res = await fetch(new URL(BASE + '/upload', window.location.origin), {
+    const res = await fetch(apiUrl('/upload'), {
       method: 'POST', body, headers: { 'X-Upload-Token': token },
     })
     const data = await res.json().catch(() => ({}))
