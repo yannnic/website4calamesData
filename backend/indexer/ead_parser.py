@@ -10,6 +10,7 @@ Each component is a flat dict ready to be pushed to Elasticsearch.
 from __future__ import annotations
 
 import re
+import textwrap
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Optional
@@ -150,6 +151,10 @@ class Component:
 
     # Children (used during tree construction, not indexed)
     children: list["Component"] = field(default_factory=list, repr=False)
+
+    # Comment before <ead> (root only): the test files describe there what they
+    # test. Displayed, not searched.
+    file_comment: str = ""
 
 
 # ---------------------------------------------------------------------------
@@ -764,10 +769,21 @@ def parse_ead(path: Path) -> Component:
 
     if not root_comp.repository and publisher:
         root_comp.repository = publisher
+    root_comp.file_comment = _leading_comment(root)
 
     _propagate_dates_up(root_comp)
 
     return root_comp
+
+
+def _leading_comment(root: etree._Element) -> str:
+    """Text of the comments before the root element, with their indentation removed."""
+    texts = []
+    for node in reversed(list(root.itersiblings(preceding=True))):
+        if isinstance(node, etree._Comment) and (node.text or "").strip():
+            first, *rest = node.text.strip("\n").splitlines()
+            texts.append("\n".join([first.strip()] + textwrap.dedent("\n".join(rest)).splitlines()).strip())
+    return "\n\n".join(texts)
 
 
 # ---------------------------------------------------------------------------
@@ -934,6 +950,8 @@ def components_to_docs(root: Component, anchor: Anchor | None = None,
     root_doc = docs[0]
     root_doc["file_root"] = True
     root_doc["own_children_count"] = len(root.children)
+    if root.file_comment:
+        root_doc["file_comment"] = root.file_comment   # in _source only (not mapped)
     root_doc["children_count"] = len(root.children) + attached_count
     # The root's own children see the attached files as siblings.
     if attached_count:

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Test : physfacet/@type indexé comme champ de recherche et facette
+<!-- Teste : le texte de <physfacet> est cherchable et son @type sert de facette.
      Attendu :
        phys_facets      = ["aquarelle", "encre"] (texte)
        phys_facet_types = ["technique", "support"]  (@type)

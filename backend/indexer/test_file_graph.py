@@ -1,6 +1,7 @@
 """
-Tests du placement des fichiers EAD selon liaisons.tsv (liaisons.py) : inclusion
-et succession. Sans Elasticsearch.
+Teste : le placement et l'ordre des fichiers EAD selon liaisons.tsv (inclusion,
+succession, parent absent, FileId partagé, boucle), la lecture de liaisons.tsv et
+celle du FileId dans l'eadid. Sans Elasticsearch.
 
     cd backend/indexer
     python -m pytest test_file_graph.py -v

@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Test : distinction personne / personne morale / famille
+<!-- Teste : les noms de personnes, de collectivités et de familles du <controlaccess>
+     vont chacun dans leur propre champ, sous leur forme normalisée (@normal), et
+     s'accumulent d'un niveau à l'autre (héritage cumulatif).
+
+     Structure :
+       Fonds agents   persname « Martin, Paul » (@normal ; texte « Martin, Paul (1920-2000) »,
+                      IdRef 123456789), corpname « Ministère de la Culture »,
+                      famname « Famille Dupont »
+       └── Série A    persname « Durand, Marie », famname « Famille Bernard »
+
      Attendu :
-       pers_names  = ["Martin, Paul"]
-       corp_names  = ["Ministère de la Culture"]
-       fam_names   = ["Famille Dupont"]
-       héritage cumulatif entre niveaux
+       Fonds   pers_names = Martin, Paul           (forme @normal, pas le texte)
+               corp_names = Ministère de la Culture
+               fam_names  = Famille Dupont         (pas dans pers_names)
+               pers_name_ids contient « Martin, Paul||123456789 » (lien IdRef)
+       Série A pers_names = Durand, Marie ; Martin, Paul       (propre + hérité)
+               fam_names  = Famille Bernard ; Famille Dupont   (propre + hérité)
+               corp_names = Ministère de la Culture            (hérité seulement)
 -->
 <ead>
   <eadheader><eadid>test-agents</eadid></eadheader>

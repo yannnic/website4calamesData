@@ -1,6 +1,7 @@
 """
-Tests de la configuration du LLM côté client (en-têtes X-LLM-*). Sans Elasticsearch
-ni appel réel au LLM.
+Teste : le choix de la configuration du LLM (réglages du client, envoyés en en-têtes
+X-LLM-*, sinon ceux du serveur), que la clé du serveur n'est jamais envoyée à une
+URL choisie par le client, et /llm/check. Sans Elasticsearch ni appel réel au LLM.
 
     cd backend
     python -m pytest api/test_llm.py -v

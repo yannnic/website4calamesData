@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Test : liaisons entre fichiers. Inclus dans le maître 9001, rang 1.
+<!-- Teste : l'inclusion au rang indiqué : inclus dans le maître 9001 au rang 1, il
+     vient en premier parmi les fichiers rattachés.
      Voir test_liaisons_maitre.xml. -->
 <ead>
   <eadheader>

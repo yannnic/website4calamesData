@@ -64,6 +64,7 @@
                 <span v-if="fonds.date_display">{{ fonds.date_display }}</span>
               </div>
               <p v-if="fonds.abstract" class="excerpt">{{ fonds.abstract }}</p>
+              <TestFileComment :comment="fonds.file_comment" summary />
             </li>
           </ul>
         </details>
@@ -81,6 +82,7 @@ import { ref, computed, watch, onMounted } from 'vue'
 import { useRouter, RouterLink } from 'vue-router'
 import { api } from '../api'
 import ChildrenDensity from '../components/ChildrenDensity.vue'
+import TestFileComment from '../components/TestFileComment.vue'
 
 const router = useRouter()
 const q = ref('')

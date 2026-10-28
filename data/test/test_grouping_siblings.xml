@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Test : regroupement hiérarchique, règle des N frères (N = SIBLING_THRESHOLD = 3).
+<!-- Teste : la règle des N frères du regroupement (au moins 3 enfants trouvés → le
+     parent les remplace), comparée à la règle de couverture sur les mêmes données.
      Le mot cherché « zephyrin » n'apparaît que dans les titres indiqués.
 
      fonds (2 séries, ne correspond pas)

@@ -1,6 +1,6 @@
 """
-Tests de find_element() (endpoint /raw) : chaque node_id produit par l'indexation
-doit désigner l'élément XML du composant, y compris sans @id (auto-N).
+Teste : find_element() (endpoint /raw) retrouve l'élément XML de chaque composant
+indexé, avec ou sans @id (auto-N) ; et le repli de l'ead_id quand <eadid> est vide.
 
     cd backend/indexer
     python -m pytest test_find_element.py -v

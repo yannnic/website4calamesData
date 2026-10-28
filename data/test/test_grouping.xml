@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Test : regroupement hiérarchique (backend/api/grouping.py), règle de couverture.
+<!-- Teste : la règle de couverture du regroupement des résultats : un parent remplace
+     ses descendants trouvés quand au moins 75 % de ses enfants sont trouvés,
+     y compris en cascade sur plusieurs niveaux.
      Le mot cherché « zephyrin » n'apparaît que dans les titres indiqués.
 
      fonds (5 séries, ne correspond pas)

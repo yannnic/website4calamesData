@@ -153,6 +153,8 @@
           <span v-if="comp.unitid && comp.date_display"> &nbsp;·&nbsp; </span>
           <span v-if="comp.date_display">{{ comp.date_display }}</span>
         </div>
+        <!-- Racine d'un fichier rattaché (liaisons) : sa description de test -->
+        <TestFileComment :comment="comp.file_comment" />
 
         <!-- Description -->
         <div v-if="comp.abstract || comp.scope_content || comp.biography" class="description-block">
@@ -264,6 +266,7 @@ import { levelLabel } from '../utils/levels'
 import ComponentTree from '../components/ComponentTree.vue'
 import ChildrenDensity from '../components/ChildrenDensity.vue'
 import TreeNode from '../components/TreeNode.vue'
+import TestFileComment from '../components/TestFileComment.vue'
 
 const route  = useRoute()
 const router = useRouter()

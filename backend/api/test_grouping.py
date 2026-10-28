@@ -1,5 +1,7 @@
 """
-Tests du regroupement hiérarchique (grouping.py) sur un index Elasticsearch réel.
+Teste : le regroupement des résultats de /search (règle de couverture par défaut,
+règle des N frères avec sibling_grouping) : quels parents remplacent leurs
+descendants trouvés, et les totaux renvoyés.
 
 Indexe data/test/test_grouping*.xml dans un index temporaire, interroge /search et
 compare aux résultats attendus décrits en tête de chaque fichier XML.

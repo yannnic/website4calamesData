@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Test : liaisons entre fichiers. Successeur de 9003 (volume 2) : placé juste
-     après lui, sous le même parent. Comme dans Calames, @url donne le FileId du
-     premier fichier de la chaîne (9003), @identifier celui du fichier (9004).
+<!-- Teste : la succession : successeur de 9003 (volume 2), il est placé juste après
+     lui, sous le même parent. Teste aussi la lecture du FileId : comme dans Calames,
+     @url donne celui du premier fichier de la chaîne (9003), @identifier le sien (9004).
      Voir test_liaisons_maitre.xml. -->
 <ead>
   <eadheader>

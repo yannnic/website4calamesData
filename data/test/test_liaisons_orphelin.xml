@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Test : liaisons entre fichiers. Inclus dans 9999, absent du corpus : remonte
-     au plus proche ancêtre présent, le maître 9001, à la place de 9999.
+<!-- Teste : un fichier dont le parent (9999) est absent du corpus est rattaché au plus
+     proche ancêtre présent (le maître 9001), à la place du parent manquant.
      Voir test_liaisons_maitre.xml. -->
 <ead>
   <eadheader>

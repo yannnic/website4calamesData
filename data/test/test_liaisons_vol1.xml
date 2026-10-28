@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Test : liaisons entre fichiers. Inclus dans le maître 9001, rang 2.
+<!-- Teste : l'inclusion au rang indiqué : inclus dans le maître 9001 au rang 2, il
+     vient après le volume 2 (rang 1) bien que son FileId soit plus petit.
      Voir test_liaisons_maitre.xml. -->
 <ead>
   <eadheader>

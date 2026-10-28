@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Test : héritage cumulatif des sujets, lieux, genres, personnes
+<!-- Teste : l'héritage cumulatif : un composant garde ses sujets, lieux, genres et
+     personnes, et y ajoute ceux de tous ses ancêtres (sans doublon, les siens d'abord).
      Fonds : sujet="Photographie"
      Série : sujet="Presse"
      Dossier : sujet="Sport"

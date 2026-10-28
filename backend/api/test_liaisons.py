@@ -1,5 +1,7 @@
 """
-Tests des liaisons entre fichiers EAD (liaisons.tsv) sur un index Elasticsearch réel.
+Teste : l'indexation et l'API de fichiers EAD liés (liaisons.tsv) : ordre des
+fichiers rattachés sous leur parent, héritage à travers les fichiers, fil d'Ariane,
+filtre ead_id, mise à jour incrémentale (comme le watcher) et /raw.
 
 Indexe data/test/test_liaisons*.xml avec data/test/liaisons.tsv dans un index
 temporaire et vérifie l'arborescence décrite en tête de test_liaisons_maitre.xml.

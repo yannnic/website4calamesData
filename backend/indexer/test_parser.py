@@ -1,4 +1,12 @@
-"""Tests ciblés pour ead_parser.py — run with: python test_parser.py"""
+"""
+Teste : les règles d'extraction et d'héritage du parseur EAD (dates héritées et
+remontées, héritage simple et cumulatif, agents, physfacet, genreform), chacune
+sur le fichier data/test correspondant ; et le commentaire de tête des fichiers de
+test (file_comment), affiché dans l'interface pour le corpus de test.
+
+    cd backend/indexer
+    python -m pytest test_parser.py -v     (ou python test_parser.py)
+"""
 
 from pathlib import Path
 from ead_parser import parse_ead, components_to_docs
@@ -213,6 +221,22 @@ def test_genreform():
 
 
 # ---------------------------------------------------------------------------
+# Commentaire de tête (file_comment)
+# ---------------------------------------------------------------------------
+
+def test_file_comment():
+    print("\n=== file_comment ===")
+    root = parse_ead(TEST_DIR / "test_liaisons_vol1.xml")
+    check("commentaire de tête, indentation retirée", root.file_comment,
+          "Teste : l'inclusion au rang indiqué : inclus dans le maître 9001 au rang 2, il\n"
+          "vient après le volume 2 (rang 1) bien que son FileId soit plus petit.\n"
+          "Voir test_liaisons_maitre.xml.")
+    docs = components_to_docs(root)
+    check("seulement sur le document racine", [("file_comment" in d) for d in docs],
+          [True] + [False] * (len(docs) - 1))
+
+
+# ---------------------------------------------------------------------------
 
 if __name__ == "__main__":
     test_date_bottomup()
@@ -222,4 +246,5 @@ if __name__ == "__main__":
     test_agents()
     test_physfacet()
     test_genreform()
+    test_file_comment()
     print("\nTerminé.")

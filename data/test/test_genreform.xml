@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Test : genreform indexé par @type
+<!-- Teste : chaque <genreform> est rangé selon son @type (genre, type de document,
+     technique) dans un champ dédié, en plus du champ commun genre_forms_norm.
      Attendu :
        genre_forms_norm = ["correspondance", "manuscrit", "aquarelle"]  (tous)
        gff_norm         = ["correspondance"]   (@type="genre")

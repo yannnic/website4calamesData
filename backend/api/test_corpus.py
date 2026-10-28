@@ -1,6 +1,7 @@
 """
-Tests du paramètre corpus=test : le corpus de test (data/test) est indexé au
-démarrage de l'API et interrogeable sans la relancer.
+Teste : le corpus de test (data/test) est indexé au démarrage de l'API et
+interrogeable avec corpus=test (recherche, /raw, /files) sans relancer l'API ;
+un corpus inconnu est refusé.
 Ignorés si Elasticsearch ne répond pas sur ES_HOST.
 
     cd backend

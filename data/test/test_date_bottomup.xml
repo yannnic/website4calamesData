@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Test : remontée bottom-up des dates
+<!-- Teste : un composant sans date reçoit l'étendue des dates de ses descendants
+     (plus petit début, plus grande fin) ; un composant daté garde la sienne.
      Le fonds n'a pas de date. Ses enfants en ont.
      Attendu : fonds → 1950/1985, série-B → 1950/1985, série-E → 1920/1930 (inchangé)
 -->

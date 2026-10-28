@@ -310,7 +310,7 @@ def list_fonds() -> list[dict]:
             "node_id", "ead_id", "title", "unitid",
             "date_display", "date_normal", "date_start", "date_end",
             "repository", "repository_id", "creators", "abstract", "languages",
-            "children_count",
+            "children_count", "file_comment",
         ],
     )
     return hits_of(result)

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Test : héritage top-down des dates
+<!-- Teste : un composant sans date hérite de la date de son plus proche ancêtre daté ;
+     un composant daté garde la sienne.
      Le fonds a une date. Un enfant n'en a pas → il hérite du fonds.
      Un autre enfant a sa propre date → il la conserve.
      Attendu : dossier-sans-date → 1900/2000, dossier-avec-date → 1955/1960

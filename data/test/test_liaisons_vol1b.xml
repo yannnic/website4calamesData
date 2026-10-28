@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Test : liaisons entre fichiers. Sans FileId propre : son @url donne celui du
-     volume 1 (9002), détenu par test_liaisons_vol1.xml. Placé juste après lui.
+<!-- Teste : un fichier sans FileId propre (seulement @url, qui donne celui du volume 1,
+     9002) est placé juste après le fichier qui détient ce FileId.
      Voir test_liaisons_maitre.xml. -->
 <ead>
   <eadheader>

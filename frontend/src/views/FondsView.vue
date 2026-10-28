@@ -10,6 +10,7 @@
         <span v-if="fonds.date_display">{{ fonds.date_display }} &nbsp;·&nbsp; </span>
         <span>{{ fonds.repository }}</span>
       </div>
+      <TestFileComment :comment="fonds.file_comment" />
 
       <div style="display:grid;grid-template-columns:1fr 340px;gap:1.5rem;align-items:start">
         <!-- Arbre de navigation -->
@@ -80,6 +81,7 @@ import { ref, onMounted } from 'vue'
 import { useRoute, RouterLink } from 'vue-router'
 import { api } from '../api'
 import ComponentTree from '../components/ComponentTree.vue'
+import TestFileComment from '../components/TestFileComment.vue'
 
 const route = useRoute()
 const fonds = ref(null)

@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Test : héritage simple (langue, repository, accessrestrict, userestrict)
+<!-- Teste : l'héritage simple : un composant sans langue, organisme responsable,
+     conditions d'accès ou d'utilisation prend celles du plus proche ancêtre,
+     sauf s'il déclare les siennes.
      Le fonds déclare tout. Les enfants n'ont rien.
      Un petit-enfant redéclare sa propre langue → il ne doit pas hériter.
      Attendu (série)         : langue=fre, repo="Biblio test", accessrestrict hérité

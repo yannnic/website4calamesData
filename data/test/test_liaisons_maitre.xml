@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Test : liaisons entre fichiers (liaisons.tsv), fichier maître (FileId 9001).
+<!-- Teste : le réassemblage de fichiers EAD liés (liaisons.tsv) en une seule hiérarchie :
+     inclusion au rang indiqué, succession juste après le précédent, parent absent du
+     corpus, FileId lu dans l'eadid, et héritage du maître vers les fichiers rattachés.
+     Ce fichier est le maître (FileId 9001) ; il va avec les autres test_liaisons_*.xml.
 
      Arborescence attendue après indexation :
 
