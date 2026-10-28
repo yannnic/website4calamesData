@@ -1131,3 +1131,43 @@ def components_to_docs(root: Component, anchor: Anchor | None = None,
             if doc["parent_id"] == root.node_id:
                 doc["parent_children_count"] = root_doc["children_count"]
     return docs
+
+
+# Positions of the components of the k-th file of a succession chain under the
+# head's root: after the head's own children and its attached files.
+SUCCESSION_POSITION_STEP = 1_000_000
+
+
+def successor_docs(root: Component, head: Anchor, chain_index: int) -> list[dict]:
+    """
+    Documents of a file that continues a succession chain (liaisons) whose head's
+    root is `head`: its root (archdesc, a repetition of the fonds) is not indexed;
+    its top-level components become children of the head's root, after those of
+    the earlier files of the chain (chain_index: 1 for the first successor).
+    They inherit from their own root, itself inheriting from the head.
+    """
+    ctx = _build_inherited_context(root, head.ctx)
+    docs: list[dict] = []
+    for i, child in enumerate(root.children):
+        _rehome(child, root.node_id, head)
+        _walk_and_index(child, ctx, docs, position=chain_index * SUCCESSION_POSITION_STEP + i,
+                        ancestor_titles=head.ancestor_titles,
+                        parent_children_count=head.children_count)
+    unitids = dict(zip(head.ancestor_ids, head.ancestor_unitids))
+    unitids.update((doc["node_id"], doc["unitid"]) for doc in docs)
+    ead_ids = head.ead_ids + [root.ead_id]
+    for doc in docs:
+        doc["ancestor_unitids"] = [unitids.get(a, "") for a in doc["ancestor_ids"]]
+        doc["file_root"] = False
+        doc["ead_ids"] = ead_ids
+    return docs
+
+
+def _rehome(comp: Component, old_root_id: str, head: Anchor) -> None:
+    """Move a component of a successor file under the head's root (in place of its own root)."""
+    comp.depth += head.depth
+    comp.ancestor_ids = head.ancestor_ids + comp.ancestor_ids[1:]
+    if comp.parent_id == old_root_id:
+        comp.parent_id = head.node_id
+    for child in comp.children:
+        _rehome(child, old_root_id, head)

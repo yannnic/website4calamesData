@@ -1,6 +1,6 @@
 """
 Teste : le placement et l'ordre des fichiers EAD selon liaisons.tsv (inclusion,
-succession, parent absent, FileId partagé, boucle), la lecture de liaisons.tsv et
+succession fusionnée dans le fichier de tête, parent absent, FileId partagé, boucle), la lecture de liaisons.tsv et
 celle du FileId dans l'eadid. Sans Elasticsearch.
 
     cd backend/indexer
@@ -69,16 +69,18 @@ def test_missing_parent_climbs_to_nearest_present_ancestor():
 # Succession
 # ---------------------------------------------------------------------------
 
-def test_succession_chain_comes_right_after_its_predecessor():
+def test_succession_chain_is_merged_into_its_head():
+    # Comme Calames : une chaîne de succession forme un seul fonds, celui du premier fichier.
     g = graph(tsv(("1", "Maître", 0, 0, 0),
                   ("2", "Volume 1", 0, 1, 1),
                   ("3", "Volume 1 suite", 2, 0, 0),
                   ("4", "Volume 1 suite 2", 3, 0, 0),
                   ("5", "Volume 2", 0, 1, 2)),
               {"maitre.xml": "1", "v1.xml": "2", "v1s.xml": "3", "v1s2.xml": "4", "v2.xml": "5"})
-    # Même parent que le premier de la chaîne, avant le frère suivant de celui-ci.
-    assert g.children_of("maitre.xml") == ["v1.xml", "v1s.xml", "v1s2.xml", "v2.xml"]
-    assert g.parent_of("v1s2.xml") == "maitre.xml"
+    assert g.children_of("maitre.xml") == ["v1.xml", "v2.xml"]     # plus de frères en double
+    assert g.successors_of("v1.xml") == ["v1s.xml", "v1s2.xml"]    # dans l'ordre de la chaîne
+    assert g.merged_into("v1s2.xml") == "v1.xml" and g.parent_of("v1s2.xml") == "v1.xml"
+    assert g.order() == ["maitre.xml", "v1.xml", "v1s.xml", "v1s2.xml", "v2.xml"]
 
 
 def test_several_successors_of_the_same_file():
@@ -91,26 +93,36 @@ def test_several_successors_of_the_same_file():
                   ("6", "Archives 6", 0, 1, 6)),
               {"maitre.xml": "1", "5.xml": "2", "5c.xml": "4300", "5b.xml": "4309",
                "5a.xml": "4682", "6.xml": "6"})
-    assert g.children_of("maitre.xml") == ["5.xml", "5a.xml", "5b.xml", "5c.xml", "6.xml"]
+    assert g.children_of("maitre.xml") == ["5.xml", "6.xml"]
+    assert g.successors_of("5.xml") == ["5a.xml", "5b.xml", "5c.xml"]
 
 
-def test_successor_of_a_top_level_file_stays_top_level():
+def test_successor_of_a_top_level_file_is_merged_too():
     g = graph(tsv(("1", "Fonds", 0, 0, 0),
                   ("2", "Fonds suite", 1, 0, 0),
                   ("3", "Autre fonds", 0, 0, 1)),
               {"fonds.xml": "1", "suite.xml": "2", "autre.xml": "3"})
-    assert g.parent_of("suite.xml") is None
-    assert g.children_of(None) == ["fonds.xml", "suite.xml", "autre.xml"]
+    assert g.children_of(None) == ["fonds.xml", "autre.xml"]
+    assert g.successors_of("fonds.xml") == ["suite.xml"]
 
 
 def test_successor_of_a_missing_file_keeps_its_place():
-    # 3 suit 2, absent du corpus mais inclus dans 1 au rang 1.
+    # 3 suit 2, absent du corpus mais inclus dans 1 au rang 1 : pas de tête présente,
+    # le fichier reste à la place de 2.
     g = graph(tsv(("1", "Maître", 0, 0, 0),
                   ("2", "Absent", 0, 1, 1),
                   ("3", "Suite de l'absent", 2, 0, 0),
                   ("4", "Volume", 0, 1, 2)),
               {"maitre.xml": "1", "suite.xml": "3", "volume.xml": "4"})
     assert g.children_of("maitre.xml") == ["suite.xml", "volume.xml"]
+    assert g.merged_into("suite.xml") is None
+
+
+def test_chain_with_a_missing_link_still_merges_into_the_head():
+    # 3 suit 2 (absent), qui suit 1 : 3 continue le fonds de 1.
+    g = graph(tsv(("1", "Fonds", 0, 0, 0), ("2", "Absent", 1, 0, 0), ("3", "Fin", 2, 0, 0)),
+              {"fonds.xml": "1", "fin.xml": "3"})
+    assert g.merged_into("fin.xml") == "fonds.xml"
 
 
 def test_successor_of_an_included_file_with_its_own_inclusions():
@@ -120,7 +132,8 @@ def test_successor_of_an_included_file_with_its_own_inclusions():
                   ("3", "Partie 2", 2, 0, 0),
                   ("4", "Partie 2, annexe", 0, 3, 1)),
               {"maitre.xml": "1", "p1.xml": "2", "p2.xml": "3", "annexe.xml": "4"})
-    assert g.children_of("maitre.xml") == ["p1.xml", "p2.xml"]
+    assert g.children_of("maitre.xml") == ["p1.xml"]
+    assert g.successors_of("p1.xml") == ["p2.xml"]
     assert g.children_of("p2.xml") == ["annexe.xml"]
     assert g.order() == ["maitre.xml", "p1.xml", "p2.xml", "annexe.xml"]
 

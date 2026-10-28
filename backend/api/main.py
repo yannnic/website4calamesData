@@ -369,7 +369,11 @@ def resolve(id: str = Query(..., description="Identifiant Calames : FileId-<N> o
     @id of a component. The frontend redirects /pub/ms/<id> with it.
     """
     m = re.fullmatch(r"FileId-(\d+)", id.strip(), re.I)
-    query = ({"bool": {"filter": [{"term": {"file_id": m.group(1)}}, {"term": {"file_root": True}}]}}
+    # A file merged into the head of its succession chain leads to the head.
+    query = ({"bool": {"should": [
+                {"bool": {"filter": [{"term": {"file_id": m.group(1)}}, {"term": {"file_root": True}}]}},
+                {"term": {"merged_file_ids": m.group(1)}},
+             ], "minimum_should_match": 1}}
              if m else {"term": {"xml_id": id.strip()}})
     hits = hits_of(_search(query=query, size=1, source_includes=["node_id", "ead_id", "depth"]))
     if not hits:

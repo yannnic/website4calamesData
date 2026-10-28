@@ -76,7 +76,7 @@ La recherche doit tenir compte de ces héritages : un composant peut être trouv
 
 ### Liaisons entre fichiers
 
-Certaines bibliothèques ont des inventaires découpés en plusieurs fichiers EAD, que Calames réorganise par relations d'**inclusion** (un fichier rattaché sous la racine d'un fichier maître, à un rang donné) et de **succession** (un fichier placé juste après un autre). Ces relations sont décrites dans `liaisons.tsv` (https://calames.abes.fr/prod/lstfiles.aspx?chemin=CalamesData%5Csvdata%5C&filtre=liaisons.tsv). Les fichiers liés forment une seule hiérarchie : l'héritage, la navigation et le regroupement les traversent. Détails dans `INDEXING.md`.
+Certaines bibliothèques ont des inventaires découpés en plusieurs fichiers EAD, que Calames réorganise par relations d'**inclusion** (un fichier rattaché sous la racine d'un fichier maître, à un rang donné) et de **succession** (un fichier qui en continue un autre : une chaîne de succession forme un seul fonds, les composants des fichiers suivants s'ajoutant à ceux du premier). Ces relations sont décrites dans `liaisons.tsv` (https://calames.abes.fr/prod/lstfiles.aspx?chemin=CalamesData%5Csvdata%5C&filtre=liaisons.tsv). Les fichiers liés forment une seule hiérarchie : l'héritage, la navigation et le regroupement les traversent. Détails dans `INDEXING.md`.
 
 ### Regroupement par parent
 

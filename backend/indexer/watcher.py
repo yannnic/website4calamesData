@@ -259,12 +259,13 @@ def main() -> None:
                 if name in state:
                     state[name]["updated_at"] = datetime.now(timezone.utc).isoformat(timespec="seconds")
 
-            # Parents that gained or lost attached files, or whose order changed.
+            # Parents that gained or lost attached (or merged) files, or whose order changed.
             parents = {p for n in set(old_graph.order()) | set(graph.order())
                        for p in (old_graph.parent_of(n), graph.parent_of(n)) if p}
             for parent in sorted(parents):
                 if parent in graph and (sync_all or parent in done or
-                                        old_graph.children_of(parent) != graph.children_of(parent)):
+                                        old_graph.children_of(parent) != graph.children_of(parent) or
+                                        old_graph.successors_of(parent) != graph.successors_of(parent)):
                     try:
                         sync_attached(client, ES_INDEX, graph, parent)
                     except Exception as exc:

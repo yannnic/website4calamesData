@@ -5,7 +5,10 @@ Large inventories are split into several EAD files which Calames reassembles
 into a single hierarchy:
   - inclusion  : a file is attached under the root (archdesc) of a parent file,
                  at a given rank among the parent's attached files;
-  - succession : a file comes right after another one, under the same parent.
+  - succession : a file continues another one: Calames shows a succession chain
+                 as a single fonds. The top-level components of the following
+                 files are appended to the children of the first file's root;
+                 their own root (archdesc) does not appear in the tree.
 
 liaisons.tsv has one line per file (tab-separated, no header):
 
@@ -123,6 +126,11 @@ class FileGraph:
     whose parent is absent from the corpus climbs to the nearest present
     ancestor, keeping its place in the order; a file without liaison stands
     alone at the top level.
+
+    A file whose predecessor (or an earlier file of its succession chain) is
+    present is merged into the head of its chain: merged_into() gives the head,
+    successors_of() the merged files of a head, in chain order. parent_of() of a
+    merged file is its head; it is not among anybody's children_of().
     """
 
     def __init__(self, liaisons: dict[str, Liaison], file_ids: dict[str, FileRef | None]):
@@ -148,10 +156,34 @@ class FileGraph:
                 key += (0, name.casefold(), 0)
             self._parent[name] = self._name_of.get(parent_fid) if parent_fid else None
             self._key[name] = (0,) + key
+        self._merged_into: dict[str, str] = {}
+        for name, ref in file_ids.items():
+            if ref and (head := self._chain_head(name, ref[0])):
+                self._merged_into[name] = head
+        for name, head in self._merged_into.items():
+            self._parent[name] = head
         self._break_cycles()
         self._children: dict[str | None, list[str]] = {}
+        self._successors: dict[str, list[str]] = {}
         for name in sorted(self._parent, key=lambda n: self._key[n]):
-            self._children.setdefault(self._parent[name], []).append(name)
+            if name in self._merged_into:
+                self._successors.setdefault(self._merged_into[name], []).append(name)
+            else:
+                self._children.setdefault(self._parent[name], []).append(name)
+
+    def _chain_head(self, name: str, fid: str) -> str | None:
+        """First present file of the succession chain that `name` continues, if any."""
+        head, seen = None, {fid}
+        lia = self._liaisons.get(fid)
+        prev = lia.previous if lia else ""
+        while prev and prev not in seen:
+            seen.add(prev)
+            present = self._name_of.get(prev)
+            if present and present != name:
+                head = present
+            lia = self._liaisons.get(prev)
+            prev = lia.previous if lia else ""
+        return head
 
     def _own_key(self, lia: Liaison) -> tuple:
         return (lia.rank, lia.label.casefold(), _fid_key(lia.file_id))
@@ -196,10 +228,18 @@ class FileGraph:
         """Files attached under `name` (None: top-level files), in display order."""
         return self._children.get(name, [])
 
+    def merged_into(self, name: str) -> str | None:
+        """Head of the succession chain a file is merged into, if any."""
+        return self._merged_into.get(name)
+
+    def successors_of(self, name: str) -> list[str]:
+        """Files merged into `name` (it heads their succession chain), in chain order."""
+        return self._successors.get(name, [])
+
     def descendants_of(self, name: str) -> list[str]:
-        """Every file below `name`, parents before children."""
+        """Every file below `name` (merged successors, attached files…), parents first."""
         out = []
-        for child in self.children_of(name):
+        for child in self.successors_of(name) + self.children_of(name):
             out.append(child)
             out.extend(self.descendants_of(child))
         return out

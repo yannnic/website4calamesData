@@ -38,8 +38,9 @@ MAITRE  = "test_liaisons_maitre.xml"
 FILES   = [MAITRE, "test_liaisons_vol1.xml", "test_liaisons_vol2.xml",
            "test_liaisons_vol2_suite.xml", "test_liaisons_vol1b.xml", "test_liaisons_orphelin.xml"]
 EXPECTED_CHILDREN = ["Présentation du fonds", "Correspondance, volume 2",
-                     "Correspondance, volume 2, suite", "Correspondance, volume 1",
-                     "Correspondance, volume 1 bis", "Manuscrits isolés"]
+                     "Correspondance, volume 1", "Correspondance, volume 1 bis", "Manuscrits isolés"]
+# Le volume 2 continué par son successeur (vol2_suite) : un seul fonds.
+VOL2_CHILDREN = ["Lettre sur les lichens", "Lettre sur les algues"]
 
 
 @pytest.fixture(scope="module")
@@ -53,9 +54,9 @@ def corpus(tmp_path_factory) -> Path:
 def test_graph_order(corpus):
     graph = build_graph(sorted(corpus.glob("*.xml")), corpus / "liaisons.tsv")
     assert graph.order()[0] == MAITRE
-    assert graph.children_of(MAITRE) == ["test_liaisons_vol2.xml", "test_liaisons_vol2_suite.xml",
-                                         "test_liaisons_vol1.xml", "test_liaisons_vol1b.xml",
-                                         "test_liaisons_orphelin.xml"]
+    assert graph.children_of(MAITRE) == ["test_liaisons_vol2.xml", "test_liaisons_vol1.xml",
+                                         "test_liaisons_vol1b.xml", "test_liaisons_orphelin.xml"]
+    assert graph.successors_of("test_liaisons_vol2.xml") == ["test_liaisons_vol2_suite.xml"]
     # Parent absent du corpus (9999) : rattaché au plus proche ancêtre présent.
     assert graph.parent_of("test_liaisons_orphelin.xml") == MAITRE
 
@@ -108,6 +109,20 @@ def test_children_order(client):
     assert root["children_count"] == len(EXPECTED_CHILDREN)
 
 
+def test_succession_merged_into_head(client):
+    vol2 = get(client, "/fonds/test-liaisons-vol2")
+    children = get(client, "/children", node_id=vol2["node_id"])
+    assert [c["title"] for c in children] == VOL2_CHILDREN
+    assert vol2["children_count"] == 2 and vol2["merged_file_ids"] == ["9004"]
+    # La racine du successeur n'est pas un composant ; son adresse Calames mène à la tête.
+    assert client.get("/fonds/test-liaisons-vol2-suite").status_code == 404
+    assert get(client, "/resolve", id="FileId-9004")["node_id"] == vol2["node_id"]
+    algues = get(client, "/component", node_id="test-liaisons-vol2-suite#v2s-1")
+    assert algues["parent_id"] == vol2["node_id"]
+    assert algues["date_normal"] == "1896-1910".replace("-", "/")      # date de son propre fichier
+    assert algues["ancestor_titles"] == ["Fonds Anselme Quillebeuf", "Correspondance, volume 2"]
+
+
 def test_attached_file_root(client):
     vol1 = get(client, "/fonds/test-liaisons-vol1")
     assert vol1["depth"] == 1
@@ -140,7 +155,7 @@ def test_search_restricted_to_master_covers_attached_files(client):
     res = get(client, "/search", q="lettre", ead_id="test-liaisons-maitre", limit=100)
     assert res["total_hits"] == 4
     res = get(client, "/search", q="lettre", ead_id="test-liaisons-vol2", limit=100)
-    assert res["total_hits"] == 1
+    assert res["total_hits"] == 2      # avec la lettre de son successeur
 
 
 def test_found_by_inherited_subject(client):
@@ -188,16 +203,16 @@ def test_fulltext_phrase(client):
 
 
 def test_tree_expansion(client):
-    # 6 enfants, 12 descendants (fichiers rattachés compris)
+    # 5 enfants, 11 descendants (fichiers rattachés et successeur compris)
     root = master_root(client)
-    assert root["descendants_count"] == 12
+    assert root["descendants_count"] == 11
     children = get(client, "/children", node_id=root["node_id"])
     assert {c["title"]: c["descendants_count"] for c in children}["Correspondance, volume 1"] == 2
     assert "scope_content" not in children[0]
     detailed = get(client, "/children", node_id=root["node_id"], details="true")
     assert "scope_content" in detailed[0]
     subtree = get(client, "/subtree", node_id=root["node_id"])
-    assert subtree["total"] == 12 == len(subtree["nodes"])
+    assert subtree["total"] == 11 == len(subtree["nodes"])
     # Parents avant enfants : l'arbre se reconstruit dans l'ordre de la réponse.
     seen = {root["node_id"]}
     for n in subtree["nodes"]:
@@ -207,15 +222,18 @@ def test_tree_expansion(client):
     assert res.status_code == 413
 
 def test_incremental_detach_and_reindex(es, client, corpus):
-    # Le watcher : suppression d'un fichier rattaché, puis mise à jour du maître.
+    # Le watcher : suppression du successeur, puis mise à jour de sa tête.
     (corpus / "test_liaisons_vol2_suite.xml").unlink()
     remove_file(es, TEST_INDEX, "test_liaisons_vol2_suite.xml")
     graph = build_graph(sorted(corpus.glob("*.xml")), corpus / "liaisons.tsv")
-    sync_attached(es, TEST_INDEX, graph, MAITRE)
+    sync_attached(es, TEST_INDEX, graph, "test_liaisons_vol2.xml")
+    vol2 = get(client, "/fonds/test-liaisons-vol2")
+    assert [c["title"] for c in get(client, "/children", node_id=vol2["node_id"])] == VOL2_CHILDREN[:1]
+    assert vol2["children_count"] == 1
 
     root = master_root(client)
     children = get(client, "/children", node_id=root["node_id"])
-    expected = [t for t in EXPECTED_CHILDREN if t != "Correspondance, volume 2, suite"]
+    expected = EXPECTED_CHILDREN
     assert [c["title"] for c in children] == expected
     assert root["children_count"] == len(expected)
     orphelin = get(client, "/fonds/test-liaisons-orphelin")

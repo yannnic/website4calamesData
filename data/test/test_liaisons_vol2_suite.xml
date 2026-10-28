@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Teste : la succession : successeur de 9003 (volume 2), il est placé juste après
-     lui, sous le même parent. Teste aussi la lecture du FileId : comme dans Calames,
-     @url donne celui du premier fichier de la chaîne (9003), @identifier le sien (9004).
+<!-- Teste : la succession : successeur de 9003 (volume 2), il le continue, comme dans
+     Calames : sa racine n'apparaît pas, ses composants (« Lettre sur les algues »)
+     deviennent des enfants du volume 2, et son adresse Calames (FileId-9004) mène au
+     volume 2. Teste aussi la lecture du FileId : @url donne celui du premier fichier
+     de la chaîne (9003), @identifier le sien (9004).
      Voir test_liaisons_maitre.xml. -->
 <ead>
   <eadheader>

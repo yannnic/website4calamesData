@@ -34,7 +34,7 @@ if sys.stderr.encoding != "utf-8":
 
 from elasticsearch import BadRequestError, Elasticsearch, NotFoundError, helpers
 
-from ead_parser import Anchor, parse_ead, components_to_docs
+from ead_parser import Anchor, parse_ead, components_to_docs, successor_docs
 from liaisons import LIAISONS_FILE, FileGraph, file_id_of, load_liaisons
 
 # ---------------------------------------------------------------------------
@@ -142,6 +142,7 @@ INDEX_MAPPINGS = {
         "position":         _INT,
         "source_file":      _KW,
         "file_id":          _KW,   # Calames identifiers: FileId of the file,
+        "merged_file_ids":  _KW,   # (head of a succession chain) FileIds of the files merged into it
         "xml_id":           _KW,   # @id of the component (redirection of /pub/ms/<id>)
         "has_dao":          {"type": "boolean"},   # digital copy (<dao>, <daoloc>)
         # Dates
@@ -223,13 +224,24 @@ def build_graph(ead_files: list[Path], liaisons_path: Path | None) -> FileGraph:
 
 
 def file_docs(ead_file: Path, graph: FileGraph, anchor: Anchor | None) -> list[dict]:
-    """Parse a file into documents, attached under `anchor` (its parent file's root)."""
+    """
+    Parse a file into documents, attached under `anchor` (its parent file's root).
+    A file that continues a succession chain is merged into the chain head, whose
+    root is then `anchor`: its components become children of that root.
+    """
     name = ead_file.name
-    siblings = graph.children_of(graph.parent_of(name) if anchor else None)
-    rank = siblings.index(name) if name in siblings else len(siblings)
-    position = (anchor.own_children_count if anchor else 0) + rank
-    docs = components_to_docs(parse_ead(ead_file), anchor, position,
-                              attached_count=len(graph.children_of(name)))
+    head = graph.merged_into(name)
+    if head and anchor is not None:
+        docs = successor_docs(parse_ead(ead_file), anchor, graph.successors_of(head).index(name) + 1)
+    else:
+        siblings = graph.children_of(graph.parent_of(name) if anchor else None)
+        rank = siblings.index(name) if name in siblings else len(siblings)
+        position = (anchor.own_children_count if anchor else 0) + rank
+        docs = components_to_docs(parse_ead(ead_file), anchor, position,
+                                  attached_count=len(graph.children_of(name)))
+        merged = [fid for s in graph.successors_of(name) if (fid := graph.file_id(s))]
+        if merged:
+            docs[0]["merged_file_ids"] = merged
     file_id = graph.file_id(name)
     for doc in docs:
         doc["source_file"] = name
@@ -263,6 +275,10 @@ def index_file(client: Elasticsearch, index_name: str, ead_file: Path,
     counts: dict[str, int] = {}
     _index_subtree(client, index_name, ead_file, graph,
                    Anchor.from_doc(parent_doc) if parent_doc else None, counts, raise_errors=True)
+    # Heads of succession chains: their children come from several files.
+    for head in {graph.merged_into(n) or n for n in counts
+                 if graph.merged_into(n) or graph.successors_of(n)}:
+        sync_attached(client, index_name, graph, head)
     return counts
 
 
@@ -278,16 +294,18 @@ def _index_subtree(client: Elasticsearch, index_name: str, ead_file: Path, graph
     remove_file(client, index_name, ead_file.name)
     _bulk(client, index_name, docs, refresh="wait_for")
     counts[ead_file.name] = len(docs)
-    child_anchor = Anchor.from_doc(docs[0])
-    for child in graph.children_of(ead_file.name):
+    # A merged file has no root of its own: what hangs below it goes under the head's root.
+    merged = graph.merged_into(ead_file.name) and anchor is not None
+    child_anchor = anchor if merged else Anchor.from_doc(docs[0])
+    for child in graph.successors_of(ead_file.name) + graph.children_of(ead_file.name):
         _index_subtree(client, index_name, ead_file.parent / child, graph, child_anchor, counts)
 
 
 def sync_attached(client: Elasticsearch, index_name: str, graph: FileGraph, file_name: str) -> None:
     """
-    Refresh, after files were attached under / detached from `file_name`, the
-    children count of its root, and the positions and siblings count of the
-    root's children (without reindexing them).
+    Refresh, after files were attached under / detached from `file_name` (or
+    merged into it, succession), the children count of its root, and the
+    positions and siblings count of the root's children (without reindexing them).
     """
     root = _root_doc(client, index_name, file_name)
     if root is None:
@@ -297,7 +315,7 @@ def sync_attached(client: Elasticsearch, index_name: str, graph: FileGraph, file
                                                    {"term": {"file_root": True}}]}})
     attached = {h["_source"]["source_file"]: h["_id"] for h in res["hits"]["hits"]}
     own = root.get("own_children_count", root.get("children_count") or 0)
-    total = own + len(attached)
+    total = client.count(index=index_name, query={"term": {"parent_id": root["node_id"]}})["count"]
     order = graph.children_of(file_name)
     actions = [{"_op_type": "update", "_index": index_name, "_id": root["node_id"],
                 "doc": {"children_count": total}}]
@@ -379,7 +397,8 @@ def index_directory(
             total_errors += 1
             continue
 
-        if graph.children_of(ead_file.name):
+        if (graph.children_of(ead_file.name) or graph.successors_of(ead_file.name)) \
+                and not graph.merged_into(ead_file.name):
             anchors[ead_file.name] = Anchor.from_doc(docs[0])
         _bulk(client, index_name, docs)
         total_docs += len(docs)
@@ -391,6 +410,12 @@ def index_directory(
 
     client.indices.put_settings(index=index_name, settings={"refresh_interval": "1s"})
     client.indices.refresh(index=index_name)
+    # Heads of succession chains: children count of their root, from all the chain's files.
+    heads = [n for n in anchors if graph.successors_of(n)]
+    for head in heads:
+        sync_attached(client, index_name, graph, head)
+    if heads:
+        print(f"{len(heads)} chaînes de succession : compteurs mis à jour.")
 
     elapsed = time.time() - _start
     print(f"\nDone. {total_docs} documents indexed from {n_files - total_errors} files "

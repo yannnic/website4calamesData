@@ -227,7 +227,16 @@ une seule hiérarchie, d'après [`liaisons.tsv`](https://calames.abes.fr/prod/ls
 
 - **Inclusion** : la racine du fichier devient un enfant de la racine du fichier parent, après
   les composants propres de celle-ci, dans l'ordre des rangs (puis du libellé).
-- **Succession** : le fichier est placé juste après le précédent, sous le même parent.
+- **Succession** : comme dans Calames, une chaîne de succession forme **un seul fonds**, celui de
+  son premier fichier présent (la tête). Les composants de premier niveau des fichiers suivants
+  deviennent des enfants de la racine de la tête, après les siens et dans l'ordre de la chaîne
+  (`position` = rang dans la chaîne × 1 000 000 + rang dans le fichier). La racine d'un fichier
+  successeur (une répétition de la description du fonds) n'est pas indexée ; ses composants en
+  héritent toutefois, elle-même héritant de la tête. La racine de la tête porte
+  `merged_file_ids`, les FileId fusionnés : leurs adresses Calames y mènent. Un fichier dont aucun
+  prédécesseur n'est présent garde la place de son prédécesseur absent. Exemple : le fonds Henri
+  Bosco (FileId 1661) et ses 6 successeurs (2051, 2056, 2585, 3915, 5821, 5817) donnent un fonds de
+  8 séries, comme sur Calames.
 - Un fichier est relié à sa ligne par le FileId de son `<eadid>` : `@identifier` ou texte
   (`…_CALAMESFileId-4752`), à défaut `@url` (`…/FileId-4752`). Dans une chaîne de succession,
   `@url` donne souvent le FileId du premier fichier : un fichier connu par `@url` seulement dont
