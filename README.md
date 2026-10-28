@@ -128,7 +128,8 @@ Docker** (développement, Windows).
 
 ### Corpus
 
-En développement, les corpus sont définis dans `corpora.json` :
+En développement, les corpus sont définis dans `corpora.json`, utilisé seulement par les scripts
+`dev.ps1`, `index.ps1` et `restart-api.ps1` (`data_dir` relatif à la racine du dépôt, ou absolu) :
 
 | Corpus | Index Elasticsearch | Données |
 |---|---|---|

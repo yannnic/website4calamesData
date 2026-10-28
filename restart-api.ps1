@@ -24,7 +24,8 @@ if (-not $corpusConfig) {
 }
 
 $index   = $corpusConfig.index
-$dataDir = $corpusConfig.data_dir
+# data_dir : relatif à la racine du dépôt, ou absolu
+$dataDir = [System.IO.Path]::GetFullPath([System.IO.Path]::Combine($root, $corpusConfig.data_dir))
 
 Write-Host "Corpus : $Corpus  |  Index : $index"
 
