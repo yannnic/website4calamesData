@@ -59,3 +59,11 @@ def test_mixed_ids(tmp_path):
 def test_corpus_files(path):
     _check_all(path)
 
+
+def test_empty_eadid_falls_back_to_identifier(tmp_path):
+    path = tmp_path / "empty.xml"
+    path.write_text(MIXED_IDS.replace("<eadid>test-mixed-ids</eadid>",
+                                      '<eadid identifier="FR-1_CALAMESFileId-7"/>'), encoding="utf-8")
+    assert parse_ead(path).node_id == "FR-1_CALAMESFileId-7#auto-1"
+    path.write_text(MIXED_IDS.replace("<eadid>test-mixed-ids</eadid>", "<eadid/>"), encoding="utf-8")
+    assert parse_ead(path).node_id == "empty#auto-1"

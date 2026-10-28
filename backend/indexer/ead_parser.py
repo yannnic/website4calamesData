@@ -710,8 +710,13 @@ def _open_ead(path: Path) -> tuple[etree._Element, str, etree._Element]:
     ns = root.nsmap.get(None, "")  # default namespace
     _set_namespace(ns)
 
+    # An empty <eadid/> (seen in Calames OAI records) falls back to @identifier,
+    # then to the file name: node_ids must stay unique across files.
     eadid_el = root.find(f".//{_tag('eadid')}")
-    ead_id = (_inner_text(eadid_el) if eadid_el is not None else path.stem).strip()
+    ead_id = ""
+    if eadid_el is not None:
+        ead_id = _inner_text(eadid_el).strip() or eadid_el.get("identifier", "").strip()
+    ead_id = ead_id or path.stem
 
     archdesc = root.find(_tag("archdesc"))
     if archdesc is None:
