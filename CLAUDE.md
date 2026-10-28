@@ -19,7 +19,7 @@ Il s'agit d'une interface web de **recherche et de navigation** dans des fonds d
 ### Structure du projet (cible)
 
 ```
-calames-html/
+website4calamesData/
 ├── data/test/         # Corpus de test : fichiers EAD ad hoc + liaisons.tsv
 ├── backend/
 │   ├── harvester/     # Moissonnage OAI-PMH de Calames

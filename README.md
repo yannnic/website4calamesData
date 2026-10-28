@@ -75,7 +75,7 @@ flowchart TD
 ## Structure du projet
 
 ```
-calames-html/
+website4calamesData/
 ├── backend/
 │   ├── harvester/         # Moissonnage OAI-PMH
 │   ├── indexer/           # Parsing EAD, liaisons, indexation, watcher

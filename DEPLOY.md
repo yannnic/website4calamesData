@@ -24,7 +24,7 @@ de RAM pour la stack. Pour tout Calames (~1,5 million de composants), passer à
 `ES_JAVA_OPTS=-Xms2g -Xmx2g` et prévoir 5 Go de RAM et 5 Go de disque (EAD + index).
 
 ```sh
-git clone https://github.com/yannnic/calames-html.git && cd calames-html
+git clone https://github.com/yannnic/website4calamesData.git && cd website4calamesData
 cp .env.example .env
 # Renseigner au minimum ELASTIC_PASSWORD (openssl rand -hex 24) et UPLOAD_TOKEN
 docker compose up -d --build
@@ -70,7 +70,7 @@ et des notices écrasées (plusieurs notices au même `eadid`). Repartir d'un do
 docker compose --profile harvest stop harvester
 docker compose stop watcher api
 docker compose rm -f watcher api harvester
-docker volume rm calames-html_ead_data calames-html_watcher_state   # ou vider EAD_DIR sur l'hôte
+docker volume rm website4calamesdata_ead_data website4calamesdata_watcher_state   # ou vider EAD_DIR sur l'hôte
 docker compose up -d
 docker compose run --rm harvester                                  # moissonnage complet
 ```
