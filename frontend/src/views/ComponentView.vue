@@ -69,6 +69,7 @@
               :min="0"
               :max="siblings.length - 1"
               :value="siblingIndex"
+              @mousedown="onSliderDown"
               @input="onSliderInput"
               @change="onSliderChange"
               @mousemove="onSliderMouseMove"
@@ -144,8 +145,8 @@
         </div><!-- fin left-col -->
 
         <div class="component-card">
-
         <ResultNav :node-id="comp.node_id" />
+
         <h1 style="text-align:center">
           <span v-if="levelLabel(comp.level)" class="level-badge" :class="`level-${comp.level}`" style="font-size:.8rem">{{ levelLabel(comp.level) }}</span>
           <ChildrenDensity :count="children.length" style="margin:0 .4rem" />
@@ -174,9 +175,9 @@
           <template v-if="comp.use_restrict"><dt>Utilisation</dt><dd>{{ comp.use_restrict }} <span v-if="isInheritedField(comp, 'use_restrict')" class="origin-badge">héritée</span></dd></template>
         </dl>
 
-        <!-- Termes d'indexation -->
         <ExtraDescription :doc="comp" show-creators />
 
+        <!-- Termes d'indexation -->
         <p v-if="SHOW_ORIGIN && hasIndexTerms" class="origin-legend">
           Corpus de test : en pointillés, les termes hérités d'un ancêtre ; « héritée » : valeur prise à un ancêtre.
         </p>
@@ -217,7 +218,6 @@
               <RouterLink v-for="s in comp.genre_forms" :key="s" :to="{ path: '/search', query: { genre_form: s } }" class="tag" :class="{ 'tag--inherited': isInheritedTerm(comp, 'genre_forms', s) }" :title="isInheritedTerm(comp, 'genre_forms', s) ? 'hérité d\'un ancêtre' : null">{{ s }}</RouterLink>
             </dd>
           </template>
-        </dl>
           <template v-if="comp.work_titles?.length">
             <dt>Titres d'œuvres</dt>
             <dd class="tag-list">
@@ -236,6 +236,7 @@
               <RouterLink v-for="s in comp.provenance" :key="s" :to="{ path: '/search', query: { provenance: s } }" class="tag" :class="{ 'tag--inherited': isInheritedTerm(comp, 'provenance', s) }">{{ s }}</RouterLink>
             </dd>
           </template>
+        </dl>
 
         <!-- Vue EAD brute -->
         <RawEad :node-id="comp.node_id" :has-children="children.length > 0" />
@@ -286,10 +287,10 @@ import ChildrenDensity from '../components/ChildrenDensity.vue'
 import TreeNode from '../components/TreeNode.vue'
 import TestFileComment from '../components/TestFileComment.vue'
 import RawEad from '../components/RawEad.vue'
-import { SHOW_ORIGIN, isInheritedTerm, isInheritedField, dateOrigin } from '../utils/origin'
 import ExtraDescription from '../components/ExtraDescription.vue'
 import ResultNav from '../components/ResultNav.vue'
 import { langLabel } from '../utils/labels'
+import { SHOW_ORIGIN, isInheritedTerm, isInheritedField, dateOrigin } from '../utils/origin'
 
 const route  = useRoute()
 const router = useRouter()
@@ -313,10 +314,10 @@ const hasIndexTerms = computed(() =>
     comp.value.pers_names?.length ||
     comp.value.corp_names?.length ||
     comp.value.fam_names?.length ||
-    comp.value.geo_names?.length ||
     comp.value.work_titles?.length ||
     comp.value.functions?.length ||
     comp.value.provenance?.length ||
+    comp.value.geo_names?.length ||
     comp.value.genre_forms?.length
   )
 )
@@ -370,13 +371,30 @@ const dragIndex  = ref(null)
 const hoverIndex = ref(null)
 const activeIdx  = computed(() => dragIndex.value ?? hoverIndex.value)
 
+// Un clic (sans glisser) va au frère affiché dans la bulle au moment du clic, et non
+// à la position que le navigateur calcule sous le curseur (décalée par la largeur du
+// bouton du curseur). En glissant, on va là où on relâche (la bulle suit le curseur).
+let pressIdx = null
+let dragged  = false
+
+function onSliderDown() {
+  pressIdx = hoverIndex.value
+  dragged  = false
+}
+
 function onSliderInput(e) {
+  if (pressIdx !== null && !dragged) {
+    e.target.value = pressIdx   // le curseur reste sur le frère de la bulle
+    return
+  }
   dragIndex.value = parseInt(e.target.value)
 }
 
 function onSliderChange(e) {
-  const idx = parseInt(e.target.value)
+  const idx = pressIdx !== null && !dragged ? pressIdx : parseInt(e.target.value)
   dragIndex.value = null
+  pressIdx = null
+  dragged  = false
   if (!isNaN(idx) && idx !== siblingIndex.value) goTo(siblings.value[idx])
 }
 
@@ -384,6 +402,7 @@ function onSliderMouseMove(e) {
   const rect = e.currentTarget.getBoundingClientRect()
   const ratio = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width))
   hoverIndex.value = Math.round(ratio * (siblings.value.length - 1))
+  if (pressIdx !== null && e.buttons) dragged = true
 }
 
 onMounted(() => load(route.params.nodeId))
@@ -475,7 +494,7 @@ watch(() => route.params.nodeId, (id) => { if (id) load(id) })
 
 .sib-range {
   flex: 1;
-  max-width: 400px;
+  max-width: 900px;
   accent-color: var(--color-primary);
   cursor: pointer;
 }
