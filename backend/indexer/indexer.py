@@ -32,7 +32,7 @@ if sys.stdout.encoding != "utf-8":
 if sys.stderr.encoding != "utf-8":
     sys.stderr.reconfigure(encoding="utf-8", errors="replace")
 
-from elasticsearch import Elasticsearch, NotFoundError, helpers
+from elasticsearch import BadRequestError, Elasticsearch, NotFoundError, helpers
 
 from ead_parser import Anchor, parse_ead, components_to_docs
 from liaisons import LIAISONS_FILE, FileGraph, file_id_of, load_liaisons
@@ -187,14 +187,25 @@ def create_index(client: Elasticsearch, index_name: str) -> None:
     print(f"Index '{index_name}' créé.")
 
 
-def ensure_index(client: Elasticsearch, index_name: str) -> None:
-    """Create the index if missing, otherwise push the (additive) mapping. Idempotent."""
+def ensure_index(client: Elasticsearch, index_name: str) -> bool:
+    """
+    Create the index if missing, otherwise push the (additive) mapping. Idempotent.
+    An index created by an earlier version whose mapping or analyzers cannot be
+    updated in place (new analyzer, changed field type) is recreated, empty.
+    Returns True when the index was (re)created: everything must be reindexed.
+    """
     if not client.indices.exists(index=index_name):
         create_index(client, index_name)
-        return
-    # New fields can be added to an existing mapping; changing an existing field's
-    # type or analyzer requires a full reindex (indexer.py).
-    client.indices.put_mapping(index=index_name, **INDEX_MAPPINGS)
+        return True
+    try:
+        client.indices.put_mapping(index=index_name, **INDEX_MAPPINGS)
+        return False
+    except BadRequestError as exc:
+        print(f"Index '{index_name}' incompatible avec cette version ({exc.message}) : recréé.",
+              file=sys.stderr)
+        client.indices.delete(index=index_name)
+        create_index(client, index_name)
+        return True
 
 
 def _actions(index_name: str, docs: list[dict]) -> Iterator[dict]:
