@@ -3,6 +3,7 @@
     <p v-if="loading" class="loading">Chargement…</p>
     <p v-else-if="error" class="error">{{ error }}</p>
     <template v-else-if="fonds">
+      <RouterLink v-if="lastResultsUrl" :to="lastResultsUrl" class="back-link">← Retour aux résultats</RouterLink>
       <ResultNav :node-id="fonds.node_id" />
       <!-- Titre -->
       <h1><span v-if="fonds.unitid" class="cote">{{ fonds.unitid }}</span>{{ fonds.title }}</h1>
@@ -169,7 +170,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref, computed, onMounted } from 'vue'
 import { useRoute, useRouter, RouterLink } from 'vue-router'
 import { api } from '../api'
 import ChildrenTree from '../components/ChildrenTree.vue'
@@ -177,11 +178,14 @@ import TestFileComment from '../components/TestFileComment.vue'
 import RawEad from '../components/RawEad.vue'
 import ExtraDescription from '../components/ExtraDescription.vue'
 import ResultNav from '../components/ResultNav.vue'
+import { loadResults } from '../utils/results'
 import { roleLabel, langLabel } from '../utils/labels'
 import { isInheritedTerm, isInheritedField, dateOrigin } from '../utils/origin'
 
 const route = useRoute()
 const router = useRouter()
+// La dernière liste de résultats (et non la page précédente)
+const lastResultsUrl = computed(() => (route.params.eadId, loadResults().url))
 
 // Recherche restreinte au fonds et aux fichiers qui y sont rattachés (filtre ead_id)
 const fondsQuery = ref('')
@@ -205,6 +209,7 @@ onMounted(async () => {
 </script>
 
 <style scoped>
+.back-link { display: inline-block; font-size: .85rem; margin-bottom: .6rem; }
 .fonds-search { display: flex; gap: .4rem; margin-bottom: 1rem; }
 .fonds-search input { flex: 1; padding: .35rem .5rem; border: 1px solid var(--color-border); border-radius: var(--radius); }
 </style>

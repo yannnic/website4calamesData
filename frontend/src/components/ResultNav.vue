@@ -4,7 +4,7 @@
   <nav v-if="index >= 0" class="result-nav">
     <RouterLink v-if="prev" :to="pathOf(prev)">← Résultat précédent</RouterLink>
     <span v-else class="result-nav-off">← Résultat précédent</span>
-    <RouterLink :to="saved.url">Retour aux résultats ({{ index + 1 }}/{{ saved.items.length }})</RouterLink>
+    <RouterLink :to="saved.url" title="Retour aux résultats">Résultat {{ index + 1 }} / {{ saved.items.length }}</RouterLink>
     <RouterLink v-if="next" :to="pathOf(next)">Résultat suivant →</RouterLink>
     <span v-else class="result-nav-off">Résultat suivant →</span>
   </nav>

@@ -5,8 +5,9 @@
     <template v-else-if="comp">
 
       <!-- ══ Retour ══ -->
-      <div v-if="canGoBack" class="back-row container">
-        <a class="back-link" href="#" @click.prevent="router.back()">← Retour aux résultats</a>
+      <!-- La dernière liste de résultats, quelle que soit la navigation depuis (et non la page précédente) -->
+      <div v-if="lastResultsUrl" class="back-row container">
+        <RouterLink class="back-link" :to="lastResultsUrl">← Retour aux résultats</RouterLink>
       </div>
 
       <!-- ══ Escalier + bouton arbre ══ -->
@@ -289,6 +290,7 @@ import TestFileComment from '../components/TestFileComment.vue'
 import RawEad from '../components/RawEad.vue'
 import ExtraDescription from '../components/ExtraDescription.vue'
 import ResultNav from '../components/ResultNav.vue'
+import { loadResults } from '../utils/results'
 import { langLabel } from '../utils/labels'
 import { SHOW_ORIGIN, isInheritedTerm, isInheritedField, dateOrigin } from '../utils/origin'
 
@@ -306,7 +308,7 @@ const siblingIndex = computed(() =>
   siblings.value.findIndex(s => s.node_id === comp.value?.node_id)
 )
 
-const canGoBack = window.history.length > 1
+const lastResultsUrl = computed(() => (route.params.nodeId, loadResults().url))
 
 const hasIndexTerms = computed(() =>
   comp.value && (
