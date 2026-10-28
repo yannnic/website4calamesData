@@ -1,7 +1,23 @@
-# Vue 3 + Vite
+# Frontend — Calames HTML
 
-This template should help get you started developing with Vue 3 in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+Application Vue 3 (Vite) de recherche et navigation. Voir le [README](../README.md) du projet.
 
-## Recommended IDE Setup
+```bash
+npm install
+npm run dev        # http://localhost:5173, API sur http://localhost:8000 (VITE_API_URL)
+npm run build      # dist/ (servi par nginx en Docker, API sous /api)
+```
 
-- [VS Code](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+## Organisation
+
+| Dossier / fichier | Rôle |
+|---|---|
+| `src/api.js` | Appels à l'API ; corpus (`?corpus=test`, mémorisé pour l'onglet) ; réglages LLM envoyés en en-têtes |
+| `src/router.js` | Routes, dont la redirection des adresses Calames (`/pub/ms/<id>`, `/pub/#details?id=`) |
+| `src/views/` | Pages : accueil, recherche, recherche avancée, fonds, composant, personnes, dépôt, paramètres |
+| `src/components/ChildrenTree.vue`, `ComponentTree.vue`, `ComponentSummary.vue` | Arbre des enfants et dépliage des descriptions (seuils : `src/utils/expand.js`) |
+| `src/components/ExtraDescription.vue` | Producteur, organisme responsable, anciennes cotes, rubriques EAD, versions numériques |
+| `src/components/RawEad.vue` | XML EAD natif d'un niveau |
+| `src/components/ResultNav.vue`, `src/utils/results.js` | Navigation entre résultats et « Retour aux résultats » |
+| `src/components/TestFileComment.vue`, `src/utils/origin.js` | Corpus de test : description des fichiers, valeurs propres ou héritées |
+| `src/utils/labels.js` | Libellés de Calames : rubriques, rôles, langues (repris de `corresp.js` et `traductions.js` de calames.abes.fr) |

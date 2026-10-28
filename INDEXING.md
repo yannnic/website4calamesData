@@ -45,7 +45,7 @@ L'héritage et l'accumulation des champs sont résolus **à l'indexation**, pas 
 | `provenance` | `persname`, `corpname`, `famname` au `@role="390"` (forme normale) | « Propriétaire précédent » : facette et filtre ; héritage cumulatif |
 
 L'organisme responsable (adresse, téléphone, courriel, site) n'est presque jamais dans l'EAD
-(`<repository><address>` : 30 fichiers sur 3 656). Le moissonneur le reprend, une fois par RCR,
+(`<repository><address>` : une trentaine de fichiers sur plus de 3 600). Le moissonneur le reprend, une fois par RCR,
 du bloc « Organisme responsable » d'une page Calames (`etablissements.json` dans le dossier EAD) ;
 l'API l'ajoute aux composants (`repository_info`).
 
@@ -56,7 +56,7 @@ l'API l'ajoute aux composants (`repository_info`).
 | Champ | Source EAD | Notes |
 |---|---|---|
 | `level` | `@level` ou `@otherlevel` | `fonds`, `series`, `subseries`, `file`, `item`… |
-| `unitid` | `//did/unitid` | Cote |
+| `unitid` | `//did/unitid` (pas `@type="ancienne_cote"`) | Cote ; anciennes cotes dans `former_unitids` |
 | `title` | `//did/unittitle` | Texte complet (inclut sous-éléments) |
 | `date_display` | `//did/unitdate` (texte) | Forme affichable |
 | `date_normal` | `//did/unitdate/@normal` | Plage ISO : `"1952/2018"` |
@@ -94,6 +94,7 @@ Liste de dicts : `[{"name": …, "role": …, "type": "person"|"corp"}]`
 | `geo_names_norm` | `<geogname/@normal>` | Facette / filtre |
 | `genre_forms` | `<genreform>` | Plein texte (tous `@type`) |
 | `genre_forms_norm` | `<genreform/@normal>` | Facette / filtre |
+| `gff_norm`, `tdd_norm`, `technique_norm` | `<genreform>` par `@type` : `genre`, `type_de_document`, `technique` | Facettes « Genre / forme », « Type de document », « Technique » |
 | `corp_names` | `<corpname>` | Plein texte |
 | `corp_names_norm` | `<corpname/@normal>` | Facette / filtre |
 | `fam_names` | `<famname>` | Plein texte |
@@ -108,8 +109,9 @@ Liste de dicts : `[{"name": …, "role": …, "type": "person"|"corp"}]`
 C'est un choix délibéré pour maximiser le rappel en recherche, au prix d'un léger bruit potentiel.
 SQL cible explicitement `//controlaccess/*`.
 
-**Note** : les `<persname>` et `<corpname>` de `<origination>` (créateurs du fonds) sont traités
-séparément et vont dans le champ `creators`, pas dans `pers_names`.
+**Note** : les `<persname>` et `<corpname>` de `<origination>` (producteurs du fonds) vont dans
+`creators` (« Producteur du fonds ou collectionneur ») ; les `<persname>` y sont aussi ajoutés à
+`pers_names`, `pers_name_roles` et `pers_name_ids`, pour la recherche et l'index des personnes.
 
 ---
 
@@ -118,7 +120,7 @@ séparément et vont dans le champ `creators`, pas dans `pers_names`.
 | Champ | Source EAD | Notes |
 |---|---|---|
 | `repository` | `//did/repository/corpname` (texte) | Nom de l'institution |
-| `repository_id` | `//did/repository/corpname/@authfilenumber` | PPN Sudoc de l'institution |
+| `repository_id` | `//did/repository/corpname/@authfilenumber` | RCR de l'institution (clé de `etablissements.json`) |
 
 ---
 
@@ -161,6 +163,13 @@ proche, puis celles des ancêtres plus lointains.
 | `genre_forms`, `genre_forms_norm` | Cumulatif |
 | `corp_names`, `corp_names_norm` | Cumulatif |
 | `pers_names`, `pers_name_roles`, `pers_name_ids` | Cumulatif |
+| `fam_names`, `fam_names_norm` | Cumulatif |
+| `gff_norm`, `tdd_norm`, `technique_norm` | Cumulatif |
+| `work_titles`, `work_titles_norm`, `functions`, `provenance` | Cumulatif |
+
+Les valeurs **propres** de chaque composant sont aussi gardées à part (`<champ>_own` : sujets,
+lieux, genres/formes, collectivités, personnes, familles, titres d'œuvres, fonctions,
+provenance) : la recherche leur donne un poids fort, et l'interface distingue propre et hérité.
 
 **Différence avec SQL** : dans l'implémentation SQL (procédures `H`/`HC`), la propagation est
 top-down (parent → enfants). Notre implémentation est équivalente pour le résultat final.
@@ -299,6 +308,17 @@ Règles de la requête :
 
 Les filtres par facette et les recherches par champ (`subject=…`, `pers_name=…`) portent toujours
 sur l'union propre + héritée : l'héritage reste exact pour eux.
+
+## Origine des valeurs et commentaire de tête
+
+| Champ | Contenu | Usage |
+|---|---|---|
+| `inherited_fields` | Champs à héritage simple remplis par un ancêtre (`languages`, `access_restrict`, `use_restrict`, `repository`, `repository_id`, et `date` pour le groupe des dates) | Badge « héritée » (corpus de test) |
+| `date_from_children` | `true` si la date a été calculée d'après les descendants (remontée des dates) | Badge « calculée d'après les enfants » (corpus de test) |
+| `<champ>_own` | Valeurs propres des champs à héritage cumulatif | Poids de recherche ; termes hérités en pointillés (corpus de test) |
+| `file_comment` | Commentaire XML placé avant `<ead>`, sur le document racine seulement (non cherché) | Description d'un fichier de test, affichée avec `?corpus=test` |
+
+---
 
 ## Ce qui n'est pas implémenté (par rapport à SQL)
 

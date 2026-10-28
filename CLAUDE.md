@@ -20,8 +20,9 @@ Il s'agit d'une interface web de **recherche et de navigation** dans des fonds d
 
 ```
 calames-html/
-├── data/              # Fichiers EAD d'exemple
+├── data/test/         # Corpus de test : fichiers EAD ad hoc + liaisons.tsv
 ├── backend/
+│   ├── harvester/     # Moissonnage OAI-PMH de Calames
 │   ├── indexer/       # Pipeline de parsing EAD → Elasticsearch
 │   └── api/           # API FastAPI
 └── frontend/          # Application Vue.js
@@ -29,7 +30,8 @@ calames-html/
 
 ## Données
 
-Les fichiers EAD d'exemple se trouvent dans `./data/`. Ils ont été générés par Claude à titre d'illustration et pourront évoluer au fil du développement des fonctionnalités.
+- **Corpus Calames** : moissonné depuis l'entrepôt OAI-PMH de Calames (environ 4 000 notices), avec `liaisons.tsv` et les organismes responsables ; non versionné, son dossier est indiqué dans `corpora.json`.
+- **Corpus de test** (`data/test/`) : fichiers EAD construits par Claude pour tester une règle précise ; chacun commence par un commentaire « Teste : … » qui décrit ce qu'il teste et l'attendu (affiché dans l'interface avec `?corpus=test`).
 
 ## La recherche
 
@@ -44,8 +46,6 @@ Un fichier EAD est une structure de données **hiérarchique**. Certains champs 
 
 Champs héritables connus :
 
-| Champ | Balise EAD | Règle |
-|---|---|---|
 **Héritage simple** (le plus proche ancêtre ayant une valeur remplace le vide) :
 
 | Champ | Balise EAD | Règle |
@@ -65,6 +65,12 @@ Champs héritables connus :
 | Genres/formes | `<genreform>` | Cumulatif |
 | Noms de collectivités | `<corpname>` (controlaccess) | Cumulatif |
 | Noms de personnes | `<persname>` (controlaccess) | Cumulatif |
+| Noms de familles | `<famname>` | Cumulatif |
+| Titres d'œuvres | `<title>` (controlaccess) | Cumulatif |
+| Fonctions | `<function>` | Cumulatif |
+| Provenance | noms au `@role="390"` (propriétaire précédent) | Cumulatif |
+
+Les valeurs propres d'un composant comptent plus, en recherche, que celles qu'il hérite.
 
 La recherche doit tenir compte de ces héritages : un composant peut être trouvé via un champ hérité de son ancêtre.
 
@@ -72,19 +78,30 @@ La recherche doit tenir compte de ces héritages : un composant peut être trouv
 
 Certaines bibliothèques ont des inventaires découpés en plusieurs fichiers EAD, que Calames réorganise par relations d'**inclusion** (un fichier rattaché sous la racine d'un fichier maître, à un rang donné) et de **succession** (un fichier placé juste après un autre). Ces relations sont décrites dans `liaisons.tsv` (https://calames.abes.fr/prod/lstfiles.aspx?chemin=CalamesData%5Csvdata%5C&filtre=liaisons.tsv). Les fichiers liés forment une seule hiérarchie : l'héritage, la navigation et le regroupement les traversent. Détails dans `INDEXING.md`.
 
-### Regroupement par parent (règle des N frères)
+### Regroupement par parent
 
-Si une recherche renvoie au moins **N éléments frères** (composants de même niveau partageant le même parent), alors il faut renvoyer le **parent** plutôt que les enfants individuellement. La valeur de N est à définir.
+Quand une recherche trouve assez d'enfants d'un même parent, elle renvoie le **parent** plutôt que les enfants individuellement (en indiquant combien de composants il regroupe). Deux règles, appliquées de bas en haut sur l'ensemble des résultats :
+
+- **couverture** (par défaut) : au moins 75 % des enfants du parent sont trouvés (ou eux-mêmes regroupés) ;
+- **règle des N frères** (option `sibling_grouping`) : au moins N = 3 enfants trouvés.
 
 ### Champs de recherche
 
+- Tout le texte du composant, pondéré (titre et cote d'abord ; détail dans `INDEXING.md`)
 - Titre (`<unittitle>`)
-- Date (`<unitdate>`)
-- Personnes avec leur rôle (`<persname role="...">`, `<corpname>`, `<origination>`)
-- Type de document (`<genreform>`, `<physfacet>`)
-- Sujets (`<subject>`, `<geogname>`)
-- À compléter selon les besoins
+- Cote, actuelle ou ancienne (`<unitid>`), sous n'importe quelle forme (« Ms 1234 » = « ms1234 »)
+- Date (`<unitdate>`) : texte et période
+- Personnes avec leur rôle (`<persname role="...">`, `<corpname>`, `<famname>`, `<origination>`)
+- Type de document (`<genreform>` par `@type`, `<physfacet>`)
+- Sujets, lieux, titres d'œuvres, fonctions (`<subject>`, `<geogname>`, `<title>`, `<function>`)
+- Provenance (propriétaire précédent), langue, institution, présence d'une version numérique
+- Syntaxe de Calames : `OR` / `|`, `-exclu`, `+requis`, `^début`, `"expression"`
 
 ## La navigation
 
-[ à compléter ]
+- **Fil d'Ariane** de l'ancêtre de plus haut niveau (fichier maître compris) au composant ; **frères** parcourus par un curseur ; **arbre** du fonds.
+- **Dépliage des descriptions** des enfants depuis le parent, selon ce qui reste lisible : un enfant à la fois toujours ; tous les enfants directs jusqu'à 50 ; tout le sous-arbre jusqu'à 200 composants. Au-delà, la raison est affichée.
+- **XML EAD natif** à chaque niveau (sans les composants enfants par défaut).
+- **Description complète** sous les libellés de Calames (rubriques EAD, rôles, organisme responsable, anciennes cotes, versions numériques) ; la cote est toujours affichée avant le titre.
+- **Résultats** : « Retour aux résultats » ramène à la liste (pas à la page précédente) ; résultat précédent / suivant.
+- **Adresses Calames** (`/pub/ms/<id>`) redirigées vers les pages correspondantes, pour garder les liens existants.

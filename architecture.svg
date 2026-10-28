@@ -1,153 +1,107 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="860" height="490"
-  viewBox="0 0 860 490" font-family="ui-sans-serif, system-ui, -apple-system, sans-serif">
-  <defs>
-    <marker id="arr" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
-      <path d="M0,0 L0,6 L8,3 z" fill="#94a3b8"/>
-    </marker>
-    <marker id="arr-orange" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto">
-      <path d="M0,0 L0,6 L8,3 z" fill="#fb923c"/>
-    </marker>
-  </defs>
-
-  <!-- Background -->
-  <rect width="860" height="490" fill="#f8fafc"/>
-
-  <!-- Title -->
-  <text x="430" y="26" text-anchor="middle" font-size="14" font-weight="700" fill="#1e293b" letter-spacing="0.2">Architecture — Calames HTML</text>
-
-  <!-- ====== ROW 1 : pipeline de données ====== -->
-
-  <!-- EAD XML -->
-  <rect x="20" y="44" width="118" height="62" rx="5" fill="#e0f2fe" stroke="#38bdf8" stroke-width="1.5"/>
-  <text x="79" y="64" text-anchor="middle" font-size="10" font-weight="700" fill="#0369a1">Fichiers EAD</text>
-  <text x="79" y="79" text-anchor="middle" font-size="9" fill="#475569">XML · ./data/calames/</text>
-  <text x="79" y="93" text-anchor="middle" font-size="9" fill="#64748b">plusieurs centaines</text>
-
-  <line x1="138" y1="75" x2="158" y2="75" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr)"/>
-
-  <!-- ead_parser.py -->
-  <rect x="158" y="44" width="145" height="62" rx="5" fill="#dcfce7" stroke="#4ade80" stroke-width="1.5"/>
-  <text x="230" y="64" text-anchor="middle" font-size="10" font-weight="700" fill="#15803d">ead_parser.py</text>
-  <text x="230" y="79" text-anchor="middle" font-size="9" fill="#475569">Parsing EAD → Component</text>
-  <text x="230" y="93" text-anchor="middle" font-size="9" fill="#64748b">Héritage + propagation dates</text>
-
-  <line x1="303" y1="75" x2="323" y2="75" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr)"/>
-
-  <!-- indexer.py -->
-  <rect x="323" y="44" width="140" height="62" rx="5" fill="#dcfce7" stroke="#4ade80" stroke-width="1.5"/>
-  <text x="393" y="64" text-anchor="middle" font-size="10" font-weight="700" fill="#15803d">indexer.py</text>
-  <text x="393" y="79" text-anchor="middle" font-size="9" fill="#475569">Bulk → Elasticsearch</text>
-  <text x="393" y="93" text-anchor="middle" font-size="9" fill="#64748b">Config + tolérance typos</text>
-
-  <line x1="463" y1="75" x2="483" y2="75" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr)"/>
-
-  <!-- Elasticsearch -->
-  <rect x="483" y="44" width="148" height="62" rx="5" fill="#fef9c3" stroke="#facc15" stroke-width="1.5"/>
-  <text x="557" y="64" text-anchor="middle" font-size="10" font-weight="700" fill="#854d0e">Elasticsearch</text>
-  <text x="557" y="79" text-anchor="middle" font-size="9" fill="#475569">Index ead_components</text>
-  <text x="557" y="93" text-anchor="middle" font-size="9" fill="#64748b">~1,4 M documents</text>
-
-  <!-- Elasticsearch → API (coudé) -->
-  <line x1="557" y1="106" x2="557" y2="126" stroke="#94a3b8" stroke-width="1.5"/>
-  <line x1="557" y1="126" x2="340" y2="126" stroke="#94a3b8" stroke-width="1.5"/>
-  <line x1="340" y1="126" x2="340" y2="144" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr)"/>
-
-  <!-- ====== ROW 2 : API FastAPI ====== -->
-
-  <rect x="20" y="144" width="650" height="202" rx="7" fill="#faf5ff" stroke="#c084fc" stroke-width="1.5"/>
-  <text x="345" y="162" text-anchor="middle" font-size="11" font-weight="700" fill="#6d28d9">API FastAPI — backend/api/</text>
-
-  <!-- main.py -->
-  <rect x="35" y="172" width="188" height="157" rx="5" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1"/>
-  <text x="129" y="190" text-anchor="middle" font-size="10" font-weight="700" fill="#4c1d95">main.py</text>
-  <text x="47" y="207" font-size="9" fill="#5b21b6">GET /fonds     GET /fonds/{ead_id}</text>
-  <text x="47" y="221" font-size="9" fill="#5b21b6">GET /component   /children</text>
-  <text x="47" y="235" font-size="9" fill="#5b21b6">GET /ancestors</text>
-  <text x="47" y="250" font-size="9" fill="#5b21b6">GET /persons     /person</text>
-  <text x="47" y="265" font-size="9" fill="#5b21b6">GET /search</text>
-  <text x="47" y="280" font-size="9" fill="#5b21b6">GET /nlsearch</text>
-  <text x="47" y="295" font-size="9" fill="#5b21b6">GET /summarize</text>
-  <text x="129" y="318" text-anchor="middle" font-size="8.5" fill="#7c3aed">11 endpoints</text>
-
-  <!-- filters.py -->
-  <rect x="244" y="172" width="133" height="70" rx="5" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1"/>
-  <text x="310" y="191" text-anchor="middle" font-size="10" font-weight="700" fill="#4c1d95">filters.py</text>
-  <text x="310" y="207" text-anchor="middle" font-size="9" fill="#5b21b6">build_filters()</text>
-  <text x="310" y="221" text-anchor="middle" font-size="9" fill="#5b21b6">ms_escape()</text>
-  <text x="310" y="235" text-anchor="middle" font-size="8.5" fill="#7c3aed">sécurité injection</text>
-
-  <!-- pruning.py -->
-  <rect x="244" y="258" width="133" height="75" rx="5" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1"/>
-  <text x="310" y="276" text-anchor="middle" font-size="10" font-weight="700" fill="#4c1d95">pruning.py</text>
-  <text x="310" y="292" text-anchor="middle" font-size="9" fill="#5b21b6">apply_smart_pruning()</text>
-  <text x="310" y="306" text-anchor="middle" font-size="9" fill="#5b21b6">sibling_grouping()</text>
-  <text x="310" y="320" text-anchor="middle" font-size="8.5" fill="#7c3aed">règle N frères</text>
-
-  <!-- llm.py -->
-  <rect x="396" y="172" width="133" height="70" rx="5" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1"/>
-  <text x="462" y="191" text-anchor="middle" font-size="10" font-weight="700" fill="#4c1d95">llm.py</text>
-  <text x="462" y="207" text-anchor="middle" font-size="9" fill="#5b21b6">call_llm()</text>
-  <text x="462" y="221" text-anchor="middle" font-size="9" fill="#5b21b6">load_*_prompt()</text>
-  <text x="462" y="235" text-anchor="middle" font-size="8.5" fill="#7c3aed">client OpenAI-compat.</text>
-
-  <!-- prompts.txt -->
-  <rect x="396" y="258" width="133" height="75" rx="5" fill="#ede9fe" stroke="#8b5cf6" stroke-width="1"/>
-  <text x="462" y="276" text-anchor="middle" font-size="10" font-weight="700" fill="#4c1d95">prompts (.txt)</text>
-  <text x="462" y="292" text-anchor="middle" font-size="9" fill="#5b21b6">nl_prompt.txt</text>
-  <text x="462" y="308" text-anchor="middle" font-size="9" fill="#5b21b6">summarize_prompt.txt</text>
-
-  <!-- llm.py → prompts -->
-  <line x1="462" y1="242" x2="462" y2="258" stroke="#c084fc" stroke-width="1" marker-end="url(#arr)"/>
-
-  <!-- LLM externe (hors section API) -->
-  <rect x="692" y="188" width="150" height="90" rx="7" fill="#fff7ed" stroke="#fb923c" stroke-width="1.5" stroke-dasharray="5,3"/>
-  <text x="767" y="210" text-anchor="middle" font-size="10" font-weight="700" fill="#c2410c">LLM externe</text>
-  <text x="767" y="226" text-anchor="middle" font-size="9" fill="#475569">API OpenAI-compatible</text>
-  <text x="767" y="241" text-anchor="middle" font-size="9" fill="#64748b">Gemma · GPT · Mistral</text>
-  <text x="767" y="257" text-anchor="middle" font-size="9" fill="#64748b">NL_LLM_BASE_URL</text>
-  <text x="767" y="271" text-anchor="middle" font-size="8.5" fill="#9a3412">(.env)</text>
-
-  <!-- llm.py → LLM externe (flèche en pointillés) -->
-  <line x1="529" y1="207" x2="692" y2="233" stroke="#fb923c" stroke-width="1.5" stroke-dasharray="5,3" marker-end="url(#arr-orange)"/>
-
-  <!-- ====== API → Frontend ====== -->
-  <line x1="345" y1="346" x2="345" y2="366" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arr)"/>
-
-  <!-- ====== ROW 3 : Frontend Vue.js ====== -->
-
-  <rect x="20" y="366" width="650" height="100" rx="7" fill="#fff0f6" stroke="#f472b6" stroke-width="1.5"/>
-  <text x="345" y="384" text-anchor="middle" font-size="11" font-weight="700" fill="#be185d">Frontend Vue.js — frontend/src/views/</text>
-
-  <!-- HomeView -->
-  <rect x="34" y="394" width="110" height="55" rx="5" fill="#fce7f3" stroke="#f9a8d4" stroke-width="1"/>
-  <text x="89" y="412" text-anchor="middle" font-size="10" font-weight="600" fill="#9d174d">HomeView</text>
-  <text x="89" y="427" text-anchor="middle" font-size="9" fill="#64748b">Liste des fonds</text>
-
-  <!-- SearchView -->
-  <rect x="155" y="394" width="110" height="55" rx="5" fill="#fce7f3" stroke="#f9a8d4" stroke-width="1"/>
-  <text x="210" y="412" text-anchor="middle" font-size="10" font-weight="600" fill="#9d174d">SearchView</text>
-  <text x="210" y="427" text-anchor="middle" font-size="9" fill="#64748b">Recherche + IA</text>
-  <text x="210" y="440" text-anchor="middle" font-size="9" fill="#64748b">+ facettes</text>
-
-  <!-- FondsView -->
-  <rect x="276" y="394" width="110" height="55" rx="5" fill="#fce7f3" stroke="#f9a8d4" stroke-width="1"/>
-  <text x="331" y="412" text-anchor="middle" font-size="10" font-weight="600" fill="#9d174d">FondsView</text>
-  <text x="331" y="427" text-anchor="middle" font-size="9" fill="#64748b">Arbre hiérarchique</text>
-
-  <!-- ComponentView -->
-  <rect x="397" y="394" width="118" height="55" rx="5" fill="#fce7f3" stroke="#f9a8d4" stroke-width="1"/>
-  <text x="456" y="412" text-anchor="middle" font-size="10" font-weight="600" fill="#9d174d">ComponentView</text>
-  <text x="456" y="427" text-anchor="middle" font-size="9" fill="#64748b">Détail + navigation</text>
-
-  <!-- PersonsView + PersonView -->
-  <rect x="526" y="394" width="130" height="55" rx="5" fill="#fce7f3" stroke="#f9a8d4" stroke-width="1"/>
-  <text x="591" y="412" text-anchor="middle" font-size="10" font-weight="600" fill="#9d174d">PersonsView</text>
-  <text x="591" y="427" text-anchor="middle" font-size="9" fill="#64748b">Index personnes</text>
-  <text x="591" y="440" text-anchor="middle" font-size="9" fill="#64748b">+ PersonView</text>
-
-  <!-- Légende flèche pointillée -->
-  <line x1="692" y1="460" x2="716" y2="460" stroke="#fb923c" stroke-width="1.5" stroke-dasharray="5,3"/>
-  <text x="720" y="464" font-size="8.5" fill="#9a3412">appel externe (HTTP)</text>
-  <line x1="692" y1="474" x2="716" y2="474" stroke="#94a3b8" stroke-width="1.5"/>
-  <text x="720" y="478" font-size="8.5" fill="#64748b">flux de données interne</text>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1180 760" width="1180" height="760" font-family="Georgia, serif">
+<title>Architecture — Calames HTML</title>
+<defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+<path d="M0,0 L10,5 L0,10 z" fill="#5a5a5a"/></marker>
+<style>.t{font-size:15px;font-weight:bold;fill:#1a4a7a;text-anchor:middle}
+.l{font-size:12px;fill:#1a1a1a;text-anchor:middle}.b{font-size:13px;font-weight:bold;fill:#5a5a5a}
+.h{font-size:18px;font-weight:bold;fill:#1a1a1a}</style></defs>
+<rect width="1180" height="760" fill="#f7f5f0"/>
+<text x="24" y="28" class="h">Architecture — Calames HTML</text>
+<rect x="10" y="40" width="1160" height="150" rx="10" fill="#f3efe6" stroke="none"/>
+<text x="24" y="60" class="b">Collecte</text>
+<rect x="30" y="70" width="300" height="105" rx="6" fill="#fdf6ec" stroke="#c8914a" stroke-width="1.5"/>
+<text x="180.0" y="92" class="t">Calames (calames.abes.fr)</text>
+<text x="180.0" y="112" class="l">entrepôt OAI-PMH (oai_ead)</text>
+<text x="180.0" y="128" class="l">liaisons.tsv</text>
+<text x="180.0" y="144" class="l">pages publiques : organismes</text>
+<rect x="440" y="70" width="300" height="105" rx="6" fill="#ffffff" stroke="#1a4a7a" stroke-width="1.5"/>
+<text x="590.0" y="92" class="t">harvester.py</text>
+<text x="590.0" y="112" class="l">moissonnage complet / incrémental</text>
+<text x="590.0" y="128" class="l">noms uniques « _oai&lt;N&gt; »</text>
+<text x="590.0" y="144" class="l">notices rejetées</text>
+<text x="590.0" y="160" class="l">liaisons.tsv · etablissements.json</text>
+<rect x="850" y="70" width="300" height="105" rx="6" fill="#ffffff" stroke="#1a4a7a" stroke-width="1.5"/>
+<text x="1000.0" y="92" class="t">Dossier EAD</text>
+<text x="1000.0" y="112" class="l">*.xml (~4 000 fichiers)</text>
+<text x="1000.0" y="128" class="l">liaisons.tsv</text>
+<text x="1000.0" y="144" class="l">etablissements.json</text>
+<text x="1000.0" y="160" class="l">dépôts web (/upload)</text>
+<line x1="330" y1="122" x2="440" y2="122" stroke="#5a5a5a" stroke-width="1.4" marker-end="url(#a)" stroke-dasharray="5 4"/>
+<line x1="740" y1="122" x2="850" y2="122" stroke="#5a5a5a" stroke-width="1.4" marker-end="url(#a)"/>
+<rect x="10" y="205" width="1160" height="165" rx="10" fill="#eef2f7" stroke="none"/>
+<text x="24" y="225" class="b">Indexation — backend/indexer/</text>
+<rect x="30" y="235" width="260" height="120" rx="6" fill="#ffffff" stroke="#1a4a7a" stroke-width="1.5"/>
+<text x="160.0" y="257" class="t">ead_parser.py</text>
+<text x="160.0" y="277" class="l">EAD → composants</text>
+<text x="160.0" y="293" class="l">héritage simple et cumulatif</text>
+<text x="160.0" y="309" class="l">dates remontées</text>
+<text x="160.0" y="325" class="l">rubriques · dao · anciennes cotes</text>
+<rect x="320" y="235" width="200" height="120" rx="6" fill="#ffffff" stroke="#1a4a7a" stroke-width="1.5"/>
+<text x="420.0" y="257" class="t">liaisons.py</text>
+<text x="420.0" y="277" class="l">inclusion, succession</text>
+<text x="420.0" y="293" class="l">FileGraph : parent, rang</text>
+<text x="420.0" y="309" class="l">un seul arbre par fonds</text>
+<rect x="550" y="235" width="280" height="120" rx="6" fill="#ffffff" stroke="#1a4a7a" stroke-width="1.5"/>
+<text x="690.0" y="257" class="t">indexer.py · watcher.py</text>
+<text x="690.0" y="277" class="l">mapping, analyseurs fr / exact / cote</text>
+<text x="690.0" y="293" class="l">indexation complète</text>
+<text x="690.0" y="309" class="l">au fil de l'eau (5 s)</text>
+<text x="690.0" y="325" class="l">cascade vers les fichiers rattachés</text>
+<rect x="860" y="235" width="290" height="120" rx="6" fill="#fdf6ec" stroke="#c8914a" stroke-width="1.5"/>
+<text x="1005.0" y="257" class="t">Elasticsearch 8</text>
+<text x="1005.0" y="277" class="l">~1,5 M composants</text>
+<text x="1005.0" y="293" class="l">un index par corpus</text>
+<text x="1005.0" y="309" class="l">(calames, test)</text>
+<line x1="1000" y1="175" x2="690" y2="235" stroke="#5a5a5a" stroke-width="1.4" marker-end="url(#a)"/>
+<line x1="290" y1="295" x2="320" y2="295" stroke="#5a5a5a" stroke-width="1.4" marker-end="url(#a)"/>
+<line x1="520" y1="295" x2="550" y2="295" stroke="#5a5a5a" stroke-width="1.4" marker-end="url(#a)"/>
+<line x1="830" y1="295" x2="860" y2="295" stroke="#5a5a5a" stroke-width="1.4" marker-end="url(#a)"/>
+<rect x="10" y="385" width="1160" height="165" rx="10" fill="#eef2f7" stroke="none"/>
+<text x="24" y="405" class="b">API FastAPI — backend/api/</text>
+<rect x="30" y="415" width="370" height="120" rx="6" fill="#ffffff" stroke="#1a4a7a" stroke-width="1.5"/>
+<text x="215.0" y="437" class="t">main.py</text>
+<text x="215.0" y="457" class="l">/search · /nlsearch · /summarize</text>
+<text x="215.0" y="473" class="l">/fonds · /component · /children · /subtree</text>
+<text x="215.0" y="489" class="l">/ancestors · /raw · /resolve</text>
+<text x="215.0" y="505" class="l">/persons · /person · /files · /upload · /llm/check</text>
+<rect x="420" y="415" width="230" height="120" rx="6" fill="#ffffff" stroke="#1a4a7a" stroke-width="1.5"/>
+<text x="535.0" y="437" class="t">filters.py</text>
+<text x="535.0" y="457" class="l">plein texte pondéré</text>
+<text x="535.0" y="473" class="l">syntaxe Calames, expressions</text>
+<text x="535.0" y="489" class="l">cotes, filtres, tris</text>
+<rect x="670" y="415" width="230" height="120" rx="6" fill="#ffffff" stroke="#1a4a7a" stroke-width="1.5"/>
+<text x="785.0" y="437" class="t">grouping.py</text>
+<text x="785.0" y="457" class="l">regroupement hiérarchique</text>
+<text x="785.0" y="473" class="l">couverture 75 % / N frères</text>
+<text x="785.0" y="489" class="l">calculé par Elasticsearch</text>
+<rect x="920" y="415" width="230" height="120" rx="6" fill="#ffffff" stroke="#1a4a7a" stroke-width="1.5"/>
+<text x="1035.0" y="437" class="t">llm.py</text>
+<text x="1035.0" y="457" class="l">LLM OpenAI-compatible</text>
+<text x="1035.0" y="473" class="l">réglages du navigateur</text>
+<text x="1035.0" y="489" class="l">ou du serveur (NL_LLM_*)</text>
+<line x1="940" y1="355" x2="400" y2="430" stroke="#5a5a5a" stroke-width="1.4" marker-end="url(#a)"/>
+<rect x="10" y="565" width="1160" height="150" rx="10" fill="#eef2f7" stroke="none"/>
+<text x="24" y="585" class="b">Frontend Vue 3 — frontend/src/</text>
+<rect x="30" y="595" width="270" height="105" rx="6" fill="#ffffff" stroke="#1a4a7a" stroke-width="1.5"/>
+<text x="165.0" y="617" class="t">Recherche</text>
+<text x="165.0" y="637" class="l">simple, avancée, IA</text>
+<text x="165.0" y="653" class="l">facettes, tri, regroupement</text>
+<text x="165.0" y="669" class="l">retour / précédent / suivant</text>
+<rect x="320" y="595" width="270" height="105" rx="6" fill="#ffffff" stroke="#1a4a7a" stroke-width="1.5"/>
+<text x="455.0" y="617" class="t">Fonds · composant</text>
+<text x="455.0" y="637" class="l">fil d'Ariane, frères, arbre</text>
+<text x="455.0" y="653" class="l">dépliage des descriptions</text>
+<text x="455.0" y="669" class="l">XML EAD, libellés Calames</text>
+<rect x="610" y="595" width="270" height="105" rx="6" fill="#ffffff" stroke="#1a4a7a" stroke-width="1.5"/>
+<text x="745.0" y="617" class="t">Personnes · dépôt</text>
+<text x="745.0" y="637" class="l">index des personnes (IdRef)</text>
+<text x="745.0" y="653" class="l">dépôt de fichiers EAD</text>
+<text x="745.0" y="669" class="l">paramètres (LLM)</text>
+<rect x="900" y="595" width="250" height="105" rx="6" fill="#ffffff" stroke="#1a4a7a" stroke-width="1.5"/>
+<text x="1025.0" y="617" class="t">Adresses Calames</text>
+<text x="1025.0" y="637" class="l">/pub/ms/&lt;id&gt; → /resolve</text>
+<text x="1025.0" y="653" class="l">corpus de test (?corpus=test)</text>
+<line x1="215" y1="535" x2="215" y2="595" stroke="#5a5a5a" stroke-width="1.4" marker-end="url(#a)"/>
+<line x1="455" y1="535" x2="455" y2="595" stroke="#5a5a5a" stroke-width="1.4" marker-end="url(#a)"/>
+<text x="24" y="745" class="l" style="text-anchor:start">— flux de données    - - - lecture de calames.abes.fr (HTTP)</text>
 </svg>
