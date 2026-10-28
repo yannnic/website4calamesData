@@ -15,6 +15,8 @@ def check(label: str, actual, expected) -> bool:
     if not ok:
         print(f"         attendu : {expected!r}")
         print(f"         obtenu  : {actual!r}")
+    # Sous pytest, seul un assert fait échouer le test.
+    assert ok, f"{label} — attendu {expected!r}, obtenu {actual!r}"
     return ok
 
 
