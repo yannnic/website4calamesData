@@ -4,9 +4,8 @@
     <p v-else-if="error" class="error">{{ error }}</p>
     <template v-else-if="fonds">
       <!-- Titre -->
-      <h1>{{ fonds.title }}</h1>
+      <h1><span v-if="fonds.unitid" class="cote">{{ fonds.unitid }}</span>{{ fonds.title }}</h1>
       <div class="meta" style="margin-bottom:1.2rem;font-size:.9rem;color:var(--color-muted)">
-        <span v-if="fonds.unitid">{{ fonds.unitid }} &nbsp;·&nbsp; </span>
         <span v-if="fonds.date_display">{{ fonds.date_display }} &nbsp;·&nbsp; </span>
         <span>{{ fonds.repository }}</span>
       </div>

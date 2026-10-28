@@ -285,6 +285,15 @@ footer.site-footer {
 }
 .breadcrumb span.sep { color: var(--color-border); }
 
+/* ---- Cote (unitid), toujours avant le titre ---- */
+.cote {
+  font-weight: normal;
+  color: var(--color-muted);
+  margin-right: .45em;
+  font-variant-numeric: tabular-nums;
+}
+.cote::after { content: ' ·'; color: var(--color-border); }
+
 /* ---- Detail panel ---- */
 .detail-panel {
   background: var(--color-surface);

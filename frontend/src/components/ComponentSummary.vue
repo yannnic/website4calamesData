@@ -29,7 +29,7 @@ const props = defineProps({
 const meta = computed(() => {
   const d = props.doc
   if (!d) return []
-  return [d.unitid, d.date_display, ...(d.extents ?? []), ...(d.phys_facets ?? [])].filter(Boolean)
+  return [d.date_display, ...(d.extents ?? []), ...(d.phys_facets ?? [])].filter(Boolean)
 })
 const text      = computed(() => props.doc?.abstract || props.doc?.scope_content || props.doc?.biography || '')
 const shortText = computed(() => text.value.length > MAX_TEXT ? text.value.slice(0, MAX_TEXT).trimEnd() + '…' : text.value)

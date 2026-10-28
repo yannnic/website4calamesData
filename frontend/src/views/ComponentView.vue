@@ -40,7 +40,7 @@
         <div v-for="(anc, i) in ancestors" :key="anc.node_id" class="stair" :style="{ '--step': i + 1 }">
           <RouterLink :to="ancLink(anc)" class="stair-link">
             <span v-if="levelLabel(anc.level)" class="level-badge" :class="`level-${anc.level}`" style="font-size:.58rem">{{ levelLabel(anc.level) }}</span>
-            {{ anc.title }}
+            <span v-if="anc.unitid" class="cote">{{ anc.unitid }}</span>{{ anc.title }}
           </RouterLink>
         </div>
       </nav>
@@ -83,7 +83,7 @@
           <span class="sib-bubble" :class="{ 'sib-bubble--hover': activeIdx !== null }">
             <span class="sib-bubble-pos">{{ (activeIdx ?? siblingIndex) + 1 }}&thinsp;/&thinsp;{{ siblings.length }}</span>
             <transition name="sib-fade">
-              <span v-if="activeIdx !== null" class="sib-bubble-title">{{ siblings[activeIdx]?.title }}</span>
+              <span v-if="activeIdx !== null" class="sib-bubble-title"><span v-if="siblings[activeIdx]?.unitid" class="cote">{{ siblings[activeIdx].unitid }}</span>{{ siblings[activeIdx]?.title }}</span>
             </transition>
           </span>
         </div>
@@ -103,6 +103,7 @@
               v-if="ancestors.length"
               :node-id="ancestors[0].node_id"
               :title="ancestors[0].title"
+              :unitid="ancestors[0].unitid"
               :level="ancestors[0].level"
               :depth="0"
               :ead-id="ancestors[0].ead_id"
@@ -114,6 +115,7 @@
               v-else
               :node-id="comp.node_id"
               :title="comp.title"
+              :unitid="comp.unitid"
               :level="comp.level"
               :depth="0"
               :ead-id="comp.ead_id"
@@ -132,7 +134,7 @@
                   <span v-if="levelLabel(prevSibling.level)" class="level-badge" :class="`level-${prevSibling.level}`" style="font-size:.58rem">{{ levelLabel(prevSibling.level) }}</span>
                   <ChildrenDensity :count="prevSibling.children_count ?? 0" />
                 </div>
-                <span class="peek-title">{{ prevSibling.title }}</span>
+                <span class="peek-title"><span v-if="prevSibling.unitid" class="cote">{{ prevSibling.unitid }}</span>{{ prevSibling.title }}</span>
                 <span v-if="prevSibling.date_display" class="peek-date">{{ prevSibling.date_display }}</span>
               </div>
             </div>
@@ -146,11 +148,9 @@
         <h1 style="text-align:center">
           <span v-if="levelLabel(comp.level)" class="level-badge" :class="`level-${comp.level}`" style="font-size:.8rem">{{ levelLabel(comp.level) }}</span>
           <ChildrenDensity :count="children.length" style="margin:0 .4rem" />
-          {{ comp.title }}
+          <span v-if="comp.unitid" class="cote">{{ comp.unitid }}</span>{{ comp.title }}
         </h1>
         <div class="meta" style="margin:.35rem 0 1rem;font-size:.9rem;color:var(--color-muted);text-align:center">
-          <span v-if="comp.unitid">{{ comp.unitid }}</span>
-          <span v-if="comp.unitid && comp.date_display"> &nbsp;·&nbsp; </span>
           <span v-if="comp.date_display">{{ comp.date_display }}</span>
         </div>
         <!-- Racine d'un fichier rattaché (liaisons) : sa description de test -->
@@ -238,7 +238,7 @@
               <span v-if="levelLabel(nextSibling.level)" class="level-badge" :class="`level-${nextSibling.level}`" style="font-size:.58rem">{{ levelLabel(nextSibling.level) }}</span>
               <ChildrenDensity :count="nextSibling.children_count ?? 0" />
             </div>
-            <span class="peek-title">{{ nextSibling.title }}</span>
+            <span class="peek-title"><span v-if="nextSibling.unitid" class="cote">{{ nextSibling.unitid }}</span>{{ nextSibling.title }}</span>
             <span v-if="nextSibling.date_display" class="peek-date">{{ nextSibling.date_display }}</span>
           </div>
         </div>

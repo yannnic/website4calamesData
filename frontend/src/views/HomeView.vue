@@ -55,12 +55,10 @@
                 <span class="level-badge level-fonds">Fonds</span>
                 <ChildrenDensity :count="fonds.children_count ?? 0" style="margin-right:.3rem" />
                 <RouterLink :to="{ name: 'fonds', params: { eadId: fonds.ead_id } }" class="title">
-                  {{ fonds.title }}
+                  <span v-if="fonds.unitid" class="cote">{{ fonds.unitid }}</span>{{ fonds.title }}
                 </RouterLink>
               </div>
               <div class="meta">
-                <span v-if="fonds.unitid">{{ fonds.unitid }}</span>
-                <span v-if="fonds.unitid && fonds.date_display"> &nbsp;·&nbsp; </span>
                 <span v-if="fonds.date_display">{{ fonds.date_display }}</span>
               </div>
               <p v-if="fonds.abstract" class="excerpt">{{ fonds.abstract }}</p>

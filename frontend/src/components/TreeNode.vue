@@ -23,14 +23,14 @@
       <span v-else class="tn-leaf" />
 
       <!-- Lien ou label courant -->
-      <RouterLink v-if="!isCurrent" :to="nodePath" class="tn-link" :title="title">
+      <RouterLink v-if="!isCurrent" :to="nodePath" class="tn-link" :title="fullTitle">
         <span class="level-badge" :class="`level-${level}`" style="font-size:.5rem;padding:0 .3rem;line-height:1.4">{{ levelLabel(level) }}</span>
-        <span class="tn-title">{{ title }}</span>
+        <span class="tn-title"><span v-if="unitid" class="cote">{{ unitid }}</span>{{ title }}</span>
         <ChildrenDensity :count="childrenCount" style="margin-left:.2rem;opacity:.6" />
       </RouterLink>
-      <span v-else class="tn-link tn-link--current" :title="title">
+      <span v-else class="tn-link tn-link--current" :title="fullTitle">
         <span class="level-badge" :class="`level-${level}`" style="font-size:.5rem;padding:0 .3rem;line-height:1.4">{{ levelLabel(level) }}</span>
-        <span class="tn-title">{{ title }}</span>
+        <span class="tn-title"><span v-if="unitid" class="cote">{{ unitid }}</span>{{ title }}</span>
       </span>
     </div>
 
@@ -41,6 +41,7 @@
         :key="child.node_id"
         :node-id="child.node_id"
         :title="child.title"
+        :unitid="child.unitid"
         :level="child.level"
         :depth="depth + 1"
         :ead-id="child.ead_id"
@@ -63,6 +64,7 @@ import ChildrenDensity from './ChildrenDensity.vue'
 const props = defineProps({
   nodeId:       { type: String,  required: true },
   title:        { type: String,  default: '' },
+  unitid:       { type: String,  default: '' },
   level:        { type: String,  default: '' },
   depth:        { type: Number,  default: 0 },
   eadId:        { type: String,  default: '' },
@@ -75,6 +77,7 @@ const expanded       = ref(false)
 const loading        = ref(false)
 const fetchedChildren = ref([])
 
+const fullTitle = computed(() => props.unitid ? `${props.unitid} ${props.title}` : props.title)
 const isCurrent = computed(() => props.nodeId === props.currentNodeId)
 const isInPath  = computed(() => props.expandedPath.has(props.nodeId))
 

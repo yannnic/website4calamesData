@@ -241,12 +241,10 @@
             <div>
               <span class="level-badge" :class="`level-${hit.level}`">{{ levelLabel(hit.level) }}</span>
               <ChildrenDensity :count="hit.children_count ?? 0" style="margin-right:.3rem" />
-              <RouterLink :to="componentPath(hit)" class="title">{{ hit.title }}</RouterLink>
+              <RouterLink :to="componentPath(hit)" class="title"><span v-if="hit.unitid" class="cote">{{ hit.unitid }}</span>{{ hit.title }}</RouterLink>
               <a :href="componentApiUrl(hit)" target="_blank" class="api-link api-link--inline" title="Voir dans l'API">{ }</a>
             </div>
             <div class="meta">
-              <span v-if="hit.unitid">{{ hit.unitid }}</span>
-              <span v-if="hit.unitid && (hit.date_display || hit.repository)"> &nbsp;·&nbsp; </span>
               <span v-if="hit.date_display">{{ hit.date_display }}</span>
               <span v-if="hit.date_display && hit.repository"> &nbsp;·&nbsp; </span>
               <span v-if="hit.repository">{{ hit.repository }}</span>
