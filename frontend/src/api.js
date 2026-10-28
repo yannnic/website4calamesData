@@ -24,15 +24,41 @@ export function apiUrl(path, params = {}) {
   return url.toString()
 }
 
-async function fetchOk(path, params) {
+// Réglages du LLM (page Paramètres) : gardés dans ce navigateur, envoyés à
+// l'API avec les requêtes IA. Vides : configuration du serveur, s'il en a une.
+const LLM_KEY = 'llmSettings'
+export const LLM_DEFAULTS = { baseUrl: 'https://api.openai.com/v1', model: 'gpt-4o-mini' }
+
+export function loadLlmSettings() {
+  try {
+    return { baseUrl: '', apiKey: '', model: '', ...JSON.parse(localStorage.getItem(LLM_KEY) || '{}') }
+  } catch {
+    return { baseUrl: '', apiKey: '', model: '' }
+  }
+}
+
+export function saveLlmSettings(settings) {
+  try { localStorage.setItem(LLM_KEY, JSON.stringify(settings)) } catch { /* stockage indisponible */ }
+}
+
+function llmHeaders() {
+  const { baseUrl, apiKey, model } = loadLlmSettings()
+  const headers = {}
+  if (baseUrl.trim()) headers['X-LLM-Base-Url'] = baseUrl.trim()
+  if (apiKey.trim())  headers['X-LLM-Api-Key']  = apiKey.trim()
+  if (model.trim())   headers['X-LLM-Model']    = model.trim()
+  return headers
+}
+
+async function fetchOk(path, params, headers = {}) {
   const url = apiUrl(path, params)
-  const res = await fetch(url)
+  const res = await fetch(url, { headers })
   if (!res.ok) throw new Error(`API error ${res.status}: ${url}`)
   return res
 }
 
-async function get(path, params = {}) {
-  return (await fetchOk(path, params)).json()
+async function get(path, params = {}, headers = {}) {
+  return (await fetchOk(path, params, headers)).json()
 }
 
 export const api = {
@@ -44,8 +70,9 @@ export const api = {
   getAncestors: (nodeId) => get('/ancestors', { node_id: nodeId }),
   getRaw: async (nodeId) => (await fetchOk('/raw', { node_id: nodeId })).text(),
   search:     (params) => get('/search',    params),
-  nlSearch:   (params) => get('/nlsearch',  params),
-  summarize:  (params) => get('/summarize', params),
+  nlSearch:   (params) => get('/nlsearch',  params, llmHeaders()),
+  summarize:  (params) => get('/summarize', params, llmHeaders()),
+  checkLlm:   () => get('/llm/check', {}, llmHeaders()),
   getPerson: (params = {}) => get('/person', params),
   listFiles: () => get('/files'),
   upload: async (file, token) => {

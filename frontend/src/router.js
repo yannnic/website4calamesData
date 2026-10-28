@@ -7,6 +7,7 @@ import ComponentView from './views/ComponentView.vue'
 import PersonView from './views/PersonView.vue'
 import PersonsView from './views/PersonsView.vue'
 import UploadView from './views/UploadView.vue'
+import SettingsView from './views/SettingsView.vue'
 
 // node_id contains '#' which breaks URL paths (%23 is treated as fragment by servers).
 // We use '/' as separator in URLs; ead_ids never contain '/'.
@@ -26,6 +27,7 @@ export default createRouter({
     { path: '/person/idref/:id',    component: PersonView,  name: 'person-idref' },
     { path: '/person/:name(.*)',    component: PersonView,  name: 'person' },
     { path: '/depot',               component: UploadView,  name: 'upload' },
+    { path: '/parametres',          component: SettingsView, name: 'settings' },
   ],
   scrollBehavior: () => ({ top: 0 }),
 })

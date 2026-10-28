@@ -12,6 +12,7 @@ Endpoints :
   GET /search             Recherche plein texte avec regroupement hiérarchique
   GET /nlsearch           Recherche en langage naturel (via LLM)
   GET /summarize          Résumé LLM des résultats d'une recherche
+  GET /llm/check          Vérifie la configuration du LLM
   GET /person             Composants associés à une personne
   GET /files              Fichiers EAD du dossier et statut d'indexation
   POST /upload            Dépôt d'un fichier EAD (jeton UPLOAD_TOKEN requis)
@@ -19,7 +20,10 @@ Endpoints :
 Paramètre commun : corpus=test interroge le corpus de test (fichiers ad hoc de
 data/test), indexé automatiquement au démarrage de l'API.
 
-Dépendances : Elasticsearch (ES_HOST), LLM OpenAI-compatible (NL_LLM_*)
+LLM : configuré par le client (en-têtes X-LLM-Base-Url, X-LLM-Api-Key, X-LLM-Model,
+page Paramètres du frontend), à défaut par NL_LLM_* (voir llm.py).
+
+Dépendances : Elasticsearch (ES_HOST), LLM OpenAI-compatible
 Variables d'environnement : voir README.md
 """
 
@@ -53,10 +57,10 @@ from .filters import (
     total_of,
 )
 from .llm import (
-    NL_LLM_API_KEY,
-    NL_LLM_BASE_URL,
-    NL_LLM_MODEL,
+    NOT_CONFIGURED,
+    LLMConfig,
     call_llm,
+    llm_config,
     load_nl_prompt,
     load_summarize_prompt,
 )
@@ -105,6 +109,14 @@ async def _select_corpus(
     if corpus not in (None, "", "test"):
         raise HTTPException(status_code=400, detail=f"Corpus inconnu : {corpus}")
     _test_corpus.set(corpus == "test")
+
+
+def _llm(
+    x_llm_base_url: str = Header(default="", description="URL de base OpenAI-compatible"),
+    x_llm_api_key: str = Header(default="", description="Clé API du LLM"),
+    x_llm_model: str = Header(default="", description="Modèle"),
+) -> LLMConfig:
+    return llm_config(x_llm_base_url.strip(), x_llm_api_key.strip(), x_llm_model.strip())
 
 
 def _index() -> str:
@@ -573,23 +585,27 @@ async def nl_search(
     q: str = Query(..., description="Requête en langage naturel"),
     limit: int = Query(default=20, ge=1, le=100),
     offset: int = Query(default=0, ge=0, le=9900),
+    llm: LLMConfig = Depends(_llm),
 ) -> dict[str, Any]:
     """
     Traduit une phrase en langage naturel en requête de recherche via un LLM,
     puis exécute la recherche.
 
-    Si NL_LLM_API_KEY est absent, effectue une recherche plein texte brute sur q.
+    Sans LLM configuré (ou en cas d'erreur), effectue une recherche plein texte
+    brute sur q ; `interpreted.error` en donne la raison.
     Le champ `interpreted` expose la traduction effectuée par le LLM.
     """
     interpreted: dict = {"q": q, "filters": [], "explanation": ""}
 
-    if NL_LLM_API_KEY:
+    if not llm.enabled:
+        interpreted["error"] = NOT_CONFIGURED
+    else:
         try:
             import json as _json
             system = load_nl_prompt()
-            print(f"\n[nlsearch] model={NL_LLM_MODEL} base_url={NL_LLM_BASE_URL}")
+            print(f"\n[nlsearch] model={llm.model} base_url={llm.base_url} ({llm.source})")
             print(f"[nlsearch] user: {q}")
-            raw = call_llm(system, q, max_tokens=400, temperature=0)
+            raw = call_llm(llm, system, q, max_tokens=400, temperature=0)
             print(f"[nlsearch] response: {raw}")
             parsed = _json.loads(raw)
             interpreted = {
@@ -600,6 +616,7 @@ async def nl_search(
             }
         except Exception as exc:
             print(f"[nlsearch] error: {exc}")
+            interpreted["error"] = f"Erreur du LLM : {exc}"
 
     query = build_query(interpreted["q"], [], parse_nl_filters(interpreted["filters"]))
     aggs = facet_aggs(SEARCH_FACETS)
@@ -656,6 +673,7 @@ async def summarize_results(
     repository_excl: Optional[str] = Query(default=None),
     century: Optional[str] = Query(default=None),
     century_excl: Optional[str] = Query(default=None),
+    llm: LLMConfig = Depends(_llm),
 ) -> dict[str, Any]:
     """
     Effectue la recherche, puis demande au LLM de synthétiser les résultats.
@@ -746,11 +764,11 @@ async def summarize_results(
         f"DÉTAIL DES {len(hits)} PREMIERS RÉSULTATS :\n{hits_block}"
     )
 
-    summary = ""
-    if NL_LLM_API_KEY:
+    summary = f"({NOT_CONFIGURED})"
+    if llm.enabled:
         try:
             import json as _json
-            raw = call_llm(load_summarize_prompt(), user_content, max_tokens=600, temperature=0.3)
+            raw = call_llm(llm, load_summarize_prompt(), user_content, max_tokens=600, temperature=0.3)
             summary = _json.loads(raw).get("summary", "")
         except Exception as exc:
             summary = f"(erreur LLM : {exc})"
@@ -761,6 +779,19 @@ async def summarize_results(
         "analyzed": len(hits),
         "summary":  summary,
     }
+
+
+@app.get("/llm/check", summary="Vérifie la configuration du LLM")
+def llm_check(llm: LLMConfig = Depends(_llm)) -> dict[str, Any]:
+    """Envoie une requête minimale au LLM configuré (en-têtes X-LLM-*, à défaut serveur)."""
+    info = {"source": llm.source, "base_url": llm.base_url, "model": llm.model}
+    if not llm.enabled:
+        return {**info, "ok": False, "error": NOT_CONFIGURED}
+    try:
+        call_llm(llm, 'Réponds uniquement par le JSON {"ok": true}.', "test", max_tokens=20)
+    except Exception as exc:
+        return {**info, "ok": False, "error": str(exc)}
+    return {**info, "ok": True, "error": None}
 
 
 @app.get("/person", summary="Get components for a person")

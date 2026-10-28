@@ -18,7 +18,12 @@
     </form>
 
     <!-- NL interpretation box -->
-    <div v-if="nlMode && interpreted" class="nl-interpreted">
+    <div v-if="nlMode && interpreted?.error" class="nl-interpreted nl-error">
+      <span class="nl-icon">✦</span>
+      <span>{{ interpreted.error }} Recherche plein texte effectuée à la place.</span>
+      <RouterLink to="/parametres">Paramètres</RouterLink>
+    </div>
+    <div v-else-if="nlMode && interpreted" class="nl-interpreted">
       <span class="nl-icon">✦</span>
       <span>{{ interpreted.explanation }}</span>
       <span v-if="interpreted.filters?.length" class="nl-filters">
@@ -733,6 +738,7 @@ input.nl-active { border-color: #7c3aed; box-shadow: 0 0 0 2px #ede9fe; }
   padding: .45rem .7rem;
   margin-bottom: .8rem;
 }
+.nl-error { color: #8a5a14; background: #fdf1de; border-color: #f0d9b0; }
 .nl-icon { font-size: .9rem; flex-shrink: 0; }
 .nl-filters { color: var(--color-muted); }
 .nl-filters code { font-size: .78rem; background: #ede9fe; padding: .1rem .35rem; border-radius: 4px; }

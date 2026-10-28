@@ -16,6 +16,7 @@
         <RouterLink to="/search/advanced">Recherche avancée</RouterLink>
         <RouterLink to="/persons">Index des personnes</RouterLink>
         <RouterLink to="/depot">Déposer</RouterLink>
+        <RouterLink to="/parametres">Paramètres</RouterLink>
       </nav>
     </div>
   </header>

@@ -273,10 +273,16 @@ Variables d'environnement de l'API :
 | `ES_INDEX` | `ead_components` | Nom de l'index |
 | `SIBLING_THRESHOLD` | `3` | Seuil de la règle des N frères (`sibling_grouping=true`) |
 | `COVERAGE_THRESHOLD` | `0.75` | Seuil de couverture du regroupement par défaut |
-| `NL_LLM_BASE_URL` | `https://api.openai.com/v1` | Base URL LLM OpenAI-compatible |
-| `NL_LLM_API_KEY` | _(vide)_ | Clé API LLM (si vide : fallback recherche brute) |
-| `NL_LLM_MODEL` | `gpt-4o-mini` | Modèle LLM (ex. `gemma-4-31b`, `mistral`, `llama3`) |
+| `NL_LLM_BASE_URL` | `https://api.openai.com/v1` | LLM du serveur, à défaut de réglages client : base URL OpenAI-compatible |
+| `NL_LLM_API_KEY` | _(vide)_ | LLM du serveur : clé API (vide et pas de réglages client : recherche brute) |
+| `NL_LLM_MODEL` | `gpt-4o-mini` | LLM du serveur : modèle (ex. `gemma-4-31b`, `mistral`, `llama3`) |
 | `TEST_DATA_DIR`, `TEST_ES_INDEX` | `data/test`, `ead_components_test` | Corpus de test (`?corpus=test`) |
+
+Le LLM se configure normalement **côté client**, dans la page **Paramètres** du site (URL de
+base, clé, modèle) : les réglages restent dans le navigateur et sont envoyés à l'API dans les
+en-têtes `X-LLM-Base-Url`, `X-LLM-Api-Key` et `X-LLM-Model` des requêtes IA (`/nlsearch`,
+`/summarize`, `/llm/check`). Les variables `NL_LLM_*` ne servent que si le navigateur n'envoie
+aucun réglage ; la clé du serveur n'est jamais envoyée à une URL choisie par le client.
 
 Le fichier `frontend/.env.local` configure l'URL de l'API :
 
@@ -298,6 +304,7 @@ VITE_API_URL=http://localhost:8000
 | GET | `/search` | Recherche plein texte + facettes + regroupement hiérarchique |
 | GET | `/nlsearch?q=` | Recherche en langage naturel (LLM → Elasticsearch) |
 | GET | `/summarize?q=` | Résumé LLM des résultats d'une recherche |
+| GET | `/llm/check` | Teste la configuration du LLM (bouton « Tester » des Paramètres) |
 | GET | `/persons` | Index des personnes avec identifiant IdRef/Sudoc |
 | GET | `/person?name=` | Composants associés à une personne (par nom ou IdRef) |
 | GET | `/raw?node_id=` | Fragment XML EAD brut d'un composant (relu dans le fichier source) |
