@@ -66,7 +66,9 @@ export const api = {
   listFonds: () => get('/fonds'),
   getFonds: (eadId) => get(`/fonds/${encodeURIComponent(eadId)}`),
   getComponent: (nodeId) => get('/component', { node_id: nodeId }),
-  getChildren:  (nodeId) => get('/children',  { node_id: nodeId }),
+  getChildren:  (nodeId, details = false) =>
+    get('/children', { node_id: nodeId, details: details ? 'true' : '' }),
+  getSubtree:   (nodeId, max) => get('/subtree', { node_id: nodeId, max }),
   getAncestors: (nodeId) => get('/ancestors', { node_id: nodeId }),
   getRaw: async (nodeId, children = false) =>
     (await fetchOk('/raw', { node_id: nodeId, children: children ? 'true' : '' })).text(),

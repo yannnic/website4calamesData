@@ -1,7 +1,8 @@
 """
 Teste : l'indexation et l'API de fichiers EAD liés (liaisons.tsv) : ordre des
 fichiers rattachés sous leur parent, héritage à travers les fichiers, fil d'Ariane,
-filtre ead_id, mise à jour incrémentale (comme le watcher) et /raw.
+filtre ead_id, dépliage de l'arbre (nombre de descendants, /children?details,
+/subtree), mise à jour incrémentale (comme le watcher) et /raw.
 
 Indexe data/test/test_liaisons*.xml avec data/test/liaisons.tsv dans un index
 temporaire et vérifie l'arborescence décrite en tête de test_liaisons_maitre.xml.
@@ -144,6 +145,25 @@ def test_found_by_inherited_subject(client):
     res = get(client, "/search", q="botanique lichens", level="item", limit=100)
     assert [h["node_id"] for h in res["hits"]] == ["test-liaisons-vol2#v2-1"]
 
+
+def test_tree_expansion(client):
+    # 6 enfants, 12 descendants (fichiers rattachés compris)
+    root = master_root(client)
+    assert root["descendants_count"] == 12
+    children = get(client, "/children", node_id=root["node_id"])
+    assert {c["title"]: c["descendants_count"] for c in children}["Correspondance, volume 1"] == 2
+    assert "scope_content" not in children[0]
+    detailed = get(client, "/children", node_id=root["node_id"], details="true")
+    assert "scope_content" in detailed[0]
+    subtree = get(client, "/subtree", node_id=root["node_id"])
+    assert subtree["total"] == 12 == len(subtree["nodes"])
+    # Parents avant enfants : l'arbre se reconstruit dans l'ordre de la réponse.
+    seen = {root["node_id"]}
+    for n in subtree["nodes"]:
+        assert n["parent_id"] in seen
+        seen.add(n["node_id"])
+    res = client.get("/subtree", params={"node_id": root["node_id"], "max": 5})
+    assert res.status_code == 413
 
 def test_incremental_detach_and_reindex(es, client, corpus):
     # Le watcher : suppression d'un fichier rattaché, puis mise à jour du maître.

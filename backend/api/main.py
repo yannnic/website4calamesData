@@ -8,6 +8,7 @@ Endpoints :
   GET /component          Un composant EAD (par node_id)
   GET /children           Enfants directs d'un composant
   GET /ancestors          Chaîne des ancêtres (fil d'Ariane)
+  GET /subtree            Sous-arbre complet d'un composant, avec descriptions (petit sous-arbre)
   GET /raw                Fragment XML EAD brut d'un composant
   GET /search             Recherche plein texte avec regroupement hiérarchique
   GET /nlsearch           Recherche en langage naturel (via LLM)
@@ -326,29 +327,85 @@ def get_fonds(ead_id: str) -> dict:
     hits = hits_of(result)
     if not hits:
         raise HTTPException(status_code=404, detail=f"Finding aid not found: {ead_id}")
-    return hits[0]
+    return {**hits[0], "descendants_count": _descendants_count(hits[0]["node_id"])}
 
 
 @app.get("/component", summary="Get a single component")
 def get_component(node_id: str = Query(..., description="Component node_id")) -> dict:
-    return _get_by_id(node_id)
+    return {**_get_by_id(node_id), "descendants_count": _descendants_count(node_id)}
+
+
+# Fields of a component in the navigation tree; with its description (details).
+TREE_FIELDS = [
+    "node_id", "ead_id", "level", "depth", "parent_id",
+    "unitid", "title", "date_display", "date_normal",
+    "date_start", "date_end", "extents", "access_restrict",
+    "children_count",
+]
+DETAIL_FIELDS = TREE_FIELDS + ["abstract", "scope_content", "biography", "phys_facets", "file_root"]
+
+# /subtree refuses larger subtrees (the frontend offers it from a lower threshold).
+SUBTREE_MAX = 500
+
+
+def _descendants_count(node_id: str) -> int:
+    """Number of components below node_id, attached files included (liaisons)."""
+    return _es.count(index=_index(), query={"term": {"ancestor_ids": node_id}})["count"]
+
+
+def _descendants_counts(node_ids: list[str]) -> dict[str, int]:
+    """Number of descendants of each node, in one aggregation."""
+    if not node_ids:
+        return {}
+    res = _search(size=0, query={"terms": {"ancestor_ids": node_ids}},
+                  aggs={"d": {"terms": {"field": "ancestor_ids", "include": node_ids,
+                                        "size": len(node_ids)}}})
+    return {b["key"]: b["doc_count"] for b in res["aggregations"]["d"]["buckets"]}
 
 
 @app.get("/children", summary="Get direct children of a component")
-def get_children(node_id: str = Query(..., description="Parent node_id")) -> list[dict]:
-    """Return direct children of a component, in EAD document order."""
+def get_children(
+    node_id: str = Query(..., description="Parent node_id"),
+    details: bool = Query(default=False, description="Inclure la description de chaque enfant"),
+) -> list[dict]:
+    """
+    Return direct children of a component, in EAD document order, each with its
+    number of descendants (descendants_count).
+    """
     result = _search(
         query={"term": {"parent_id": node_id}},
         sort=[{"position": "asc"}],
         size=10000,
-        source_includes=[
-            "node_id", "ead_id", "level", "depth", "parent_id",
-            "unitid", "title", "date_display", "date_normal",
-            "date_start", "date_end", "extents", "access_restrict",
-            "children_count",
-        ],
+        source_includes=DETAIL_FIELDS if details else TREE_FIELDS,
     )
-    return hits_of(result)
+    hits = hits_of(result)
+    counts = _descendants_counts([h["node_id"] for h in hits if h.get("children_count")])
+    for h in hits:
+        h["descendants_count"] = counts.get(h["node_id"], 0)
+    return hits
+
+
+@app.get("/subtree", summary="Sous-arbre d'un composant, avec descriptions")
+def get_subtree(
+    node_id: str = Query(..., description="Component node_id"),
+    max: int = Query(default=200, ge=1, le=SUBTREE_MAX, description="Taille maximale acceptée"),
+) -> dict:
+    """
+    Every component below node_id, with its description, sorted by depth then
+    position (the client rebuilds the tree from parent_id). Refused (413) above
+    `max` components: the tree is then opened level by level.
+    """
+    total = _descendants_count(node_id)
+    if total > max:
+        raise HTTPException(status_code=413,
+                            detail=f"Sous-arbre de {total} composants (maximum {max}).")
+    result = _search(
+        query={"term": {"ancestor_ids": node_id}},
+        sort=[{"depth": "asc"}, {"position": "asc"}],
+        size=max,
+        source_includes=DETAIL_FIELDS,
+    )
+    return {"total": total, "nodes": hits_of(result)}
 
 
 @app.get("/ancestors", summary="Get ancestor chain (breadcrumb)")

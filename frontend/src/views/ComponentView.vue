@@ -223,17 +223,9 @@
               ({{ children.length }} éléments)
             </span>
           </h2>
-          <ComponentTree
-            v-for="child in children"
-            :key="child.node_id"
-            :node-id="child.node_id"
-            :initial-title="child.title"
-            :initial-date="child.date_display"
-            :level="child.level"
-            :depth="child.depth"
-            :ead-id="child.ead_id"
-            :initial-children-count="child.children_count ?? 0"
-          />
+          <ChildrenTree :node-id="comp.node_id" :children-count="children.length"
+                        :descendants-count="comp.descendants_count ?? null"
+                        :initial-children="children" />
         </section>
 
         </div><!-- fin component-card -->
@@ -264,7 +256,7 @@ import { useRoute, useRouter, RouterLink } from 'vue-router'
 import { componentPath as cPath, encodeNodeId, decodeNodeId } from '../router'
 import { api } from '../api'
 import { levelLabel } from '../utils/levels'
-import ComponentTree from '../components/ComponentTree.vue'
+import ChildrenTree from '../components/ChildrenTree.vue'
 import ChildrenDensity from '../components/ChildrenDensity.vue'
 import TreeNode from '../components/TreeNode.vue'
 import TestFileComment from '../components/TestFileComment.vue'

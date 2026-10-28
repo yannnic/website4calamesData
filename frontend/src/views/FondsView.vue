@@ -19,7 +19,8 @@
           <RawEad :node-id="fonds.node_id" :has-children="(fonds.children_count ?? 0) > 0"
                   style="margin:0 0 1.4rem" />
           <h2 style="margin-bottom:.8rem">Plan du fonds</h2>
-          <ComponentTree :node-id="fonds.node_id" :initial-title="fonds.title" :depth="0" />
+          <ChildrenTree :node-id="fonds.node_id" :children-count="fonds.children_count ?? 0"
+                        :descendants-count="fonds.descendants_count ?? null" />
         </section>
 
         <!-- Panneau de description -->
@@ -127,7 +128,7 @@
 import { ref, onMounted } from 'vue'
 import { useRoute, RouterLink } from 'vue-router'
 import { api } from '../api'
-import ComponentTree from '../components/ComponentTree.vue'
+import ChildrenTree from '../components/ChildrenTree.vue'
 import TestFileComment from '../components/TestFileComment.vue'
 import RawEad from '../components/RawEad.vue'
 
