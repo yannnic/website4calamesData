@@ -192,6 +192,12 @@
               <RouterLink v-for="s in comp.corp_names" :key="s" :to="{ path: '/search', query: { corp_name: s } }" class="tag">{{ s }}</RouterLink>
             </dd>
           </template>
+          <template v-if="comp.fam_names?.length">
+            <dt>Familles</dt>
+            <dd class="tag-list">
+              <RouterLink v-for="s in comp.fam_names" :key="s" :to="{ path: '/search', query: { q: s } }" class="tag">{{ s }}</RouterLink>
+            </dd>
+          </template>
           <template v-if="comp.geo_names?.length">
             <dt>Lieux</dt>
             <dd class="tag-list">
@@ -315,6 +321,7 @@ const hasIndexTerms = computed(() =>
     comp.value.subjects?.length ||
     comp.value.pers_names?.length ||
     comp.value.corp_names?.length ||
+    comp.value.fam_names?.length ||
     comp.value.geo_names?.length ||
     comp.value.genre_forms?.length
   )

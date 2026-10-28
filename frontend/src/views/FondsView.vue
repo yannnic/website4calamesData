@@ -70,6 +70,51 @@
               >{{ g }}</RouterLink>
             </div>
           </template>
+
+          <template v-if="fonds.pers_names?.length">
+            <h3>Personnes</h3>
+            <div class="tag-list">
+              <RouterLink
+                v-for="p in fonds.pers_names" :key="p"
+                :to="{ path: '/search', query: { pers_name: p } }"
+                class="tag"
+              >{{ p }}</RouterLink>
+            </div>
+          </template>
+
+          <template v-if="fonds.corp_names?.length">
+            <h3>Collectivités</h3>
+            <div class="tag-list">
+              <RouterLink
+                v-for="c in fonds.corp_names" :key="c"
+                :to="{ path: '/search', query: { corp_name: c } }"
+                class="tag"
+              >{{ c }}</RouterLink>
+            </div>
+          </template>
+
+          <template v-if="fonds.fam_names?.length">
+            <h3>Familles</h3>
+            <div class="tag-list">
+              <RouterLink
+                v-for="f in fonds.fam_names" :key="f"
+                :to="{ path: '/search', query: { q: f } }"
+                class="tag"
+              >{{ f }}</RouterLink>
+            </div>
+          </template>
+
+          <template v-if="fonds.genre_forms?.length">
+            <h3>Genre/forme</h3>
+            <div class="tag-list">
+              <RouterLink
+                v-for="g in fonds.genre_forms" :key="g"
+                :to="{ path: '/search', query: { genre_form: g } }"
+                class="tag"
+              >{{ g }}</RouterLink>
+            </div>
+          </template>
+
         </aside>
       </div>
     </template>
