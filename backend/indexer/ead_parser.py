@@ -78,6 +78,10 @@ CUMULATIVE_INHERITED_FIELDS = {
     "gff_norm",           # genreform[@type="genre"]
     "tdd_norm",           # genreform[@type="type_de_document"]
     "technique_norm",     # genreform[@type="technique"]
+    "work_titles",        # controlaccess/title (titres d'œuvres)
+    "work_titles_norm",
+    "functions",          # <function>
+    "provenance",         # noms au rôle 390 (propriétaire précédent), forme normale
 }
 
 
@@ -133,6 +137,20 @@ class Component:
     fam_names_norm: list[str]
     pers_name_roles: list[str]          # "NormalName::role" pairs
     pers_name_ids: list[str]            # "NormalName||authfilenumber" pour liens IdRef
+
+    # Other indexing terms (cumulative, see CUMULATIVE_INHERITED_FIELDS)
+    work_titles: list[str]
+    work_titles_norm: list[str]
+    functions: list[str]
+    provenance: list[str]
+
+    # Former cotes (unitid[@type="ancienne_cote"]), digital copies (<dao>, <daoloc>)
+    former_unitids: list[str]
+    dao: list[dict]                     # [{"href": …, "title": …}]
+
+    # Descriptive elements with their own heading in the display, in document
+    # order: [{"tag": "acqinfo", "text": …}] (labels: frontend)
+    sections: list[dict]
 
     # Physical description
     extents: list[str]
@@ -230,8 +248,12 @@ def _find_path(el: etree._Element, *locals: str) -> Optional[etree._Element]:
 def _parse_did(did: etree._Element) -> dict:
     """Extract all fields from a <did> element."""
 
-    unitid_el = _find(did, "unitid")
-    unitid = _inner_text(unitid_el)
+    # The cote is the first unitid that is not a former one (@type="ancienne_cote").
+    unitid_els = _findall(did, "unitid")
+    current = [u for u in unitid_els if u.get("type", "").strip() != "ancienne_cote"]
+    unitid = _inner_text(current[0]) if current else ""
+    former_unitids = [t for u in unitid_els
+                      if u.get("type", "").strip() == "ancienne_cote" and (t := _inner_text(u))]
 
     title_el = _find(did, "unittitle")
     title = _inner_text(title_el)
@@ -294,6 +316,7 @@ def _parse_did(did: etree._Element) -> dict:
 
     return {
         "unitid": unitid,
+        "former_unitids": former_unitids,
         "title": title,
         "date_display": date_display,
         "date_normal": date_normal,
@@ -489,23 +512,83 @@ def _parse_controlaccess(el: etree._Element) -> dict:
 # Narrative fields
 # ---------------------------------------------------------------------------
 
-# Descriptive elements whose text is searched with a low weight (other_text),
-# besides the fields that have their own (title, scopecontent, bioghist…).
-# Direct children of the component, then of its <did>.
+# Descriptive elements shown under their own heading (sections) and searched
+# with a low weight (other_text), besides the fields that have their own place
+# (title, scopecontent, bioghist…). Direct children of the component, then of its <did>.
 OTHER_TEXT_TAGS = (
     "custodhist", "acqinfo", "arrangement", "appraisal", "accruals", "processinfo",
     "phystech", "altformavail", "originalsloc", "relatedmaterial", "separatedmaterial",
     "otherfindaid", "bibliography", "fileplan", "odd", "note", "prefercite",
 )
-OTHER_DID_TAGS = ("note", "materialspec", "physloc")
+OTHER_DID_TAGS = ("note", "materialspec", "physloc", "container")
 
 
-def _other_text(el: etree._Element) -> str:
+def _local(el: etree._Element) -> str:
+    return el.tag.split("}", 1)[1] if isinstance(el.tag, str) and "}" in el.tag else str(el.tag)
+
+
+def _block_text(el: etree._Element) -> str:
+    """Text of a descriptive element, one line per paragraph-level child, without <head>."""
+    lines = [el.text.strip()] if el.text and el.text.strip() else []
+    for child in el:
+        if not isinstance(child.tag, str) or _local(child) == "head":
+            continue
+        t = _inner_text(child, skip_tags=("head",))
+        if t:
+            lines.append(t)
+    return "\n".join(lines)
+
+
+def _sections(el: etree._Element) -> list[dict]:
     did = _find(el, "did")
-    parts = [_inner_text(c, skip_tags=("head",)) for t in OTHER_TEXT_TAGS for c in _findall(el, t)]
-    if did is not None:
-        parts += [_inner_text(c, skip_tags=("head",)) for t in OTHER_DID_TAGS for c in _findall(did, t)]
-    return " ".join(p for p in parts if p)
+    out = []
+    for parent, tags in ((el, OTHER_TEXT_TAGS), (did, OTHER_DID_TAGS)):
+        if parent is None:
+            continue
+        for child in parent:
+            if isinstance(child.tag, str) and _local(child) in tags:
+                text = _block_text(child)
+                if text:
+                    out.append({"tag": _local(child), "text": text})
+    return out
+
+
+def _own_scope(el: etree._Element):
+    """Elements of the component itself (not of its child components)."""
+    for child in el:
+        if not isinstance(child.tag, str) or _local(child) in ("c", "dsc"):
+            continue
+        yield child
+        yield from _own_scope(child)
+
+
+_XLINK_HREF = "{http://www.w3.org/1999/xlink}href"
+_PROVENANCE_ROLE = "390"   # propriétaire précédent (Calames)
+
+
+def _parse_extra_terms(el: etree._Element) -> dict:
+    """Work titles, functions, provenance names and digital copies of el itself."""
+    work_titles, work_titles_norm, functions, provenance, dao = [], [], [], [], []
+    for node in _own_scope(el):
+        local = _local(node)
+        parent = node.getparent()
+        if local == "title" and parent is not None and _local(parent) == "controlaccess":
+            work_titles += _controlled_texts(node)
+            if (n := _controlled_norm(node)):
+                work_titles_norm.append(n)
+        elif local == "function":
+            functions += _controlled_texts(node)
+        elif local in ("persname", "corpname", "famname") and node.get("role", "").strip() == _PROVENANCE_ROLE:
+            if (n := _controlled_norm(node)):
+                provenance.append(n)
+        elif local in ("dao", "daoloc"):
+            href = (node.get("href") or node.get(_XLINK_HREF) or "").strip()
+            if href:
+                desc = _find(node, "daodesc")
+                title = (node.get("title") or _inner_text(desc) or node.get("linktitle") or "").strip()
+                dao.append({"href": href, "title": title})
+    return {"work_titles": _dedup(work_titles), "work_titles_norm": _dedup(work_titles_norm),
+            "functions": _dedup(functions), "provenance": _dedup(provenance), "dao": dao}
 
 
 def _parse_narrative(el: etree._Element) -> dict:
@@ -520,7 +603,9 @@ def _parse_narrative(el: etree._Element) -> dict:
         bio_parts.append(_inner_text(bh, skip_tags=("head",)))
     biography = " ".join(bio_parts)
 
-    return {"scope_content": scope_content, "biography": biography, "other_text": _other_text(el)}
+    sections = _sections(el)
+    return {"scope_content": scope_content, "biography": biography, "sections": sections,
+            "other_text": " ".join(sec["text"] for sec in sections)}
 
 
 def _parse_conditions(el: etree._Element) -> dict:
@@ -566,6 +651,7 @@ def _build_component(
     narrative = _parse_narrative(el)
     conditions = _parse_conditions(el)
     access = _parse_controlaccess(el)
+    extra = _parse_extra_terms(el)
 
     # Fusionner les personnes de <origination> dans pers_names, pers_name_roles et pers_name_ids
     orig_pers_names = []
@@ -596,6 +682,13 @@ def _build_component(
         scope_content=narrative["scope_content"],
         biography=narrative["biography"],
         other_text=narrative["other_text"],
+        sections=narrative["sections"],
+        former_unitids=did_data.get("former_unitids", []),
+        dao=extra["dao"],
+        work_titles=extra["work_titles"],
+        work_titles_norm=extra["work_titles_norm"],
+        functions=extra["functions"],
+        provenance=extra["provenance"],
         creators=did_data.get("creators", []),
         subjects=access["subjects"],
         geo_names=access["geo_names"],
@@ -906,7 +999,8 @@ def _rebase(comp: Component, anchor: Anchor) -> None:
 
 # Authority fields searched with a high weight for the component's own values
 # ("<field>_own") and a low one for the union with the inherited values ("<field>").
-OWN_FIELDS = ("subjects", "geo_names", "genre_forms", "corp_names", "pers_names", "fam_names")
+OWN_FIELDS = ("subjects", "geo_names", "genre_forms", "corp_names", "pers_names", "fam_names",
+              "work_titles", "functions", "provenance")
 
 
 def _comp_to_doc(comp: Component, resolved: dict, position: int = 0,
@@ -931,6 +1025,16 @@ def _comp_to_doc(comp: Component, resolved: dict, position: int = 0,
         "scope_content": comp.scope_content,
         "biography": comp.biography,
         "other_text": comp.other_text,
+        "sections": comp.sections,
+        "former_unitids": comp.former_unitids,
+        "dao": comp.dao,
+        "has_dao": bool(comp.dao),
+        # Calames identifiers, for the redirection of its URLs (/pub/ms/<id>)
+        "xml_id": comp.node_id.split("#", 1)[1],
+        "work_titles": resolved["work_titles"],
+        "work_titles_norm": resolved["work_titles_norm"],
+        "functions": resolved["functions"],
+        "provenance": resolved["provenance"],
         **{f"{f}_own": getattr(comp, f) for f in OWN_FIELDS},
         # Simply inherited fields whose value comes from an ancestor ("date": the
         # whole date group); with *_own, lets the interface tell own from inherited.

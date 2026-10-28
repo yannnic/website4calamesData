@@ -127,6 +127,7 @@ class FileGraph:
 
     def __init__(self, liaisons: dict[str, Liaison], file_ids: dict[str, FileRef | None]):
         self._liaisons = liaisons
+        self._file_ids = dict(file_ids)
         # Owner of each FileId: a file naming it explicitly, else (url only) the first by name.
         self._name_of: dict[str, str] = {}
         for from_url in (False, True):
@@ -182,6 +183,11 @@ class FileGraph:
                     break
                 seen.add(p)
                 p = self._parent[p]
+
+    def file_id(self, name: str) -> str | None:
+        """Calames FileId of a file (OAI record number), if known."""
+        ref = self._file_ids.get(name)
+        return ref[0] if ref else None
 
     def parent_of(self, name: str) -> str | None:
         return self._parent.get(name)

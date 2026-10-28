@@ -8,6 +8,7 @@
       <ChildrenDensity :count="childCount" style="margin-right:.3rem;opacity:.7" />
       <RouterLink :to="nodeLink" class="node-title"><span v-if="doc.unitid" class="cote">{{ doc.unitid }}</span>{{ doc.title }}</RouterLink>
       <span v-if="doc.date_display" class="node-date">{{ doc.date_display }}</span>
+      <span v-if="doc.extents?.length" class="node-date">{{ doc.extents.join(', ') }}</span>
       <button class="desc-toggle" :class="{ active: showDesc }"
               :title="showDesc ? 'Masquer la description' : 'Afficher la description'"
               @click="toggleDesc">ⓘ</button>

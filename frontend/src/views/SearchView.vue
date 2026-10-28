@@ -58,7 +58,7 @@
               @click="toggleFacet('repository', val)"
               :title="val"
             >
-              <span class="facet-label">{{ val }}</span>
+              <span class="facet-label">{{ val || 'Institution non précisée' }}</span>
               <span class="facet-count">{{ count }}</span>
               <button class="facet-excl-btn" @click.stop="toggleExclude('repository', val)" title="Exclure">≠</button>
             </li>
@@ -124,7 +124,7 @@
               @click="toggleFacet('tdd_norm', val)"
               :title="val"
             >
-              <span class="facet-label">{{ val }}</span>
+              <span class="facet-label"><span class="tdd-icon" aria-hidden="true">{{ tddIcon(val) }}</span>{{ val }}</span>
               <span class="facet-count">{{ count }}</span>
               <button class="facet-excl-btn" @click.stop="toggleExclude('tdd_norm', val)" title="Exclure">≠</button>
             </li>
@@ -182,6 +182,48 @@
           </ul>
         </div>
 
+
+        <!-- Langues -->
+        <div class="facet-group" v-if="facetLang.length">
+          <div class="facet-title">Langues</div>
+          <ul>
+            <li
+              v-for="[val, count] in facetLang" :key="val"
+              :class="{ active: lang === val }"
+              @click="lang = lang === val ? '' : val; resetAndSearch()"
+              :title="val"
+            >
+              <span class="facet-label">{{ langLabel(val) }}</span>
+              <span class="facet-count">{{ count }}</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Propriétaire précédent -->
+        <div class="facet-group" v-if="facetProvenance.length">
+          <div class="facet-title">Propriétaire précédent</div>
+          <ul>
+            <li
+              v-for="[val, count] in facetProvenance" :key="val"
+              :class="{ active: provenance === val }"
+              @click="provenance = provenance === val ? '' : val; resetAndSearch()"
+              :title="val"
+            >
+              <span class="facet-label">{{ val }}</span>
+              <span class="facet-count">{{ count }}</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Numérisation -->
+        <div class="facet-group" v-if="daoCount || dao">
+          <div class="facet-title">Numérisation</div>
+          <label class="facet-check">
+            <input type="checkbox" v-model="dao" @change="resetAndSearch" />
+            Documents numérisés associés <span class="facet-count">{{ daoCount }}</span>
+          </label>
+        </div>
+
         <!-- Date range (manual) -->
         <div class="facet-group">
           <div class="facet-title">Dates</div>
@@ -207,6 +249,16 @@
             </template>
             <span v-if="q"> pour « {{ results.query ?? q }} »</span>
           </p>
+          <label v-if="!nlMode" class="sort-select">
+            Trier par
+            <select v-model="sort" @change="resetAndSearch">
+              <option value="relevance">Pertinence</option>
+              <option value="title_asc">Titre croissant</option>
+              <option value="title_desc">Titre décroissant</option>
+              <option value="date_asc">Date croissante</option>
+              <option value="date_desc">Date décroissante</option>
+            </select>
+          </label>
           <a v-if="searched" :href="currentSearchApiUrl()" target="_blank" class="api-link" title="Voir l'URL de l'API">{ } API</a>
           <button class="btn btn-sm summarize-btn" @click="doSummarize" :disabled="summaryLoading">
             {{ summaryLoading ? 'Résumé en cours…' : '✦ Résumer' }}
@@ -285,6 +337,8 @@ import { useRoute, useRouter, RouterLink } from 'vue-router'
 import ChildrenDensity from '../components/ChildrenDensity.vue'
 import { componentPath as cPath, encodeNodeId } from '../router'
 import { api, apiUrl } from '../api'
+import { langLabel } from '../utils/labels'
+import { saveResults } from '../utils/results'
 
 const route = useRoute()
 const router = useRouter()
@@ -304,6 +358,12 @@ const tddNorm       = ref('')
 const techniqueNorm = ref('')
 const subjectNorm   = ref('')
 const geoNameNorm   = ref('')
+const provenance    = ref('')
+const dao           = ref(false)
+const eadId         = ref('')     // recherche dans un fonds (et ses fichiers rattachés)
+const workTitle     = ref('')
+const functionTerm  = ref('')
+const sort          = ref('relevance')
 
 // Exclusion facets (valeur à exclure des résultats)
 const levelExcl        = ref('')
@@ -363,6 +423,20 @@ const facetTdd       = computed(() => topFacet('tdd_norm', 15))
 const facetTechnique = computed(() => topFacet('technique_norm', 15))
 const facetSubject = computed(() => topFacet('subjects_norm', 10))
 const facetGeo     = computed(() => topFacet('geo_names_norm', 10))
+const facetLang    = computed(() => topFacet('languages', 10))
+const facetProvenance = computed(() => topFacet('provenance', 10))
+const daoCount     = computed(() => results.value?.facets?.has_dao?.['1'] ?? results.value?.facets?.has_dao?.true ?? 0)
+
+// Pictogrammes des types de document (comme les icônes de Calames)
+const TDD_ICONS = [
+  [/photo/i, '📷'], [/(dessin|estampe|gravure|iconograph|image fixe|peinture|affiche)/i, '🖼'],
+  [/(imprim|livre|journal|presse|périodique)/i, '📰'], [/(manuscrit|autographe|lettre)/i, '✍'],
+  [/(carte|plan)/i, '🗺'], [/(son|audio|disque|enregistrement)/i, '🔊'],
+  [/(film|vidéo|video|image animée)/i, '🎞'], [/(objet|médaille|sceau)/i, '🏺'], [/(partition|musique)/i, '🎼'],
+]
+function tddIcon(val) {
+  return TDD_ICONS.find(([re]) => re.test(val))?.[1] ?? '📄'
+}
 const facetCentury = computed(() => {
   const dist = results.value?.facets?.century
   if (!dist) return []
@@ -399,6 +473,11 @@ const activeFilters = computed(() => {
   if (geoNameNormExcl.value)   f.push({ key: 'geo_name_norm_excl',   label: `≠ Lieu : ${geoNameNormExcl.value}`, excl: true })
   if (dateFrom.value)          f.push({ key: 'dateFrom',             label: `Depuis ${dateFrom.value}` })
   if (dateTo.value)            f.push({ key: 'dateTo',               label: `Jusqu'en ${dateTo.value}` })
+  if (provenance.value)        f.push({ key: 'provenance',           label: `Propriétaire précédent : ${provenance.value}` })
+  if (dao.value)               f.push({ key: 'dao',                  label: 'Documents numérisés' })
+  if (eadId.value)             f.push({ key: 'ead_id',               label: `Dans le fonds : ${eadId.value}` })
+  if (workTitle.value)         f.push({ key: 'work_title',           label: `Titre d'œuvre : ${workTitle.value}` })
+  if (functionTerm.value)      f.push({ key: 'function',             label: `Fonction : ${functionTerm.value}` })
   return f
 })
 
@@ -426,6 +505,11 @@ function removeFilter(key) {
   if (key === 'geo_name_norm_excl')   geoNameNormExcl.value = ''
   if (key === 'dateFrom')             dateFrom.value = null
   if (key === 'dateTo')               dateTo.value = null
+  if (key === 'provenance')           provenance.value = ''
+  if (key === 'dao')                  dao.value = false
+  if (key === 'ead_id')               eadId.value = ''
+  if (key === 'work_title')           workTitle.value = ''
+  if (key === 'function')             functionTerm.value = ''
   offset.value = 0
   runSearch()
 }
@@ -524,6 +608,12 @@ function currentSearchParams() {
     repository_excl:      repositoryExcl.value || undefined,
     century:              century.value || undefined,
     century_excl:         centuryExcl.value || undefined,
+    provenance:           provenance.value || undefined,
+    dao:                  dao.value ? 'true' : undefined,
+    ead_id:               eadId.value || undefined,
+    work_title:           workTitle.value || undefined,
+    function:             functionTerm.value || undefined,
+    sort:                 sort.value !== 'relevance' ? sort.value : undefined,
   }
 }
 
@@ -553,7 +643,8 @@ async function doNlSearch() {
     const res = await api.nlSearch({ q: q.value, limit, offset: offset.value })
     results.value = res
     interpreted.value = res.interpreted ?? null
-    router.replace({ query: { q: q.value || undefined, nl: '1' } })
+    await router.replace({ query: { q: q.value || undefined, nl: '1' } })
+    saveResults(router.currentRoute.value.fullPath, res.hits)
   } catch (e) {
     error.value = e.message
   } finally {
@@ -572,7 +663,8 @@ async function doSearch() {
       limit,
       offset: offset.value,
     })
-    router.replace({ query: currentSearchParams() })
+    await router.replace({ query: currentSearchParams() })
+    saveResults(router.currentRoute.value.fullPath, results.value.hits)
   } catch (e) {
     error.value = e.message
   } finally {
@@ -609,6 +701,12 @@ function applyRouteQuery(rq) {
   if (rq.repository_excl)         repositoryExcl.value = rq.repository_excl
   if (rq.century)                 century.value = rq.century
   if (rq.century_excl)            centuryExcl.value = rq.century_excl
+  if (rq.provenance)              provenance.value = rq.provenance
+  if (rq.dao === 'true')          dao.value = true
+  if (rq.ead_id)                  eadId.value = rq.ead_id
+  if (rq.work_title)              workTitle.value = rq.work_title
+  if (rq.function)                functionTerm.value = rq.function
+  if (rq.sort)                    sort.value = rq.sort
   // Params issus des tags ComponentView (texte libre injecté dans q si pas de q ni subject)
   const textTerm = rq.pers_name || rq.geo_name || rq.genre_form || rq.corp_name
   if (textTerm && !rq.q) q.value = textTerm
@@ -628,7 +726,8 @@ watch(() => route.query, (rq) => {
                           'technique_norm', 'technique_norm_excl',
                           'geo_name_norm', 'geo_name_norm_excl', 'repository', 'repository_id',
                           'repository_excl', 'century', 'century_excl', 'level', 'level_excl',
-                          'lang', 'date_from', 'date_to']
+                          'lang', 'date_from', 'date_to', 'provenance', 'dao', 'ead_id',
+                          'work_title', 'function', 'sort']
   const hasExternal = externalParams.some(k => k in rq)
   const qChanged = (rq.q || '') !== q.value
   if (!hasExternal && !qChanged) return
@@ -643,6 +742,8 @@ watch(() => route.query, (rq) => {
   tddNorm.value = ''; tddNormExcl.value = ''
   techniqueNorm.value = ''; techniqueNormExcl.value = ''
   geoNameNorm.value = ''; geoNameNormExcl.value = ''
+  provenance.value = ''; dao.value = false; eadId.value = ''
+  workTitle.value = ''; functionTerm.value = ''; sort.value = 'relevance'
   offset.value = 0
   applyRouteQuery(rq)
   runSearch()
@@ -771,6 +872,10 @@ input.nl-active { border-color: #7c3aed; box-shadow: 0 0 0 2px #ede9fe; }
   min-width: 0;
 }
 
+.sort-select { font-size: .8rem; color: var(--color-muted); display: flex; align-items: center; gap: .3rem; }
+.sort-select select { font-size: .8rem; padding: .1rem .3rem; }
+.facet-check { display: flex; align-items: center; gap: .4rem; font-size: .82rem; cursor: pointer; padding: .2rem .4rem; }
+.tdd-icon { margin-right: .35rem; }
 .facet-group {
   margin-bottom: 1.2rem;
 }

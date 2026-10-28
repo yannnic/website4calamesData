@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Teste : ce que l'interface publique de Calames affiche ou permet, repris ici :
+     rubriques de description sous leurs libellés Calames, anciennes cotes,
+     versions numériques, titres d'œuvres, fonctions, provenance (rôle 390),
+     redirection des adresses Calames (FileId-9100, @id des composants), tri des
+     résultats et syntaxe de recherche de Calames (OR, -mot, ^début).
+
+     Structure :
+       Fonds de démonstration Calames (CA 1, ancienne cote « Anc 99 », FileId 9100)
+         rubriques : Historique de la conservation, Modalités d'entrée,
+         Documents en relation ; titre d'œuvre « Le Cid », fonction
+         « Enseignement », propriétaire précédent « Dupuis, Jean », version numérique
+       ├── ca-1 « Registre »   seulement une ancienne cote (X 12) ; version numérique (daoloc)
+       ├── ca-2 « Lettre »     1900
+       └── ca-3 « Carnet »     1950
+
+     Attendu : /resolve?id=FileId-9100 → le fonds ; /resolve?id=ca-1 → ca-1 ;
+     « anc 99 » et « x12 » trouvent par l'ancienne cote ; tri par titre :
+     Carnet, Lettre, Registre ; dao=true : le fonds et ca-1 ;
+     « lettre OR carnet » : ca-2 et ca-3 ; « ^carn » : ca-3.
+-->
+<ead xmlns:xlink="http://www.w3.org/1999/xlink">
+  <eadheader>
+    <eadid url="https://calames.abes.fr/pub/ms/FileId-9100">test-calames-affichage</eadid>
+  </eadheader>
+  <archdesc level="fonds">
+    <did>
+      <unitid type="cote">CA 1</unitid>
+      <unitid type="ancienne_cote">Anc 99</unitid>
+      <unittitle>Fonds de démonstration Calames</unittitle>
+      <unitdate normal="1890/1960">1890-1960</unitdate>
+      <langmaterial><language langcode="fre">français</language></langmaterial>
+      <repository><corpname authfilenumber="999999998">Bibliothèque de démonstration</corpname></repository>
+      <dao href="https://exemple.org/numerisation/ca-1" title="Fonds numérisé"/>
+    </did>
+    <custodhist><head>Historique</head><p>Conservé par la famille.</p><p>Déposé en 1960.</p></custodhist>
+    <acqinfo><p>Don de 1961.</p></acqinfo>
+    <relatedmaterial><p>Voir aussi le fonds Lemoine.</p></relatedmaterial>
+    <controlaccess>
+      <title normal="Le Cid">Le Cid</title>
+      <function>Enseignement</function>
+      <persname normal="Dupuis, Jean" role="390">Jean Dupuis</persname>
+    </controlaccess>
+    <dsc>
+      <c id="ca-1" level="item">
+        <did>
+          <unitid type="ancienne_cote">X 12</unitid>
+          <unittitle>Registre</unittitle>
+          <daogrp><daoloc xlink:href="https://exemple.org/numerisation/ca-1/registre" title="Registre numérisé"/></daogrp>
+        </did>
+      </c>
+      <c id="ca-2" level="item"><did><unittitle>Lettre</unittitle><unitdate normal="1900">1900</unitdate></did></c>
+      <c id="ca-3" level="item"><did><unittitle>Carnet</unittitle><unitdate normal="1950">1950</unitdate></did></c>
+    </dsc>
+  </archdesc>
+</ead>

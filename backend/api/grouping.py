@@ -136,17 +136,19 @@ def _grouped_query(query: dict, promoted: dict[str, dict], outer: list[str]) -> 
 
 
 def grouped_search(search: Search, query: dict, mode: str, offset: int, limit: int,
-                   aggs: dict) -> dict[str, Any]:
+                   aggs: dict, sort: list | None = None) -> dict[str, Any]:
     """
     Run `query` with hierarchical grouping. Facets (`aggs`) and `total_hits` describe
     the matching components; `total` and `hits` describe the grouped list.
     Promoted hits carry `grouped_count`: their number of matching descendants.
+    `sort` (Elasticsearch sort clauses) orders the grouped list; by default, relevance.
     """
     first, stats = _parent_stats(search, query, aggs)
     promoted = _promote(search, query, stats, _rule(mode))
     outer = [n for n, p in promoted.items() if not any(a in promoted for a in p["ancestor_ids"])]
 
-    resp = search(query=_grouped_query(query, promoted, outer), from_=offset, size=limit)
+    resp = search(query=_grouped_query(query, promoted, outer), from_=offset, size=limit,
+                  **({"sort": sort} if sort else {}))
     hits = hits_of(resp)
 
     page_promoted = [h["node_id"] for h in hits if h["node_id"] in promoted]

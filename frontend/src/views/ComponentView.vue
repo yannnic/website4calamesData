@@ -145,6 +145,7 @@
 
         <div class="component-card">
 
+        <ResultNav :node-id="comp.node_id" />
         <h1 style="text-align:center">
           <span v-if="levelLabel(comp.level)" class="level-badge" :class="`level-${comp.level}`" style="font-size:.8rem">{{ levelLabel(comp.level) }}</span>
           <ChildrenDensity :count="children.length" style="margin:0 .4rem" />
@@ -168,12 +169,14 @@
         <dl class="meta-grid" v-if="comp.extents?.length || comp.phys_facets?.length || comp.languages?.length || comp.access_restrict || comp.use_restrict">
           <template v-if="comp.extents?.length"><dt>Importance</dt><dd>{{ comp.extents.join(' — ') }}</dd></template>
           <template v-if="comp.phys_facets?.length"><dt>Support</dt><dd>{{ comp.phys_facets.join(' — ') }}</dd></template>
-          <template v-if="comp.languages?.length"><dt>Langues</dt><dd>{{ comp.languages.join(', ') }} <span v-if="isInheritedField(comp, 'languages')" class="origin-badge">héritée</span></dd></template>
+          <template v-if="comp.languages?.length"><dt>Langues</dt><dd>{{ comp.languages.map(langLabel).join(', ') }} <span v-if="isInheritedField(comp, 'languages')" class="origin-badge">héritée</span></dd></template>
           <template v-if="comp.access_restrict"><dt>Accès</dt><dd>{{ comp.access_restrict }} <span v-if="isInheritedField(comp, 'access_restrict')" class="origin-badge">héritée</span></dd></template>
           <template v-if="comp.use_restrict"><dt>Utilisation</dt><dd>{{ comp.use_restrict }} <span v-if="isInheritedField(comp, 'use_restrict')" class="origin-badge">héritée</span></dd></template>
         </dl>
 
         <!-- Termes d'indexation -->
+        <ExtraDescription :doc="comp" show-creators />
+
         <p v-if="SHOW_ORIGIN && hasIndexTerms" class="origin-legend">
           Corpus de test : en pointillés, les termes hérités d'un ancêtre ; « héritée » : valeur prise à un ancêtre.
         </p>
@@ -215,6 +218,24 @@
             </dd>
           </template>
         </dl>
+          <template v-if="comp.work_titles?.length">
+            <dt>Titres d'œuvres</dt>
+            <dd class="tag-list">
+              <RouterLink v-for="s in comp.work_titles" :key="s" :to="{ path: '/search', query: { work_title: s } }" class="tag" :class="{ 'tag--inherited': isInheritedTerm(comp, 'work_titles', s) }">{{ s }}</RouterLink>
+            </dd>
+          </template>
+          <template v-if="comp.functions?.length">
+            <dt>Fonctions</dt>
+            <dd class="tag-list">
+              <RouterLink v-for="s in comp.functions" :key="s" :to="{ path: '/search', query: { function: s } }" class="tag" :class="{ 'tag--inherited': isInheritedTerm(comp, 'functions', s) }">{{ s }}</RouterLink>
+            </dd>
+          </template>
+          <template v-if="comp.provenance?.length">
+            <dt>Provenance</dt>
+            <dd class="tag-list">
+              <RouterLink v-for="s in comp.provenance" :key="s" :to="{ path: '/search', query: { provenance: s } }" class="tag" :class="{ 'tag--inherited': isInheritedTerm(comp, 'provenance', s) }">{{ s }}</RouterLink>
+            </dd>
+          </template>
 
         <!-- Vue EAD brute -->
         <RawEad :node-id="comp.node_id" :has-children="children.length > 0" />
@@ -266,6 +287,9 @@ import TreeNode from '../components/TreeNode.vue'
 import TestFileComment from '../components/TestFileComment.vue'
 import RawEad from '../components/RawEad.vue'
 import { SHOW_ORIGIN, isInheritedTerm, isInheritedField, dateOrigin } from '../utils/origin'
+import ExtraDescription from '../components/ExtraDescription.vue'
+import ResultNav from '../components/ResultNav.vue'
+import { langLabel } from '../utils/labels'
 
 const route  = useRoute()
 const router = useRouter()
@@ -290,6 +314,9 @@ const hasIndexTerms = computed(() =>
     comp.value.corp_names?.length ||
     comp.value.fam_names?.length ||
     comp.value.geo_names?.length ||
+    comp.value.work_titles?.length ||
+    comp.value.functions?.length ||
+    comp.value.provenance?.length ||
     comp.value.genre_forms?.length
   )
 )

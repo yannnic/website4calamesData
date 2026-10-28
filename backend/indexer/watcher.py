@@ -104,14 +104,14 @@ def read_liaisons(path: Path) -> str:
 
 
 def make_graph(files: dict[str, tuple[float, int]], liaisons_path: Path = LIAISONS_FILE) -> FileGraph:
-    liaisons = load_liaisons(liaisons_path)
+    # FileIds: for the liaisons, and indexed for the redirection of Calames URLs.
     ids = {}
     for name, sig in files.items():
         cached = _file_ids.get(name)
-        if liaisons and (cached is None or cached[0] != sig):
+        if cached is None or cached[0] != sig:
             cached = _file_ids[name] = (sig, file_id_of(EAD_DIR / name))
-        ids[name] = cached[1] if liaisons and cached else None
-    return FileGraph(liaisons, ids)
+        ids[name] = cached[1]
+    return FileGraph(load_liaisons(liaisons_path), ids)
 
 
 def seed_once() -> None:

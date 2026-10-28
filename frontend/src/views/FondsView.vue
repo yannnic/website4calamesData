@@ -3,6 +3,7 @@
     <p v-if="loading" class="loading">Chargement…</p>
     <p v-else-if="error" class="error">{{ error }}</p>
     <template v-else-if="fonds">
+      <ResultNav :node-id="fonds.node_id" />
       <!-- Titre -->
       <h1><span v-if="fonds.unitid" class="cote">{{ fonds.unitid }}</span>{{ fonds.title }}</h1>
       <div class="meta" style="margin-bottom:1.2rem;font-size:.9rem;color:var(--color-muted)">
@@ -17,6 +18,10 @@
           <!-- Comme sur la page d'un composant : dans la colonne principale, avant les enfants -->
           <RawEad :node-id="fonds.node_id" :has-children="(fonds.children_count ?? 0) > 0"
                   style="margin:0 0 1.4rem" />
+          <form class="fonds-search" @submit.prevent="searchInFonds">
+            <input v-model="fondsQuery" type="search" placeholder="Rechercher dans ce fonds…" />
+            <button class="btn btn-sm" type="submit">Rechercher</button>
+          </form>
           <h2 style="margin-bottom:.8rem">Plan du fonds</h2>
           <ChildrenTree :node-id="fonds.node_id" :children-count="fonds.children_count ?? 0"
                         :descendants-count="fonds.descendants_count ?? null" />
@@ -30,11 +35,19 @@
               <dt>Présentation</dt>
               <dd>{{ fonds.abstract }}</dd>
             </template>
+            <template v-if="fonds.scope_content">
+              <dt>Présentation du contenu</dt>
+              <dd style="white-space:pre-line">{{ fonds.scope_content }}</dd>
+            </template>
+            <template v-if="fonds.biography">
+              <dt>Biographie ou histoire</dt>
+              <dd style="white-space:pre-line">{{ fonds.biography }}</dd>
+            </template>
             <template v-if="fonds.creators?.length">
               <dt>Créateur(s)</dt>
               <dd>
                 <div v-for="c in fonds.creators" :key="c.name">
-                  {{ c.name }}<span v-if="c.role" style="color:var(--color-muted)"> ({{ c.role }})</span>
+                  {{ c.name }}<span v-if="c.role" style="color:var(--color-muted)"> ({{ roleLabel(c.role) }})</span>
                 </div>
               </dd>
             </template>
@@ -44,13 +57,14 @@
             </template>
             <template v-if="fonds.languages?.length">
               <dt>Langues</dt>
-              <dd>{{ fonds.languages.join(', ') }} <span v-if="isInheritedField(fonds, 'languages')" class="origin-badge">héritée</span></dd>
+              <dd>{{ fonds.languages.map(langLabel).join(', ') }} <span v-if="isInheritedField(fonds, 'languages')" class="origin-badge">héritée</span></dd>
             </template>
             <template v-if="fonds.access_restrict">
               <dt>Accès</dt>
               <dd>{{ fonds.access_restrict }} <span v-if="isInheritedField(fonds, 'access_restrict')" class="origin-badge">héritée</span></dd>
             </template>
           </dl>
+          <ExtraDescription :doc="fonds" />
 
           <template v-if="fonds.subjects?.length">
             <h3>Sujets</h3>
@@ -117,6 +131,37 @@
               >{{ g }}</RouterLink>
             </div>
           </template>
+
+          <template v-if="fonds.work_titles?.length">
+            <h3>Titres d'œuvres</h3>
+            <div class="tag-list">
+              <RouterLink
+                v-for="t in fonds.work_titles" :key="t"
+                :to="{ path: '/search', query: { work_title: t } }"
+                class="tag" :class="{ 'tag--inherited': isInheritedTerm(fonds, 'work_titles', t) }"
+              >{{ t }}</RouterLink>
+            </div>
+          </template>
+          <template v-if="fonds.functions?.length">
+            <h3>Fonctions</h3>
+            <div class="tag-list">
+              <RouterLink
+                v-for="t in fonds.functions" :key="t"
+                :to="{ path: '/search', query: { function: t } }"
+                class="tag" :class="{ 'tag--inherited': isInheritedTerm(fonds, 'functions', t) }"
+              >{{ t }}</RouterLink>
+            </div>
+          </template>
+          <template v-if="fonds.provenance?.length">
+            <h3>Provenance</h3>
+            <div class="tag-list">
+              <RouterLink
+                v-for="t in fonds.provenance" :key="t"
+                :to="{ path: '/search', query: { provenance: t } }"
+                class="tag" :class="{ 'tag--inherited': isInheritedTerm(fonds, 'provenance', t) }"
+              >{{ t }}</RouterLink>
+            </div>
+          </template>
         </aside>
       </div>
     </template>
@@ -125,14 +170,25 @@
 
 <script setup>
 import { ref, onMounted } from 'vue'
-import { useRoute, RouterLink } from 'vue-router'
+import { useRoute, useRouter, RouterLink } from 'vue-router'
 import { api } from '../api'
 import ChildrenTree from '../components/ChildrenTree.vue'
 import TestFileComment from '../components/TestFileComment.vue'
 import RawEad from '../components/RawEad.vue'
+import ExtraDescription from '../components/ExtraDescription.vue'
+import ResultNav from '../components/ResultNav.vue'
+import { roleLabel, langLabel } from '../utils/labels'
 import { isInheritedTerm, isInheritedField, dateOrigin } from '../utils/origin'
 
 const route = useRoute()
+const router = useRouter()
+
+// Recherche restreinte au fonds et aux fichiers qui y sont rattachés (filtre ead_id)
+const fondsQuery = ref('')
+function searchInFonds() {
+  if (!fonds.value) return
+  router.push({ path: '/search', query: { q: fondsQuery.value.trim() || undefined, ead_id: fonds.value.ead_id } })
+}
 const fonds = ref(null)
 const loading = ref(true)
 const error = ref(null)
@@ -147,3 +203,8 @@ onMounted(async () => {
   }
 })
 </script>
+
+<style scoped>
+.fonds-search { display: flex; gap: .4rem; margin-bottom: 1rem; }
+.fonds-search input { flex: 1; padding: .35rem .5rem; border: 1px solid var(--color-border); border-radius: var(--radius); }
+</style>

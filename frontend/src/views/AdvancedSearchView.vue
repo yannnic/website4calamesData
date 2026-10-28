@@ -43,6 +43,36 @@
         </div>
 
         <div class="adv-field">
+          <label for="adv-work">Titre d'œuvre</label>
+          <input id="adv-work" v-model="workTitle" type="text" placeholder="ex. Le Cid" />
+        </div>
+
+        <div class="adv-field">
+          <label for="adv-function">Fonction</label>
+          <input id="adv-function" v-model="functionTerm" type="text" placeholder="ex. Enseignement" />
+        </div>
+
+        <div class="adv-field">
+          <label for="adv-provenance">Propriétaire précédent</label>
+          <input id="adv-provenance" v-model="provenance" type="text" placeholder="forme exacte, ex. Tachard, Fernand (18..-....)" />
+        </div>
+
+        <div class="adv-field">
+          <label for="adv-sort">Trier par</label>
+          <select id="adv-sort" v-model="sort">
+            <option value="relevance">Pertinence</option>
+            <option value="title_asc">Titre croissant</option>
+            <option value="title_desc">Titre décroissant</option>
+            <option value="date_asc">Date croissante</option>
+            <option value="date_desc">Date décroissante</option>
+          </select>
+        </div>
+
+        <div class="adv-field">
+          <label class="adv-check"><input v-model="dao" type="checkbox" /> Documents numérisés associés</label>
+        </div>
+
+        <div class="adv-field">
           <label for="adv-repo">Institution</label>
           <select id="adv-repo" v-model="repository">
             <option value="">— Toutes —</option>
@@ -165,6 +195,7 @@ import { useRoute, useRouter, RouterLink } from 'vue-router'
 import ChildrenDensity from '../components/ChildrenDensity.vue'
 import { componentPath as cPath } from '../router'
 import { api } from '../api'
+import { saveResults } from '../utils/results'
 
 const route  = useRoute()
 const router = useRouter()
@@ -188,6 +219,11 @@ const century   = ref('')
 const dateFrom  = ref(null)
 const dateTo    = ref(null)
 const lang      = ref('')
+const workTitle    = ref('')
+const functionTerm = ref('')
+const provenance   = ref('')
+const dao          = ref(false)
+const sort         = ref('relevance')
 
 const limit     = 20
 const offset    = ref(0)
@@ -210,6 +246,8 @@ function reset() {
   geoName.value = ''; genreForm.value = ''; creator.value = ''
   repository.value = ''; level.value = ''; century.value = ''
   dateFrom.value = null; dateTo.value = null; lang.value = ''
+  workTitle.value = ''; functionTerm.value = ''; provenance.value = ''; dao.value = false
+  sort.value = 'relevance'
   offset.value = 0; results.value = null; searched.value = false
 }
 
@@ -232,9 +270,15 @@ async function doSearch() {
       date_from:  dateFrom.value  || undefined,
       date_to:    dateTo.value    || undefined,
       lang:       lang.value      || undefined,
+      work_title: workTitle.value || undefined,
+      function:   functionTerm.value || undefined,
+      provenance: provenance.value || undefined,
+      dao:        dao.value ? 'true' : undefined,
+      sort:       sort.value !== 'relevance' ? sort.value : undefined,
       limit,
       offset: offset.value,
     })
+    saveResults(route.fullPath, results.value.hits)
   } catch (e) {
     error.value = e.message
   } finally {
@@ -277,6 +321,11 @@ onMounted(async () => {
   if (q_.level)      level.value      = q_.level
   if (q_.century)    century.value    = q_.century
   if (q_.lang)       lang.value       = q_.lang
+  if (q_.work_title) workTitle.value  = q_.work_title
+  if (q_.function)   functionTerm.value = q_.function
+  if (q_.provenance) provenance.value = q_.provenance
+  if (q_.dao === 'true') dao.value    = true
+  if (q_.sort)       sort.value       = q_.sort
   if (q_.date_from)  dateFrom.value   = parseInt(q_.date_from)
   if (q_.date_to)    dateTo.value     = parseInt(q_.date_to)
   if (Object.keys(q_).length) doSearch()
@@ -383,4 +432,5 @@ onMounted(async () => {
 }
 .tag--person { border-color: #b0c4de; color: #3a5f8a; }
 .tag--geo    { border-color: #c4d4b0; color: #4a6a3a; }
+.adv-check { display: flex; align-items: center; gap: .4rem; margin-top: 1.4rem; }
 </style>

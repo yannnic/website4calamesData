@@ -58,6 +58,10 @@ INDEX_SETTINGS = {
             "fr_stop": {"type": "stop", "stopwords": "_french_"},
             "fr_stemmer": {"type": "stemmer", "language": "light_french"},
         },
+        "normalizer": {
+            # Sort keys: case and accents ignored
+            "fold": {"type": "custom", "filter": ["lowercase", "asciifolding"]},
+        },
         "tokenizer": {
             # Runs of letters or of digits: "Ms 1234", "MS.1234" and "ms1234" → ms, 1234
             "cote_tokens": {"type": "pattern", "pattern": "\\p{L}+|\\p{N}+", "group": 0},
@@ -91,7 +95,9 @@ INDEX_MAPPINGS = {
     "dynamic": False,
     "properties": {
         # Full-text fields (fields with a .kw sub-field are also filtered exactly)
-        "title":            {**_TEXT, "fields": {**_TEXT_KW["fields"], **_EXACT}},
+        "title":            {**_TEXT, "fields": {**_TEXT_KW["fields"], **_EXACT,
+                                                 "sort": {"type": "keyword", "normalizer": "fold",
+                                                          "ignore_above": 256}}},
         "abstract":         _TEXT_EXACT,
         "scope_content":    _TEXT_EXACT,
         "biography":        _TEXT_EXACT,
@@ -100,6 +106,7 @@ INDEX_MAPPINGS = {
         "ancestor_titles":  _TEXT,
         "unitid":           {**_TEXT, "fields": {**_TEXT_KW["fields"],
                                                  "cote": {"type": "text", "analyzer": "cote"}}},
+        "former_unitids":   {**_TEXT, "fields": {"cote": {"type": "text", "analyzer": "cote"}}},
         "creator_names":    _TEXT_KW,
         # Authorities: <field> = own + inherited (filters, display), <field>_own = own only
         "subjects":         _TEXT,
@@ -114,6 +121,10 @@ INDEX_MAPPINGS = {
         "corp_names_own":   _TEXT_EXACT,
         "pers_names_own":   _TEXT_EXACT,
         "fam_names_own":    _TEXT_EXACT,
+        "work_titles":      _TEXT,          # controlaccess/title (titres d'œuvres)
+        "work_titles_own":  _TEXT_EXACT,
+        "functions":        _TEXT,
+        "functions_own":    _TEXT_EXACT,
         "phys_facets":      _TEXT,
         "phys_facet_types": _TEXT_KW,
         # Structure
@@ -130,6 +141,9 @@ INDEX_MAPPINGS = {
         "parent_children_count": _INT,
         "position":         _INT,
         "source_file":      _KW,
+        "file_id":          _KW,   # Calames identifiers: FileId of the file,
+        "xml_id":           _KW,   # @id of the component (redirection of /pub/ms/<id>)
+        "has_dao":          {"type": "boolean"},   # digital copy (<dao>, <daoloc>)
         # Dates
         "date_start":       _INT,
         "date_end":         _INT,
@@ -144,6 +158,8 @@ INDEX_MAPPINGS = {
         "technique_norm":   _KW,
         "corp_names_norm":  _KW,
         "fam_names_norm":   _KW,
+        "work_titles_norm": _KW,
+        "provenance":       _KW,   # names with role 390 (propriétaire précédent)
         "pers_name_roles":  _KW,
         "pers_name_ids":    _KW,
         "idref_ids":        _KW,
@@ -192,8 +208,7 @@ def _bulk(client: Elasticsearch, index_name: str, docs: list[dict], refresh: boo
 
 def build_graph(ead_files: list[Path], liaisons_path: Path | None) -> FileGraph:
     """Place the files according to the liaisons (no liaisons file: all top-level)."""
-    liaisons = load_liaisons(liaisons_path)
-    return FileGraph(liaisons, {p.name: file_id_of(p) if liaisons else None for p in ead_files})
+    return FileGraph(load_liaisons(liaisons_path), {p.name: file_id_of(p) for p in ead_files})
 
 
 def file_docs(ead_file: Path, graph: FileGraph, anchor: Anchor | None) -> list[dict]:
@@ -204,8 +219,10 @@ def file_docs(ead_file: Path, graph: FileGraph, anchor: Anchor | None) -> list[d
     position = (anchor.own_children_count if anchor else 0) + rank
     docs = components_to_docs(parse_ead(ead_file), anchor, position,
                               attached_count=len(graph.children_of(name)))
+    file_id = graph.file_id(name)
     for doc in docs:
         doc["source_file"] = name
+        doc["file_id"] = file_id   # Calames FileId: /pub/ms/FileId-<N>
     return docs
 
 
@@ -229,7 +246,7 @@ def index_file(client: Elasticsearch, index_name: str, ead_file: Path,
     (its previous documents are kept in that case); an attached file that fails
     is skipped with its own subtree.
     """
-    graph = graph or FileGraph({}, {ead_file.name: None})
+    graph = graph or FileGraph({}, {ead_file.name: file_id_of(ead_file)})
     parent = graph.parent_of(ead_file.name)
     parent_doc = _root_doc(client, index_name, parent) if parent else None
     counts: dict[str, int] = {}

@@ -6,6 +6,7 @@ Endpoints :
   GET /fonds              Liste de tous les instruments de recherche (niveau fonds)
   GET /fonds/{ead_id}     Composant racine d'un instrument de recherche
   GET /component          Un composant EAD (par node_id)
+  GET /resolve            Composant d'une adresse Calames (/pub/ms/<id>)
   GET /children           Enfants directs d'un composant
   GET /ancestors          Chaîne des ancêtres (fil d'Ariane)
   GET /subtree            Sous-arbre complet d'un composant, avec descriptions (petit sous-arbre)
@@ -49,6 +50,7 @@ from lxml import etree
 
 from .filters import (
     SEARCH_FACETS,
+    SORTS,
     build_filters,
     build_query,
     facet_aggs,
@@ -81,6 +83,30 @@ ES_USER     = os.getenv("ES_USER", "elastic")
 ES_PASSWORD = os.getenv("ES_PASSWORD", "")
 ES_INDEX    = os.getenv("ES_INDEX", "ead_components")
 DATA_DIR    = Path(os.getenv("DATA_DIR", Path(__file__).parent.parent.parent / "data" / "calames"))
+
+# Organismes responsables : adresse, téléphone, courriel, site, par RCR
+# (etablissements.json dans le dossier EAD, produit par le moissonneur).
+_ETABLISSEMENTS: dict[Path, tuple[float, dict]] = {}
+
+
+def _etablissement(rcr: str) -> Optional[dict]:
+    path = _data_dir() / "etablissements.json"
+    try:
+        mtime = path.stat().st_mtime
+    except FileNotFoundError:
+        return None
+    cached = _ETABLISSEMENTS.get(path)
+    if cached is None or cached[0] != mtime:
+        cached = _ETABLISSEMENTS[path] = (mtime, json.loads(path.read_text(encoding="utf-8")))
+    return cached[1].get(rcr)
+
+
+def _with_details(doc: dict) -> dict:
+    """A component as displayed on its page: descendants count, holding institution."""
+    info = _etablissement(doc.get("repository_id") or "")
+    return {**doc, "descendants_count": _descendants_count(doc["node_id"]),
+            **({"repository_info": info} if info else {})}
+
 
 # Corpus de test (?corpus=test) : réindexé à chaque démarrage de l'API.
 TEST_ES_INDEX = os.getenv("TEST_ES_INDEX", "ead_components_test")
@@ -327,12 +353,28 @@ def get_fonds(ead_id: str) -> dict:
     hits = hits_of(result)
     if not hits:
         raise HTTPException(status_code=404, detail=f"Finding aid not found: {ead_id}")
-    return {**hits[0], "descendants_count": _descendants_count(hits[0]["node_id"])}
+    return _with_details(hits[0])
 
 
 @app.get("/component", summary="Get a single component")
 def get_component(node_id: str = Query(..., description="Component node_id")) -> dict:
-    return {**_get_by_id(node_id), "descendants_count": _descendants_count(node_id)}
+    return _with_details(_get_by_id(node_id))
+
+
+@app.get("/resolve", summary="Composant d'une adresse Calames")
+def resolve(id: str = Query(..., description="Identifiant Calames : FileId-<N> ou @id d'un composant")) -> dict:
+    """
+    Component designated by a Calames identifier, as in its URLs
+    https://calames.abes.fr/pub/ms/<id> : "FileId-<N>" (root of a file) or the
+    @id of a component. The frontend redirects /pub/ms/<id> with it.
+    """
+    m = re.fullmatch(r"FileId-(\d+)", id.strip(), re.I)
+    query = ({"bool": {"filter": [{"term": {"file_id": m.group(1)}}, {"term": {"file_root": True}}]}}
+             if m else {"term": {"xml_id": id.strip()}})
+    hits = hits_of(_search(query=query, size=1, source_includes=["node_id", "ead_id", "depth"]))
+    if not hits:
+        raise HTTPException(status_code=404, detail=f"Identifiant Calames inconnu : {id}")
+    return hits[0]
 
 
 # Fields of a component in the navigation tree; with its description (details).
@@ -574,7 +616,14 @@ def search(
     genre_form_norm_excl: Optional[str] = Query(default=None, description="Exclude genre/form (canonical)"),
     repository_excl: Optional[str] = Query(default=None, description="Exclude institution"),
     century_excl: Optional[str] = Query(default=None, description="Exclude century"),
+    # Other indexing terms, provenance, digital copies
+    work_title: Optional[str] = Query(default=None, description="Titre d'œuvre (texte libre)"),
+    function: Optional[str] = Query(default=None, description="Fonction (texte libre)"),
+    provenance: Optional[str] = Query(default=None, description="Propriétaire précédent (forme exacte)"),
+    dao: bool = Query(default=False, description="Seulement les composants avec version numérique"),
     # Pagination & options
+    sort: str = Query(default="relevance", pattern="^(" + "|".join(SORTS) + ")$",
+                      description="relevance, title_asc, title_desc, date_asc, date_desc"),
     limit: int = Query(default=20, ge=1, le=100),
     offset: int = Query(default=0, ge=0, le=9900),
     sibling_grouping: bool = Query(default=False, description="Group by the N-siblings rule instead of coverage"),
@@ -608,6 +657,7 @@ def search(
         corp_name_norm=corp_name_norm,
         repository_id=repository_id, repository=repository, repository_excl=repository_excl,
         century=century, century_excl=century_excl,
+        provenance=provenance, dao=dao,
     )
 
     # Field-specific text terms: each one must match in its own field.
@@ -618,6 +668,8 @@ def search(
         (creator,    "creator_names"),
         (corp_name,  "corp_names"),
         (pers_name,  "pers_names"),
+        (work_title, "work_titles"),
+        (function,   "functions"),
     ]
     field_terms = [(attr, val) for val, attr in TEXT_FIELD_ATTRS if val]
     has_text = bool(q or field_terms)
@@ -628,9 +680,10 @@ def search(
     # With a level filter all results are at the same depth: nothing to group.
     if sibling_grouping or (has_text and not level):
         res = grouped_search(_search, query, "siblings" if sibling_grouping else "coverage",
-                             offset, limit, aggs)
+                             offset, limit, aggs, sort=SORTS[sort])
     else:
-        result = _search(query=query, from_=offset, size=limit, aggs=aggs)
+        result = _search(query=query, from_=offset, size=limit, aggs=aggs,
+                         **({"sort": SORTS[sort]} if SORTS[sort] else {}))
         res = {"hits": hits_of(result), "total": total_of(result),
                "total_hits": total_of(result), "facets": facet_distribution(result)}
 

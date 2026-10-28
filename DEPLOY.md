@@ -56,6 +56,10 @@ voir [INDEXING.md](INDEXING.md#liaisons-entre-fichiers-liaisonstsv)) réunit les
 en une seule hiérarchie. Le moissonneur le télécharge à chaque passe ; le watcher applique ses
 modifications (réindexation des seuls fichiers qui changent de parent).
 
+**Organismes responsables** : `etablissements.json` à la racine du dossier EAD (adresse,
+téléphone, courriel, site par RCR), complété par le moissonneur à chaque passe ; l'API le relit
+quand il change.
+
 ## Moissonnage OAI-PMH
 
 Le service `harvester` moissonne un entrepôt OAI-PMH au format `oai_ead` (Calames par

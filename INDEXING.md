@@ -28,6 +28,26 @@ L'héritage et l'accumulation des champs sont résolus **à l'indexation**, pas 
 | `parent_children_count` | Nombre d'enfants du parent | `0` pour la racine. Sert au calcul de couverture du regroupement |
 | `file_root` | `true` pour l'archdesc du fichier | Racine d'un fichier, rattaché ou non |
 | `ead_ids` | `ead_id` du fichier et des fichiers qui le contiennent | Filtre `ead_id` de `/search` : un fichier maître couvre ses fichiers rattachés |
+| `file_id`, `xml_id` | FileId Calames du fichier, `@id` du composant | Redirection des adresses Calames `/pub/ms/<id>` (`/resolve`) |
+
+---
+
+## Champs repris de l'interface publique de Calames
+
+| Champ | Source EAD | Notes |
+|---|---|---|
+| `unitid` | Premier `<unitid>` qui n'est pas `@type="ancienne_cote"` | La cote affichée |
+| `former_unitids` | `<unitid type="ancienne_cote">` | « Ancienne cote » ; cherchée comme la cote |
+| `sections` | `custodhist`, `acqinfo`, `arrangement`, `appraisal`, `accruals`, `processinfo`, `phystech`, `altformavail`, `originalsloc`, `relatedmaterial`, `separatedmaterial`, `otherfindaid`, `bibliography`, `fileplan`, `odd`, `note`, `prefercite`, et dans `<did>` `note`, `materialspec`, `physloc`, `container` | Dans l'ordre du document, un paragraphe par ligne, sans `<head>` ; affichées sous les libellés de Calames (`frontend/src/utils/labels.js`) ; non indexées pour elles-mêmes (leur texte est dans `other_text`) |
+| `dao`, `has_dao` | `<dao>`, `<daoloc>` (`@href` ou `@xlink:href`, `@title`/`<daodesc>`) | « Version(s) numérique(s) » ; filtre « Documents numérisés associés » |
+| `work_titles`, `work_titles_norm` | `controlaccess/title` | Titres d'œuvres, héritage cumulatif |
+| `functions` | `<function>` | Héritage cumulatif |
+| `provenance` | `persname`, `corpname`, `famname` au `@role="390"` (forme normale) | « Propriétaire précédent » : facette et filtre ; héritage cumulatif |
+
+L'organisme responsable (adresse, téléphone, courriel, site) n'est presque jamais dans l'EAD
+(`<repository><address>` : 30 fichiers sur 3 656). Le moissonneur le reprend, une fois par RCR,
+du bloc « Organisme responsable » d'une page Calames (`etablissements.json` dans le dossier EAD) ;
+l'API l'ajoute aux composants (`repository_info`).
 
 ---
 
@@ -286,7 +306,7 @@ sur l'union propre + héritée : l'héritage reste exact pour eux.
 |---|---|---|
 | Texte des dates de **tous** les ancêtres dans le plein texte | **Différent** | Date du plus proche ancêtre daté, en texte et filtrable par période |
 | `EntreeSecondaire` (second terme qualificatif dans un `<controlaccess>`) | **Absent** | Logique catalogaphique ISAD/UNIMARC |
-| `DocumentIndexDao` (présence de liens DAO) | **Absent** | |
+| `DocumentIndexDao` (présence de liens DAO) | **Différent** | `has_dao` : présence propre au composant (Calames la propage aussi aux ancêtres et descendants) |
 | `DocumentIndexHistoire` (provenance : rôles 390, `acqinfo`, `custodhist`, `note[@type="provenance"]`) | **Partiel** | Pas d'index dédié ; le texte est cherché dans `other_text` |
 | PPN sur les sujets (`<subject @authfilenumber>`) | **Absent** | Uniquement sur `<persname>` pour l'instant |
 

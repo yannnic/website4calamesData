@@ -24,10 +24,14 @@ Options :
     --state FILE    Fichier JSON pour mémoriser la date du dernier moissonnage
                     (défaut : harvester_state.json dans --out)
     --liaisons-only Ne télécharge que liaisons.tsv
+    --etablissements-only  Ne complète que etablissements.json
 
 À chaque passe, liaisons.tsv (liaisons entre fichiers EAD : inclusion,
 succession, cf. indexer/liaisons.py) est aussi téléchargé dans --out
-(env LIAISONS_URL, vide = désactivé ; défaut : celui de Calames).
+(env LIAISONS_URL, vide = désactivé ; défaut : celui de Calames), et
+etablissements.json est complété : pour chaque organisme responsable (RCR)
+nouveau, le bloc « Organisme responsable » (adresse, téléphone, courriel, site)
+d'une page Calames de l'un de ses fichiers (--etablissements-only : lui seul).
 
 Les fichiers sont écrits de façon atomique : un service qui surveille --out
 (cf. indexer/watcher.py) ne voit jamais de fichier partiel.
@@ -418,6 +422,82 @@ def fetch_liaisons(url: str, out_dir: Path) -> None:
     print(f"liaisons.tsv : {len(content.splitlines())} lignes enregistrées.")
 
 
+CALAMES_PAGE = "https://calames.abes.fr/pub/ms/FileId-{}"
+_ORGANISME = re.compile(r'i18n_orgmResponsable[^<]*</span>(.*?)</p>', re.S)
+_OAI_NUM = (re.compile(r"_oai(\d+)\.xml$"), re.compile(r"^oai_[\w.]+_(\d+)\.xml$"),
+            re.compile(r"FileId-(\d+)(?!\d)"))
+
+
+def _file_rcr_and_id(path: Path) -> tuple[Optional[str], Optional[str]]:
+    """RCR of the holding institution (repository/corpname/@authfilenumber) and FileId of a file."""
+    num = next((m.group(1) for pat in _OAI_NUM if (m := pat.search(path.name))), None)
+    try:
+        for _, el in etree.iterparse(str(path), events=("end",), recover=True):
+            if isinstance(el.tag, str) and etree.QName(el).localname == "corpname" \
+                    and el.getparent() is not None and etree.QName(el.getparent()).localname == "repository":
+                return (el.get("authfilenumber") or "").strip() or None, num
+    except etree.XMLSyntaxError:
+        pass
+    return None, num
+
+
+def parse_organisme(html: str) -> Optional[dict]:
+    """The "Organisme responsable" block of a Calames page: name, address lines, contacts."""
+    m = _ORGANISME.search(html)
+    if not m:
+        return None
+    block = m.group(1)
+    site = re.search(r'<a\s[^>]*href="([^"]+)"', block)
+    lines = [re.sub(r"<[^>]+>", "", part).strip() for part in re.split(r"<br\s*/?>", block)]
+    lines = [etree.fromstring(f"<x>{line}</x>".encode("utf-8"), etree.XMLParser(recover=True)).text or ""
+             for line in lines if line]
+    info: dict = {"name": "", "address": [], "phone": "", "email": "", "website": site.group(1) if site else ""}
+    for line in (line.strip() for line in lines):
+        if not line or line.lower().startswith("site web"):
+            continue
+        if not info["name"]:
+            info["name"] = line
+        elif re.match(r"(?i)t[ée]l(\.|[ée]phone)", line):
+            info["phone"] = re.sub(r"(?i)^t[ée]l(\.|[ée]phone)\s*:?\s*", "", line)
+        elif re.fullmatch(r"(?i)(courriel\s*:\s*)?\S+(@|<at>)\S+", line):
+            info["email"] = re.sub(r"(?i)^courriel\s*:\s*", "", line).replace("<at>", "@")
+        else:
+            info["address"].append(line)
+    return info
+
+
+def fetch_etablissements(out_dir: Path, delay: float) -> None:
+    """Complète etablissements.json : un organisme par RCR, d'après une page Calames."""
+    dest = out_dir / "etablissements.json"
+    known = json.loads(dest.read_text(encoding="utf-8")) if dest.exists() else {}
+    # The oldest file of each institution (smallest FileId), usually its master
+    # file: its page gives the institution's general website, not a fonds' one.
+    todo: dict[str, str] = {}
+    for p in sorted(out_dir.glob("*.xml")):
+        rcr, num = _file_rcr_and_id(p)
+        if rcr and num and rcr not in known and (rcr not in todo or int(num) < int(todo[rcr])):
+            todo[rcr] = num
+    if not todo:
+        print("etablissements.json : à jour.")
+        return
+    session = requests.Session()
+    session.headers["User-Agent"] = USER_AGENT
+    for rcr, num in todo.items():
+        try:
+            resp = session.get(CALAMES_PAGE.format(num), timeout=60)
+            resp.raise_for_status()
+            info = parse_organisme(resp.content.decode("utf-8", errors="replace"))
+        except Exception as exc:
+            print(f"  organisme {rcr} : échec ({exc})")
+            info = None
+        if info:
+            known[rcr] = info
+            print(f"  organisme {rcr} : {info['name']}")
+        time.sleep(delay)
+    _write_atomic(dest, json.dumps(known, ensure_ascii=False, indent=1).encode("utf-8"))
+    print(f"etablissements.json : {len(known)} organismes.")
+
+
 def _load_from_date(state_file: Path, base_url: str, set_specs: list[Optional[str]]) -> Optional[str]:
     """Date du dernier moissonnage complet, si l'entrepôt et les sets n'ont pas changé."""
     if not state_file.exists():
@@ -475,6 +555,8 @@ def main() -> None:
                         help="Fichier d'état JSON (défaut : harvester_state.json dans --out)")
     parser.add_argument("--liaisons-only", action="store_true",
                         help="Ne télécharge que liaisons.tsv")
+    parser.add_argument("--etablissements-only", action="store_true",
+                        help="Ne complète que etablissements.json")
 
     args = parser.parse_args()
     out_dir    = Path(args.out)
@@ -484,6 +566,9 @@ def main() -> None:
     liaisons_url = env("LIAISONS_URL", DEFAULT_LIAISONS_URL)
     if args.liaisons_only:
         fetch_liaisons(liaisons_url, out_dir)
+        return
+    if args.etablissements_only:
+        fetch_etablissements(out_dir, args.delay)
         return
 
     while True:
@@ -504,6 +589,8 @@ def main() -> None:
         )
         if liaisons_url and not args.dry_run:
             fetch_liaisons(liaisons_url, out_dir)
+        if not args.dry_run:
+            fetch_etablissements(out_dir, args.delay)
         if not args.every:
             break
         print(f"Prochain moissonnage dans {args.every:g} h.", flush=True)

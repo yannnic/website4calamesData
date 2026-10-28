@@ -26,7 +26,7 @@
           :class="{ active: selectedRole === r.role }"
           @click="toggleRole(r.role)"
         >
-          {{ r.role || 'sans rôle' }}
+          {{ r.role ? roleLabel(r.role) : 'sans rôle' }}
           <span class="role-count">{{ r.count }}</span>
         </button>
       </div>
@@ -73,6 +73,7 @@ import { useRoute, RouterLink } from 'vue-router'
 import ChildrenDensity from '../components/ChildrenDensity.vue'
 import { componentPath as cPath } from '../router'
 import { api } from '../api'
+import { roleLabel } from '../utils/labels'
 
 const route = useRoute()
 

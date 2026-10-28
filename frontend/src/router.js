@@ -8,6 +8,7 @@ import PersonView from './views/PersonView.vue'
 import PersonsView from './views/PersonsView.vue'
 import UploadView from './views/UploadView.vue'
 import SettingsView from './views/SettingsView.vue'
+import CalamesRedirect from './views/CalamesRedirect.vue'
 
 // node_id contains '#' which breaks URL paths (%23 is treated as fragment by servers).
 // We use '/' as separator in URLs; ead_ids never contain '/'.
@@ -28,6 +29,9 @@ export default createRouter({
     { path: '/person/:name(.*)',    component: PersonView,  name: 'person' },
     { path: '/depot',               component: UploadView,  name: 'upload' },
     { path: '/parametres',          component: SettingsView, name: 'settings' },
+    // Adresses de Calames (liens existants) : /pub/ms/<id>, /pub/#details?id=<id>
+    { path: '/pub/ms/:id(.*)',       component: CalamesRedirect },
+    { path: '/pub',                 component: CalamesRedirect },
   ],
   scrollBehavior: () => ({ top: 0 }),
 })

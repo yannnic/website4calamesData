@@ -8,10 +8,12 @@ from typing import Any
 # Full-text fields searched by `q`, with their relative weight (see INDEXING.md,
 # « Plein texte »): the component's own text and authorities first; what it
 # inherits from its ancestors (authorities, titles, date) with a low weight.
-OWN_AUTHORITIES = ["pers_names", "corp_names", "fam_names", "subjects", "geo_names", "genre_forms"]
+OWN_AUTHORITIES = ["pers_names", "corp_names", "fam_names", "subjects", "geo_names", "genre_forms",
+                   "work_titles", "functions"]
 SEARCH_FIELDS = [
     "title^4",
     "unitid^3",
+    "former_unitids^2",
     "creator_names^3",
     *[f"{f}_own^2" for f in OWN_AUTHORITIES],
     # own + inherited: an inherited value only reaches this low weight
@@ -33,14 +35,27 @@ EXACT_FIELDS = ["title.exact^3", *[f"{f}_own.exact^2" for f in OWN_AUTHORITIES]]
 PHRASE_FIELDS = ["title.exact", "abstract.exact", "scope_content.exact", "biography.exact",
                  "other_text.exact", *[f"{f}_own.exact" for f in OWN_AUTHORITIES]]
 
-# Cotes: "Ms 1234", "MS.1234" and "ms1234" are the same (analyzer "cote").
-COTE_FIELD = "unitid.cote"
+# Cotes, current or former: "Ms 1234", "MS.1234" and "ms1234" are the same (analyzer "cote").
+COTE_FIELDS = ["unitid.cote^2", "former_unitids.cote"]
+
+# Calames query syntax: OR or |, +word, -excluded, ^prefix (truncation).
+_OPERATORS = re.compile(r'(^|\s)(OR|\|)(\s|$)|(^|\s)[-+^]\S')
+
+# Result orders (sort parameter of /search); None: relevance.
+SORTS: dict[str, list | None] = {
+    "relevance":  None,
+    "title_asc":  [{"title.sort": "asc"}, "_score"],
+    "title_desc": [{"title.sort": "desc"}, "_score"],
+    "date_asc":   [{"date_start": {"order": "asc", "missing": "_last"}}, "_score"],
+    "date_desc":  [{"date_end": {"order": "desc", "missing": "_last"}}, "_score"],
+}
 
 _PHRASE = re.compile(r'"([^"]+)"')
 
 # Facets returned by the search endpoints (all keyword fields).
-SEARCH_FACETS = ["repository", "level", "century", "subjects_norm", "geo_names_norm",
-                 "genre_forms_norm", "gff_norm", "tdd_norm", "technique_norm", "corp_names_norm"]
+SEARCH_FACETS = ["repository", "level", "century", "languages", "subjects_norm", "geo_names_norm",
+                 "genre_forms_norm", "gff_norm", "tdd_norm", "technique_norm", "corp_names_norm",
+                 "provenance", "has_dao"]
 
 
 def text_query(text: str, fields: list[str] = SEARCH_FIELDS) -> dict:
@@ -55,6 +70,8 @@ def text_query(text: str, fields: list[str] = SEARCH_FIELDS) -> dict:
       - a cote typed in any form matches on its own (Ms 1234 = MS.1234 = ms1234).
     """
     full = fields is SEARCH_FIELDS
+    if full and _OPERATORS.search(text):
+        return operator_query(text)
     phrases = _PHRASE.findall(text) if full else []
     words = _PHRASE.sub(" ", text).strip() if phrases else text
     should: list[dict] = []
@@ -66,15 +83,15 @@ def text_query(text: str, fields: list[str] = SEARCH_FIELDS) -> dict:
                              "operator": "and", "fuzziness": "AUTO:7,11", "prefix_length": 1}},
         ]
     if full:
-        should.append({"match": {COTE_FIELD: {"query": _PHRASE.sub(r"\1", text),
-                                              "operator": "and", "boost": 6}}})
+        should.append({"multi_match": {"query": _PHRASE.sub(r"\1", text), "fields": COTE_FIELDS,
+                                       "operator": "and", "boost": 6}})
     query: dict = {"bool": {"should": should, "minimum_should_match": 1}}
     if full and words:
         # An ancestor's title completes a query but cannot satisfy it alone: at least
         # one word must be found in the component itself (or in its authorities, own
         # or inherited). Otherwise every descendant of a matching level would match.
         query["bool"]["filter"] = [{"multi_match": {
-            "query": words, "fields": [f for f in fields if not f.startswith("ancestor_titles")],
+            "query": words, "fields": [f for f in fields if not f.startswith("ancestor_titles")] + COTE_FIELDS,
             "operator": "or", "fuzziness": "AUTO:7,11", "prefix_length": 1}}]
     if phrases:
         query["bool"]["must"] = [{"multi_match": {"query": ph, "fields": PHRASE_FIELDS, "type": "phrase"}}
@@ -88,6 +105,20 @@ def text_query(text: str, fields: list[str] = SEARCH_FIELDS) -> dict:
         {"multi_match": {"query": _PHRASE.sub(r"\1", text), "fields": EXACT_FIELDS,
                          "type": "phrase", "boost": 2}},
     ]}}
+
+
+def operator_query(text: str) -> dict:
+    """
+    Query with the Calames syntax: words are all required, except around OR / |
+    (either one); -word excludes, +word is required, ^start matches words
+    beginning with "start"; "phrases" as usual.
+    """
+    sq = re.sub(r"(^|\s)OR(?=\s|$)", r"\1|", text)
+    sq = re.sub(r"(^|\s)\^(\S+)", r"\1\2*", sq)
+    return {"simple_query_string": {
+        "query": sq, "fields": SEARCH_FIELDS + COTE_FIELDS, "default_operator": "and",
+        "flags": "AND|OR|NOT|PREFIX|PHRASE|WHITESPACE|PRECEDENCE", "analyze_wildcard": True,
+    }}
 
 
 def build_query(q: str, field_terms: list[tuple[str, str]], filters: list[dict]) -> dict:
@@ -163,6 +194,8 @@ def build_filters(
     repository_excl: str | None = None,
     century: str | None = None,
     century_excl: str | None = None,
+    provenance: str | None = None,
+    dao: bool = False,
 ) -> list[dict]:
     """Build a list of Elasticsearch filter clauses from common search parameters."""
     f: list[dict] = []
@@ -174,6 +207,8 @@ def build_filters(
     if date_from is not None: f.append({"range": {"date_end": {"gte": date_from}}})
     if date_to is not None:   f.append({"range": {"date_start": {"lte": date_to}}})
     if lang:                  f.append(_term("languages", lang))
+    if provenance:            f.append(_term("provenance", provenance))
+    if dao:                   f.append(_term("has_dao", True))
     if pers_name_role:        f.append(_term("pers_name_roles", pers_name_role))
     if subject_norm:          f.append(_term("subjects_norm", subject_norm))
     if subject_norm_excl:     f.append(_not(_term("subjects_norm", subject_norm_excl)))

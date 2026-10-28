@@ -226,6 +226,9 @@ python harvester.py --set 751059803
 
 # Liaisons entre fichiers seulement (liaisons.tsv, téléchargé aussi à chaque passe)
 python harvester.py --liaisons-only
+
+# Organismes responsables seulement (etablissements.json, complété aussi à chaque passe)
+python harvester.py --etablissements-only
 ```
 
 #### 4. Indexation (une fois, ou après mise à jour des données)
@@ -299,6 +302,7 @@ VITE_API_URL=http://localhost:8000
 | GET | `/fonds` | Liste les fonds de premier niveau (`depth = 0` : fichiers non rattachés à un autre) |
 | GET | `/fonds/{ead_id}` | Composant racine d'un instrument de recherche (rattaché ou non) |
 | GET | `/component?node_id=` | Un composant (document de l'index : héritage appliqué) |
+| GET | `/resolve?id=` | Composant d'une adresse Calames (`FileId-<N>` ou `@id`) : le frontend redirige `/pub/ms/<id>` et `/pub/#details?id=<id>` |
 | GET | `/children?node_id=` | Enfants directs d'un composant, triés par position |
 | GET | `/ancestors?node_id=` | Chaîne d'ancêtres (fil d'Ariane) |
 | GET | `/search` | Recherche plein texte + facettes + regroupement hiérarchique |
@@ -325,10 +329,19 @@ VITE_API_URL=http://localhost:8000
 | `creator` | string | Nom de créateur (plein texte, dans ce champ uniquement) |
 | `corp_name` | string | Nom de collectivité (plein texte, dans ce champ uniquement) |
 | `pers_name` | string | Nom de personne (plein texte, dans ce champ uniquement) |
+| `work_title` | string | Titre d'œuvre (plein texte, `controlaccess/title`) |
+| `function` | string | Fonction (plein texte, `<function>`) |
+| `provenance` | string | Propriétaire précédent (forme exacte, noms au rôle 390) |
+| `dao` | bool | Seulement les composants avec une version numérique |
+| `sort` | string | `relevance` (défaut), `title_asc`, `title_desc`, `date_asc`, `date_desc` |
 | `repository` | string | Institution de conservation |
 | `limit` | int | Résultats par page (1–100, défaut 20) |
 | `offset` | int | Décalage pour la pagination |
 | `sibling_grouping` | bool | Règle des N frères au lieu de la couverture (défaut `false`) |
+
+Syntaxe de `q` (celle de Calames) : `mot1 OR mot2` ou `mot1 | mot2`, `-exclu`, `+requis`,
+`^début` (troncature), `"expression exacte"`. La cote, actuelle ou ancienne, se cherche sous
+n'importe quelle forme (« Ms 1234 » = « ms1234 »).
 
 Tous les mots de `q` doivent être présents, éventuellement répartis sur plusieurs champs ;
 une faute de frappe est tolérée à partir de 7 lettres, deux à partir de 11. Chaque paramètre
