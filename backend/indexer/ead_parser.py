@@ -594,22 +594,24 @@ def _build_component(
         repository_id=did_data.get("repository_id", ""),
     )
 
-    # Recurse into <c> children: direct <c> children of el,
-    # plus <c> children of any <dsc> directly under el.
     new_ancestors = ancestor_ids + [node_id]
+    for child in _child_components(el):
+        comp.children.append(
+            _build_component(child, ead_id, depth + 1, node_id, new_ancestors, fallback_index)
+        )
+
+    return comp
+
+
+def _child_components(el: etree._Element):
+    """<c> children of el: direct ones, plus those of any <dsc> directly under el."""
     for direct in el:
         if direct.tag == _tag("c"):
-            comp.children.append(
-                _build_component(direct, ead_id, depth + 1, node_id, new_ancestors, fallback_index)
-            )
+            yield direct
         elif direct.tag == _tag("dsc"):
             for dsc_child in direct:
                 if dsc_child.tag == _tag("c"):
-                    comp.children.append(
-                        _build_component(dsc_child, ead_id, depth + 1, node_id, new_ancestors, fallback_index)
-                    )
-
-    return comp
+                    yield dsc_child
 
 
 # ---------------------------------------------------------------------------
@@ -695,13 +697,8 @@ def _propagate_dates_up(comp: Component) -> None:
     )
 
 
-def parse_ead(path: Path) -> Component:
-    """
-    Parse an EAD file and return the root Component (archdesc level) with its
-    full children tree attached. Component values are raw EAD data — no
-    inheritance is applied here. Use components_to_docs() to produce index
-    documents with inheritance resolved.
-    """
+def _open_ead(path: Path) -> tuple[etree._Element, str, etree._Element]:
+    """Parse an EAD file: (root element, ead_id, archdesc). Sets the module namespace."""
     tree = etree.parse(str(path), parser=etree.XMLParser(
         load_dtd=False,
         no_network=True,
@@ -716,12 +713,43 @@ def parse_ead(path: Path) -> Component:
     eadid_el = root.find(f".//{_tag('eadid')}")
     ead_id = (_inner_text(eadid_el) if eadid_el is not None else path.stem).strip()
 
-    publisher_el = root.find(f".//{_tag('publisher')}")
-    publisher = _inner_text(publisher_el)
-
     archdesc = root.find(_tag("archdesc"))
     if archdesc is None:
         raise ValueError(f"No <archdesc> found in {path}")
+    return root, ead_id, archdesc
+
+
+def find_element(path: Path, node_id: str) -> Optional[etree._Element]:
+    """
+    Return the <archdesc> or <c> element of a component node_id, numbering the
+    elements without id ("auto-N") in the same order as parse_ead().
+    """
+    _, ead_id, archdesc = _open_ead(path)
+    fallback_index = [0]
+
+    def walk(el: etree._Element) -> Optional[etree._Element]:
+        if _node_id(el, ead_id, fallback_index) == node_id:
+            return el
+        for child in _child_components(el):
+            found = walk(child)
+            if found is not None:
+                return found
+        return None
+
+    return walk(archdesc)
+
+
+def parse_ead(path: Path) -> Component:
+    """
+    Parse an EAD file and return the root Component (archdesc level) with its
+    full children tree attached. Component values are raw EAD data — no
+    inheritance is applied here. Use components_to_docs() to produce index
+    documents with inheritance resolved.
+    """
+    root, ead_id, archdesc = _open_ead(path)
+
+    publisher_el = root.find(f".//{_tag('publisher')}")
+    publisher = _inner_text(publisher_el)
 
     fallback_index = [0]
     root_comp = _build_component(

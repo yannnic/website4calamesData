@@ -289,9 +289,7 @@ async function onRawToggle(e) {
   rawLoading.value = true
   rawError.value = null
   try {
-    const res = await fetch(`http://localhost:8000/raw?node_id=${encodeURIComponent(comp.value.node_id)}`)
-    if (!res.ok) throw new Error(`HTTP ${res.status}`)
-    rawXml.value = await res.text()
+    rawXml.value = await api.getRaw(comp.value.node_id)
   } catch (err) {
     rawError.value = err.message
   } finally {

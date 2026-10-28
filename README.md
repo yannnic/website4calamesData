@@ -279,7 +279,7 @@ VITE_API_URL=http://localhost:8000
 |---|---|---|
 | GET | `/fonds` | Liste les fonds de premier niveau (`depth = 0` : fichiers non rattachés à un autre) |
 | GET | `/fonds/{ead_id}` | Composant racine d'un instrument de recherche (rattaché ou non) |
-| GET | `/component?node_id=` | Un composant (valeurs brutes EAD, héritage non appliqué) |
+| GET | `/component?node_id=` | Un composant (document de l'index : héritage appliqué) |
 | GET | `/children?node_id=` | Enfants directs d'un composant, triés par position |
 | GET | `/ancestors?node_id=` | Chaîne d'ancêtres (fil d'Ariane) |
 | GET | `/search` | Recherche plein texte + facettes + regroupement hiérarchique |
@@ -287,7 +287,7 @@ VITE_API_URL=http://localhost:8000
 | GET | `/summarize?q=` | Résumé LLM des résultats d'une recherche |
 | GET | `/persons` | Index des personnes avec identifiant IdRef/Sudoc |
 | GET | `/person?name=` | Composants associés à une personne (par nom ou IdRef) |
-| GET | `/raw?node_id=` | Fragment XML EAD brut d'un composant |
+| GET | `/raw?node_id=` | Fragment XML EAD brut d'un composant (relu dans le fichier source) |
 
 ### Paramètres de `/search`
 

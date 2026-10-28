@@ -1,13 +1,17 @@
 export const BASE = import.meta.env.VITE_API_URL ?? 'http://localhost:8000'
 
-async function get(path, params = {}) {
+async function fetchOk(path, params) {
   const url = new URL(BASE + path, window.location.origin)
   Object.entries(params).forEach(([k, v]) => {
     if (v !== null && v !== undefined && v !== '') url.searchParams.set(k, v)
   })
   const res = await fetch(url)
   if (!res.ok) throw new Error(`API error ${res.status}: ${url}`)
-  return res.json()
+  return res
+}
+
+async function get(path, params = {}) {
+  return (await fetchOk(path, params)).json()
 }
 
 export const api = {
@@ -17,6 +21,7 @@ export const api = {
   getComponent: (nodeId) => get('/component', { node_id: nodeId }),
   getChildren:  (nodeId) => get('/children',  { node_id: nodeId }),
   getAncestors: (nodeId) => get('/ancestors', { node_id: nodeId }),
+  getRaw: async (nodeId) => (await fetchOk('/raw', { node_id: nodeId })).text(),
   search:     (params) => get('/search',    params),
   nlSearch:   (params) => get('/nlsearch',  params),
   summarize:  (params) => get('/summarize', params),

@@ -26,6 +26,8 @@ import json
 import os
 import re
 import secrets
+import sys
+import threading
 from contextlib import asynccontextmanager
 from pathlib import Path
 from typing import Any, Optional
@@ -55,6 +57,10 @@ from .llm import (
     load_summarize_prompt,
 )
 from .grouping import grouped_search
+
+# The indexer modules import each other flat (run from backend/indexer).
+sys.path.insert(0, str(Path(__file__).parent.parent / "indexer"))
+from ead_parser import find_element  # noqa: E402
 
 # ---------------------------------------------------------------------------
 # Configuration (environment variables with sensible defaults)
@@ -312,6 +318,9 @@ def get_ancestors(node_id: str = Query(..., description="Component node_id")) ->
     return [d["_source"] for d in result["docs"] if d.get("found")]
 
 
+_parser_lock = threading.Lock()
+
+
 @app.get("/raw", summary="Raw EAD XML for a component", response_class=PlainTextResponse)
 def get_raw(node_id: str = Query(..., description="Component node_id")) -> str:
     """Return the raw EAD XML fragment for a component."""
@@ -326,23 +335,11 @@ def get_raw(node_id: str = Query(..., description="Component node_id")) -> str:
     if not ead_path.exists():
         raise HTTPException(status_code=404, detail=f"EAD file not found: {source_file}")
 
-    tree = etree.parse(str(ead_path), parser=etree.XMLParser(
-        load_dtd=False, no_network=True, resolve_entities=False,
-    ))
-    root = tree.getroot()
-
-    # node_id format: "{ead_id}#{component_id}"
-    component_id = node_id.split("#", 1)[1] if "#" in node_id else ""
-
-    if not component_id or component_id.startswith("auto-"):
-        el = root.find(".//{urn:isbn:1-931666-22-9}archdesc") or root.find("archdesc")
-    else:
-        NS_XML = "http://www.w3.org/XML/1998/namespace"
-        el = (root.find(f'.//*[@id="{component_id}"]')
-              or root.find(f'.//*[@{{{NS_XML}}}id="{component_id}"]'))
-
+    # The parser keeps the file's namespace in a module global: one file at a time.
+    with _parser_lock:
+        el = find_element(ead_path, node_id)
     if el is None:
-        raise HTTPException(status_code=404, detail=f"Element '{component_id}' not found in {source_file}")
+        raise HTTPException(status_code=404, detail=f"Component '{node_id}' not found in {source_file}")
 
     return etree.tostring(el, encoding="unicode", pretty_print=True)
 

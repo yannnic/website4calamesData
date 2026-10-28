@@ -165,3 +165,13 @@ def test_incremental_detach_and_reindex(es, client, corpus):
     children = get(client, "/children", node_id=master_root(client)["node_id"])
     assert [c["title"] for c in children] == expected
 
+
+def test_raw(client, corpus, monkeypatch):
+    monkeypatch.setattr(main, "DATA_DIR", corpus)
+    res = client.get("/raw", params={"node_id": "test-liaisons-vol1#v1-1"})
+    assert res.status_code == 200, res.text
+    assert "fougères" in res.text and "<c" in res.text
+    # Racine sans @id (auto-1) : l'archdesc.
+    root = get(client, "/fonds/test-liaisons-vol1")
+    res = client.get("/raw", params={"node_id": root["node_id"]})
+    assert res.status_code == 200 and "<archdesc" in res.text
