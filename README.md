@@ -5,6 +5,7 @@ Interface web publique de recherche et navigation dans des fonds d'archives déc
 - **Déploiement (Docker)** : [DEPLOY.md](DEPLOY.md)
 - **Modèle de données, héritage, liaisons, plein texte** : [INDEXING.md](INDEXING.md)
 - **Cahier des charges** : [CLAUDE.md](CLAUDE.md)
+- **Écarts avec l'interface actuelle de Calames** : [ECARTS_CALAMES.md](ECARTS_CALAMES.md)
 
 ## Architecture
 
