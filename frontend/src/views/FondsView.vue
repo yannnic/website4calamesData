@@ -115,6 +115,7 @@
             </div>
           </template>
 
+          <RawEad :node-id="fonds.node_id" :has-children="(fonds.children_count ?? 0) > 0" />
         </aside>
       </div>
     </template>
@@ -127,6 +128,7 @@ import { useRoute, RouterLink } from 'vue-router'
 import { api } from '../api'
 import ComponentTree from '../components/ComponentTree.vue'
 import TestFileComment from '../components/TestFileComment.vue'
+import RawEad from '../components/RawEad.vue'
 
 const route = useRoute()
 const fonds = ref(null)

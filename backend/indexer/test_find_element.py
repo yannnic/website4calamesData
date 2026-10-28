@@ -1,6 +1,7 @@
 """
 Teste : find_element() (endpoint /raw) retrouve l'élément XML de chaque composant
-indexé, avec ou sans @id (auto-N) ; et le repli de l'ead_id quand <eadid> est vide.
+indexé, avec ou sans @id (auto-N) ; l'XML d'un niveau sans ses composants enfants ;
+et le repli de l'ead_id quand <eadid> est vide.
 
     cd backend/indexer
     python -m pytest test_find_element.py -v
@@ -11,7 +12,7 @@ from pathlib import Path
 import pytest
 from lxml import etree
 
-from ead_parser import components_to_docs, find_element, parse_ead
+from ead_parser import components_to_docs, find_element, parse_ead, strip_child_components
 
 TEST_DIR = Path(__file__).parent.parent.parent / "data" / "test"
 
@@ -67,3 +68,15 @@ def test_empty_eadid_falls_back_to_identifier(tmp_path):
     assert parse_ead(path).node_id == "FR-1_CALAMESFileId-7#auto-1"
     path.write_text(MIXED_IDS.replace("<eadid>test-mixed-ids</eadid>", "<eadid/>"), encoding="utf-8")
     assert parse_ead(path).node_id == "empty#auto-1"
+
+
+def test_strip_child_components(tmp_path):
+    path = tmp_path / "mixed.xml"
+    path.write_text(MIXED_IDS, encoding="utf-8")
+    serie = find_element(path, "test-mixed-ids#auto-2")
+    assert strip_child_components(serie) == 2        # ses deux dossiers, pas la pièce
+    xml = etree.tostring(serie, encoding="unicode")
+    assert "Série sans id" in xml and "Dossier" not in xml
+    assert "2 composant(s) <c> non affiché(s)" in xml
+    root = find_element(path, "test-mixed-ids#auto-1")
+    assert strip_child_components(root) == 2         # les deux séries, sous <dsc>

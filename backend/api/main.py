@@ -68,7 +68,7 @@ from .grouping import grouped_search
 
 # The indexer modules import each other flat (run from backend/indexer).
 sys.path.insert(0, str(Path(__file__).parent.parent / "indexer"))
-from ead_parser import find_element  # noqa: E402
+from ead_parser import find_element, strip_child_components  # noqa: E402
 from indexer import index_directory  # noqa: E402
 
 # ---------------------------------------------------------------------------
@@ -375,8 +375,14 @@ _parser_lock = threading.Lock()
 
 
 @app.get("/raw", summary="Raw EAD XML for a component", response_class=PlainTextResponse)
-def get_raw(node_id: str = Query(..., description="Component node_id")) -> str:
-    """Return the raw EAD XML fragment for a component."""
+def get_raw(
+    node_id: str = Query(..., description="Component node_id"),
+    children: bool = Query(default=False, description="Inclure les composants <c> descendants"),
+) -> str:
+    """
+    Return the raw EAD XML fragment for a component. By default its <c>
+    children are replaced by a comment (a fonds would otherwise be the whole file).
+    """
     doc = _get_by_id(node_id)
     source_file = doc.get("source_file")
     if not source_file:
@@ -391,6 +397,8 @@ def get_raw(node_id: str = Query(..., description="Component node_id")) -> str:
     # The parser keeps the file's namespace in a module global: one file at a time.
     with _parser_lock:
         el = find_element(ead_path, node_id)
+        if el is not None and not children:
+            strip_child_components(el)
     if el is None:
         raise HTTPException(status_code=404, detail=f"Component '{node_id}' not found in {source_file}")
 

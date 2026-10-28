@@ -213,12 +213,7 @@
         </dl>
 
         <!-- Vue EAD brute -->
-        <details class="raw-ead" @toggle="onRawToggle">
-          <summary>Voir le XML EAD natif</summary>
-          <div v-if="rawXml === null && rawLoading" class="raw-loading">Chargement…</div>
-          <div v-else-if="rawError" class="raw-error">{{ rawError }}</div>
-          <pre v-else-if="rawXml" class="raw-pre"><code v-html="highlightXml(rawXml)"></code></pre>
-        </details>
+        <RawEad :node-id="comp.node_id" :has-children="children.length > 0" />
 
         <!-- Enfants -->
         <section v-if="children.length" style="margin-top:1.8rem">
@@ -273,6 +268,7 @@ import ComponentTree from '../components/ComponentTree.vue'
 import ChildrenDensity from '../components/ChildrenDensity.vue'
 import TreeNode from '../components/TreeNode.vue'
 import TestFileComment from '../components/TestFileComment.vue'
+import RawEad from '../components/RawEad.vue'
 
 const route  = useRoute()
 const router = useRouter()
@@ -287,32 +283,6 @@ const error     = ref(null)
 const siblingIndex = computed(() =>
   siblings.value.findIndex(s => s.node_id === comp.value?.node_id)
 )
-
-// Raw EAD XML
-const rawXml     = ref(null)
-const rawLoading = ref(false)
-const rawError   = ref(null)
-
-async function onRawToggle(e) {
-  if (!e.target.open || rawXml.value !== null) return
-  rawLoading.value = true
-  rawError.value = null
-  try {
-    rawXml.value = await api.getRaw(comp.value.node_id)
-  } catch (err) {
-    rawError.value = err.message
-  } finally {
-    rawLoading.value = false
-  }
-}
-
-function highlightXml(xml) {
-  return xml
-    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-    .replace(/(&lt;\/?)([\w:-]+)/g, '$1<span class="xml-tag">$2</span>')
-    .replace(/([\w:-]+)(=)(&quot;[^&]*&quot;)/g, '<span class="xml-attr">$1</span>$2<span class="xml-val">$3</span>')
-    .replace(/(&lt;!--[\s\S]*?--&gt;)/g, '<span class="xml-comment">$1</span>')
-}
 
 const canGoBack = window.history.length > 1
 
@@ -842,50 +812,6 @@ watch(() => route.params.nodeId, (id) => { if (id) load(id) })
   padding-top: .15rem;
 }
 .index-terms dd .tag-list { margin-top: 0; }
-
-/* Raw EAD */
-.raw-ead {
-  margin-top: 1.4rem;
-  border-top: 1px solid var(--color-border);
-  padding-top: .6rem;
-}
-.raw-ead summary {
-  cursor: pointer;
-  font-size: .8rem;
-  color: var(--color-muted);
-  user-select: none;
-  list-style: none;
-  display: inline-flex;
-  align-items: center;
-  gap: .4rem;
-}
-.raw-ead summary::-webkit-details-marker { display: none; }
-.raw-ead summary::before {
-  content: '▸';
-  font-size: .7rem;
-  transition: transform .15s;
-}
-.raw-ead[open] summary::before { transform: rotate(90deg); }
-.raw-ead summary:hover { color: var(--color-primary); }
-.raw-loading { font-size: .82rem; color: var(--color-muted); padding: .5rem 0; font-style: italic; }
-.raw-error   { font-size: .82rem; color: #c0392b; padding: .5rem 0; }
-.raw-pre {
-  margin-top: .6rem;
-  padding: .8rem 1rem;
-  background: #f8f7f4;
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius);
-  font-family: ui-monospace, 'Cascadia Code', monospace;
-  font-size: .75rem;
-  line-height: 1.55;
-  overflow-x: auto;
-  white-space: pre;
-  tab-size: 2;
-}
-.xml-tag     { color: #1a4a7a; font-weight: 600; }
-.xml-attr    { color: #7a4a1a; }
-.xml-val     { color: #2a7a2a; }
-.xml-comment { color: #888; font-style: italic; }
 
 /* Tags dans la carte : fond transparent, bordure fine */
 .component-card .tag {

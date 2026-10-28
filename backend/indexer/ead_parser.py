@@ -749,6 +749,25 @@ def find_element(path: Path, node_id: str) -> Optional[etree._Element]:
     return walk(archdesc)
 
 
+def strip_child_components(el: etree._Element) -> int:
+    """
+    For display: replace the <c> children of el (direct or under a <dsc>) by a
+    comment giving their number. Returns the number of children removed.
+    """
+    removed = 0
+    for parent in [el] + [d for d in el if d.tag == _tag("dsc")]:
+        kids = [c for c in parent if c.tag == _tag("c")]
+        if not kids:
+            continue
+        note = etree.Comment(f" {len(kids)} composant(s) <c> non affiché(s) ")
+        note.tail = kids[-1].tail
+        parent.replace(kids[0], note)
+        for c in kids[1:]:
+            parent.remove(c)
+        removed += len(kids)
+    return removed
+
+
 def parse_ead(path: Path) -> Component:
     """
     Parse an EAD file and return the root Component (archdesc level) with its

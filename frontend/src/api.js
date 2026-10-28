@@ -68,7 +68,8 @@ export const api = {
   getComponent: (nodeId) => get('/component', { node_id: nodeId }),
   getChildren:  (nodeId) => get('/children',  { node_id: nodeId }),
   getAncestors: (nodeId) => get('/ancestors', { node_id: nodeId }),
-  getRaw: async (nodeId) => (await fetchOk('/raw', { node_id: nodeId })).text(),
+  getRaw: async (nodeId, children = false) =>
+    (await fetchOk('/raw', { node_id: nodeId, children: children ? 'true' : '' })).text(),
   search:     (params) => get('/search',    params),
   nlSearch:   (params) => get('/nlsearch',  params, llmHeaders()),
   summarize:  (params) => get('/summarize', params, llmHeaders()),

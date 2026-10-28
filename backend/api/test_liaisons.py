@@ -177,3 +177,7 @@ def test_raw(client, corpus, monkeypatch):
     root = get(client, "/fonds/test-liaisons-vol1")
     res = client.get("/raw", params={"node_id": root["node_id"]})
     assert res.status_code == 200 and "<archdesc" in res.text
+    # Par défaut sans les composants enfants ; children=true les inclut.
+    assert 'id="v1-1"' not in res.text and "2 composant(s)" in res.text
+    res = client.get("/raw", params={"node_id": root["node_id"], "children": "true"})
+    assert 'id="v1-1"' in res.text and 'id="v1-2"' in res.text
